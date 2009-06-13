@@ -55,6 +55,8 @@ pref("extensions.torbutton.saved.socks_version",0);
 pref("extensions.torbutton.saved.socks_port",0);
 pref("extensions.torbutton.saved.socks_remote_dns",false);
 
+pref("extensions.torbutton.saved.tor_protocol",false);
+
 pref("extensions.torbutton.saved.cookieLifetime",0);
 pref("extensions.torbutton.saved.full_page_plugins","");
 pref("extensions.torbutton.saved.disk_cache",true);
