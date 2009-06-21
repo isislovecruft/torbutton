@@ -36,11 +36,11 @@ var refObserver = {
 
 var myModule = {
     
-  myCID: Components.ID("{65be2be0-ceb4-44c2-91a5-9c75c53430bf}"),
+  myCID: Components.ID("65be2be0-ceb4-44c2-91a5-9c75c53430bf"),
   myProgID: "@torproject.org/torRefSpoofer;1",
   myName:   "Ref Spoofer Component",
   registerSelf: function (compMgr, fileSpec, location, type) {
-    var compMgr = compMgr.QueryInterface(Components.interfacesnsIComponentRegistrar);
+    var compMgr = compMgr.QueryInterface(Components.interfaces.nsIComponentRegistrar);
     compMgr.registerFactoryLocation(this.myCID,this.myName,this.myProgID,fileSpec,location,type);
     LOG("----------------------------> registerSelf");
     var catMgr = Components.classes["@mozilla.org/categorymanager;1"].getService(Components.interfaces.nsICategoryManager);
