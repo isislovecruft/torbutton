@@ -1436,14 +1436,16 @@ function torbutton_do_new_identity() {
 
   torbutton_close_on_toggle(true, true);
 
-  var searchBar = window.document.getElementById("searchbar");
-  if (searchBar)
+  if(m_tb_prefs.getBoolPref('extensions.torbutton.searchbox')) {
+    var searchBar = window.document.getElementById("searchbar");
+    if (searchBar)
       searchBar.textbox.reset();
 
-  if (gFindBarInitialized) {
+    if (gFindBarInitialized) {
       var findbox = gFindBar.getElement("findbar-textbox");
       findbox.reset();
       gFindBar.close();
+    }
   }
 
   torbutton_log(3, "New Identity: Emitting Private Browsing Session clear event");
