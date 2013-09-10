@@ -20,18 +20,18 @@ body {
   font-size: 62.5%;
   font-family: "Liberation Serif", "Times New Roman", Times, serif;
   font-weight: normal;
-  color: #4d4d4d;
+  color: #000000;
   background-color: #FFFFFF;
   background-attachment: fixed;
   background-size: 100% 100%;
 }
 
 body {
-  background-image: -moz-linear-gradient(top, #ffffff, #ffffff 10%, #dddddd 50%, #dddddd);
+  background-image: -moz-linear-gradient(top, #ffffff, #ffffff 80%, #dddddd 60%, #dddddd);
 }
 
 body[toron] {
-  background-image: -moz-linear-gradient(top, #ffffff, #ffffff 10%, #d5ffd5 50%, #d5ffd5);
+  background-image: -moz-linear-gradient(top, #ffffff, #ffffff 15%, #d5ffd5 35%, #206000);
 }
 
 body[toron] #torstatus-image {
@@ -65,13 +65,18 @@ body[toron] #torstatus-image {
 }
 
 a {
-  color: #008000;
+  color: #005000;
   text-decoration: none;
 }
 
 a:hover {
-  color: #00A000;
+  color: #008100;
   text-decoration: underline;
+}
+
+a:visited {
+  color: #005000;
+  text-decoration: none;
 }
 
 #testTorSettings {
@@ -163,7 +168,7 @@ body .top div.hideIfTorIsUpToDate h1.hideIfTorOff {
   margin: 8px 8px;
   color: #222222;
   background-color: #FFFFFF;
-  border: 1px solid #008000;
+  border: 2.5px solid #006000;
   border-radius: 16px;
   text-align: center;
   vertical-align: top;
@@ -184,6 +189,7 @@ body .top div.hideIfTorIsUpToDate h1.hideIfTorOff {
 }
 
 #middle h2 {
+  font-family: "Liberation Sans", Arial, Helvetica, sans-serif;
   font-size: 1.4em;
   margin: 9px 0px 3px 0px;
   font-weight: 500;
@@ -199,6 +205,7 @@ body .top div.hideIfTorIsUpToDate h1.hideIfTorOff {
 }
 
 #middle p {
+  font-family: "Liberation Sans", Arial, Helvetica, sans-serif;
   font-size: 1.35em;
   text-align: left;
 }
@@ -229,22 +236,24 @@ body .top div.hideIfTorIsUpToDate h1.hideIfTorOff {
 
 #bottom p {
   font-size: 1.8em;
-  text-align: justify;
+  color: #111111;
+  /*text-align: justify;*/
+  text-align: center;
   margin: 10px 125px 0px 125px;
 }
 
 #bottom a {
-  color: #800080;
+  color: #004000;
   text-decoration: underline;
 }
 
 #bottom a:hover {
-  color: #A000A0;
+  color: #002000;
   text-decoration: none;
 }
 
 #bottom h4 {
-  margin-top: 50px;
+  margin-top: 350px;
   line-height: 1em;
   font-family: "Liberation Sans", Arial, Helvetica, sans-serif;
   font-size: 1em;
