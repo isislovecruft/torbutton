@@ -262,14 +262,14 @@ body .top div.hideIfTorIsUpToDate h1.hideIfTorOff {
 }
 
 .searchbox form {
-  width: 396px;
-  margin: 35px auto 1px auto;
+  width: 400px;
+  margin: 3% auto 0% auto;
   text-align: left;
 }
 
 .searchbox h4 {
-  padding-top: 5px;
-  font-size: 12px;
+  padding-top: 8px;
+  font-size: 11px;
   font-weight: normal;
   font-family: "Liberation Sans", Arial, Helvetica, sans-serif;
   text-align: center;
@@ -278,13 +278,24 @@ body .top div.hideIfTorIsUpToDate h1.hideIfTorOff {
 #sbutton {
   display: block;
   float: right;
-  width: 33px;
+  width: 32px;
+  height: 32px;
+  border-radius: 3px 3px 3px 3px;
+  border-top-left-radius: 3px 3px;
+  border-bottom-left-radius: 3px 3px;
+  border-bottom-right-radius: 4px 4px;
+  border-top: rgb(31,119,45) solid 1px;
+  border-left: rgb(31,119,45) solid 2px;
+  border-bottom: rgb(31,119,45) solid 2px;
+  border-right: rgb(31,119,45) solid 1px;
 }
 
 #sbutton input {
   height: 32px;
-  width: 33px;
+  width: 32px;
   border: 0;
+  align: right;
+  box-shadow: 0 2px 2px 1px rgba(0,0,0,0.2);
   background: url('chrome://torbutton/content/aboutTor/search.png') no-repeat top left;
   cursor: pointer;
 }
@@ -293,19 +304,25 @@ body .top div.hideIfTorIsUpToDate h1.hideIfTorOff {
 #sxw {
   border-top: rgb(31,119,45) solid 1px;
   border-left: rgb(31,119,45) solid 1px;
-  border-bottom: rgb(94,213,99) solid 1px;
-  border-right: none;
-  border-radius: 3px 0 0 3px;
-  box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
+  border-bottom: rgb(31,119,45) solid 2px;
+  border-right: rgb(31,119,45) solid 1px;
+  border-radius: 5px;
+  box-shadow: 1px 2px 2px 2px rgba(0,0,0,0.2);
   border-top-left-radius: 3px 3px;
   border-bottom-left-radius: 3px 3px;
+  border-bottom-right-radius: 5px 5px;
+  border-top-right-radius: 5px 5px;
+  background-image: -moz-linear-gradient(top, #FFFFFE, #FCFCFC 50%, #eeffd0 90%, #88ba44);
 }
 
 /* #sx is the search input (text) field */
 #sx {
-  width: 350px;
+  width: 348px;
   height: 23px;
-  padding: 4px 6px 5px 6px;
+  padding: 5px 9px 5px 6px;
+  border-radius: 3px;
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
   margin: 0;
   outline: none;
   color: #222;
