@@ -27,11 +27,11 @@ body {
 }
 
 body {
-  background-image: -moz-linear-gradient(top, #ffffff, #ffffff 80%, #dddddd 60%, #dddddd);
+  background-image: -moz-linear-gradient(top, #ffffff, #ffffff 10%, #dddddd 50%, #dddddd);
 }
 
 body[toron] {
-  background-image: -moz-linear-gradient(top, #ffffff, #ffffff 15%, #d5ffd5 35%, #206000);
+  background-image: -moz-linear-gradient(top, #ffffff, #fdfffd 20%, #eeffd0 60%, #ccfeaa);
 }
 
 body[toron] #torstatus-image {
@@ -142,7 +142,7 @@ body .top div.hideIfTorIsUpToDate h1.hideIfTorOff {
 }
 
 .top #success2 {
-  margin-bottom: 5px;
+  margin-bottom: 6px;
 }
 
 .top h3 {
@@ -155,6 +155,7 @@ body .top div.hideIfTorIsUpToDate h1.hideIfTorOff {
   position: relative;
   width: 920px;
   height: 20em;
+  padding: 20px 0px 0px 0px;
   text-align: center;
 }
 
@@ -164,8 +165,8 @@ body .top div.hideIfTorIsUpToDate h1.hideIfTorOff {
   width: 280px;
   min-width: 280px;
   min-height: 12.5em;
-  padding: 10px 10px;
-  margin: 8px 8px;
+  padding: 10px 15px;
+  margin: 20px 20px;
   color: #222222;
   background-color: #FFFFFF;
   border: 2.5px solid #006000;
@@ -175,11 +176,11 @@ body .top div.hideIfTorIsUpToDate h1.hideIfTorOff {
 }
 
 #middle div.two {
-  left: 120px;
+  left: 12%;
 }
 
 #middle div.three {
-  left: 520px;
+  right: 12%;
 }
 
 #middle h1 {
@@ -211,7 +212,7 @@ body .top div.hideIfTorIsUpToDate h1.hideIfTorOff {
 }
 
 #middle a {
-  font-size: 1.35em;
+  font-size: 1.6em;
 }
 
 #middle a.tips {
@@ -221,7 +222,7 @@ body .top div.hideIfTorIsUpToDate h1.hideIfTorOff {
 
 #middle ul {
   text-align: left;
-  padding: 5px 0 0 22px;
+  padding: 1% 10% 0% 25%;
 }
 
 #middle li {
@@ -229,21 +230,21 @@ body .top div.hideIfTorIsUpToDate h1.hideIfTorOff {
 }
 
 #bottom {
-  margin: 0px auto;
-  padding-bottom: 40px;
+  font-size: 8px;
+  position: relative;
+  margin: 0% 10% 0%;
   float: left;
 }
 
 #bottom p {
   font-size: 1.8em;
-  color: #111111;
-  /*text-align: justify;*/
+  color: #070707;
   text-align: center;
   margin: 10px 125px 0px 125px;
 }
 
 #bottom a {
-  color: #004000;
+  color: #053700;
   text-decoration: underline;
 }
 
