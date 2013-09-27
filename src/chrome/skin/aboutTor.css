@@ -20,7 +20,7 @@ body {
   font-size: 62.5%;
   font-family: "Liberation Serif", "Times New Roman", Times, serif;
   font-weight: normal;
-  color: #4d4d4d;
+  color: #000000;
   background-color: #FFFFFF;
   background-attachment: fixed;
   background-size: 100% 100%;
@@ -31,7 +31,7 @@ body {
 }
 
 body[toron] {
-  background-image: -moz-linear-gradient(top, #ffffff, #ffffff 10%, #d5ffd5 50%, #d5ffd5);
+  background-image: -moz-linear-gradient(top, #ffffff, #fdfffd 20%, #eeffd0 60%, #ccfeaa);
 }
 
 body[toron] #torstatus-image {
@@ -65,13 +65,18 @@ body[toron] #torstatus-image {
 }
 
 a {
-  color: #008000;
+  color: #005000;
   text-decoration: none;
 }
 
 a:hover {
-  color: #00A000;
+  color: #008100;
   text-decoration: underline;
+}
+
+a:visited {
+  color: #005000;
+  text-decoration: none;
 }
 
 #testTorSettings {
@@ -137,7 +142,7 @@ body .top div.hideIfTorIsUpToDate h1.hideIfTorOff {
 }
 
 .top #success2 {
-  margin-bottom: 5px;
+  margin-bottom: 6px;
 }
 
 .top h3 {
@@ -150,6 +155,7 @@ body .top div.hideIfTorIsUpToDate h1.hideIfTorOff {
   position: relative;
   width: 920px;
   height: 20em;
+  padding: 20px 0px 0px 0px;
   text-align: center;
 }
 
@@ -159,22 +165,22 @@ body .top div.hideIfTorIsUpToDate h1.hideIfTorOff {
   width: 280px;
   min-width: 280px;
   min-height: 12.5em;
-  padding: 10px 10px;
-  margin: 8px 8px;
+  padding: 10px 15px;
+  margin: 20px 20px;
   color: #222222;
   background-color: #FFFFFF;
-  border: 1px solid #008000;
+  border: 2.5px solid #006000;
   border-radius: 16px;
   text-align: center;
   vertical-align: top;
 }
 
 #middle div.two {
-  left: 120px;
+  left: 12%;
 }
 
 #middle div.three {
-  left: 520px;
+  right: 12%;
 }
 
 #middle h1 {
@@ -184,6 +190,7 @@ body .top div.hideIfTorIsUpToDate h1.hideIfTorOff {
 }
 
 #middle h2 {
+  font-family: "Liberation Sans", Arial, Helvetica, sans-serif;
   font-size: 1.4em;
   margin: 9px 0px 3px 0px;
   font-weight: 500;
@@ -199,12 +206,13 @@ body .top div.hideIfTorIsUpToDate h1.hideIfTorOff {
 }
 
 #middle p {
+  font-family: "Liberation Sans", Arial, Helvetica, sans-serif;
   font-size: 1.35em;
   text-align: left;
 }
 
 #middle a {
-  font-size: 1.35em;
+  font-size: 1.6em;
 }
 
 #middle a.tips {
@@ -214,7 +222,7 @@ body .top div.hideIfTorIsUpToDate h1.hideIfTorOff {
 
 #middle ul {
   text-align: left;
-  padding: 5px 0 0 22px;
+  padding: 1% 10% 0% 25%;
 }
 
 #middle li {
@@ -222,29 +230,31 @@ body .top div.hideIfTorIsUpToDate h1.hideIfTorOff {
 }
 
 #bottom {
-  margin: 0px auto;
-  padding-bottom: 40px;
+  font-size: 8px;
+  position: relative;
+  margin: 0% 10% 0%;
   float: left;
 }
 
 #bottom p {
   font-size: 1.8em;
-  text-align: justify;
+  color: #070707;
+  text-align: center;
   margin: 10px 125px 0px 125px;
 }
 
 #bottom a {
-  color: #800080;
+  color: #053700;
   text-decoration: underline;
 }
 
 #bottom a:hover {
-  color: #A000A0;
+  color: #002000;
   text-decoration: none;
 }
 
 #bottom h4 {
-  margin-top: 50px;
+  margin-top: 350px;
   line-height: 1em;
   font-family: "Liberation Sans", Arial, Helvetica, sans-serif;
   font-size: 1em;
@@ -262,14 +272,14 @@ body .top div.hideIfTorIsUpToDate h1.hideIfTorOff {
 }
 
 .searchbox form {
-  width: 396px;
-  margin: 35px auto 1px auto;
+  width: 400px;
+  margin: 3% auto 0% auto;
   text-align: left;
 }
 
 .searchbox h4 {
-  padding-top: 5px;
-  font-size: 12px;
+  padding-top: 8px;
+  font-size: 11px;
   font-weight: normal;
   font-family: "Liberation Sans", Arial, Helvetica, sans-serif;
   text-align: center;
@@ -278,13 +288,24 @@ body .top div.hideIfTorIsUpToDate h1.hideIfTorOff {
 #sbutton {
   display: block;
   float: right;
-  width: 33px;
+  width: 32px;
+  height: 32px;
+  border-radius: 3px 3px 3px 3px;
+  border-top-left-radius: 3px 3px;
+  border-bottom-left-radius: 3px 3px;
+  border-bottom-right-radius: 4px 4px;
+  border-top: rgb(31,119,45) solid 1px;
+  border-left: rgb(31,119,45) solid 2px;
+  border-bottom: rgb(31,119,45) solid 2px;
+  border-right: rgb(31,119,45) solid 1px;
 }
 
 #sbutton input {
   height: 32px;
-  width: 33px;
+  width: 32px;
   border: 0;
+  align: right;
+  box-shadow: 0 2px 2px 1px rgba(0,0,0,0.2);
   background: url('chrome://torbutton/content/aboutTor/search.png') no-repeat top left;
   cursor: pointer;
 }
@@ -293,19 +314,25 @@ body .top div.hideIfTorIsUpToDate h1.hideIfTorOff {
 #sxw {
   border-top: rgb(31,119,45) solid 1px;
   border-left: rgb(31,119,45) solid 1px;
-  border-bottom: rgb(94,213,99) solid 1px;
-  border-right: none;
-  border-radius: 3px 0 0 3px;
-  box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
+  border-bottom: rgb(31,119,45) solid 2px;
+  border-right: rgb(31,119,45) solid 1px;
+  border-radius: 5px;
+  box-shadow: 1px 2px 2px 2px rgba(0,0,0,0.2);
   border-top-left-radius: 3px 3px;
   border-bottom-left-radius: 3px 3px;
+  border-bottom-right-radius: 5px 5px;
+  border-top-right-radius: 5px 5px;
+  background-image: -moz-linear-gradient(top, #FFFFFE, #FCFCFC 50%, #eeffd0 90%, #88ba44);
 }
 
 /* #sx is the search input (text) field */
 #sx {
-  width: 350px;
+  width: 348px;
   height: 23px;
-  padding: 4px 6px 5px 6px;
+  padding: 5px 9px 5px 6px;
+  border-radius: 3px;
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
   margin: 0;
   outline: none;
   color: #222;
