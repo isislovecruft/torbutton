@@ -39,6 +39,7 @@ function torbutton_prefs_set_field_attributes(doc)
             proxy_port = 0;
           }
         }
+      doc.getElementById('torbutton_searchbox').disabled = false;
 
         torbutton_log(2, "using recommended settings");
         if (!torbutton_check_socks_remote_dns()) {
@@ -166,6 +167,7 @@ function torbutton_prefs_init(doc) {
     doc.getElementById('torbutton_gopherPort').value   = o_torprefs.getIntPref('gopher_port');
     doc.getElementById('torbutton_socksHost').value    = o_torprefs.getCharPref('socks_host');
     doc.getElementById('torbutton_socksPort').value    = o_torprefs.getIntPref('socks_port');
+    doc.getElementById('torbutton_searchbox').value    = o_torprefs.getBoolPref('searchbox');
     if(o_torprefs.getIntPref('socks_version') == 4) {
         doc.getElementById('torbutton_socksGroup').selectedItem =
             doc.getElementById('torbutton_socksv4');    
@@ -218,6 +220,7 @@ function torbutton_prefs_save(doc) {
     o_torprefs.setIntPref('gopher_port',      doc.getElementById('torbutton_gopherPort').value);
     o_torprefs.setCharPref('socks_host',      doc.getElementById('torbutton_socksHost').value);
     o_torprefs.setIntPref('socks_port',       doc.getElementById('torbutton_socksPort').value);
+    o_torprefs.setBoolPref('searchbox',       doc.getElementById('torbutton_searchbox').value);
 
     if(doc.getElementById('torbutton_socksGroup').selectedItem ==
             doc.getElementById('torbutton_socksv4')) {
@@ -277,6 +280,7 @@ function torbutton_prefs_save(doc) {
     o_torprefs.setBoolPref('resist_fingerprinting', doc.getElementById('torbutton_resistFingerprinting').checked);
     o_torprefs.setBoolPref('no_tor_plugins', doc.getElementById('torbutton_blockPlugins').checked);
     o_torprefs.setBoolPref('restrict_thirdparty', doc.getElementById('torbutton_restrictThirdParty').checked);
+    o_torprefs.setBoolPref('searchbox', doc.getElementById('torbutton_searchbox').checked);
 
     // if tor settings were initially active, update the active settings to reflect any changes
     if (tor_enabled) torbutton_activate_tor_settings();
