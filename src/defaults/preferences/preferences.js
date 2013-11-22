@@ -25,6 +25,7 @@ pref("extensions.torbutton.socks_host","");
 pref("extensions.torbutton.socks_port",0);
 pref("extensions.torbutton.socks_version",5);
 pref("extensions.torbutton.locked_mode",true);
+pref("extensions.torbutton.test_enabled",true);
 pref("extensions.torbutton.test_url","https://check.torproject.org/?TorButton=true");
 pref("extensions.torbutton.test_url_interactive", "https://check.torproject.org/?lang=__LANG__");
 pref("extensions.torbutton.local_tor_check",true);
