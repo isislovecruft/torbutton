@@ -2823,6 +2823,39 @@ var torbutton_resizelistener =
         win.innerHeight + " to " + width + "x" + height + " in state " +
         window.windowState);
 
+      // Resizing within this progress listener does not always work as overlays
+      // of other extensions might still influence the height/width of the
+      // chrome and therefore the height/width of the content window. Doing a
+      // fallback resize with setTimeout(0) from this progess listener does not
+      // work on some machines (probably due to race conditions which are all
+      // over the place). Thus we need a point later in the start-up process
+      // where we can do this... Please welcome the mutation observer.
+      let mut_target = document.getElementById("main-window");
+      let mut_observer = new MutationObserver(
+        function(mutations) {
+          mutations.forEach(
+            function(mutation) {
+              torbutton_log(3, "Mutation observer: Window dimensions are: " +
+                win.innerWidth + " x " + win.innerHeight);
+              setTimeout(function() {
+                           win.resizeBy(width - win.innerWidth,
+                             height - win.innerHeight);
+                           torbutton_log(3, "Mutation observer: Window " +
+                             "dimensions are (after resizing again): " + win.
+                             innerWidth + " x " + win.innerHeight);
+                         }, 0);
+              mut_observer.disconnect();
+            }
+          );
+        }
+      );
+      // Configuration of the observer. Looking at added nodes is enough as
+      // DevTools related code is manipulating the DOM which we can capture.
+      // From that on we can start our fallback resizing.
+      let mut_config = { attributes: false, childList: true,
+        characterData: false };
+      mut_observer.observe(mut_target, mut_config);
+
       progress.removeProgressListener(this);
     }
   },
