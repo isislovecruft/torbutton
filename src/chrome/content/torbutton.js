@@ -2768,6 +2768,46 @@ var torbutton_resizelistener =
 
       height = Math.floor(maxHeight/100.0)*100;
 
+      var handler = function() {
+        if (window.windowState === 1) {
+          window.addEventListener("resize",
+            function() {
+              win.resizeBy(width - win.innerWidth, height - win.innerHeight);
+              var calling_function = arguments.callee;
+              setTimeout(function() {
+                           torbutton_log(3, "Removing resize listener..");
+                           window.removeEventListener("resize",
+                             calling_function, false);
+                         }, 1000);
+            }, false);
+        }
+      };
+
+      // We need to handle OSes that auto-maximize windows depending on user
+      // settings and/or screen resolution. We add a listener which is
+      // triggerred as soon as the window gets maximized (windowState = 1).
+      // Alas, the Firefox window code is handling the event not itself:
+      // "// Note the current implementation of SetSizeMode just stores
+      //  // the new state; it doesn't actually resize. So here we store
+      //  // the state and pass the event on to the OS."
+      // (See: https://mxr.mozilla.org/mozilla-esr24/source/xpfe/appshell/src/
+      // nsWebShellWindow.cpp#353)
+      // This means we have to cope with race conditions and resizing in the
+      // sizemodechange listener is likely to fail. Thus, we add a specific
+      // resize listener that is doing the work for us. It seems (at least on
+      // Ubuntu) to be the case that maximizing (and then again normalizing) of
+      // the window triggers more than one resize event the first being not the
+      // one we need. Thus we can't remove the listener after the first resize
+      // event got fired. Thus, we have the rather klunky setTimeout() call.
+      window.addEventListener("sizemodechange", handler, false);
+
+      // We like to remove the sizemodechange listener for everybody again in
+      // order to allow resizing the window after the start-up
+      setTimeout(function() {
+                   torbutton_log(3, "Removing sizemodechange listener..");
+                   window.removeEventListener("sizemodechange", handler, false);
+                  }, 1000);
+
       // This is fun. any attempt to directly set the inner window actually
       // resizes the outer width to that value instead. Must use resizeBy()
       // instead of assignment or resizeTo()
