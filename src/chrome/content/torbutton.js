@@ -1460,10 +1460,11 @@ function torbutton_do_new_identity() {
   torbutton_log(3, "New Identity: Clearing NoScript Temporary Permissions");
 
   try {
-    if(m_tb_prefs.prefHasUserValue("noscript.temp"))
-      m_tb_prefs.clearUserPref("noscript.temp");
+    var nsSvc = Components.classes["@maone.net/noscript-service;1"].getService().wrappedJSObject
+    nsSvc.eraseTemp();
   } catch(e) {
-    torbutton_log(4, "New Identity: Error clearing NoScript Temporary Permissions: "+e);
+    torbutton_log(5, "New Identity: Error clearing NoScript Temporary Permissions: "+e);
+    window.alert("Torbutton: Error clearing NoScript Temporary Permissions: "+e);
   }
 
   torbutton_log(3, "New Identity: Clearing HTTP Auth");
