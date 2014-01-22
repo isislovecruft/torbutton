@@ -512,6 +512,11 @@ function torbutton_init() {
 
     torbutton_log(1, "registering Tor check observer");
     torbutton_tor_check_observer.register();
+
+    // Detect toolbar customization and update arrow on about:tor pages.
+    window.addEventListener("aftercustomization", function() {
+      torbutton_update_all_abouttor_pages(undefined, undefined);
+    }, false);
     
     //setting up context menu
     //var contextMenu = document.getElementById("contentAreaContextMenu");
@@ -848,8 +853,8 @@ function torbutton_update_abouttor_doc(aDoc, aTorOn, aUpdateNeeded) {
     else
       aDoc.body.removeAttribute("torNeedsUpdate");
 
-    try
-    {
+    // Display product name and TBB version.
+    try {
       const kBrandBundle = "chrome://branding/locale/brand.properties";
       let brandBundle = Cc["@mozilla.org/intl/stringbundle;1"]
                           .getService(Ci.nsIStringBundleService)
@@ -862,9 +867,41 @@ function torbutton_update_abouttor_doc(aDoc, aTorOn, aUpdateNeeded) {
         e.removeChild(e.firstChild);
       e.appendChild(aDoc.createTextNode(productName + '\n' + tbbVersion));
     } catch (e) {}
+
+    torbutton_update_abouttor_arrow(aDoc);
   }
 
   return isAboutTor;
+}
+
+// Determine X position of torbutton toolbar item and pass it through
+// to the xhtml document.
+function torbutton_update_abouttor_arrow(aDoc) {
+  try {
+    let tbXpos = -1;
+    let tbItem = torbutton_get_toolbutton();
+    if (tbItem) {
+      let tbItemRect = tbItem.getBoundingClientRect();
+      let contentElem = document.getElementById("content");
+      let contentRect = contentElem.getBoundingClientRect();
+      if (tbItemRect.top < contentRect.top) {
+        tbXpos = tbItemRect.left + (tbItemRect.width / 2.0) -
+                    contentElem.getBoundingClientRect().left;
+      }
+    }
+    if (tbXpos >= 0) {
+     if ("devicePixelRatio" in window)     // FF18+
+       tbXpos *= window.devicePixelRatio;  // Convert to device pixels.
+
+      tbXpos = Math.round(tbXpos);
+      aDoc.body.setAttribute("torbutton-xpos", tbXpos);
+    } else {
+      aDoc.body.removeAttribute("torbutton-xpos");
+    }
+
+    let evt = new Event("AboutTorAdjustArrow");
+    aDoc.dispatchEvent(evt);
+  } catch(e) {}
 }
 
 function torbutton_override_BrowserOnAboutPageLoad(aDoc) {
@@ -876,6 +913,10 @@ function torbutton_override_BrowserOnAboutPageLoad(aDoc) {
     let torOn = torbutton_tor_check_ok();
     let needsUpdate = torbutton_update_is_needed();
     torbutton_update_abouttor_doc(aDoc, torOn, needsUpdate);
+
+    aDoc.defaultView.addEventListener("resize",
+                      function() { torbutton_update_abouttor_arrow(aDoc); },
+                      false);
 
     // Insert "Test Tor Network Settings" url.
     let elem = aDoc.getElementById("testTorSettings");

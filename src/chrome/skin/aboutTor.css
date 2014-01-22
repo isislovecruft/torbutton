@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013, The Tor Project, Inc.
+ * Copyright (c) 2014, The Tor Project, Inc.
  * See LICENSE for licensing information.
  *
  * vim: set sw=2 sts=2 ts=8 et syntax=css:
@@ -58,22 +58,29 @@ body[toron] #torstatus-image {
   background-image: url('chrome://torbutton/content/aboutTor/tor-off.png');
 }
 
-#toolbarIconArrowLeft, #toolbarIconArrowRight {
+#toolbarIconArrow, #toolbarIconArrowExtension {
   position: absolute;
   top: 4px;
   height: 250px;
 }
 
-#toolbarIconArrowLeft {
-  left: 78px;
+#toolbarIconArrow {
   width: 30px;
   background-image: url('chrome://torbutton/content/aboutTor/onionArrow.png');
 }
 
-#toolbarIconArrowRight {
-  left: 108px;
+#toolbarIconArrow[pos="middle"] {
+  background-image: url('chrome://torbutton/content/aboutTor/onionArrow-short.png');
+  height: 36px;
+}
+
+#toolbarIconArrow[pos="right"] {
+  background-image: url('chrome://torbutton/content/aboutTor/onionArrow-right.png');
+}
+
+#toolbarIconArrowExtension {
   width: 10px;
-  background-image: url('chrome://torbutton/content/aboutTor/onionArrowRight.png');
+  background-image: url('chrome://torbutton/content/aboutTor/onionArrow-extension.png');
 }
 
 a {
