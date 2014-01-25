@@ -99,8 +99,8 @@
 <!ENTITY torbutton.prefs.startup_state "Abio arruntean, ezarri Tor egoera honetara:">
 <!ENTITY torbutton.prefs.shutdown_state "Itzaltze egoera">
 <!ENTITY torbutton.prefs.startup "Abioa">
-<!ENTITY torbutton.prefs.block_tor_file_net 'Blokeatu Torek "file://" URLetatik sarera sartzea (gomendatua)'>
-<!ENTITY torbutton.prefs.block_nontor_file_net 'Blokeatu Ez-Torek "file://" URLetatik sarera sartzea'>
+<!ENTITY torbutton.prefs.block_tor_file_net "Blokeatu Torek &quot;file://&quot; URLetatik sarera sartzea (gomendatua)">
+<!ENTITY torbutton.prefs.block_nontor_file_net "Blokeatu Ez-Torek &quot;file://&quot; URLetatik sarera sartzea">
 <!ENTITY torbutton.prefs.restore_defaults "Lehenetsiak berrezarri">
 <!ENTITY torbutton.prefs.test_settings "Ezarpenak frogatu">
 <!ENTITY torbutton.prefs.test_auto "Frogatu nire Tor ezarpenak egoeraz aldatzen dudan lehen aldian Firefox abio bakoitzean">
@@ -116,10 +116,10 @@
 <!ENTITY torbutton.prefs.no_proxy_warning "Kontuz: Ez erabili ostalari-izenik gainean">
 <!ENTITY torbutton.prefs.spoofreresh "Ordezketa Freskatu">
 <!ENTITY torbutton.prefs.refereroptions "Referer Ordezketa Ezarpenak">
-<!ENTITY torbutton.prefs.nospoof "Referera ez ordeztu">
+<!ENTITY torbutton.prefs.nospoof "No referer spoof during Tor usage (sends referers as normal)">
 <!ENTITY torbutton.prefs.spoofroot "Ordeztu orriaren eduki karpeta">
 <!ENTITY torbutton.prefs.spoofdomain "Ordeztu domeinua referera bezala">
-<!ENTITY torbutton.prefs.spoofblank "Referera zuri bihurtu">
+<!ENTITY torbutton.prefs.spoofblank "Spoof blank referer during Tor usage (may break some sites)">
 <!ENTITY torbutton.cookiedialog.title "Cookie Babesak kudeatu">
 <!ENTITY torbutton.cookiedialog.lockCol "Babestuta">
 <!ENTITY torbutton.cookiedialog.domainCol "Ostalaria">
@@ -131,7 +131,7 @@
 <!ENTITY torbutton.cookiedialog.removeAllBut "Denak kendu babestutakoak izan ezik">
 <!ENTITY torbutton.cookiedialog.saveAllCookies "Cookie berriak babestu">
 <!ENTITY torbutton.cookiedialog.doNotSaveAllCookies "Ez babestu cookie berririk">
-<!ENTITY torbutton.prefs.disable_livemarks "Ezgaitu Bizi-marka eguneraketak Tor erabili bitartean">
+<!ENTITY torbutton.prefs.disable_livemarks "Disable livemarks updates during Tor usage">
 <!ENTITY torbutton.prefs.dtd_recommended "(gomendatua)">
 <!ENTITY torbutton.prefs.dtd_optional "(hautazkoa)">
 <!ENTITY torbutton.prefs.dtd_crucial "(erabakigarria)">
