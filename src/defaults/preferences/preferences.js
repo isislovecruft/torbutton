@@ -27,7 +27,7 @@ pref("extensions.torbutton.locked_mode",true);
 pref("extensions.torbutton.test_url","https://check.torproject.org/?TorButton=true");
 pref("extensions.torbutton.test_url_interactive", "https://check.torproject.org/?lang=__LANG__");
 pref("extensions.torbutton.test_failed",false);
-pref("extensions.torbutton.no_proxies_on","127.0.0.1");
+pref("extensions.torbutton.no_proxies_on","");
 pref("extensions.torbutton.versioncheck_url","https://check.torproject.org/RecommendedTBBVersions");
 pref("extensions.torbutton.versioncheck_enabled",true);
 
@@ -59,7 +59,7 @@ pref("extensions.torbutton.saved.socks_host","");
 pref("extensions.torbutton.saved.socks_version",0);
 pref("extensions.torbutton.saved.socks_port",0);
 pref("extensions.torbutton.saved.socks_remote_dns",false);
-pref("extensions.torbutton.saved.no_proxies_on","localhost, 127.0.0.1");
+pref("extensions.torbutton.saved.no_proxies_on","");
 
 pref("extensions.torbutton.saved.tor_protocol",false);
 
@@ -150,7 +150,7 @@ pref("extensions.torbutton.close_newnym",true);
 pref("extensions.torbutton.block_js_history",true);
 pref("extensions.torbutton.resize_on_toggle",true);
 pref("extensions.torbutton.resize_new_windows",true);
-pref("extensions.torbutton.banned_ports","8118,8123,9050,9051");
+pref("extensions.torbutton.banned_ports","9050,9051,9150,9151");
 pref("extensions.torbutton.block_tor_file_net",true);
 pref("extensions.torbutton.block_nontor_file_net",false);
 pref("extensions.torbutton.jar_certs",false);
