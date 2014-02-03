@@ -1,3 +1,15 @@
+1.6.6.0:
+ 3 Feb 2014
+ * Bug #10800: Prevent exception in New Identity
+ * Bug #10640: Fix about:tor's pointer position for RTL languages.
+ * Bug 10095: Make inner window a multiple of 200x100
+ * Bug 10285: Clear permissions on New Identity
+ * Bug 9738: Fix for auto-maximizing on browser start
+ * Bug #10682: Workaround to really disable updates for Torbutton.
+ * Bug #10419: Don't allow connections to localhost
+ * Bug #10140: Move Japanese to extra locales
+ * Bug #10687: Add Basque (eu) to extra locales
+
 1.6.5.5:
  20 Jan 2014
  * Bug 9486: Properly clear NoScript Temporary Permissions
