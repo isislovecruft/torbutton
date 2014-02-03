@@ -1486,14 +1486,24 @@ function torbutton_do_new_identity() {
 
   torbutton_close_on_toggle(true, true);
 
-  var searchBar = window.document.getElementById("searchbar");
-  if (searchBar)
-      searchBar.textbox.reset();
+  // Bug #10800: Trying to clear search/find can cause exceptions
+  // in unknown cases. Just log for now.
+  try {
+    var searchBar = window.document.getElementById("searchbar");
+    if (searchBar)
+        searchBar.textbox.reset();
+  } catch(e) {
+    torbutton_log(5, "New Identity: Exception on clearing search box: "+e);
+  }
 
-  if (gFindBarInitialized) {
-      var findbox = gFindBar.getElement("findbar-textbox");
-      findbox.reset();
-      gFindBar.close();
+  try {
+    if (gFindBarInitialized) {
+        var findbox = gFindBar.getElement("findbar-textbox");
+        findbox.reset();
+        gFindBar.close();
+    }
+  } catch(e) {
+    torbutton_log(5, "New Identity: Exception on clearing find bar: "+e);
   }
 
   torbutton_log(3, "New Identity: Emitting Private Browsing Session clear event");
