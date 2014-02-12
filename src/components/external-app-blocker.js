@@ -122,24 +122,12 @@ ExternalWrapper.prototype =
           var call;
           if(params.length) call = "("+params.join().replace(/(?:)/g,function(){return "p"+(++x)})+")";
           else call = "()";
-          if(method == "getTypeFromFile" || method == "getTypeFromExtension" || method == "getTypeFromURI") {
-           // XXX: Due to https://developer.mozilla.org/en/Exception_logging_in_JavaScript
-           // this is necessary to prevent error console noise on the return to C++ code.
-           // It is not technically correct, but as far as I can tell, returning null
-           // here should be equivalent to throwing an error for the codepaths invovled
-           var fun = "(function "+call+"{"+
-              "if (arguments.length < "+wrapped[method].length+")"+
-              "  throw Components.results.NS_ERROR_XPC_NOT_ENOUGH_ARGS;"+
-              "try { return wrapped."+method+".apply(wrapped, arguments); }"+
-              "catch(e) { if(e.result == Components.results.NS_ERROR_NOT_AVAILABLE) return null; else throw e;} })";
-            newObj[method] = eval(fun);
-          } else {
-            var fun = "(function "+call+"{"+
-              "if (arguments.length < "+wrapped[method].length+")"+
-              "  throw Components.results.NS_ERROR_XPC_NOT_ENOUGH_ARGS;"+
-              "return wrapped."+method+".apply(wrapped, arguments);})";
-            newObj[method] = eval(fun);
-          }
+
+          var fun = "(function "+call+"{"+
+            "if (arguments.length < "+wrapped[method].length+")"+
+            "  throw Components.results.NS_ERROR_XPC_NOT_ENOUGH_ARGS;"+
+            "return wrapped."+method+".apply(wrapped, arguments);})";
+          newObj[method] = eval(fun);
        } else {
           newObj.__defineGetter__(method, function() { return wrapped[method]; });
           newObj.__defineSetter__(method, function(val) { wrapped[method] = val; });

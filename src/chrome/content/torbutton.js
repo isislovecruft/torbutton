@@ -6,6 +6,13 @@
 // TODO: Double-check there are no strange exploits to defeat:
 //       http://kb.mozillazine.org/Links_to_local_pages_don%27t_work
 
+XPCOMUtils.defineLazyModuleGetter(this, "HUDService",
+  "resource:///modules/HUDService.jsm");
+XPCOMUtils.defineLazyModuleGetter(this, "ConsoleServiceListener",
+  "resource://gre/modules/devtools/WebConsoleUtils.jsm");
+XPCOMUtils.defineLazyModuleGetter(this, "WebConsoleUtils",
+  "resource://gre/modules/devtools/WebConsoleUtils.jsm");
+
 const k_tb_browser_update_needed_pref = "extensions.torbutton.updateNeeded";
 const k_tb_tor_check_failed_topic = "Torbutton:TorCheckFailed";
 
@@ -2514,12 +2521,104 @@ function torbutton_is_windowed(wind) {
     return true;
 }
 
+// This is the console observer used for getting unwanted error messages
+// resulting from JS -> C++ transition filtered out.
+var consoleObserver = {
+
+  obs : null,
+
+  register: function() {
+    this.obs = Cc["@mozilla.org/observer-service;1"].
+      getService(Ci.nsIObserverService);
+    this.obs.addObserver(this, "web-console-created", false);
+  },
+
+  unregister: function() {
+    if (this.obs) {
+      this.obs.removeObserver(this, "web-console-created");
+    }
+  },
+
+  observe: function(subject, topic, data) {
+    if (topic === "web-console-created") {
+      var id = subject.QueryInterface(Ci.nsISupportsString).toString();
+      var con = HUDService.getHudReferenceById(subject);
+      con.ui.reportPageErrorOld = con.ui.reportPageError;
+      // Filtering the messages by making them hidden adding the
+      // "hidden-message" class. If the message does not need to get filtered
+      // the original method is executed without any modifications.
+      con.ui.reportPageError =
+        function WCF_reportPageError(aCategory, aScriptError) {
+          var message = aScriptError.errorMessage;
+          if (message && message.indexOf("NS_ERROR_NOT_AVAILABLE") > -1 &&
+              message.indexOf("external-app-blocker.js") > -1) {
+            return this.reportPageErrorOld(aCategory, aScriptError).classList.
+              add("hidden-message");
+          } else {
+            return this.reportPageErrorOld(aCategory, aScriptError);
+          }
+        }
+    }
+  }
+};
+
+// Ideally, we only need to patch/override one method to avoid errors showing up
+// in the browser console. Alas, that is not as easy given the presence of
+// cached messages and the Web Console which we need to consider as well while
+// overriding Devtool methods. Thus, we patch the code path that is called when
+// the browser console is already open AND additionally the one when cached
+// messages are displayed.
+function handleConsole() {
+  consoleObserver.register();
+  try {
+    // Filtering using the "web-console-created" notification is not enough as
+    // the cached messages are already loaded when it is fired. Therefore,
+    // change |getCachedMessages()| slighty to fit the needs at hand.
+    // The original code is https://mxr.mozilla.org/mozilla-esr24/source/
+    // toolkit/devtools/webconsole/WebConsoleUtils.jsm#998 ff. and distributed
+    // under the MPL 2.0 license.
+    ConsoleServiceListener.prototype.getCachedMessages =
+      function CSL_getCachedMessages(aIncludePrivate = false) {
+        var innerWindowID = this.window ? WebConsoleUtils.
+          getInnerWindowId(this.window) : null;
+        var errors = Services.console.getMessageArray() || [];
+
+        return errors.filter((aError) => {
+          if (aError instanceof Ci.nsIScriptError) {
+            var message = aError.message;
+            if (message && message.indexOf("NS_ERROR_NOT_AVAILABLE") > -1 &&
+                message.indexOf("external-app-blocker.js") > -1) {
+              return false;
+            }
+            if (!aIncludePrivate && aError.isFromPrivateWindow) {
+              return false;
+            }
+            if (innerWindowID &&
+                (aError.innerWindowID != innerWindowID ||
+                 !this.isCategoryAllowed(aError.category))) {
+              return false;
+            }
+          }
+          else if (innerWindowID) {
+            // If this is not an nsIScriptError and we need to do window-based
+            // filtering we skip this message.
+            return false;
+          }
+
+          return true;
+        });
+      };
+  } catch (e) {}
+}
+
 // Bug 1506 P3: This is needed pretty much only for the version check
 // and the window resizing. See comments for individual functions for
 // details
 function torbutton_new_window(event)
 {
     torbutton_log(3, "New window");
+    // Working around #9901, sigh...
+    handleConsole();
     var browser = getBrowser();
 
     if(!browser) {
@@ -2558,6 +2657,7 @@ function torbutton_new_window(event)
 function torbutton_close_window(event) {
     torbutton_window_pref_observer.unregister();
     torbutton_tor_check_observer.unregister();
+    consoleObserver.unregister();
 
     // TODO: This is a real ghetto hack.. When the original window
     // closes, we need to find another window to handle observing 
