@@ -2523,7 +2523,7 @@ function torbutton_is_windowed(wind) {
 
 // This is the console observer used for getting unwanted error messages
 // resulting from JS -> C++ transition filtered out.
-var consoleObserver = {
+var torbutton_console_observer = {
 
   obs : null,
 
@@ -2568,8 +2568,8 @@ var consoleObserver = {
 // overriding Devtool methods. Thus, we patch the code path that is called when
 // the browser console is already open AND additionally the one when cached
 // messages are displayed.
-function handleConsole() {
-  consoleObserver.register();
+function torbutton_handle_console() {
+  torbutton_console_observer.register();
   try {
     // Filtering using the "web-console-created" notification is not enough as
     // the cached messages are already loaded when it is fired. Therefore,
@@ -2618,7 +2618,7 @@ function torbutton_new_window(event)
 {
     torbutton_log(3, "New window");
     // Working around #9901, sigh...
-    handleConsole();
+    torbutton_handle_console();
     var browser = getBrowser();
 
     if(!browser) {
@@ -2657,7 +2657,7 @@ function torbutton_new_window(event)
 function torbutton_close_window(event) {
     torbutton_window_pref_observer.unregister();
     torbutton_tor_check_observer.unregister();
-    consoleObserver.unregister();
+    torbutton_console_observer.unregister();
 
     // TODO: This is a real ghetto hack.. When the original window
     // closes, we need to find another window to handle observing 
