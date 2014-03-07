@@ -1,3 +1,8 @@
+1.6.7.0:
+ 7 Mar 2014:
+ * Bug 9901: Fix browser freeze due to content type sniffing
+ * Bug 10611: Add Swedish (sv) to extra locales to update
+
 1.6.6.0:
  3 Feb 2014
  * Bug #10800: Prevent exception in New Identity
