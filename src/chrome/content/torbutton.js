@@ -13,7 +13,9 @@ XPCOMUtils.defineLazyModuleGetter(this, "ConsoleServiceListener",
 XPCOMUtils.defineLazyModuleGetter(this, "WebConsoleUtils",
   "resource://gre/modules/devtools/WebConsoleUtils.jsm");
 
+const k_tb_last_browser_version_pref = "extensions.torbutton.lastBrowserVersion";
 const k_tb_browser_update_needed_pref = "extensions.torbutton.updateNeeded";
+const k_tb_last_update_check_pref = "extensions.torbutton.lastUpdateCheck";
 const k_tb_tor_check_failed_topic = "Torbutton:TorCheckFailed";
 
 // status
@@ -449,12 +451,30 @@ function torbutton_init() {
         m_tb_ff36 = false;
     }
 
+    var cur_version;
     try {
-      var test = m_tb_prefs.getCharPref("torbrowser.version");
+      cur_version = m_tb_prefs.getCharPref("torbrowser.version");
       m_tb_tbb = true;
       torbutton_log(3, "This is a Tor Browser");
     } catch(e) {
       torbutton_log(3, "This is not a Tor Browser: "+e);
+    }
+
+    // If the Tor Browser version has changed since the last time Torbutton
+    // was loaded, reset the version check preferences in order to avoid
+    // incorrectly reporting that the browser needs to be updated.
+    var last_version;
+    try {
+      last_version = m_tb_prefs.getCharPref(k_tb_last_browser_version_pref);
+    } catch (e) {}
+    if (cur_version != last_version) {
+      m_tb_prefs.setBoolPref(k_tb_browser_update_needed_pref, false);
+      if (m_tb_prefs.prefHasUserValue(k_tb_last_update_check_pref)) {
+        m_tb_prefs.clearUserPref(k_tb_last_update_check_pref);
+      }
+
+      if (cur_version)
+        m_tb_prefs.setCharPref(k_tb_last_browser_version_pref, cur_version);
     }
 
     // Bug 1506 P4: These vars are very important for New Identity
@@ -1041,12 +1061,11 @@ function torbutton_do_async_versioncheck() {
   }
 
   // Suppress update check if done recently.
-  const kLastCheckPref = "extensions.torbutton.lastUpdateCheck";
   const kMinSecsBetweenChecks = 90 * 60; // 1.5 hours
   var now = Date.now() / 1000;
   var lastCheckTime;
   try {
-    lastCheckTime = parseFloat(m_tb_prefs.getCharPref(kLastCheckPref));
+    lastCheckTime = parseFloat(m_tb_prefs.getCharPref(k_tb_last_update_check_pref));
     if (isNaN(lastCheckTime))
       lastCheckTime = undefined;
   } catch (e) {}
@@ -1054,7 +1073,7 @@ function torbutton_do_async_versioncheck() {
   if (lastCheckTime && ((now - lastCheckTime) < kMinSecsBetweenChecks))
     return;
 
-  m_tb_prefs.setCharPref(kLastCheckPref, now);
+  m_tb_prefs.setCharPref(k_tb_last_update_check_pref, now);
 
   torbutton_log(3, "Checking version with socks port: "
           +m_tb_prefs.getIntPref("extensions.torbutton.socks_port"));
