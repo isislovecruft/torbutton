@@ -25,6 +25,8 @@
  <![CDATA[
 function onLoad()
 {
+  insertPropertyStrings();
+
   document.addEventListener("AboutTorAdjustArrow", function() {
     adjustToolbarIconArrow();
   }, false);
@@ -103,6 +105,26 @@ function adjustToolbarIconArrow()
     extDiv.style.display = extDisplay;
   }
 }
+
+function insertPropertyStrings()
+{
+  try {
+    var kPropertiesURL = "chrome://torbutton/locale/aboutTor.properties";
+
+    Components.utils.import("resource://gre/modules/Services.jsm");
+    var gStringBundle = Services.strings.createBundle(kPropertiesURL);
+    var s1 = gStringBundle.GetStringFromName("aboutTor.searchSP.privacy.link");
+    var s2 = gStringBundle.GetStringFromName("aboutTor.searchSP.search.link");
+    var result = gStringBundle.formatStringFromName("aboutTor.searchSP.privacy",
+                  [s1, s2], 2);
+    if (result) {
+      var elem = document.getElementById("searchProviderInfo");
+      if (elem)
+        elem.innerHTML = result;
+    }
+  } catch(e) {};
+}
+
 ]]>
 </script>
 </head>
@@ -142,7 +164,7 @@ function adjustToolbarIconArrow()
     </div>
     <input name="q" autocomplete="off" id="sx" type="text"/>
   </div>
-  <h4>&aboutTor.searchSP.privacy.beforeLink.label;<a href="&aboutTor.searchSP.privacy.link;">&aboutTor.searchSP.privacy.label;</a>&aboutTor.searchSP.privacy.afterLink.label;&aboutTor.searchSP.search.beforeLink.label;<a href="&aboutTor.searchSP.search.link;">&aboutTor.searchSP.search.label;</a>&aboutTor.searchSP.search.afterLink.label;</h4>
+  <h4 id="searchProviderInfo" />
   </form>
 </div>
 
