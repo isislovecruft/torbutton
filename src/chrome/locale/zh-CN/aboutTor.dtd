@@ -12,7 +12,7 @@
 
 <!ENTITY aboutTor.check.label "测试 Tor 网络设置">
 
-<!ENTITY aboutTor.success.label "成功！">
+<!ENTITY aboutTor.success.label "恭喜！">
 <!ENTITY aboutTor.success2.label "该浏览器已配置为使用 Tor 网络。">
 <!ENTITY aboutTor.success3.label "现在即可自由地匿名访问互联网。">
 <!ENTITY aboutTor.failure.label "出错了！">
@@ -21,7 +21,7 @@
 <!ENTITY aboutTor.failure3Link "help@rt.torproject.org">
 <!ENTITY aboutTor.failure3suffix.label "。">
 
-<!ENTITY aboutTor.search.label "搜索">
+<!ENTITY aboutTor.search.label "安全的搜索引擎">
 
 <!ENTITY aboutTor.searchSPPost.link "https://startpage.com/rth/search">
 <!ENTITY aboutTor.searchDDGPost.link "https://duckduckgo.com/html/">

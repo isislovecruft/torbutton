@@ -52,7 +52,7 @@
 <!ENTITY torbutton.prefs.clear_history "Tor başlatılırken geçmişi temizle(önerilen)">
 <!ENTITY torbutton.prefs.clear_cache "Tor devredeyken tüm önbelleklemeleri temizle">
 <!ENTITY torbutton.prefs.block_cache "Disk ve önbellek erişimini engelle">
-<!ENTITY torbutton.prefs.cookie_jars 'Çerezleri korumalı "jar" dosyasında tut'>
+<!ENTITY torbutton.prefs.cookie_jars "Çerezleri korumalı &quot;jar&quot; dosyasında tut">
 <!ENTITY torbutton.prefs.cookie_protection "Seçmek için çerez seçenekleri dialogunu kullan">
 <!ENTITY torbutton.prefs.mmm_cookies "Çerezlerimi kendim yönetmek istiyorum (tehlikeli)">
 <!ENTITY torbutton.prefs.clear_cookies "Tor çalışırken tüm çerezleri temizle">
@@ -65,7 +65,7 @@
 <!ENTITY torbutton.prefs.cookies "Çerezler">
 <!ENTITY torbutton.prefs.cache "Önbellek">
 <!ENTITY torbutton.prefs.history "Geçmiş">
-<!ENTITY torbutton.prefs.no_search 'Arama yaparken "öneriler" özelliğini devredışı bırak(tavsiye edilen)\'>
+<!ENTITY torbutton.prefs.no_search "Arama yaparken &quot;öneriler&quot; özelliğini devredışı bırak(tavsiye edilen)\">
 <!ENTITY torbutton.prefs.shutdown "Kapat">
 <!ENTITY torbutton.prefs.tor_shutdown "Etkin-Devredışı bırakırken tüm çerezleri temizle">
 <!ENTITY torbutton.prefs.all_shutdown "Tarayıcıyı kapattığımda tüm çerezleri temizle">
@@ -85,7 +85,7 @@
 <!ENTITY torbutton.prefs.non_tor "Non-Tor">
 <!ENTITY torbutton.prefs.restore_tor "Oturumunda restore başlangıç, Tor devlet ayarlamak için:">
 <!ENTITY torbutton.prefs.startup_tor "Tarayıcı başlatıldığında Tor durumunu şu şekilde ayarla:">
-<!ENTITY torbutton.prefs.reload_crashed_jar 'Firefox çöktüğünde, çerezleri "jar" dosyalarından geri yükle(Tavsiye edilen)'>
+<!ENTITY torbutton.prefs.reload_crashed_jar "Firefox çöktüğünde, çerezleri &quot;jar&quot; dosyalarından geri yükle(Tavsiye edilen)">
 <!ENTITY torbutton.prefs.dual_cookie_jars "Tüm çerezleri korunan jar dosyalarında tut(tehlikeli)">
 <!ENTITY torbutton.prefs.clear_http_auth "HTTP oturum doğrulamalarının tümünü temizle(önerilen)">
 <!ENTITY torbutton.prefs.block_js_history "Tor çalışıyorken geçmiş bilgisinde gezinmeyi yasakla(kritik)">
@@ -116,10 +116,10 @@
 <!ENTITY torbutton.prefs.no_proxy_warning "Uyarı: kaçının üzerinde herhangi bir sunucu isimleri kullanarak">
 <!ENTITY torbutton.prefs.spoofreresh "Aldatmaca Yenile">
 <!ENTITY torbutton.prefs.refereroptions "Referans Aldatmacası Ayarları">
-<!ENTITY torbutton.prefs.nospoof "Referanslarda aldatma yapma">
+<!ENTITY torbutton.prefs.nospoof "No referer spoof during Tor usage (sends referers as normal)">
 <!ENTITY torbutton.prefs.spoofroot "Geçerli klasör için aldatmaca kullan">
 <!ENTITY torbutton.prefs.spoofdomain "Referans olarak alanı aldat">
-<!ENTITY torbutton.prefs.spoofblank "Refere edeni boş bırak">
+<!ENTITY torbutton.prefs.spoofblank "Spoof blank referer during Tor usage (may break some sites)">
 <!ENTITY torbutton.cookiedialog.title "Çerez korumasını yönet">
 <!ENTITY torbutton.cookiedialog.lockCol "Korunmuş">
 <!ENTITY torbutton.cookiedialog.domainCol "Sunucu">
@@ -131,7 +131,7 @@
 <!ENTITY torbutton.cookiedialog.removeAllBut "Korunanlar hariç tümünü sil">
 <!ENTITY torbutton.cookiedialog.saveAllCookies "Yeni çerezleri koru">
 <!ENTITY torbutton.cookiedialog.doNotSaveAllCookies "Yeni çerezleri koruma">
-<!ENTITY torbutton.prefs.disable_livemarks "Tor kullanımı sırasında devre dışı Livemark güncellemeleri">
+<!ENTITY torbutton.prefs.disable_livemarks "Disable livemarks updates during Tor usage">
 <!ENTITY torbutton.prefs.dtd_recommended "(önerilen)">
 <!ENTITY torbutton.prefs.dtd_optional "(isteğe bağlı)">
 <!ENTITY torbutton.prefs.dtd_crucial "(kritik)">

@@ -14,7 +14,7 @@
 <!ENTITY torbutton.about.version "Versione:">
 <!ENTITY torbutton.about.summary "Proteggi la privacy della navigazione Tor">
 <!ENTITY torbutton.about.code "Sviluppatori:">
-<!ENTITY torbutton.about.maintainer "Mantenitori:">
+<!ENTITY torbutton.about.maintainer "Maintainer:">
 <!ENTITY torbutton.about.security_review "Revisori per la sicurezza:">
 <!ENTITY torbutton.about.donate "Se apprezzate Tor, prendete in considerazione di">
 <!ENTITY torbutton.about.make_donation "fare una donazione.">

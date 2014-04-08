@@ -23,15 +23,6 @@
 
 <!ENTITY aboutTor.search.label "Bilatu">
 
-<!-- Note to translators: the following 18 entities are used to construct a
-   - sentence (either the SP or DDG entities are used, but not both at the
-   - same time).   In English, the sentence reads:
-   -    Search securely with Startpage.
-   - or:
-   -    Search securely with DuckDuckGo.
-   - The sentence contains two embedded links for "securely" and
-   - the search engine ("Startpage" or "DuckDuckGo").
-  -->
 <!ENTITY aboutTor.searchSPPost.link "https://startpage.com/rth/search">
 <!ENTITY aboutTor.searchDDGPost.link "https://duckduckgo.com/html/">
 

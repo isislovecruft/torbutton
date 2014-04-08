@@ -12,18 +12,18 @@
 <!ENTITY torbutton.prefs.proxy.port "端口：">
 <!ENTITY torbutton.about.title "关于 Torbutton">
 <!ENTITY torbutton.about.version "版本：">
-<!ENTITY torbutton.about.summary "正使用 Tor 进行浏览保护您的隐私。">
-<!ENTITY torbutton.about.code "代码提供者：">
+<!ENTITY torbutton.about.summary "使用 Tor 进行浏览保护在线隐私。">
+<!ENTITY torbutton.about.code "代码贡献者：">
 <!ENTITY torbutton.about.maintainer "维护人员：">
-<!ENTITY torbutton.about.security_review "安全审查：">
-<!ENTITY torbutton.about.donate "如果您喜欢使用 Tor，您也可以考虑">
+<!ENTITY torbutton.about.security_review "安全评审：">
+<!ENTITY torbutton.about.donate "如果喜欢使用 Tor，你可以">
 <!ENTITY torbutton.about.make_donation "给予捐赠。">
 <!ENTITY torbutton.pref_connection.notice "禁止 Torbutton 更改这些设置。">
 <!ENTITY torbutton.pref_connection.more_info "更多信息">
 <!ENTITY torbutton.pref_connection_more_info.title "帮助">
-<!ENTITY torbutton.pref_connection_more_info.text "Torbutton 当前已启用。如果您想要更改非 Tor 的代理设置，请禁用 Torbutton 后再返回这里。如果您想更改Tor 的设置，请到 Torbutton 的首选项窗口中进行设置。">
-<!ENTITY torbutton.context_menu.new_identity "新特性">
-<!ENTITY torbutton.context_menu.new_identity_key "我">
+<!ENTITY torbutton.pref_connection_more_info.text "Torbutton 当前已启用。如需对 Tor 之外的代理设置进行更改，请禁用 Torbutton 后再返回这里。如需更改Tor 的设置，请在 Torbutton 首选项窗口中进行设置。">
+<!ENTITY torbutton.context_menu.new_identity "新标识">
+<!ENTITY torbutton.context_menu.new_identity_key "I">
 <!ENTITY torbutton.context_menu.toggle "切换 Tor 状态">
 <!ENTITY torbutton.context_menu.toggle.key "T">
 <!ENTITY torbutton.context_menu.preferences "首选项...">
@@ -45,21 +45,21 @@
 <!ENTITY torbutton.button.label "Torbutton">
 <!ENTITY torbutton.button.tooltip "点此初始化 Torbutton">
 <!ENTITY torbutton.prefs.sec_settings "安全设置">
-<!ENTITY torbutton.prefs.block_thread "使用 Tor 时禁止读取历史（重要）">
-<!ENTITY torbutton.prefs.block_thwrite "使用 Tor 时禁止写入历史（推荐）">
-<!ENTITY torbutton.prefs.block_nthread "使用 Tor 之外的代理时禁止读取历史（可选）">
-<!ENTITY torbutton.prefs.block_nthwrite "停用 Tor 时禁止历史写入（可选）">
-<!ENTITY torbutton.prefs.clear_history "切换 Tor 状态时清除历史（可选）">
+<!ENTITY torbutton.prefs.block_thread "使用 Tor 时禁止读取历史记录（重要）">
+<!ENTITY torbutton.prefs.block_thwrite "使用 Tor 时禁止写入历史记录（推荐）">
+<!ENTITY torbutton.prefs.block_nthread "使用 Tor 之外的代理时禁止读取历史记录（可选）">
+<!ENTITY torbutton.prefs.block_nthwrite "停用 Tor 时禁止历史记录写入（可选）">
+<!ENTITY torbutton.prefs.clear_history "切换 Tor 状态时清除历史记录（可选）">
 <!ENTITY torbutton.prefs.clear_cache "切换 Tor 时禁用磁盘缓存并清除所有缓存">
 <!ENTITY torbutton.prefs.block_cache "使用 Tor 时禁止访问磁盘和内存缓存">
-<!ENTITY torbutton.prefs.cookie_jars "在受保护的 jar 中保存非 Tor 的 Cookie">
+<!ENTITY torbutton.prefs.cookie_jars "在受保护的 jar 中保存 Tor 之外的 Cookie">
 <!ENTITY torbutton.prefs.cookie_protection "请在 Cookie 隐私保护对话框内选择">
-<!ENTITY torbutton.prefs.mmm_cookies "我要手动管理我的 cookies （危险）">
+<!ENTITY torbutton.prefs.mmm_cookies "手动管理我的 cookies （危险）">
 <!ENTITY torbutton.prefs.clear_cookies "切换 Tor 时清除 cookie">
 <!ENTITY torbutton.prefs.disable_plugins "使用 Tor 时禁用插件（重要）">
 <!ENTITY torbutton.prefs.kill_bad_js "挂勾危险的 Java 脚本（重要）">
-<!ENTITY torbutton.prefs.isolate_content "根据 Tor 状态隔离动态网页内容（(重要）">
-<!ENTITY torbutton.prefs.no_updates "使用 Tor 时禁止浏览器更新">
+<!ENTITY torbutton.prefs.isolate_content "将动态内容与 Tor 状态隔离（重要）">
+<!ENTITY torbutton.prefs.no_updates "使用 Tor 时禁用浏览器更新">
 <!ENTITY torbutton.prefs.set_uagent "使用 Tor 作为用户代理设置（重要）">
 <!ENTITY torbutton.prefs.dynamic "动态网页内容">
 <!ENTITY torbutton.prefs.cookies "Cookies">

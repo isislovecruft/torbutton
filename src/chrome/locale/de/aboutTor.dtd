@@ -6,22 +6,22 @@
 
 <!ENTITY aboutTor.title "Über Tor">
 
-<!ENTITY aboutTor.outOfDateTorOn.label "Dieser Browser ist nicht mehr Aktuell">
-<!ENTITY aboutTor.outOfDateTorOff.label "DIESER Browser ist auch veraltet">
-<!ENTITY aboutTor.outOfDate2.label "Klicken Sie auf die Zwiebel und wählen Sie Tor Browser Bundle Update herunterladen.">
+<!ENTITY aboutTor.outOfDateTorOn.label "Dieser Browser ist nicht mehr aktuell.">
+<!ENTITY aboutTor.outOfDateTorOff.label "DIESER Browser ist auch veraltet.">
+<!ENTITY aboutTor.outOfDate2.label "Auf die Zwiebel klicken und dann die Aktualisierung des Tor-Browser-Paketes herunterladen.">
 
 <!ENTITY aboutTor.check.label "Tor-Netzwerkeinstellungen testen">
 
 <!ENTITY aboutTor.success.label "Herzlichen Glückwunsch!">
-<!ENTITY aboutTor.success2.label "Dieser Browser ist konfiguriert, Tor zu nutzen.">
+<!ENTITY aboutTor.success2.label "Dieser Browser ist für die Benutzung von Tor eingestellt.">
 <!ENTITY aboutTor.success3.label "Sie können jetzt anonym im Internet surfen.">
-<!ENTITY aboutTor.failure.label "Irgendetwas ist schiefgegangen!">
+<!ENTITY aboutTor.failure.label "Irgend etwas lief schief!">
 <!ENTITY aboutTor.failure2.label "Tor funktioniert mit diesem Browser nicht.">
-<!ENTITY aboutTor.failure3prefix.label "Um Hilfe zu erhalten kontaktieren Sie">
+<!ENTITY aboutTor.failure3prefix.label "Um Hilfe zu erhalten, kontaktieren Sie bitte">
 <!ENTITY aboutTor.failure3Link "help@rt.torproject.org">
 <!ENTITY aboutTor.failure3suffix.label ".">
 
-<!ENTITY aboutTor.search.label "Suchen">
+<!ENTITY aboutTor.search.label "Suche">
 
 <!ENTITY aboutTor.searchSPPost.link "https://startpage.com/rth/search">
 <!ENTITY aboutTor.searchDDGPost.link "https://duckduckgo.com/html/">
@@ -35,14 +35,14 @@
 <!ENTITY aboutTor.whatnext.label "Tipps um anonym zu bleiben »">
 <!ENTITY aboutTor.whatnext.link "https://www.torproject.org/download/download.html.en#warning">
 <!ENTITY aboutTor.helpInfo1.label "Sie können helfen!">
-<!ENTITY aboutTor.helpInfo2.label "Es gibt viele Möglichkeiten,  das Tor-Netzwerk schneller und stärker zu machen:">
-<!ENTITY aboutTor.helpInfo3.label "Einen Tor-Knoten betreiben »">
+<!ENTITY aboutTor.helpInfo2.label "Es gibt viele Möglichkeiten, um das Tor-Netzwerk schneller und stärker zu machen:">
+<!ENTITY aboutTor.helpInfo3.label "Einen Tor-Relaisknoten betreiben »">
 <!ENTITY aboutTor.helpInfo3.link "https://www.torproject.org/docs/tor-doc-relay.html.en">
 <!ENTITY aboutTor.helpInfo4.label "Ihre Dienste bereitstellen »">
 <!ENTITY aboutTor.helpInfo4.link "https://www.torproject.org/getinvolved/volunteer.html.en">
 <!ENTITY aboutTor.helpInfo5.label "Etwas spenden »">
 <!ENTITY aboutTor.helpInfo5.link "https://www.torproject.org/donate/donate.html.en">
 
-<!ENTITY aboutTor.footer.label "Die Organisation &quot;The Tor Project&quot; ist nach dem US-Gesetz US 501(c)(3) als gemeinnützig eingestuft und widmet sich Forchung, Entwicklung und Schulung von Anonymität und Datenschutz.">
+<!ENTITY aboutTor.footer.label "Die Organisation »The Tor Project« ist nach dem US-Gesetz US 501(c)(3) als gemeinnützig eingestuft und widmet sich Forschung, Entwicklung und Schulung von Anonymität und Datenschutz.">
 <!ENTITY aboutTor.learnMore.label "Mehr über das Tor-Projekt erfahren »">
 <!ENTITY aboutTor.learnMore.link "https://www.torproject.org/about/overview.html.en">

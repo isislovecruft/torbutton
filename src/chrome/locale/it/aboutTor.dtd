@@ -30,7 +30,7 @@
 <!ENTITY aboutTor.torInfo2.label "Nazione &amp; Indirizzo IP:">
 <!ENTITY aboutTor.torInfo3.label "Nodo di Uscita:">
 <!ENTITY aboutTor.torInfo4.label "Questo server non registra alcuna informazione circa i visitatori.">
-<!ENTITY aboutTor.whatnextQuestion.label "E Dopo?">
+<!ENTITY aboutTor.whatnextQuestion.label "E adesso?">
 <!ENTITY aboutTor.whatnextAnswer.label "Tor NON è tutto ciò che ti serve per navigare anonimamente! Potresti aver bisogno di cambiare le tue abitudini di navigazione per accertarti che la tua identità rimanga al sicuro.">
 <!ENTITY aboutTor.whatnext.label "Consigli Per Restare Anonimo »">
 <!ENTITY aboutTor.whatnext.link "https://www.torproject.org/download/download.html.en#warning">

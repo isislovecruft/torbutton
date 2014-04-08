@@ -2,7 +2,7 @@
    - License, v. 2.0. If a copy of the MPL was not distributed with this
    - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
 
-<!ENTITY  brandShortName        "">
-<!ENTITY  brandFullName         "">
-<!ENTITY  vendorShortName       "">
-<!ENTITY  trademarkInfo.part1   "">
+<!ENTITY  brandShortName        "Tor 브라우저">
+<!ENTITY  brandFullName         "Tor 브라우저">
+<!ENTITY  vendorShortName       "Tor 프로젝트">
+<!ENTITY  trademarkInfo.part1   "파이어폭스와 파이어폭스 로고들은 모질라 재단의 등록 상표입니다.">

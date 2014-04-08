@@ -16,7 +16,7 @@
 <!ENTITY torbutton.about.code "Wkłady kodu:">
 <!ENTITY torbutton.about.maintainer "Opiekun:">
 <!ENTITY torbutton.about.security_review "Przegląd bezpieczeństwa:">
-<!ENTITY torbutton.about.donate "Jeśil lubisz korzystać z Tora, możesz rozważyć">
+<!ENTITY torbutton.about.donate "Jeśli lubisz korzystać z Tora, możesz rozważyć">
 <!ENTITY torbutton.about.make_donation "złożenie dotacji.">
 <!ENTITY torbutton.pref_connection.notice "Aby zmienić te ustawienia wyłącz Torbutton.">
 <!ENTITY torbutton.pref_connection.more_info "Więcej informacji">
@@ -24,7 +24,7 @@
 <!ENTITY torbutton.pref_connection_more_info.text "Torbutton jest włączony. Jeśli chcesz zmienić inne ustawienia proxy musisz wyłączyć Torbutton i powrócić tutaj. Jeśli chcesz zmienić ustawienia proxy Tor, zrób to tutaj.">
 <!ENTITY torbutton.context_menu.new_identity "Nowa Tożsamość">
 <!ENTITY torbutton.context_menu.new_identity_key "o">
-<!ENTITY torbutton.context_menu.toggle "Zmień status Tor">
+<!ENTITY torbutton.context_menu.toggle "Zmień status Tora">
 <!ENTITY torbutton.context_menu.toggle.key "Z">
 <!ENTITY torbutton.context_menu.preferences "Ustawienia">
 <!ENTITY torbutton.context_menu.preferences.key "U">
@@ -60,7 +60,7 @@
 <!ENTITY torbutton.prefs.kill_bad_js "Nadzoruj niebezpieczne skrypty (krytyczne)">
 <!ENTITY torbutton.prefs.isolate_content "Izoluj treść dynamiczną (krytyczne)">
 <!ENTITY torbutton.prefs.no_updates "Wyłącz uaktualnienia podczas używanie Tora">
-<!ENTITY torbutton.prefs.set_uagent "Ustaw identyfikację przeglądarki podczas używania Tora (ważne)">
+<!ENTITY torbutton.prefs.set_uagent "Ustaw identyfikację przeglądarki podczas używania Tora (krytyczne)">
 <!ENTITY torbutton.prefs.dynamic "Zawartość dynamiczna">
 <!ENTITY torbutton.prefs.cookies "Ciasteczka">
 <!ENTITY torbutton.prefs.cache "Pamięć podręczna">

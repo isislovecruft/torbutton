@@ -4,44 +4,45 @@
    - vim: set sw=2 sts=2 ts=8 et syntax=xml:
   -->
 
-<!ENTITY aboutTor.title "About Tor">
+<!ENTITY aboutTor.title "Tor Hakkında">
 
-<!ENTITY aboutTor.outOfDateTorOn.label "HOWEVER, this browser is out of date.">
-<!ENTITY aboutTor.outOfDateTorOff.label "ALSO, this browser is out of date.">
-<!ENTITY aboutTor.outOfDate2.label "Click on the onion and then choose Download Tor Browser Bundle Update.">
+<!ENTITY aboutTor.outOfDateTorOn.label "AMA, bu tarayıcı güncel değil.">
+<!ENTITY aboutTor.outOfDateTorOff.label "AYRICA, bu tarayıcı güncel değil.">
+<!ENTITY aboutTor.outOfDate2.label "Soğan'a tıklayın ve Tor Tarayıcı'yı güncelleyin.">
 
-<!ENTITY aboutTor.check.label "Test Tor Network Settings">
+<!ENTITY aboutTor.check.label "Tor Ağ ayarlarını test edin">
 
-<!ENTITY aboutTor.success.label "Congratulations!">
-<!ENTITY aboutTor.success2.label "This browser is configured to use Tor.">
-<!ENTITY aboutTor.success3.label "You are now free to browse the Internet anonymously.">
-<!ENTITY aboutTor.failure.label "Something Went Wrong!">
-<!ENTITY aboutTor.failure2.label "Tor is not working in this browser.">
-<!ENTITY aboutTor.failure3prefix.label "For assistance, please contact ">
+<!ENTITY aboutTor.success.label "Tebrikler!">
+<!ENTITY aboutTor.success2.label "Bu tarayıcı Tor kullanımı için yapılandırılmıştır.">
+<!ENTITY aboutTor.success3.label "Şimdi İnternet'i anonim olarak kullanmakta özgürsünüz!">
+<!ENTITY aboutTor.failure.label "Üzgünüz, bir şeyler yanlış gitti!">
+<!ENTITY aboutTor.failure2.label "Bu tarayıcıda Tor çalışmıyor.">
+<!ENTITY aboutTor.failure3prefix.label "Yardım için &#37;S ile bağlantıya geçin.">
 <!ENTITY aboutTor.failure3Link "help@rt.torproject.org">
 <!ENTITY aboutTor.failure3suffix.label ".">
 
-<!ENTITY aboutTor.search.label "Search">
-<!ENTITY aboutTor.searchSPPost.link "https://startpage.com/do/search">
+<!ENTITY aboutTor.search.label "Ara">
+
+<!ENTITY aboutTor.searchSPPost.link "https://startpage.com/rth/search">
 <!ENTITY aboutTor.searchDDGPost.link "https://duckduckgo.com/html/">
 
-<!ENTITY aboutTor.torInfo1.label "Additional Info:">
-<!ENTITY aboutTor.torInfo2.label "Country &amp; IP Address:">
-<!ENTITY aboutTor.torInfo3.label "Exit Node:">
-<!ENTITY aboutTor.torInfo4.label "This server does not log any information about visitors.">
-<!ENTITY aboutTor.whatnextQuestion.label "What Next?">
-<!ENTITY aboutTor.whatnextAnswer.label "Tor is NOT all you need to browse anonymously! You may need to change some of your browsing habits to ensure your identity stays safe.">
-<!ENTITY aboutTor.whatnext.label "Tips On Staying Anonymous »">
+<!ENTITY aboutTor.torInfo1.label "Ek bilgi:">
+<!ENTITY aboutTor.torInfo2.label "Ülke ve IP Adresi:">
+<!ENTITY aboutTor.torInfo3.label "Çıkış düğümü:">
+<!ENTITY aboutTor.torInfo4.label "Bu sunucu ziyaretçiler ile ilgili herhangi bir bilgi toplamaz.">
+<!ENTITY aboutTor.whatnextQuestion.label "Sırada ne var?">
+<!ENTITY aboutTor.whatnextAnswer.label "Tor, anonim kalmanız için tüm ihtiyacınız olan şey değildir! Kimliğinizin güvende kalması için bazı İnternet alışkanlıklarınızı değiştirmeniz gerekebilir.">
+<!ENTITY aboutTor.whatnext.label "Anonim kalmak için püf noktalar »">
 <!ENTITY aboutTor.whatnext.link "https://www.torproject.org/download/download.html.en#warning">
-<!ENTITY aboutTor.helpInfo1.label "You Can Help!">
-<!ENTITY aboutTor.helpInfo2.label "There are many ways you can help make the Tor Network faster and stronger:">
-<!ENTITY aboutTor.helpInfo3.label "Run a Tor Relay Node »">
+<!ENTITY aboutTor.helpInfo1.label "Yardım edebilirsiniz!">
+<!ENTITY aboutTor.helpInfo2.label "Tor ağını daha hızlı ve daha güçlü yapmamız konusunda yardım edebilmeniz için bir çok yol var:">
+<!ENTITY aboutTor.helpInfo3.label "Tor aktarım düğümünü çalıştır »">
 <!ENTITY aboutTor.helpInfo3.link "https://www.torproject.org/docs/tor-doc-relay.html.en">
-<!ENTITY aboutTor.helpInfo4.label "Volunteer Your Services »">
+<!ENTITY aboutTor.helpInfo4.label "Servislerinizi gönüllü yapın »">
 <!ENTITY aboutTor.helpInfo4.link "https://www.torproject.org/getinvolved/volunteer.html.en">
-<!ENTITY aboutTor.helpInfo5.label "Make a Donation »">
+<!ENTITY aboutTor.helpInfo5.label "Yardımda bulunun »">
 <!ENTITY aboutTor.helpInfo5.link "https://www.torproject.org/donate/donate.html.en">
 
-<!ENTITY aboutTor.footer.label "The Tor Project is a US 501(c)(3) non-profit dedicated to the research, development, and education of online anonymity and privacy.">
-<!ENTITY aboutTor.learnMore.label "Learn more about The Tor Project »">
+<!ENTITY aboutTor.footer.label "Tor Projesi çevrimiçi gizlilik ve mahremiyet araştırma, geliştirme ve eğitime adanmış bir ABD 501(c)(3) kar amacı gütmeyen bir kuruluştur.">
+<!ENTITY aboutTor.learnMore.label "Tor Projesi hakkında daha çok şey öğrenin »">
 <!ENTITY aboutTor.learnMore.link "https://www.torproject.org/about/overview.html.en">

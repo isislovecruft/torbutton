@@ -1,5 +1,5 @@
 <!ENTITY torbutton.prefs.title "Einstellungen für Torbutton">
-<!ENTITY torbutton.prefs.tor_settings "Proxy-Einstellungen">
+<!ENTITY torbutton.prefs.tor_settings "Vermittlungsservereinstellungen">
 <!ENTITY torbutton.prefs.recommended_settings "Benutze die empfohlenen Proxy-Einstellungen für meine Firefox-Version">
 <!ENTITY torbutton.prefs.use_privoxy "Privoxy verwenden">
 <!ENTITY torbutton.prefs.use_polipo "Polipo verwenden">
