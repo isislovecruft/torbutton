@@ -177,8 +177,11 @@ ExternalWrapper.prototype =
     var cancel = chrome.torbutton_get_property_string("torbutton.popup.cancel");
     var dontask = chrome.torbutton_get_property_string("torbutton.popup.dontask");
 
-    var result = prompts.confirmEx(chrome, title, app+urispec+note+suggest+" ",
+    var result = prompts.confirmEx(chrome, title, app+note+suggest+" ",
                                    flags, launch, cancel, "", dontask, check);
+
+    //var result = prompts.confirmEx(chrome, title, app+urispec+note+suggest+" ",
+    //                               flags, launch, cancel, "", dontask, check);
 
     if (check.value) {
       this._prefs.setBoolPref("extensions.torbutton.launch_warning", false);
