@@ -38,16 +38,7 @@
             menu="torbutton-context-menu"
             context="torbutton-context-menu"/>
     </toolbarpalette>
-    <!--
-    <commandset id="mainCommandSet">
-        <command id="torbutton-toggle-cmd" oncommand="torbutton_toggle(false);"/>
-    </commandset>
 
-    <keyset id="mainKeyset">
-        <key id="torbutton-toggle-key" modifiers="control" key="2"
-             command="torbutton-toggle-cmd"/>
-    </keyset>
-    -->
     <statusbar id="status-bar">
         <statusbarpanel id="torbutton-panel"
             insertbefore="statusbar-updates"

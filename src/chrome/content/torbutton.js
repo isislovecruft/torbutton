@@ -282,29 +282,7 @@ function torbutton_set_panel_style() {
 
 // Bug 1506 P0: Die toggle, die! 
 function torbutton_toggle(force) {
-    var o_toolbutton = false;
-
-    // Only toggle if lock mode is set if the user goes out of their way.
-    if(!force && m_tb_prefs.getBoolPref("extensions.torbutton.locked_mode")) {
-        return;
-    }
-
-    o_toolbutton = torbutton_get_toolbutton();
-
-    torbutton_log(3, 'called toggle()');
-    if (!m_tb_wasinited) {
-        torbutton_init();
-    }
-
-    if (torbutton_check_status()) {
-        // Close on toggle before actually changing proxy settings
-        // as additional safety precaution
-        torbutton_close_on_toggle(false, false);
-        torbutton_disable_tor();
-    } else {
-        torbutton_close_on_toggle(true, false);
-        torbutton_enable_tor(false);
-    }
+    torbutton_log(5, "Somehow we received a toggle request. Refusing to honor it. (force="+force+")");
 }
 
 // Bug 1506 P0: Die toggle, die!
@@ -2123,9 +2101,7 @@ function torbutton_close_on_toggle(mode, newnym) {
 function torbutton_check_protections()
 {
   var cookie_pref = m_tb_prefs.getBoolPref("extensions.torbutton.cookie_protections");
-  var locked_pref = m_tb_prefs.getBoolPref("extensions.torbutton.locked_mode")
   document.getElementById("torbutton-cookie-protector").disabled = !cookie_pref;
-  document.getElementById("torbutton-toggle").collapsed = locked_pref;
 
   if (!m_tb_control_pass || !m_tb_control_port)
     document.getElementById("torbutton-new-identity").disabled = true;

@@ -180,8 +180,6 @@ function torbutton_prefs_init(doc) {
         doc.getElementById('torbutton_settingsMethod').selectedItem = doc.getElementById('torbutton_transparentTor');
     }
 
-    doc.getElementById('torbutton_lockedMode').checked = o_torprefs.getBoolPref('locked_mode');
-    
     doc.getElementById('torbutton_blockDisk').checked = o_torprefs.getBoolPref('block_disk');
     doc.getElementById('torbutton_resistFingerprinting').checked = o_torprefs.getBoolPref('resist_fingerprinting');
     doc.getElementById('torbutton_blockPlugins').checked = o_torprefs.getBoolPref('no_tor_plugins');
@@ -270,7 +268,6 @@ function torbutton_prefs_save(doc) {
             o_customprefs.setIntPref('socks_version', 5); 
         }
     }
-    o_torprefs.setBoolPref('locked_mode', doc.getElementById('torbutton_lockedMode').checked);
 
     o_torprefs.setBoolPref('block_disk', doc.getElementById('torbutton_blockDisk').checked);
     o_torprefs.setBoolPref('resist_fingerprinting', doc.getElementById('torbutton_resistFingerprinting').checked);

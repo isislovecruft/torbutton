@@ -16,11 +16,6 @@
                   accesskey="&torbutton.context_menu.new_identity_key;"
                   insertafter="context-stop"
                   oncommand="torbutton_new_identity()"/>
-        <menuitem id="torbutton-toggle"
-                  label="&torbutton.context_menu.toggle;"
-                  accesskey="&torbutton.context_menu.toggle.key;"
-                  insertafter="context-stop"
-                  oncommand="torbutton_toggle(true)"/>
         <menuitem  id="torbutton-cookie-protector"
                   label="&torbutton.context_menu.cookieProtections;"
                   accesskey="&torbutton.context_menu.cookieProtections.key;"

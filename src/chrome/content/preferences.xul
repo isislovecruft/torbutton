@@ -131,9 +131,6 @@
         </radiogroup>
        
         
-        <checkbox id="torbutton_lockedMode"
-        label="&torbutton.prefs.locked_mode;"/>
-
         <hbox>
          <spacer flex="1"/>
          <button id="torbutton_testSettings"

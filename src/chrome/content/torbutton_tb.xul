@@ -37,15 +37,6 @@
             oncommand="torbutton_toggle(false);" />
     </toolbarpalette>
 
-    <commandset id="mainCommandSet">
-        <command id="torbutton-toggle-cmd" oncommand="torbutton_toggle(false);"/>
-    </commandset>
-
-    <keyset id="mainKeyset">
-        <key id="torbutton-toggle-key" modifiers="control shift" key="T"
-             command="torbutton-toggle-cmd"/>
-    </keyset>
-
     <statusbar id="status-bar">
         <statusbarpanel id="torbutton-panel"
             insertbefore="statusbar-updates"
