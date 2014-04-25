@@ -1,3 +1,8 @@
+1.6.9.0:
+ 25 Apr 2014
+ * Bug 7439: Improve download warning dialog text.
+ * Bug 11384: Completely remove hidden toggle menu item.
+
 1.6.8.0:
  7 Apr 2014:
  * Bug 9010: Add Turkish to update locales.
