@@ -189,6 +189,10 @@ function torbutton_prefs_init(doc) {
 }
 
 function torbutton_prefs_save(doc) {
+    // Disable the Accept button once the user clicked on it as clicking on
+    // our active Accept button more than once can lead to all sort of weird
+    // behavior. See bug 11763 for an example.
+    doc.documentElement.getButton("accept").disabled = true;
     torbutton_log(2, "called prefs_save()");
     var o_torprefs = torbutton_get_prefbranch('extensions.torbutton.');
     var o_customprefs = torbutton_get_prefbranch('extensions.torbutton.custom.');
