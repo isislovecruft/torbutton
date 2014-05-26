@@ -1744,7 +1744,8 @@ function torbutton_do_tor_check()
   // If we have a tor control port and transparent torification is off,
   // perform a check via the control port.
   if (m_tb_control_port &&
-      !m_tb_prefs.getBoolPref("extensions.torbutton.saved.transparentTor")) {
+      !m_tb_prefs.getBoolPref("extensions.torbutton.saved.transparentTor") &&
+      m_tb_prefs.getBoolPref("extensions.torbutton.local_tor_check")) {
     if (torbutton_local_tor_check())
       checkSvc.statusOfTorCheck = checkSvc.kCheckSuccessful;
     else {
