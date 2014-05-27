@@ -1852,7 +1852,8 @@ function torbutton_initiate_remote_tor_check()
             // If we received an error response from check.torproject.org,
             // set the status of the tor check to failure (we don't want
             // to indicate failure if we didn't receive a response).
-            if (ret == 2 || ret == 3 || ret == 5 || ret == 6 || ret == 7) {
+            if (ret == 2 || ret == 3 || ret == 5 || ret == 6
+                || ret == 7 || ret == 8) {
               checkSvc.statusOfTorCheck = checkSvc.kCheckFailed;
               obsSvc.notifyObservers(null, k_tb_tor_check_failed_topic, null);
             } else if (ret == 4) {

@@ -122,8 +122,22 @@ TBTorCheckService.prototype =
           }
         }
       } else {
+        if (0 == aReq.status) {
+          try {
+            var req = aReq.channel.QueryInterface(Ci.nsIRequest);
+            if (req.status == Cr.NS_ERROR_PROXY_CONNECTION_REFUSED)
+            {
+              this._logger.log(5, "Tor test failed. Proxy connection refused");
+              ret = 8;
+            }
+          } catch (e) {}
+        }
+
+        if (ret == 0)
+        {
           this._logger.log(5, "Tor test failed. HTTP Error: "+aReq.status);
           ret = -aReq.status;
+        }
       }
 
     return ret;
