@@ -21,7 +21,6 @@ const k_tb_tor_check_failed_topic = "Torbutton:TorCheckFailed";
 // status
 var m_tb_wasinited = false;
 var m_tb_prefs = false;
-var m_tb_jshooks = false;
 var m_tb_plugin_string = false;
 var m_tb_is_main_window = false;
 var m_tb_hidden_browser = false;
