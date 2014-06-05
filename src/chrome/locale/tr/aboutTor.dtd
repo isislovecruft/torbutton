@@ -36,7 +36,7 @@
 <!ENTITY aboutTor.whatnext.link "https://www.torproject.org/download/download.html.en#warning">
 <!ENTITY aboutTor.helpInfo1.label "Yardım edebilirsiniz!">
 <!ENTITY aboutTor.helpInfo2.label "Tor ağını daha hızlı ve daha güçlü yapmamız konusunda yardım edebilmeniz için bir çok yol var:">
-<!ENTITY aboutTor.helpInfo3.label "Tor aktarım düğümünü çalıştır »">
+<!ENTITY aboutTor.helpInfo3.label "Bir Tor Ayna Düğümü Çalıştır »">
 <!ENTITY aboutTor.helpInfo3.link "https://www.torproject.org/docs/tor-doc-relay.html.en">
 <!ENTITY aboutTor.helpInfo4.label "Servislerinizi gönüllü yapın »">
 <!ENTITY aboutTor.helpInfo4.link "https://www.torproject.org/getinvolved/volunteer.html.en">

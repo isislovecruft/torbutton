@@ -38,11 +38,13 @@
 <!ENTITY aboutTor.helpInfo2.label "Istnieje wiele sposobów, abyś mógł uczynić sieć Tor'a szybszą i silniejszą:">
 <!ENTITY aboutTor.helpInfo3.label "Uruchom Przekaźnikowy Węzeł Tora »">
 <!ENTITY aboutTor.helpInfo3.link "https://www.torproject.org/docs/tor-doc-relay.html.en">
-<!ENTITY aboutTor.helpInfo4.label "Wolontariat Swoje Usługi »">
+<!ENTITY aboutTor.helpInfo4.label "Zgłoś się na ochotnika »">
 <!ENTITY aboutTor.helpInfo4.link "https://www.torproject.org/getinvolved/volunteer.html.en">
 <!ENTITY aboutTor.helpInfo5.label "Przekaż darowiznę »">
 <!ENTITY aboutTor.helpInfo5.link "https://www.torproject.org/donate/donate.html.en">
 
-<!ENTITY aboutTor.footer.label "Projekt Tor jest US 501 (c) (3) non-profit, zajmująca się badaniami, rozwojem i edukacji online anonimowości i prywatności.">
+<!ENTITY aboutTor.footer.label "Projekt Tor jest organizacją non-profit*, zajmująca się badaniami, rozwojem i edukacji o anonimowości i prywatności w internecie.
+
+* 501(c)(3)">
 <!ENTITY aboutTor.learnMore.label "Dowiedz się więcej na temat Tor Project »">
 <!ENTITY aboutTor.learnMore.link "https://www.torproject.org/about/overview.html.en">

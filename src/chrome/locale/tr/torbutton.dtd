@@ -1,13 +1,13 @@
 <!ENTITY torbutton.prefs.title "Ayarlar">
-<!ENTITY torbutton.prefs.tor_settings "Proxy Ayarları">
-<!ENTITY torbutton.prefs.recommended_settings "Firefox'umda önerilen proxy ayarlarını kullan">
+<!ENTITY torbutton.prefs.tor_settings "Vekıl Sunucu Ayarları">
+<!ENTITY torbutton.prefs.recommended_settings "Firefox'umda önerilen vekil sunucu ayarlarını kullan">
 <!ENTITY torbutton.prefs.use_privoxy "Privoxy'i kullan">
 <!ENTITY torbutton.prefs.use_polipo "Polipo'yu kullan">
-<!ENTITY torbutton.prefs.custom_settings "Özel proxy ayarları kullan">
-<!ENTITY torbutton.prefs.proxy.host.http "HTTP Proxy:">
-<!ENTITY torbutton.prefs.proxy.host.https "SSL Proxy:">
-<!ENTITY torbutton.prefs.proxy.host.ftp "FTP Proxy:">
-<!ENTITY torbutton.prefs.proxy.host.gopher "Gopher Proxy:">
+<!ENTITY torbutton.prefs.custom_settings "Özel vekil sunucu ayarlarını kullan">
+<!ENTITY torbutton.prefs.proxy.host.http "HTTP Vekil Sunucusu:">
+<!ENTITY torbutton.prefs.proxy.host.https "SSL Vekil Sunucusu:">
+<!ENTITY torbutton.prefs.proxy.host.ftp "FTP Vekil Sunucusu:">
+<!ENTITY torbutton.prefs.proxy.host.gopher "Gopher Vekil Sunucusu:">
 <!ENTITY torbutton.prefs.proxy.host.socks "SOCKS Host:">
 <!ENTITY torbutton.prefs.proxy.port "Port:">
 <!ENTITY torbutton.about.title "Torbutton Hakkında">
@@ -21,7 +21,7 @@
 <!ENTITY torbutton.pref_connection.notice "Ayarları uygulumak için Torbutonu devredışı bırak.">
 <!ENTITY torbutton.pref_connection.more_info "Daha fazla bilgi">
 <!ENTITY torbutton.pref_connection_more_info.title "Yardım">
-<!ENTITY torbutton.pref_connection_more_info.text "Torbuton şu anda devredışı. Proxy ayarlarını değiştirmek istiyorsan, Torbutonu tekrar devredışı bırak. Genel ayarları değiştirecekten, ayarlar penceresini kullan.">
+<!ENTITY torbutton.pref_connection_more_info.text "Torbuton şu anda devredışı. Vekil sunucu ayarlarını değiştirmek istiyorsanız, Torbutonu tekrar devredışı bırakın. Genel ayarları değiştirecekseniz, ayarlar penceresini kullanın.">
 <!ENTITY torbutton.context_menu.new_identity "Yeni Bağlantı">
 <!ENTITY torbutton.context_menu.new_identity_key "S">
 <!ENTITY torbutton.context_menu.toggle "Durum">
@@ -72,7 +72,7 @@
 <!ENTITY torbutton.prefs.no_shutdown "Programı kapatığımda çerezlerimi silme">
 <!ENTITY torbutton.prefs.disable_sessionstore "Oturum kaydı devredışı(tavsiye edilen)">
 <!ENTITY torbutton.prefs.headers "Başlık Bilgileri">
-<!ENTITY torbutton.prefs.spoof_english "İngilizce web gezginlerini denetle">
+<!ENTITY torbutton.prefs.spoof_english "İngilizce Web Tarayıcılarını Aldat">
 <!ENTITY torbutton.prefs.refererspoofing "Kastedilmiş Bilgi Hırsızlığı">
 <!ENTITY torbutton.prefs.spoofblank "Spoof blank referer during Tor usage (may break some sites)">
 <!ENTITY torbutton.prefs.smartspoof "Tor kullanırken akıllı referans aldatmacası kullan (siteler arası referansları aldatır)">
@@ -112,7 +112,7 @@
 <!ENTITY torbutton.prefs.tor_tabs "Sekmeler Tor yüklendi">
 <!ENTITY torbutton.prefs.socks_vfour "SOCKS v4">
 <!ENTITY torbutton.prefs.socks_vfive "SOCKS v5">
-<!ENTITY torbutton.prefs.no_proxies_on "No Proxy'leri için">
+<!ENTITY torbutton.prefs.no_proxies_on "Şunun için vekil sunucu yok:">
 <!ENTITY torbutton.prefs.no_proxy_warning "Uyarı: kaçının üzerinde herhangi bir sunucu isimleri kullanarak">
 <!ENTITY torbutton.prefs.spoofreresh "Aldatmaca Yenile">
 <!ENTITY torbutton.prefs.refereroptions "Referans Aldatmacası Ayarları">
@@ -143,7 +143,7 @@
 <!ENTITY torbutton.prefs.engine4 "startpage.com">
 <!ENTITY torbutton.prefs.engine5 "duckduckgo.com">
 <!ENTITY torbutton.prefs.fix_google_srch "Kaldır platform ve Google Arama Kutusu gelen dil sorgular">
-<!ENTITY torbutton.prefs.transparentTor "Şeffaf torifikasyon(özel transproxy veya Tor yönlendiricisi gerekir)">
+<!ENTITY torbutton.prefs.transparentTor "Şeffaf Torifikasyon (özel transproxy veya Tor yönlendiricisi gerekir)">
 <!ENTITY torbutton.prefs.block_disk "Tarama geçmişini ve web sitesi bilgilerini kaydetme (Özel Tarama Modu'nu aktifleştirir)">
 <!ENTITY torbutton.prefs.restrict_thirdparty "3. parti çerezleri ve diğer iz sürücü bilgileri engelle.">
 <!ENTITY torbutton.prefs.block_plugins "Flash gibi tarayıcı eklentilerini engelle.">
