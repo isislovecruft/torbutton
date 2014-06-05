@@ -1,3 +1,10 @@
+1.6.10.0
+ 5 Jun 2014
+ * Bug 11510: about:tor should not report success if tor proxy is unreachable
+ * Bug 11783: Avoid b.webProgress error when double-clicking on New Identity
+ * Bug 11722: Add hidden pref to force remote Tor check
+ * Bug 11763: Fix pref dialog double-click race that caused settings to be reset
+
 1.6.9.0:
  25 Apr 2014
  * Bug 7439: Improve download warning dialog text.
