@@ -1,3 +1,7 @@
+1.6.10.1
+ 5 Jun 2014
+ * Bug #12221: Remove obsolete Javascript components from the toggle era
+
 1.6.10.0
  5 Jun 2014
  * Bug 11510: about:tor should not report success if tor proxy is unreachable
