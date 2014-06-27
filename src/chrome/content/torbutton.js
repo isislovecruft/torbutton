@@ -1634,7 +1634,7 @@ function torbutton_do_new_identity() {
   }
 
   torbutton_log(3, "New Identity: Clearing LocalStorage");
-  
+
   try {
       Components.utils.import("resource:///modules/offlineAppCache.jsm");
       OfflineAppCacheHelper.clear();
@@ -1699,6 +1699,18 @@ function torbutton_do_new_identity() {
   let pm = Cc["@mozilla.org/permissionmanager;1"].
            getService(Ci.nsIPermissionManager);
   pm.removeAll();
+
+  // We spin the event queue until it is empty and we can be sure that sending
+  // NEWNYM is not leading to a deadlock (see bug 9531 comment 23 for an
+  // invstigation on why and when this may happen). This is surrounded by
+  // suppressing/unsuppressing user initiated events in a window's document to
+  // be sure that these events are not interfering with processing events being
+  // in the event queue.
+  var thread = Cc["@mozilla.org/thread-manager;1"].
+               getService(Ci.nsIThreadManager).currentThread;
+  m_tb_domWindowUtils.suppressEventHandling(true);
+  while (thread.processNextEvent(false)) {}
+  m_tb_domWindowUtils.suppressEventHandling(false);
 
   torbutton_log(3, "New Identity: Sending NEWNYM");
 
