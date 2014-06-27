@@ -1,5 +1,10 @@
+1.6.11.0
+ 27 Jun 2014
+ * Bug 10819: Bind new third party isolation pref to Torbutton security UI
+ * Bug 9268: Fix some window resizing corner cases with DPI and taskbar size.
+
 1.6.10.1
- 5 Jun 2014
+ 26 Jun 2014
  * Bug #12221: Remove obsolete Javascript components from the toggle era
 
 1.6.10.0
