@@ -1995,7 +1995,11 @@ function torbutton_update_fingerprinting_prefs() {
 
 function torbutton_update_thirdparty_prefs() {
     var mode = m_tb_prefs.getBoolPref("extensions.torbutton.restrict_thirdparty");
-    
+
+    try {
+        m_tb_prefs.setBoolPref("privacy.thirdparty.isolate", mode);
+    } catch(e) {}
+
     if (mode) {
       m_tb_prefs.setIntPref("network.cookie.cookieBehavior", 1);
     } else {
