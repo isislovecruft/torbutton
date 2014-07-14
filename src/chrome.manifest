@@ -155,7 +155,10 @@ contract @torproject.org/torbutton-torCheckService;1 {5d57312b-5d8c-4169-b4af-e8
 component {f36d72c9-9718-4134-b550-e109638331d7} components/torbutton-logger.js
 contract @torproject.org/torbutton-logger;1 {f36d72c9-9718-4134-b550-e109638331d7}
 
+component {e33fd6d4-270f-475f-a96f-ff3140279f68} components/domain-isolator.js
+contract @torproject.org/domain-isolator;1 {e33fd6d4-270f-475f-a96f-ff3140279f68}
+
 category profile-after-change CookieJarSelector @torproject.org/cookie-jar-selector;1
-# category profile-after-change RefSpoofer @torproject.org/torRefSpoofer;1
 category profile-after-change TBSessionBlocker @torproject.org/torbutton-ss-blocker;1
 category profile-after-change StartupObserver @torproject.org/startup-observer;1
+category profile-after-change DomainIsolator @torproject.org/domain-isolator;1
