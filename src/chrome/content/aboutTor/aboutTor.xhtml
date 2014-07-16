@@ -132,15 +132,20 @@ function insertPropertyStrings()
 <div id="torstatus" class="top">
   <div id="torstatus-version"/>
   <div id="torstatus-image"/>
-  <div class="hideIfTorOff">
+  <div id="torstatus-on-container" class="hideIfTorOff torstatus-container">
     <h1>&aboutTor.success.label;</h1>
+    <br/>
     <h2 id="success2">&aboutTor.success2.label;</h2>
+    <br/>
     <h3 class="hideIfTBBNeedsUpdate">&aboutTor.success3.label;</h3>
+    <br/>
     <a id="testTorSettings" href="about:blank">&aboutTor.check.label;</a>
   </div>
-  <div class="hideIfTorOn">
+  <div id="torstatus-off-container" class="hideIfTorOn torstatus-container">
     <h1>&aboutTor.failure.label;</h1>
+    <br/>
     <h2>&aboutTor.failure2.label;</h2>
+    <br/>
     <h3>&aboutTor.failure3prefix.label;<a href="mailto:&aboutTor.failure3Link;"
 >&aboutTor.failure3Link;</a>&aboutTor.failure3suffix.label;</h3>
   </div>

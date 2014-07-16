@@ -875,10 +875,53 @@ function torbutton_update_abouttor_doc(aDoc, aTorOn, aUpdateNeeded) {
       e.appendChild(aDoc.createTextNode(productName + '\n' + tbbVersion));
     } catch (e) {}
 
+    let containerName = "torstatus-" + (aTorOn ? "on" : "off") + "-container";
+    torbutton_adjust_abouttor_fontsizes(aDoc, containerName);
     torbutton_update_abouttor_arrow(aDoc);
   }
 
   return isAboutTor;
+}
+
+// Ensure that text in top area does not overlap the tor on/off (onion) image.
+// This is done by reducing the font sizes as necessary.
+function torbutton_adjust_abouttor_fontsizes(aDoc, aContainerName)
+{
+  let imgElem = aDoc.getElementById("torstatus-image");
+  let containerElem = aDoc.getElementById(aContainerName);
+  if (!imgElem || !containerElem)
+    return;
+
+  try
+  {
+    let imgRect = imgElem.getBoundingClientRect();
+
+    for (let textElem = containerElem.firstChild; textElem;
+         textElem = textElem.nextSibling)
+    {
+      if ((textElem.nodeType != textElem.ELEMENT_NODE) ||
+          (textElem.nodeName.toLowerCase() == "br"))
+      {
+        continue;
+      }
+
+      let textRect = textElem.getBoundingClientRect();
+      if (0 == textRect.width)
+        continue;
+
+      // Reduce font to 90% of previous size, repeating the process up to 7
+      // times.  This allows for a maximum reduction to just less than 50% of
+      // the original size.
+      let maxTries = 7;
+      while ((textRect.left < imgRect.right) && (--maxTries >= 0))
+      {
+        let style = aDoc.defaultView.getComputedStyle(textElem, null);
+        let fontSize = parseFloat(style.getPropertyValue("font-size"));
+        textElem.style.fontSize = (fontSize * 0.9) + "px";
+        textRect = textElem.getBoundingClientRect();
+      }
+    }
+  } catch (e) {}
 }
 
 // Determine X position of torbutton toolbar item and pass it through
