@@ -20,7 +20,7 @@
         value="&torbutton.button.label;"
         onmouseover="event.target.style.cursor='pointer'"
         onmouseout="event.target.style.cursor='default'"
-        onclick="Components.classes['@mozilla.org/appshell/window-mediator;1'].getService(Components.interfaces.nsIWindowMediator).getMostRecentWindow('navigator:browser').open('https://www.torproject.org/torbutton/')"/>
+        onclick="Components.classes['@mozilla.org/appshell/window-mediator;1'].getService(Components.interfaces.nsIWindowMediator).getMostRecentWindow('navigator:browser').open('https://www.torproject.org/docs/torbutton/')"/>
     <label style="text-align:center; font-size:18px; margin-top: 10px; margin-bottom:20px;">&torbutton.about.summary;</label>
 
     <groupbox>
