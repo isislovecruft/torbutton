@@ -1,3 +1,8 @@
+1.6.11.1
+ 24 Jul 2014
+ * Bug 11472: Adjust about:tor font and logo positioning to avoid overlap
+ * Bug 12680: Fix Torbutton about url.
+
 1.6.11.0
  27 Jun 2014
  * Bug 10819: Bind new third party isolation pref to Torbutton security UI
