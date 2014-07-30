@@ -21,7 +21,7 @@ echo ---------- create $APP_NAME.xpi ----------
 mkdir -p pkg
 cd src
 echo zip -X -9r ../pkg/$XPI_NAME ./ -x "chrome/*" -x "*.diff" -x "*.svn/*"
-zip -X -9r ../pkg/$XPI_NAME ./ -x "*.svn/*" -x "*.diff" -x "components/torRefSpoofer.js" #-x "chrome/*"
+zip -X -9r ../pkg/$XPI_NAME ./ -x "*.svn/*" -x "*.diff" #-x "chrome/*"
 #mv ../$APP_NAME.jar ./chrome
 #zip -9m ../pkg/$XPI_NAME chrome/$APP_NAME.jar
 cd ..
