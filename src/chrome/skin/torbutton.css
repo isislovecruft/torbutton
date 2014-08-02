@@ -104,3 +104,18 @@ statusbarpanel#plugins-status[status="0"] {
 #torbutton-downloadUpdate {
     font-weight: bold;
 }
+
+svg.circuit text {
+    font-family: Arial;
+}
+
+svg#tor-circuit text.node-text {
+    dominant-baseline: central;
+    font-size: 14px;
+}
+
+svg#tor-circuit circle.node-circle {
+    stroke: #195021;
+    stroke-width: 2px;
+    fill: white;
+}

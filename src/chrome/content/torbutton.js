@@ -578,6 +578,8 @@ function torbutton_init() {
     torbutton_update_statusbar(mode);
     torbutton_notify_if_update_needed();
 
+    runTorCircuitDisplay(m_tb_control_host, m_tb_control_port, m_tb_control_pass);
+
     torbutton_log(3, 'init completed');
 }
 
