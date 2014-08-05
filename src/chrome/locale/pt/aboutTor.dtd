@@ -4,16 +4,16 @@
    - vim: set sw=2 sts=2 ts=8 et syntax=xml:
   -->
 
-<!ENTITY aboutTor.title "Acerca do Tor">
+<!ENTITY aboutTor.title "Sobre o Tor">
 
-<!ENTITY aboutTor.outOfDateTorOn.label "HOWEVER, this browser is out of date.">
-<!ENTITY aboutTor.outOfDateTorOff.label "ALÉM DISSO, o seu navegador está desatualizado.">
+<!ENTITY aboutTor.outOfDateTorOn.label "CONTUDO, este navegador está desatualizado.">
+<!ENTITY aboutTor.outOfDateTorOff.label "TAMBÉM, este navegador está desatualizado.">
 <!ENTITY aboutTor.outOfDate2.label "Clique no símbolo da cebola e escolha Download Tor Browser Bundle Update.">
 
-<!ENTITY aboutTor.check.label "Teste as definições da rede Tor">
+<!ENTITY aboutTor.check.label "Testar as Definições da Rede Tor">
 
 <!ENTITY aboutTor.success.label "Parabéns!">
-<!ENTITY aboutTor.success2.label "O seu navegador está configurado para usar o Tor.">
+<!ENTITY aboutTor.success2.label "Este navegador está configurado para utilizar o Tor.">
 <!ENTITY aboutTor.success3.label "Agora já pode navegar a Internet de forma anónima.">
 <!ENTITY aboutTor.failure.label "Algo Correu Mal!">
 <!ENTITY aboutTor.failure2.label "O Tor não está  a funcionar neste navegador.">

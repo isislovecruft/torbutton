@@ -27,21 +27,21 @@
 <!ENTITY torbutton.context_menu.toggle "Tor-Modus umschalten">
 <!ENTITY torbutton.context_menu.toggle.key "T">
 <!ENTITY torbutton.context_menu.preferences "Einstellungen …">
-<!ENTITY torbutton.context_menu.preferences.key "P">
+<!ENTITY torbutton.context_menu.preferences.key "E">
 <!ENTITY torbutton.context_menu.about "Über Torbutton …">
-<!ENTITY torbutton.context_menu.about.key "A">
-<!ENTITY torbutton.context_menu.networksettings "Öffne Netzwerkeinstellungen …">
-<!ENTITY torbutton.context_menu.networksettings.key "S">
+<!ENTITY torbutton.context_menu.about.key "Ü">
+<!ENTITY torbutton.context_menu.networksettings "Netzwerkeinstellungen öffnen …">
+<!ENTITY torbutton.context_menu.networksettings.key "N">
 <!ENTITY torbutton.context_menu.downloadUpdate "Aktualisierung des Tor-Browser-Paket herunterladen …">
-<!ENTITY torbutton.context_menu.downloadUpdate.key "U">
-<!ENTITY torbutton.context_menu.cookieProtections "Cookie Schutzvorkehrungen">
+<!ENTITY torbutton.context_menu.downloadUpdate.key "A">
+<!ENTITY torbutton.context_menu.cookieProtections "Cookie-Schutzvorkehrungen">
 <!ENTITY torbutton.context_menu.cookieProtections.key "C">
-<!ENTITY torbutton.context_menu.copyTor "Tor-URL kopieren">
-<!ENTITY torbutton.context_menu.copyTor.key "p">
-<!ENTITY torbutton.context_menu.openTorTab "Tor-URL in neuem Tab öffnen">
-<!ENTITY torbutton.context_menu.openTorTab.key "r">
-<!ENTITY torbutton.context_menu.openTorWindow "Tor-URL in neuem Fenster öffnen">
-<!ENTITY torbutton.context_menu.openTorWindow.key "d">
+<!ENTITY torbutton.context_menu.copyTor "Tor-Adresse kopieren">
+<!ENTITY torbutton.context_menu.copyTor.key "k">
+<!ENTITY torbutton.context_menu.openTorTab "Tor-Adresse in neuem Reiter öffnen">
+<!ENTITY torbutton.context_menu.openTorTab.key "F">
+<!ENTITY torbutton.context_menu.openTorWindow "Tor-Adresse in neuem Fenster öffnen">
+<!ENTITY torbutton.context_menu.openTorWindow.key "F">
 <!ENTITY torbutton.button.label "Torbutton">
 <!ENTITY torbutton.button.tooltip "Klicken, um Torbutton zu aktivieren">
 <!ENTITY torbutton.prefs.sec_settings "Sicherheitseinstellungen">
