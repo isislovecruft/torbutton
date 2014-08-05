@@ -1,3 +1,7 @@
+1.6.12.0
+ 4 Aug 2014
+ * Bug 9531: Workaround to avoid rare hangs during New Identity
+
 1.6.11.1
  24 Jul 2014
  * Bug 11472: Adjust about:tor font and logo positioning to avoid overlap
