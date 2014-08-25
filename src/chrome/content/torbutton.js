@@ -541,14 +541,21 @@ function torbutton_init() {
     if (!m_tb_prefs.getBoolPref("extensions.torbutton.inserted_button")) {
       torbutton_log(3, 'Adding button');
       try {
-        var toolbutton = torbutton_get_button_from_toolbox();
-        var navbar = document.getElementById("nav-bar");
-        // XXX: Will probably fail on fennec. Also explicitly forbidden
-        // by MDC style guides (for good reason). Fix later..
-        var urlbar = document.getElementById("urlbar-container");
-        navbar.insertBefore(toolbutton, urlbar);
-        navbar.setAttribute("currentset", navbar.currentSet);
-        document.persist("nav-bar", "currentset");
+        if (CustomizableUI) {
+          // ESR31-style toolbar
+          CustomizableUI.addWidgetToArea("torbutton-button", CustomizableUI.AREA_NAVBAR, 0);
+        } else {
+          // ESR24-style toolbar
+          // TODO: Remove this branch once TBB-ESR24 has been retired.
+          var toolbutton = torbutton_get_button_from_toolbox();
+          var navbar = document.getElementById("nav-bar");
+          // XXX: Will probably fail on fennec. Also explicitly forbidden
+          // by MDC style guides (for good reason). Fix later..
+          var urlbar = document.getElementById("urlbar-container");
+          navbar.insertBefore(toolbutton, urlbar);
+          navbar.setAttribute("currentset", navbar.currentSet);
+          document.persist("nav-bar", "currentset");
+        }
         torbutton_log(3, 'Button added');
         m_tb_prefs.setBoolPref("extensions.torbutton.inserted_button", true);
       } catch(e) {
