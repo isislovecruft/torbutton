@@ -6,8 +6,13 @@
 // TODO: Double-check there are no strange exploits to defeat:
 //       http://kb.mozillazine.org/Links_to_local_pages_don%27t_work
 
-XPCOMUtils.defineLazyModuleGetter(this, "HUDService",
-  "resource:///modules/HUDService.jsm");
+// TODO: Remove the following HUDService loading code once TBB-ESR24 has
+// been retired.
+if (!window.hasOwnProperty("HUDService")) {
+  XPCOMUtils.defineLazyModuleGetter(this, "HUDService",
+    "resource:///modules/HUDService.jsm");
+}
+
 XPCOMUtils.defineLazyModuleGetter(this, "ConsoleServiceListener",
   "resource://gre/modules/devtools/WebConsoleUtils.jsm");
 XPCOMUtils.defineLazyModuleGetter(this, "WebConsoleUtils",
@@ -2605,8 +2610,8 @@ var torbutton_console_observer = {
 
   observe: function(subject, topic, data) {
     if (topic === "web-console-created") {
-      var id = subject.QueryInterface(Ci.nsISupportsString).toString();
-      var con = HUDService.getHudReferenceById(subject);
+      var id = subject.QueryInterface(Ci.nsISupportsString).toString(),
+          con = HUDService.getHudReferenceById(id);
       con.ui.reportPageErrorOld = con.ui.reportPageError;
       // Filtering the messages by making them hidden adding the
       // "hidden-message" class. If the message does not need to get filtered
