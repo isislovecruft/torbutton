@@ -29,7 +29,7 @@ pref("extensions.torbutton.test_url_interactive", "https://check.torproject.org/
 pref("extensions.torbutton.local_tor_check",true);
 pref("extensions.torbutton.test_failed",false);
 pref("extensions.torbutton.no_proxies_on","");
-pref("extensions.torbutton.versioncheck_url","https://check.torproject.org/RecommendedTBBVersions");
+pref("extensions.torbutton.versioncheck_url","https://www.torproject.org/projects/torbrowser/RecommendedTBBVersions");
 pref("extensions.torbutton.versioncheck_enabled",true);
 
 // XXX: wtf prefs? These seem not actually connected, but govern
