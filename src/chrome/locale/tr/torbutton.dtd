@@ -1,5 +1,5 @@
 <!ENTITY torbutton.prefs.title "Ayarlar">
-<!ENTITY torbutton.prefs.tor_settings "Vekıl Sunucu Ayarları">
+<!ENTITY torbutton.prefs.tor_settings "Vekil Sunucu Ayarları">
 <!ENTITY torbutton.prefs.recommended_settings "Firefox'umda önerilen vekil sunucu ayarlarını kullan">
 <!ENTITY torbutton.prefs.use_privoxy "Privoxy'i kullan">
 <!ENTITY torbutton.prefs.use_polipo "Polipo'yu kullan">
@@ -30,7 +30,7 @@
 <!ENTITY torbutton.context_menu.preferences.key "A">
 <!ENTITY torbutton.context_menu.about "Hakkında">
 <!ENTITY torbutton.context_menu.about.key "H">
-<!ENTITY torbutton.context_menu.networksettings "Ağ seçeneklerini aç.">
+<!ENTITY torbutton.context_menu.networksettings "Ağ Ayarlarını Aç...">
 <!ENTITY torbutton.context_menu.networksettings.key "S">
 <!ENTITY torbutton.context_menu.downloadUpdate "Tor Tarayıcı Destesi güncelleştirmesini yükleyin.">
 <!ENTITY torbutton.context_menu.downloadUpdate.key "H">
@@ -120,7 +120,7 @@
 <!ENTITY torbutton.prefs.spoofroot "Geçerli klasör için aldatmaca kullan">
 <!ENTITY torbutton.prefs.spoofdomain "Referans olarak alanı aldat">
 <!ENTITY torbutton.prefs.spoofblank "Spoof blank referer during Tor usage (may break some sites)">
-<!ENTITY torbutton.cookiedialog.title "Çerez korumasını yönet">
+<!ENTITY torbutton.cookiedialog.title "Çerez Korumasını Yönet">
 <!ENTITY torbutton.cookiedialog.lockCol "Korunmuş">
 <!ENTITY torbutton.cookiedialog.domainCol "Sunucu">
 <!ENTITY torbutton.cookiedialog.nameCol "İsim">

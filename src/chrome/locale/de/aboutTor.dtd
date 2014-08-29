@@ -32,7 +32,7 @@
 <!ENTITY aboutTor.torInfo4.label "Dieser Server speichert keine Informationen über Besucher.">
 <!ENTITY aboutTor.whatnextQuestion.label "Was nun?">
 <!ENTITY aboutTor.whatnextAnswer.label "Tor ist NICHT alles was benötigt wird, um anonym zu surfen! Sie müssen eventuell einige Gewohnheiten ändern, um sicherzustellen, dass Ihre Identität geschützt bleibt.">
-<!ENTITY aboutTor.whatnext.label "Tipps um anonym zu bleiben »">
+<!ENTITY aboutTor.whatnext.label "Tipps, um anonym zu bleiben »">
 <!ENTITY aboutTor.whatnext.link "https://www.torproject.org/download/download.html.en#warning">
 <!ENTITY aboutTor.helpInfo1.label "Sie können helfen!">
 <!ENTITY aboutTor.helpInfo2.label "Es gibt viele Möglichkeiten, um das Tor-Netzwerk schneller und stärker zu machen:">
@@ -43,6 +43,6 @@
 <!ENTITY aboutTor.helpInfo5.label "Etwas spenden »">
 <!ENTITY aboutTor.helpInfo5.link "https://www.torproject.org/donate/donate.html.en">
 
-<!ENTITY aboutTor.footer.label "Die Organisation »The Tor Project« ist nach dem US-Gesetz US 501(c)(3) als gemeinnützig eingestuft und widmet sich Forschung, Entwicklung und Schulung von Anonymität und Datenschutz.">
+<!ENTITY aboutTor.footer.label "Die Organisation »The Tor Project« ist nach dem US-Gesetz US 501(c)(3) als gemeinnützig eingestuft und widmet sich der Forschung, der Entwicklung und der Schulung zum Thema Internetanonymität und Datenschutz.">
 <!ENTITY aboutTor.learnMore.label "Mehr über das Tor-Projekt erfahren »">
 <!ENTITY aboutTor.learnMore.link "https://www.torproject.org/about/overview.html.en">

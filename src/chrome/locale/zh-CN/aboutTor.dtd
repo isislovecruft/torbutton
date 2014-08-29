@@ -18,7 +18,7 @@
 <!ENTITY aboutTor.failure.label "出错了！">
 <!ENTITY aboutTor.failure2.label "Tor 无法在该浏览器下运行。">
 <!ENTITY aboutTor.failure3prefix.label "如需帮助，请联系：">
-<!ENTITY aboutTor.failure3Link "help@rt.torproject.org">
+<!ENTITY aboutTor.failure3Link "help-zh@rt.torproject.org">
 <!ENTITY aboutTor.failure3suffix.label "。">
 
 <!ENTITY aboutTor.search.label "安全的搜索引擎">

@@ -1,9 +1,9 @@
 <!ENTITY torbutton.prefs.title "Preferencias de Torbutton">
-<!ENTITY torbutton.prefs.tor_settings "Configuración para proxy">
+<!ENTITY torbutton.prefs.tor_settings "Configuración del proxy">
 <!ENTITY torbutton.prefs.recommended_settings "Usar la configuración para proxy recomendada para mi versión de Firefox">
 <!ENTITY torbutton.prefs.use_privoxy "Usar Privoxy">
 <!ENTITY torbutton.prefs.use_polipo "Usar Polipo">
-<!ENTITY torbutton.prefs.custom_settings "Usar configuración para proxy personalizada">
+<!ENTITY torbutton.prefs.custom_settings "Usar configuración de proxy personalizada">
 <!ENTITY torbutton.prefs.proxy.host.http "Proxy HTTP:">
 <!ENTITY torbutton.prefs.proxy.host.https "Proxy SSL:">
 <!ENTITY torbutton.prefs.proxy.host.ftp "Proxy FTP:">
@@ -12,7 +12,7 @@
 <!ENTITY torbutton.prefs.proxy.port "Puerto:">
 <!ENTITY torbutton.about.title "Acerca de Torbutton">
 <!ENTITY torbutton.about.version "Versión: ">
-<!ENTITY torbutton.about.summary "Protege la privacidad de su navegación a través de Tor">
+<!ENTITY torbutton.about.summary "Protege la privacidad de su navegación a través de Tor.">
 <!ENTITY torbutton.about.code "Contribuidores al código: ">
 <!ENTITY torbutton.about.maintainer "Mantenedor:">
 <!ENTITY torbutton.about.security_review "Revisión de la seguridad: ">
@@ -112,7 +112,7 @@
 <!ENTITY torbutton.prefs.tor_tabs "Pestañas cargadas con Tor">
 <!ENTITY torbutton.prefs.socks_vfour "SOCKS v4">
 <!ENTITY torbutton.prefs.socks_vfive "SOCKS v5">
-<!ENTITY torbutton.prefs.no_proxies_on "Sin proxys para: ">
+<!ENTITY torbutton.prefs.no_proxies_on "Sin proxies para: ">
 <!ENTITY torbutton.prefs.no_proxy_warning "Advertencia: Evite usar los nombres de servidor (host) citados arriba">
 <!ENTITY torbutton.prefs.spoofreresh "Simular refresco de página">
 <!ENTITY torbutton.prefs.refereroptions "Opciones de simulación del referer (remitente, dirección desde la que accede a la actual)">
@@ -142,7 +142,7 @@
 <!ENTITY torbutton.prefs.engine3 "yahoo.com">
 <!ENTITY torbutton.prefs.engine4 "startpage.com">
 <!ENTITY torbutton.prefs.engine5 "duckduckgo.com">
-<!ENTITY torbutton.prefs.fix_google_srch "Despojar de información de su plataforma e idioma a las consultas en los cuadros de busqueda de Google">
+<!ENTITY torbutton.prefs.fix_google_srch "Despojar de información de su plataforma e idioma a las consultas en los cuadros de búsqueda de Google">
 <!ENTITY torbutton.prefs.transparentTor "Torificación transparente (requiere un transproxy personalizado o un router Tor)">
 <!ENTITY torbutton.prefs.block_disk "No registrar historial de navegación o datos del sitio web (habilita Modo de Navegación Privada)">
 <!ENTITY torbutton.prefs.restrict_thirdparty "Restringir cookies de terceros y otros datos de seguimiento">
