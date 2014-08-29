@@ -1,3 +1,8 @@
+1.6.12.1
+ 1 Sep 2014
+ * Bug 12684: Add `canvas.notNow` UI strings to torbutton.properties file.
+ * Bug 8940: Move RecommendedTBBVersions file to www.torproject.org.
+
 1.6.12.0
  4 Aug 2014
  * Bug 9531: Workaround to avoid rare hangs during New Identity
