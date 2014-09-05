@@ -85,8 +85,15 @@ TBSessionBlocker.prototype =
   {
       if (topic != "sessionstore-state-write") return;
       this.logger.log(3, "Got Session Store observe: "+topic);
-      subject = subject.QueryInterface(Ci.nsISupportsString);
-
+      // In ESR 31 |subject| is |null| in non-private browsing mode. Thus, we
+      // are not able to clean anything. In Private Browsing Mode nothing is
+      // written in the first place and therefore no |sessionstore-state-write|
+      // notification is emitted.
+      try {
+        subject = subject.QueryInterface(Ci.nsISupportsString);
+      } catch (e) {
+        this.logger.log(3, "We got no data to clean");
+      }
       // Bug 1506: This is the only important bit, other than
       // the registration goop. You don't even need the JSON 
       // garbage...
