@@ -1875,8 +1875,12 @@ function torbutton_do_tor_check()
 
   // If we have a tor control port and transparent torification is off,
   // perform a check via the control port.
+  const kEnvSkipControlPortTest = "TOR_SKIP_CONTROLPORTTEST";
+  var env = Cc["@mozilla.org/process/environment;1"]
+                 .getService(Ci.nsIEnvironment);
   if (m_tb_control_port &&
       !m_tb_prefs.getBoolPref("extensions.torbutton.saved.transparentTor") &&
+      !env.exists(kEnvSkipControlPortTest) &&
       m_tb_prefs.getBoolPref("extensions.torbutton.local_tor_check")) {
     if (torbutton_local_tor_check())
       checkSvc.statusOfTorCheck = checkSvc.kCheckSuccessful;
