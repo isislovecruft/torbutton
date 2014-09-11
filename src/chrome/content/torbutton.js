@@ -506,9 +506,10 @@ function torbutton_init() {
 		}
     }
 
-    // Add our hook into about page load
-    m_tb_orig_BrowserOnAboutPageLoad = window.BrowserOnAboutPageLoad;
-    window.BrowserOnAboutPageLoad = torbutton_override_BrowserOnAboutPageLoad;
+    // Add event listener for about:tor page loads.
+    document.addEventListener("AboutTorLoad", function(aEvent) {
+      torbutton_on_abouttor_load(aEvent.target);
+    }, false, true);
 
     // initialize preferences before we start our prefs observer
     torbutton_init_prefs();
@@ -966,7 +967,7 @@ function torbutton_update_abouttor_arrow(aDoc) {
   } catch(e) {}
 }
 
-function torbutton_override_BrowserOnAboutPageLoad(aDoc) {
+function torbutton_on_abouttor_load(aDoc) {
   if (torbutton_is_abouttor_doc(aDoc) &&
       !aDoc.documentElement.hasAttribute("aboutTorLoaded")) {
     aDoc.documentElement.setAttribute("aboutTorLoaded", true);

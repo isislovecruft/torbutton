@@ -21,7 +21,7 @@
   <title>&aboutTor.title;</title>
   <link rel="stylesheet" type="text/css" media="all"
         href="chrome://torbutton/skin/aboutTor.css"/>
-<script type="text/javascript">
+<script type="text/javascript;version=1.7">
  <![CDATA[
 function onLoad()
 {
@@ -124,6 +124,11 @@ function insertPropertyStrings()
     }
   } catch(e) {};
 }
+
+window.addEventListener("pageshow", function() {
+  let evt = new CustomEvent("AboutTorLoad", { bubbles: true });
+  document.dispatchEvent(evt);
+});
 
 ]]>
 </script>
