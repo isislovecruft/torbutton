@@ -1428,6 +1428,19 @@ function torbutton_array_to_hexdigits(array) {
 // Executes a command on the control port.
 // Return a string response upon success and null upon error.
 function torbutton_send_ctrl_cmd(command) {
+
+  // We spin the event queue until it is empty and we can be sure that sending
+  // NEWNYM is not leading to a deadlock (see bug 9531 comment 23 for an
+  // invstigation on why and when this may happen). This is surrounded by
+  // suppressing/unsuppressing user initiated events in a window's document to
+  // be sure that these events are not interfering with processing events being
+  // in the event queue.
+  var thread = Cc["@mozilla.org/thread-manager;1"].
+               getService(Ci.nsIThreadManager).currentThread;
+  m_tb_domWindowUtils.suppressEventHandling(true);
+  while (thread.processNextEvent(false)) {}
+  m_tb_domWindowUtils.suppressEventHandling(false);
+
   try {
     var socketTransportService = Components.classes["@mozilla.org/network/socket-transport-service;1"]
         .getService(Components.interfaces.nsISocketTransportService);
@@ -1699,18 +1712,6 @@ function torbutton_do_new_identity() {
   let pm = Cc["@mozilla.org/permissionmanager;1"].
            getService(Ci.nsIPermissionManager);
   pm.removeAll();
-
-  // We spin the event queue until it is empty and we can be sure that sending
-  // NEWNYM is not leading to a deadlock (see bug 9531 comment 23 for an
-  // invstigation on why and when this may happen). This is surrounded by
-  // suppressing/unsuppressing user initiated events in a window's document to
-  // be sure that these events are not interfering with processing events being
-  // in the event queue.
-  var thread = Cc["@mozilla.org/thread-manager;1"].
-               getService(Ci.nsIThreadManager).currentThread;
-  m_tb_domWindowUtils.suppressEventHandling(true);
-  while (thread.processNextEvent(false)) {}
-  m_tb_domWindowUtils.suppressEventHandling(false);
 
   torbutton_log(3, "New Identity: Sending NEWNYM");
 
