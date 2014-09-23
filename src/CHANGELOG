@@ -1,3 +1,7 @@
+1.6.12.3
+ 23 Sep 2014
+ * Bug 10804: Workaround for some TBB startup hangs
+
 1.6.12.2
  22 Sep 2014
  * Bug 13091: Use "Tor Browser" everywhere
