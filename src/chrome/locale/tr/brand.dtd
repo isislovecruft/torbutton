@@ -2,7 +2,7 @@
    - License, v. 2.0. If a copy of the MPL was not distributed with this
    - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
 
-<!ENTITY  brandShortName        "TorTarayıcı">
+<!ENTITY  brandShortName        "Tor Tarayıcı">
 <!ENTITY  brandFullName         "Tor Tarayıcı">
 <!ENTITY  vendorShortName       "Tor Projesi">
 <!ENTITY  trademarkInfo.part1   "Firefox ve Firefox logoları Mozilla Vakfı'nın ticari markalarıdır.">
