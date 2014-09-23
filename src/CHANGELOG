@@ -1,3 +1,7 @@
+1.6.12.2
+ 22 Sep 2014
+ * Bug 13091: Use "Tor Browser" everywhere
+
 1.6.12.1
  1 Sep 2014
  * Bug 12684: Add `canvas.notNow` UI strings to torbutton.properties file.
