@@ -6,8 +6,13 @@
 // TODO: Double-check there are no strange exploits to defeat:
 //       http://kb.mozillazine.org/Links_to_local_pages_don%27t_work
 
-XPCOMUtils.defineLazyModuleGetter(this, "HUDService",
-  "resource:///modules/HUDService.jsm");
+// TODO: Remove the following HUDService loading code once TBB-ESR24 has
+// been retired.
+if (!window.hasOwnProperty("HUDService")) {
+  XPCOMUtils.defineLazyModuleGetter(this, "HUDService",
+    "resource:///modules/HUDService.jsm");
+}
+
 XPCOMUtils.defineLazyModuleGetter(this, "ConsoleServiceListener",
   "resource://gre/modules/devtools/WebConsoleUtils.jsm");
 XPCOMUtils.defineLazyModuleGetter(this, "WebConsoleUtils",
@@ -501,9 +506,10 @@ function torbutton_init() {
 		}
     }
 
-    // Add our hook into about page load
-    m_tb_orig_BrowserOnAboutPageLoad = window.BrowserOnAboutPageLoad;
-    window.BrowserOnAboutPageLoad = torbutton_override_BrowserOnAboutPageLoad;
+    // Add event listener for about:tor page loads.
+    document.addEventListener("AboutTorLoad", function(aEvent) {
+      torbutton_on_abouttor_load(aEvent.target);
+    }, false, true);
 
     // initialize preferences before we start our prefs observer
     torbutton_init_prefs();
@@ -536,14 +542,21 @@ function torbutton_init() {
     if (!m_tb_prefs.getBoolPref("extensions.torbutton.inserted_button")) {
       torbutton_log(3, 'Adding button');
       try {
-        var toolbutton = torbutton_get_button_from_toolbox();
-        var navbar = document.getElementById("nav-bar");
-        // XXX: Will probably fail on fennec. Also explicitly forbidden
-        // by MDC style guides (for good reason). Fix later..
-        var urlbar = document.getElementById("urlbar-container");
-        navbar.insertBefore(toolbutton, urlbar);
-        navbar.setAttribute("currentset", navbar.currentSet);
-        document.persist("nav-bar", "currentset");
+        if (CustomizableUI) {
+          // ESR31-style toolbar
+          CustomizableUI.addWidgetToArea("torbutton-button", CustomizableUI.AREA_NAVBAR, 0);
+        } else {
+          // ESR24-style toolbar
+          // TODO: Remove this branch once TBB-ESR24 has been retired.
+          var toolbutton = torbutton_get_button_from_toolbox();
+          var navbar = document.getElementById("nav-bar");
+          // XXX: Will probably fail on fennec. Also explicitly forbidden
+          // by MDC style guides (for good reason). Fix later..
+          var urlbar = document.getElementById("urlbar-container");
+          navbar.insertBefore(toolbutton, urlbar);
+          navbar.setAttribute("currentset", navbar.currentSet);
+          document.persist("nav-bar", "currentset");
+        }
         torbutton_log(3, 'Button added');
         m_tb_prefs.setBoolPref("extensions.torbutton.inserted_button", true);
       } catch(e) {
@@ -954,7 +967,7 @@ function torbutton_update_abouttor_arrow(aDoc) {
   } catch(e) {}
 }
 
-function torbutton_override_BrowserOnAboutPageLoad(aDoc) {
+function torbutton_on_abouttor_load(aDoc) {
   if (torbutton_is_abouttor_doc(aDoc) &&
       !aDoc.documentElement.hasAttribute("aboutTorLoaded")) {
     aDoc.documentElement.setAttribute("aboutTorLoaded", true);
@@ -2606,8 +2619,8 @@ var torbutton_console_observer = {
 
   observe: function(subject, topic, data) {
     if (topic === "web-console-created") {
-      var id = subject.QueryInterface(Ci.nsISupportsString).toString();
-      var con = HUDService.getHudReferenceById(subject);
+      var id = subject.QueryInterface(Ci.nsISupportsString).toString(),
+          con = HUDService.getHudReferenceById(id);
       con.ui.reportPageErrorOld = con.ui.reportPageError;
       // Filtering the messages by making them hidden adding the
       // "hidden-message" class. If the message does not need to get filtered
