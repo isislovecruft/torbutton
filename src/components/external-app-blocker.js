@@ -205,6 +205,8 @@ ExternalWrapper.prototype =
   },
 
   observe: function(subject, topic, data) {
+    // XXX: The on-modify-drag-list is TBB specific and can be removed.
+    // FF31 added the on-datatransfer-available observer instead.
     if (topic == "on-modify-drag-list") {
       this.logger.log(3, "Got drag observer event");
       try {
