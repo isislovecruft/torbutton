@@ -1984,6 +1984,8 @@ function torbutton_update_disk_prefs() {
     m_tb_prefs.setBoolPref("browser.privatebrowsing.autostart", mode);
     m_tb_prefs.setBoolPref("browser.cache.disk.enable", !mode);
 
+    m_tb_prefs.setBoolPref("security.nocertdb", mode);
+
     // No way to clear this beast during New Identity. Leave it off.
     //m_tb_prefs.setBoolPref("dom.indexedDB.enabled", !mode);
 

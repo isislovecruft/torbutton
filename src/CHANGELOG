@@ -4,6 +4,7 @@
  * Bug 13138: ESR31-about:tor shows "Tor is not working"
  * Bug 12947: Adapt session storage blocker to ESR 31.
  * Bug 10716: Take care of drag/drop events in ESR 31.
+ * Bug 13366: Fix cert exemption dialog when disk storage is enabled.
 
 1.6.12.3
  23 Sep 2014
