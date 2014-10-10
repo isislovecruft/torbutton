@@ -543,8 +543,14 @@ function torbutton_init() {
       torbutton_log(3, 'Adding button');
       try {
         if (CustomizableUI) {
-          // ESR31-style toolbar
-          CustomizableUI.addWidgetToArea("torbutton-button", CustomizableUI.AREA_NAVBAR, 0);
+          // ESR31-style toolbar is handled by the existing compiled-in pref.
+          // We also need to prevent first-run toolbar reorg (#13378), so we
+          // reset this toolbar state on first-run.
+          try {
+            m_tb_prefs.clearUserPref("browser.uiCustomization.state");
+          } catch(e) {}
+          CustomizableUI.reset();
+          CustomizableUI.undoReset();
         } else {
           // ESR24-style toolbar
           // TODO: Remove this branch once TBB-ESR24 has been retired.
