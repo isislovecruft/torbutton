@@ -1,3 +1,6 @@
+1.7.0.1
+ * Bug 13378: Prevent addon reordering in toolbars on first-run.
+
 1.7.0.0
  9 Oct 2014
  * Bug 10751: Adapt Torbutton to ESR31's Australis UI.
