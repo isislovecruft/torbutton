@@ -1,5 +1,5 @@
 1.7.0.0
- ??
+ 9 Oct 2014
  * Bug 10751: Adapt Torbutton to ESR31's Australis UI.
  * Bug 13138: ESR31-about:tor shows "Tor is not working"
  * Bug 12947: Adapt session storage blocker to ESR 31.
