@@ -19,7 +19,7 @@
     <tabbox>
      <tabs>
       <tab label="&torbutton.prefs.tor_settings;"/>
-      <tab label="&torbutton.prefs.sec_settings;"/>
+      <tab label="&torbutton.prefs.privacy_security_settings;"/>
      </tabs>
      <tabpanels>
     <tabpanel>
@@ -140,16 +140,56 @@
        </vbox>
     </tabpanel>
     <tabpanel>
-     <vbox>
-       <checkbox id="torbutton_blockDisk" 
-              label="&torbutton.prefs.block_disk;"/>
-       <checkbox id="torbutton_blockPlugins" 
-              label="&torbutton.prefs.block_plugins;"/>
-       <checkbox id="torbutton_restrictThirdParty" 
-              label="&torbutton.prefs.restrict_thirdparty;"/>
-       <checkbox id="torbutton_resistFingerprinting" 
-              label="&torbutton.prefs.resist_fingerprinting;"/>
-     </vbox>
+      <vbox>
+        <groupbox>
+          <caption label="&torbutton.prefs.priv_caption;"/>
+          <checkbox id="torbutton_blockDisk"
+                    label="&torbutton.prefs.block_disk;"/>
+          <checkbox id="torbutton_blockPlugins"
+                    label="&torbutton.prefs.block_plugins;"/>
+          <checkbox id="torbutton_restrictThirdParty"
+                    label="&torbutton.prefs.restrict_thirdparty;"/>
+          <checkbox id="torbutton_resistFingerprinting"
+                    label="&torbutton.prefs.resist_fingerprinting;"/>
+        </groupbox>
+        <spacer flex="1"/>
+        <groupbox>
+          <caption label="&torbutton.prefs.sec_caption;"/>
+          <hbox>
+            <vbox>
+              <scale id="torbutton_sec_slider" height="200" min="1" max="4"
+                     movetoclick="true" orient="vertical"/>
+            </vbox>
+            <vbox height="200">
+              <hbox flex="1" align="center">
+                <description id="torbutton_sec_low">
+                  &torbutton.prefs.sec_low;
+                </description>
+              </hbox>
+              <hbox flex="1" align="center">
+                <description id="torbutton_sec_med_low">
+                  &torbutton.prefs.sec_med_low;
+                </description>
+              </hbox>
+              <hbox flex="1" align="center">
+                <description id="torbutton_sec_med_high">
+                  &torbutton.prefs.sec_med_high;
+                </description>
+              </hbox>
+              <hbox flex="1" align="center">
+                <description id="torbutton_sec_high">
+                  &torbutton.prefs.sec_high;
+                </description>
+              </hbox>
+            </vbox>
+          </hbox>
+          <hbox>
+            <checkbox id="torbutton_sec_custom" flex="1"
+                      oncommand="torbutton_toggle_slider(document);"
+                      label="&torbutton.prefs.sec_custom;"/>
+          </hbox>
+        </groupbox>
+      </vbox>
     </tabpanel>
 
 	</tabpanels>
