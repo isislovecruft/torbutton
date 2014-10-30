@@ -52,6 +52,8 @@ var m_tb_orig_BrowserOnAboutPageLoad = null;
 var m_tb_domWindowUtils = window.QueryInterface(Ci.nsIInterfaceRequestor).
                           getInterface(Ci.nsIDOMWindowUtils);
 
+var m_tb_sliderUpdate = false;
+
 // Bug 1506 P1: This object is only for updating the UI for toggling and style
 var torbutton_window_pref_observer =
 {
@@ -118,6 +120,12 @@ var torbutton_unique_pref_observer =
         this._branch.addObserver("network.proxy", this, false);
         this._branch.addObserver("network.cookie", this, false);
         this._branch.addObserver("browser.privatebrowsing.autostart", this, false);
+        this._branch.addObserver("javascript", this, false);
+        this._branch.addObserver("gfx", this, false);
+        this._branch.addObserver("noscript", this, false);
+        this._branch.addObserver("media", this, false);
+        this._branch.addObserver("capability.policy.maonoscript.sites", this,
+            false);
 
         // We observe xpcom-category-entry-added for plugins w/ Gecko-Content-Viewers
         var observerService = Cc["@mozilla.org/observer-service;1"].
@@ -132,6 +140,11 @@ var torbutton_unique_pref_observer =
         this._branch.removeObserver("network.proxy", this);
         this._branch.removeObserver("network.cookie", this);
         this._branch.removeObserver("browser.privatebrowsing.autostart", this);
+        this._branch.removeObserver("javascript", this);
+        this._branch.removeObserver("gfx", this);
+        this._branch.removeObserver("noscript", this);
+        this._branch.removeObserver("media", this);
+        this._branch.removeObserver("capability.policy.maonoscript.sites", this);
 
         var observerService = Cc["@mozilla.org/observer-service;1"].
             getService(Ci.nsIObserverService);
@@ -217,6 +230,32 @@ var torbutton_unique_pref_observer =
                 break;
             case "extensions.torbutton.restrict_thirdparty":
                 torbutton_update_thirdparty_prefs();
+                break;
+            case "gfx.font_rendering.opentype_svg.enabled":
+            case "javascript.options.ion.content":
+            case "javascript.options.typeinference":
+            case "javascript.options.asmjs":
+            case "noscript.forbidMedia":
+            case "media.webaudio.enabled":
+            case "javascript.options.baselinejit.content":
+            case "noscript.forbidFonts":
+            case "gfx.font_rendering.graphite.enabled":
+            case "noscript.globalHttpsWhitelist":
+            case "noscript.global":
+            case "media.ogg.enabled":
+            case "media.opus.enabled":
+            case "media.wave.enabled":
+            case "media.apple.mp3.enabled":
+            case "capability.policy.maonoscript.sites":
+                if (!m_tb_sliderUpdate) {
+                  // Do we already have custom settings?
+                  let customSlider = m_tb_prefs.
+                    getBoolPref("extensions.torbutton.security_custom");
+                  if (!customSlider) {
+                    m_tb_prefs.
+                      setBoolPref("extensions.torbutton.security_custom", true);
+                  }
+                }
                 break;
         }
     }
@@ -513,6 +552,8 @@ function torbutton_init() {
 
     // initialize preferences before we start our prefs observer
     torbutton_init_prefs();
+    // set some important security prefs according to the chosen security level
+    torbutton_update_security_slider();
 
     // set panel style from preferences
     torbutton_set_panel_style();
@@ -2095,6 +2136,142 @@ function torbutton_update_thirdparty_prefs() {
     var prefService = Components.classes["@mozilla.org/preferences-service;1"]
         .getService(Components.interfaces.nsIPrefService);
     prefService.savePrefFile(null);
+}
+
+var torbutton_sec_l_bool_prefs = {
+  "gfx.font_rendering.opentype_svg.enabled" : false,
+};
+
+var torbutton_sec_ml_bool_prefs = {
+  "javascript.options.ion.content" : false,
+  "javascript.options.typeinference" : false,
+  "javascript.options.asmjs" : false,
+  "noscript.forbidMedia" : true,
+  "media.webaudio.enabled" : false,
+  // XXX: pref for disabling MathML is missing
+};
+
+var torbutton_sec_mh_bool_prefs = {
+  "javascript.options.baselinejit.content" : false,
+  "noscript.globalHttpsWhitelist" : true,
+  // XXX: pref for disableing SVG is missing
+};
+
+var torbutton_sec_h_bool_prefs = {
+  "noscript.forbidFonts" : true,
+  "noscript.global" : false,
+  "media.ogg.enabled" : false,
+  "media.opus.enabled" :  false,
+  "media.wave.enabled" : false,
+  "media.apple.mp3.enabled" : false
+};
+
+function torbutton_update_security_slider() {
+  // Avoid checking the custom settings checkbox.
+  m_tb_sliderUpdate = true;
+  let mode = m_tb_prefs.getIntPref("extensions.torbutton.security_slider");
+  let capValue = m_tb_prefs.getCharPref("capability.policy.maonoscript.sites");
+  switch (mode) {
+    case 1:
+      for (p in torbutton_sec_l_bool_prefs) {
+        m_tb_prefs.setBoolPref(p, torbutton_sec_l_bool_prefs[p]);
+      }
+      for (p in torbutton_sec_ml_bool_prefs) {
+        m_tb_prefs.setBoolPref(p, !torbutton_sec_ml_bool_prefs[p])
+      }
+      for (p in torbutton_sec_mh_bool_prefs) {
+        m_tb_prefs.setBoolPref(p, !torbutton_sec_mh_bool_prefs[p])
+      }
+      for (p in torbutton_sec_h_bool_prefs) {
+        m_tb_prefs.setBoolPref(p, !torbutton_sec_h_bool_prefs[p])
+      }
+      // XXX: Adding and removing "https:" is needed due to a bug in Noscript.
+      if (capValue.indexOf(" https:") >= 0) {
+        m_tb_prefs.setCharPref("capability.policy.maonoscript.sites",
+          capValue.replace(" https:", ""));
+      }
+      if (m_tb_prefs.getCharPref("general.useragent.locale") !== "ko" ||
+          m_tb_prefs.getCharPref("general.useragent.locale") !== "vi" ||
+          m_tb_prefs.getCharPref("general.useragent.locale") !== "zh-CN") {
+        m_tb_prefs.setBoolPref("gfx.font_rendering.graphite.enabled", false);
+      } else {
+        m_tb_prefs.setBoolPref("gfx.font_rendering.graphite.enabled", true);
+      }
+      break;
+    case 2:
+      for (p in torbutton_sec_l_bool_prefs) {
+        m_tb_prefs.setBoolPref(p, torbutton_sec_l_bool_prefs[p]);
+      }
+      for (p in torbutton_sec_ml_bool_prefs) {
+        m_tb_prefs.setBoolPref(p, torbutton_sec_ml_bool_prefs[p])
+      }
+      for (p in torbutton_sec_mh_bool_prefs) {
+        m_tb_prefs.setBoolPref(p, !torbutton_sec_mh_bool_prefs[p])
+      }
+      for (p in torbutton_sec_h_bool_prefs) {
+        m_tb_prefs.setBoolPref(p, !torbutton_sec_h_bool_prefs[p])
+      }
+      // XXX: Adding and removing "https:" is needed due to a bug in Noscript.
+      if (capValue.indexOf(" https:") >= 0) {
+        m_tb_prefs.setCharPref("capability.policy.maonoscript.sites",
+          capValue.replace(" https:", ""));
+      }
+      if (m_tb_prefs.getCharPref("general.useragent.locale") !== "ko" ||
+          m_tb_prefs.getCharPref("general.useragent.locale") !== "vi" ||
+          m_tb_prefs.getCharPref("general.useragent.locale") !== "zh-CN") {
+        m_tb_prefs.setBoolPref("gfx.font_rendering.graphite.enabled", false);
+      } else {
+        m_tb_prefs.setBoolPref("gfx.font_rendering.graphite.enabled", true);
+      }
+      break;
+    case 3:
+      for (p in torbutton_sec_l_bool_prefs) {
+        m_tb_prefs.setBoolPref(p, torbutton_sec_l_bool_prefs[p]);
+      }
+      for (p in torbutton_sec_ml_bool_prefs) {
+        m_tb_prefs.setBoolPref(p, torbutton_sec_ml_bool_prefs[p])
+      }
+      for (p in torbutton_sec_mh_bool_prefs) {
+        m_tb_prefs.setBoolPref(p, torbutton_sec_mh_bool_prefs[p])
+      }
+      for (p in torbutton_sec_h_bool_prefs) {
+        m_tb_prefs.setBoolPref(p, !torbutton_sec_h_bool_prefs[p])
+      }
+      // XXX: Adding and removing "https:" is needed due to a bug in Noscript.
+      // missing.
+      if (capValue.indexOf(" https:") < 0) {
+        m_tb_prefs.setCharPref("capability.policy.maonoscript.sites", capValue +
+          " https:");
+      }
+      m_tb_prefs.setBoolPref("gfx.font_rendering.graphite.enabled", false);
+      break;
+    case 4:
+      for (p in torbutton_sec_l_bool_prefs) {
+        m_tb_prefs.setBoolPref(p, torbutton_sec_l_bool_prefs[p]);
+      }
+      for (p in torbutton_sec_ml_bool_prefs) {
+        m_tb_prefs.setBoolPref(p, torbutton_sec_ml_bool_prefs[p])
+      }
+      for (p in torbutton_sec_mh_bool_prefs) {
+        m_tb_prefs.setBoolPref(p, torbutton_sec_mh_bool_prefs[p])
+        // noscript.globalHttpsWhitelist is special: We don't want it in this
+        // mode.
+        if (p == "noscript.globalHttpsWhitelist") {
+          m_tb_prefs.setBoolPref(p, !torbutton_sec_mh_bool_prefs[p])
+        }
+      }
+      for (p in torbutton_sec_h_bool_prefs) {
+        m_tb_prefs.setBoolPref(p, torbutton_sec_h_bool_prefs[p])
+      }
+      // XXX: Adding and removing "https:" is needed due to a bug in Noscript.
+      if (capValue.indexOf(" https:") >= 0) {
+        m_tb_prefs.setCharPref("capability.policy.maonoscript.sites",
+          capValue.replace(" https:", ""));
+      }
+      m_tb_prefs.setBoolPref("gfx.font_rendering.graphite.enabled", true);
+      break;
+  }
+  m_tb_sliderUpdate = false;
 }
 
 // Bug 1506 P0: This code is a toggle-relic. 

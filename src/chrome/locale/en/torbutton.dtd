@@ -44,7 +44,7 @@
 <!ENTITY torbutton.context_menu.openTorWindow.key "d">
 <!ENTITY torbutton.button.label "Torbutton">
 <!ENTITY torbutton.button.tooltip "Click to initialize Torbutton">
-<!ENTITY torbutton.prefs.sec_settings "Security Settings">
+<!ENTITY torbutton.prefs.privacy_security_settings "Privacy and Security Settings">
 <!ENTITY torbutton.prefs.block_thread "Block history reads during Tor (crucial)">
 <!ENTITY torbutton.prefs.block_thwrite "Block history writes during Tor (recommended)">
 <!ENTITY torbutton.prefs.block_nthread "Block history reads during Non-Tor (optional)">
@@ -144,7 +144,14 @@
 <!ENTITY torbutton.prefs.engine5 "duckduckgo.com">
 <!ENTITY torbutton.prefs.fix_google_srch "Strip platform and language off of Google Search Box queries">
 <!ENTITY torbutton.prefs.transparentTor "Transparent Torification (Requires custom transproxy or Tor router)">
+<!ENTITY torbutton.prefs.priv_caption "Privacy Settings">
 <!ENTITY torbutton.prefs.block_disk "Don't record browsing history or website data (enables Private Browsing Mode)">
 <!ENTITY torbutton.prefs.restrict_thirdparty "Restrict third party cookies and other tracking data">
 <!ENTITY torbutton.prefs.block_plugins "Disable browser plugins (such as Flash)">
 <!ENTITY torbutton.prefs.resist_fingerprinting "Change details that distinguish you from other Tor Browser users">
+<!ENTITY torbutton.prefs.sec_caption "Security Level">
+<!ENTITY torbutton.prefs.sec_low "Low (default)">
+<!ENTITY torbutton.prefs.sec_med_low "Medium-Low">
+<!ENTITY torbutton.prefs.sec_med_high "Medium-High">
+<!ENTITY torbutton.prefs.sec_high "High">
+<!ENTITY torbutton.prefs.sec_custom "Custom Values">

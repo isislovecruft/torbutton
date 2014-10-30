@@ -173,6 +173,9 @@ pref("extensions.torbutton@torproject.org.getAddons.cache.enabled", false);
 pref("extensions.torbutton.block_disk", true);
 pref("extensions.torbutton.resist_fingerprinting", true);
 pref("extensions.torbutton.restrict_thirdparty", true);
+// Security Slider
+pref("extensions.torbutton.security_slider", 1);
+pref("extensions.torbutton.security_custom", false);
 
 // Google Captcha prefs
 // FIXME: NID cookie?

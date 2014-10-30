@@ -180,10 +180,21 @@ function torbutton_prefs_init(doc) {
         doc.getElementById('torbutton_settingsMethod').selectedItem = doc.getElementById('torbutton_transparentTor');
     }
 
+    // Privacy and security settings
     doc.getElementById('torbutton_blockDisk').checked = o_torprefs.getBoolPref('block_disk');
     doc.getElementById('torbutton_resistFingerprinting').checked = o_torprefs.getBoolPref('resist_fingerprinting');
     doc.getElementById('torbutton_blockPlugins').checked = o_torprefs.getBoolPref('no_tor_plugins');
     doc.getElementById('torbutton_restrictThirdParty').checked = o_torprefs.getBoolPref('restrict_thirdparty');
+    let sec_slider = doc.getElementById('torbutton_sec_slider');
+    let sec_custom = doc.getElementById('torbutton_sec_custom');
+    let custom_values = o_torprefs.getBoolPref('security_custom');
+    sec_slider.value = o_torprefs.getIntPref('security_slider');
+    sec_slider.disabled = custom_values;
+    // Setting |disabled| to |false| is not enough to have the element
+    // non-responding. We need to handle |movetoclick| as well.
+    sec_slider.setAttribute("movetoclick", !custom_values);
+    sec_custom.checked = custom_values;
+    sec_custom.collapsed = !custom_values;
 
     torbutton_prefs_set_field_attributes(doc);
 }
@@ -273,13 +284,22 @@ function torbutton_prefs_save(doc) {
         }
     }
 
+    // Privacy and Security Settings
     o_torprefs.setBoolPref('block_disk', doc.getElementById('torbutton_blockDisk').checked);
     o_torprefs.setBoolPref('resist_fingerprinting', doc.getElementById('torbutton_resistFingerprinting').checked);
     o_torprefs.setBoolPref('no_tor_plugins', doc.getElementById('torbutton_blockPlugins').checked);
     o_torprefs.setBoolPref('restrict_thirdparty', doc.getElementById('torbutton_restrictThirdParty').checked);
+    o_torprefs.setBoolPref('security_custom',
+                           doc.getElementById('torbutton_sec_custom').checked);
+    o_torprefs.setIntPref('security_slider',
+                          doc.getElementById('torbutton_sec_slider').value);
 
     // if tor settings were initially active, update the active settings to reflect any changes
     if (tor_enabled) torbutton_activate_tor_settings();
+    // If we have non-custom Security Slider settings update them now.
+    if (!o_torprefs.getBoolPref('security_custom')) {
+      win.torbutton_update_security_slider();
+    }
 }
 
 function torbutton_prefs_test_settings() {
@@ -413,6 +433,11 @@ function torbutton_prefs_reset_defaults() {
         }
     }
 
+    // Resetting the Security Slider preferences
+    o_torprefs.setBoolPref('security_custom', false);
+    o_torprefs.setIntPref('security_slider', 1);
+    chrome.torbutton_update_security_slider();
+
     torbutton_log(4, "Preferences reset to defaults");
     torbutton_prefs_init(window.document);
 
@@ -421,3 +446,15 @@ function torbutton_prefs_reset_defaults() {
         .getService(Components.interfaces.nsIPrefService);
     prefService.savePrefFile(null);
 }
+
+function torbutton_toggle_slider(doc) {
+    let slider = doc.getElementById("torbutton_sec_slider");
+    if (doc.getElementById("torbutton_sec_custom").checked) {
+        slider.disabled = true;
+        slider.setAttribute("movetoclick", false);
+    } else {
+        slider.disabled = false;
+        slider.setAttribute("movetoclick", true);
+    }
+}
+
