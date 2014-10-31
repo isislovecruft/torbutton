@@ -1,3 +1,9 @@
+1.8.0.0
+ * Bug 9387: Provide a "Security Slider" for vulnerability surface reduction
+ * Bug 13019: Synchronize locale spoofing pref with our Firefox patch
+ * Bug 3455: Use SOCKS user+pass to isolate all requests from the same url domain
+ * Bug 8641: Create browser UI to indicate current tab's Tor circuit IPs
+
 1.7.0.1
  * Bug 13378: Prevent addon reordering in toolbars on first-run.
 
