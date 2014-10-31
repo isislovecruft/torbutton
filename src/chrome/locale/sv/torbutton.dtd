@@ -103,7 +103,7 @@
 <!ENTITY torbutton.prefs.block_nontor_file_net "Blockera Icke-Tor tillgång till nätverk från file:// länkar">
 <!ENTITY torbutton.prefs.restore_defaults "Återställ till standard">
 <!ENTITY torbutton.prefs.test_settings "Testa inställningar">
-<!ENTITY torbutton.prefs.test_auto "Testa mina Tor inställningar efter första gången jag växlar vid varje Firefox start">
+<!ENTITY torbutton.prefs.test_auto "Testa mina Tor-inställningar efter första gången jag växlar vid varje start av Firefox">
 <!ENTITY torbutton.prefs.disable_livemarks "Disable livemarks updates during Tor usage">
 <!ENTITY torbutton.prefs.tor_memory_jar "Skriv inte Tor kakor till disken">
 <!ENTITY torbutton.prefs.nontor_memory_jar "Skriv inte Icke-Tor kakor till disken">
@@ -135,7 +135,7 @@
 <!ENTITY torbutton.prefs.dtd_recommended "(rekommenderat)">
 <!ENTITY torbutton.prefs.dtd_optional "(valfritt)">
 <!ENTITY torbutton.prefs.dtd_crucial "(viktigt)">
-<!ENTITY torbutton.prefs.update_torbutton_via_tor "Dirigera om Torbutton uppdateringar genom Tor">
+<!ENTITY torbutton.prefs.update_torbutton_via_tor "Dirigera om Torbutton-uppdateringar genom Tor">
 <!ENTITY torbutton.prefs.dodge_google_captcha "Använd automatiskt en alternativ sökmotor när du presenteras med en Google Captcha:">
 <!ENTITY torbutton.prefs.engine1 "ixquick.com">
 <!ENTITY torbutton.prefs.engine2 "Bing.com">

@@ -21,7 +21,7 @@
 <!ENTITY aboutTor.failure3Link "help@rt.torproject.org">
 <!ENTITY aboutTor.failure3suffix.label ".">
 
-<!ENTITY aboutTor.search.label "Procurar">
+<!ENTITY aboutTor.search.label "Pesquisar">
 
 <!ENTITY aboutTor.searchSPPost.link "https://startpage.com/rth/search">
 <!ENTITY aboutTor.searchDDGPost.link "https://duckduckgo.com/html/">
@@ -31,16 +31,16 @@
 <!ENTITY aboutTor.torInfo3.label "Nó de saída:">
 <!ENTITY aboutTor.torInfo4.label "Este servidor não guarda informação dos visitantes.">
 <!ENTITY aboutTor.whatnextQuestion.label "O que se segue?">
-<!ENTITY aboutTor.whatnextAnswer.label "Só por isso, o Tor não chega para navegar anónimamente na internet! Poderá ter que mudar alguns dos seus hábitos de navegação para ter a certeza que a sua identidade está segura.">
+<!ENTITY aboutTor.whatnextAnswer.label "O Tor NÃO é tudo o que precisa para navegar anonimamente na internet! Poderá ter que mudar alguns dos seus hábitos de navegação para ter a certeza que a sua identidade está segura.">
 <!ENTITY aboutTor.whatnext.label "Dicas sobre como se tornar anónimo »">
 <!ENTITY aboutTor.whatnext.link "https://www.torproject.org/download/download.html.en#warning">
-<!ENTITY aboutTor.helpInfo1.label "Todos podem ajudar!">
+<!ENTITY aboutTor.helpInfo1.label "Você pode ajudar!">
 <!ENTITY aboutTor.helpInfo2.label "Há muitas maneiras para ajudar a rede Tor tornar-se mais rápida e forte:">
-<!ENTITY aboutTor.helpInfo3.label "Pôr de pé um Nó de Relay Tor »">
+<!ENTITY aboutTor.helpInfo3.label "Criar um Nó de Relay Tor »">
 <!ENTITY aboutTor.helpInfo3.link "https://www.torproject.org/docs/tor-doc-relay.html.en">
-<!ENTITY aboutTor.helpInfo4.label "Voluntariar os seus Serviços »">
+<!ENTITY aboutTor.helpInfo4.label "Voluntarie os seus serviços »">
 <!ENTITY aboutTor.helpInfo4.link "https://www.torproject.org/getinvolved/volunteer.html.en">
-<!ENTITY aboutTor.helpInfo5.label "Fazer uma doação »">
+<!ENTITY aboutTor.helpInfo5.label "Faça um donativo »">
 <!ENTITY aboutTor.helpInfo5.link "https://www.torproject.org/donate/donate.html.en">
 
 <!ENTITY aboutTor.footer.label "O Projeto Tor é uma organização sem fins lucrativos US 501(c)(3) dedicada à investigação, desenvolvimento e promoção de anonimidade e privacidade online.">

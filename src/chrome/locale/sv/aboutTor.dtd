@@ -28,7 +28,7 @@
 
 <!ENTITY aboutTor.torInfo1.label "Ytterligare information:">
 <!ENTITY aboutTor.torInfo2.label "Land och IP-adress:">
-<!ENTITY aboutTor.torInfo3.label "Exit nod:">
+<!ENTITY aboutTor.torInfo3.label "Exitnod:">
 <!ENTITY aboutTor.torInfo4.label "Den här servern sparar inte någon information om besökare.">
 <!ENTITY aboutTor.whatnextQuestion.label "Och nu då?">
 <!ENTITY aboutTor.whatnextAnswer.label "Tor är INTE allt som behövs för att vara anonym på nätet! Du behöver kanske ändra några av dina vanor för att försäkra att din identitet förblir skyddad.">

@@ -8,7 +8,7 @@
 
 <!ENTITY aboutTor.outOfDateTorOn.label "AMA, bu tarayıcı güncel değil.">
 <!ENTITY aboutTor.outOfDateTorOff.label "AYRICA, bu tarayıcı güncel değil.">
-<!ENTITY aboutTor.outOfDate2.label "Soğan'a tıklayın ve Tor Tarayıcı'yı güncelleyin.">
+<!ENTITY aboutTor.outOfDate2.label "Soğana tıklayın ve Tor Tarayıcı Paketi Güncellemesini İndir seçin.">
 
 <!ENTITY aboutTor.check.label "Tor Ağ ayarlarını test edin">
 

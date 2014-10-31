@@ -11,7 +11,7 @@
 <!ENTITY torbutton.prefs.proxy.host.socks "SOCKS Sunucusu:">
 <!ENTITY torbutton.prefs.proxy.port "Bağl. Nok.:">
 <!ENTITY torbutton.about.title "Torbutton Hakkında">
-<!ENTITY torbutton.about.version "Versiyon:">
+<!ENTITY torbutton.about.version "Sürüm:">
 <!ENTITY torbutton.about.summary "Tor tarama gizliliğinizi korur.">
 <!ENTITY torbutton.about.code "Kodlarda yardımı bulunanlar:">
 <!ENTITY torbutton.about.maintainer "Bakımcı:">
@@ -32,7 +32,7 @@
 <!ENTITY torbutton.context_menu.about.key "H">
 <!ENTITY torbutton.context_menu.networksettings "Ağ Ayarlarını Aç...">
 <!ENTITY torbutton.context_menu.networksettings.key "S">
-<!ENTITY torbutton.context_menu.downloadUpdate "Tor Tarayıcı Destesi güncelleştirmesini yükleyin.">
+<!ENTITY torbutton.context_menu.downloadUpdate "Tor Tarayıcı Paketi Güncelleştirmesini İndirin.">
 <!ENTITY torbutton.context_menu.downloadUpdate.key "H">
 <!ENTITY torbutton.context_menu.cookieProtections "Çerez Korumaları">
 <!ENTITY torbutton.context_menu.cookieProtections.key "C">
@@ -121,14 +121,14 @@
 <!ENTITY torbutton.prefs.spoofdomain "Referans olarak alanı aldat">
 <!ENTITY torbutton.prefs.spoofblank "Spoof blank referer during Tor usage (may break some sites)">
 <!ENTITY torbutton.cookiedialog.title "Çerez Korumasını Yönet">
-<!ENTITY torbutton.cookiedialog.lockCol "Korunmuş">
+<!ENTITY torbutton.cookiedialog.lockCol "Korunan">
 <!ENTITY torbutton.cookiedialog.domainCol "Sunucu">
 <!ENTITY torbutton.cookiedialog.nameCol "İsim">
 <!ENTITY torbutton.cookiedialog.pathCol "Yol">
-<!ENTITY torbutton.cookiedialog.protectCookie "Çerezi sakla">
-<!ENTITY torbutton.cookiedialog.removeCookie "Çerezi  sil">
-<!ENTITY torbutton.cookiedialog.unprotectCookie "Çerezi korumayı sonlandır">
-<!ENTITY torbutton.cookiedialog.removeAllBut "Korunanlar hariç tümünü sil">
+<!ENTITY torbutton.cookiedialog.protectCookie "Çerezi Koru">
+<!ENTITY torbutton.cookiedialog.removeCookie "Çerezi Sil">
+<!ENTITY torbutton.cookiedialog.unprotectCookie "Çerezi Korumayı Sonlandır">
+<!ENTITY torbutton.cookiedialog.removeAllBut "Korunanlar Hariç Tümünü Sil">
 <!ENTITY torbutton.cookiedialog.saveAllCookies "Yeni çerezleri koru">
 <!ENTITY torbutton.cookiedialog.doNotSaveAllCookies "Yeni çerezleri koruma">
 <!ENTITY torbutton.prefs.disable_livemarks "Disable livemarks updates during Tor usage">
@@ -145,6 +145,6 @@
 <!ENTITY torbutton.prefs.fix_google_srch "Kaldır platform ve Google Arama Kutusu gelen dil sorgular">
 <!ENTITY torbutton.prefs.transparentTor "Şeffaf Torifikasyon (özel transproxy veya Tor yönlendiricisi gerekir)">
 <!ENTITY torbutton.prefs.block_disk "Tarama geçmişini ve web sitesi bilgilerini kaydetme (Özel Tarama Kipi'ni etkinleştirir)">
-<!ENTITY torbutton.prefs.restrict_thirdparty "3. parti çerezleri ve diğer iz sürücü bilgileri engelle.">
-<!ENTITY torbutton.prefs.block_plugins "Flash gibi tarayıcı eklentilerini engelle.">
-<!ENTITY torbutton.prefs.resist_fingerprinting "Diğer Tor kullanıcılardan sizi ayıran detayları değiştirin.">
+<!ENTITY torbutton.prefs.restrict_thirdparty "3. parti çerezleri ve diğer iz sürücü bilgileri engelle">
+<!ENTITY torbutton.prefs.block_plugins "Tarayıcı eklentilerini engelle (Flash benzeri)">
+<!ENTITY torbutton.prefs.resist_fingerprinting "Diğer Tor kullanıcılardan sizi ayıran detayları değiştir">
