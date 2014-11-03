@@ -41,6 +41,7 @@ let regionBundle = Services.strings.createBundle(
 // Convert a country code to a localized country name.
 // Example: `'de'` -> `'Deutschland'` in German locale.
 let localizedCountryNameFromCode = function (countryCode) {
+  if (typeof(countryCode) === "undefined") return "";
   try {
     return regionBundle.GetStringFromName(countryCode.toLowerCase());
   } catch (e) {

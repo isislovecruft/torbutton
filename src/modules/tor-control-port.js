@@ -14,11 +14,22 @@
 
 /* jshint esnext: true */
 /* jshint -W097 */
-/* global Components, console */
+/* global Components, console, Services */
 "use strict";
 
 // ### Mozilla Abbreviations
 let {classes: Cc, interfaces: Ci, results: Cr, Constructor: CC, utils: Cu } = Components;
+
+// ### Import Mozilla Services
+Cu.import("resource://gre/modules/Services.jsm");
+
+// ## torbutton logger
+let logger = Cc["@torproject.org/torbutton-logger;1"]
+               .getService(Components.interfaces.nsISupports).wrappedJSObject,
+    log = x => logger.eclog(3, x);
+
+// ### announce this file
+log("Loading tor-control-port.js\n");
 
 // ## io
 // I/O utilities namespace
@@ -30,12 +41,12 @@ let io = io || {};
 io.asyncSocketStreams = function (host, port) {
   let socketTransportService = Cc["@mozilla.org/network/socket-transport-service;1"]
            .getService(Components.interfaces.nsISocketTransportService),
-      BLOCKING = Ci.nsITransport.OPEN_BLOCKING,
       UNBUFFERED = Ci.nsITransport.OPEN_UNBUFFERED,
-       // Create an instance of a socket transport.
+      // Create an instance of a socket transport.
       socketTransport = socketTransportService.createTransport(null, 0, host, port, null),
-      // Open unbuffered synchronous outputStream.
-      outputStream = socketTransport.openOutputStream(BLOCKING | UNBUFFERED, 1, 1),
+      // Open unbuffered asynchronous outputStream.
+      outputStream = socketTransport.openOutputStream(UNBUFFERED, 1, 1)
+                      .QueryInterface(Ci.nsIAsyncOutputStream),
       // Open unbuffered asynchronous inputStream.
       inputStream = socketTransport.openInputStream(UNBUFFERED, 1, 1)
                       .QueryInterface(Ci.nsIAsyncInputStream);
@@ -81,21 +92,28 @@ io.pumpInputStream = function (inputStream, onInputData, onError) {
 // socket.write(text) and socket.close(). onError will be passed the error object
 // whenever a write fails.
 io.asyncSocket = function (host, port, onInputData, onError) {
-  let [inputStream, outputStream] = io.asyncSocketStreams(host, port);
+  let [inputStream, outputStream] = io.asyncSocketStreams(host, port),
+      pendingWrites = [];
   // Run an input stream pump to send incoming data to the onInputData callback.
   io.pumpInputStream(inputStream, onInputData, onError);
+  // Return the "socket object" as described.
   return {
            // Write a message to the socket.
            write : function(aString) {
-             try {
-               outputStream.write(aString, aString.length);
-               // console.log(aString);
-             } catch (err) {
-               // This write() method is not necessarily called by a callback,
-               // but we pass any thrown errors to onError to ensure the socket
-               // error handling uses a consistent single path.
-               onError(err);
-             }
+             pendingWrites.push(aString);
+             outputStream.asyncWait(
+               // Implement an nsIOutputStreamCallback:
+               { onOutputStreamReady : function () {
+                 let totalString = pendingWrites.join("");
+                   try {
+                     outputStream.write(totalString, totalString.length);
+                     log("wrote: " + aString + "\n");
+                   } catch (err) {
+                     onError(err);
+                   }
+                   pendingWrites = [];
+               } },
+               0, 0, Services.tm.currentThread);
            },
            // Close the socket.
            close : function () {
@@ -146,7 +164,7 @@ io.onLineFromOnMessage = function (onMessage) {
       pendingLines = [];
       // Pass multiline message to onMessage.
       onMessage(message);
-      // console.log(message);
+      //log(message);
     }
   };
 };
@@ -241,7 +259,7 @@ io.controlSocket = function (host, port, password, onError) {
   // Log in to control port.
   sendCommand("authenticate " + (password || ""));
   // Activate needed events.
-  sendCommand("setevents stream circ");
+  sendCommand("setevents circ");
   return { close : socket.close, sendCommand : sendCommand,
            addNotificationCallback : notificationDispatcher.addCallback,
            removeNotificationCallback : notificationDispatcher.removeCallback };
