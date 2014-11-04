@@ -1,3 +1,6 @@
+1.8.0.1
+ * Bug 13651: Fix hangs associated with circuit status UI from #8641.
+
 1.8.0.0
  * Bug 9387: Provide a "Security Slider" for vulnerability surface reduction
  * Bug 13019: Synchronize locale spoofing pref with our Firefox patch
