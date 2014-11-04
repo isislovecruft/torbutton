@@ -55,7 +55,7 @@ let domainToNodeDataMap = {};
 
 // __trimQuotes(s)__.
 // Removes quotation marks around a quoted string.
-let trimQuotes = s => s.match(/^\"(.*)\"$/)[1];
+let trimQuotes = s => s ? s.match(/^\"(.*)\"$/)[1] : undefined;
 
 // nodeDataForID(controller, id, onResult)__.
 // Requests the IP, country code, and name of a node with given ID.
@@ -94,7 +94,7 @@ let nodeLines = function (nodeData) {
   for (let {ip, country} of nodeData) {
     result.push(localizedCountryNameFromCode(country) + " (" + ip + ")");
   }
-  result.push("Internet");
+  result[4] = ("Internet");
   return result;
 };
 
@@ -102,30 +102,35 @@ let nodeLines = function (nodeData) {
 // Updates the Tor circuit display SVG, showing the current domain
 // and the relay nodes for that domain.
 let updateCircuitDisplay = function () {
-  let URI = gBrowser.selectedBrowser.currentURI,
-      domain = null,
-      nodeData = null;
-  // Try to get a domain for this URI. Otherwise it remains null.
-  try {
-    domain = URI.host;
-  } catch (e) { }
-  if (domain) {
-  // Check if we have anything to show for this domain.
-    nodeData = domainToNodeDataMap[domain];
-    if (nodeData) {
-      // Update the displayed domain.
-      document.querySelector("svg#tor-circuit text#domain").innerHTML = "(" + domain + "):";
-      // Update the displayed information for the relay nodes.
-      let diagramNodes = document.querySelectorAll("svg#tor-circuit text.node-text"),
-      lines = nodeLines(nodeData);
-      for (let i = 0; i < diagramNodes.length; ++i) {
-        diagramNodes[i].innerHTML = lines[i];
+  let selectedBrowser = gBrowser.selectedBrowser;
+  if (selectedBrowser) {
+    let URI = selectedBrowser.currentURI,
+	domain = null,
+	nodeData = null;
+    // Try to get a domain for this URI. Otherwise it remains null.
+    try {
+      domain = URI.host;
+    } catch (e) { }
+    if (domain) {
+    // Check if we have anything to show for this domain.
+      nodeData = domainToNodeDataMap[domain];
+      if (nodeData) {
+	// Update the displayed domain.
+	document.querySelector("svg#tor-circuit text#domain").innerHTML = "(" + domain + "):";
+	// Update the displayed information for the relay nodes.
+	let diagramNodes = document.querySelectorAll("svg#tor-circuit text.node-text"),
+            //diagramCircles = document.querySelectorAll("svg#tor-circuit .node-circule"),
+            lines = nodeLines(nodeData);
+	for (let i = 0; i < diagramNodes.length; ++i) {
+          let line = lines[i];
+          diagramNodes[i].innerHTML = line ? line : "";
+	}
       }
     }
+    // Only show the Tor circuit if we have a domain and node data.
+    document.querySelector("svg#tor-circuit").style.display = (domain && nodeData) ?
+							      'block' : 'none';
   }
-  // Only show the Tor circuit if we have a domain and node data.
-  document.querySelector("svg#tor-circuit").style.display = (domain && nodeData) ?
-                                                            'block' : 'none';
 };
 
 // __collectBuiltCircuitData(aController)__.

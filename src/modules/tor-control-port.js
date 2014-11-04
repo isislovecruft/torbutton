@@ -107,7 +107,7 @@ io.asyncSocket = function (host, port, onInputData, onError) {
                  let totalString = pendingWrites.join("");
                    try {
                      outputStream.write(totalString, totalString.length);
-                     log("wrote: " + aString + "\n");
+                     log("controlPort << " + aString + "\n");
                    } catch (err) {
                      onError(err);
                    }
@@ -164,7 +164,7 @@ io.onLineFromOnMessage = function (onMessage) {
       pendingLines = [];
       // Pass multiline message to onMessage.
       onMessage(message);
-      //log(message);
+      log("controlPort >> " + message);
     }
   };
 };
