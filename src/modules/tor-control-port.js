@@ -259,7 +259,7 @@ io.controlSocket = function (host, port, password, onError) {
   // Log in to control port.
   sendCommand("authenticate " + (password || ""));
   // Activate needed events.
-  sendCommand("setevents circ");
+  sendCommand("setevents stream");
   return { close : socket.close, sendCommand : sendCommand,
            addNotificationCallback : notificationDispatcher.addCallback,
            removeNotificationCallback : notificationDispatcher.removeCallback };

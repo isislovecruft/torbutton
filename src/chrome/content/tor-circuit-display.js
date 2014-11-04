@@ -53,6 +53,8 @@ let localizedCountryNameFromCode = function (countryCode) {
 // A mutable map that stores the current nodes for each domain.
 let domainToNodeDataMap = {};
 
+let knownCircuitIDs = {};
+
 // __trimQuotes(s)__.
 // Removes quotation marks around a quoted string.
 let trimQuotes = s => s ? s.match(/^\"(.*)\"$/)[1] : undefined;
@@ -133,22 +135,43 @@ let updateCircuitDisplay = function () {
   }
 };
 
-// __collectBuiltCircuitData(aController)__.
-// Watches for CIRC BUILT events and records their data in the domainToNodeDataMap.
-let collectBuiltCircuitData = function (aController) {
+// __getCircuitStatusByID(aController, circuitID, onCircuitStatus)__
+// Returns the circuit status for the circuit with the given ID
+// via onCircuitStatus(status).
+let getCircuitStatusByID = function(aController, circuitID, onCircuitStatus) {
+  aController.getInfo("circuit-status", function (circuitStatuses) {
+    for (let circuitStatus of circuitStatuses) {
+      if (circuitStatus.id === circuitID) {
+        onCircuitStatus(circuitStatus);
+      }
+    }
+  });
+};
+
+// __collectIsolationData(aController)__.
+// Watches for STREAM SENTCONNECT events. When a SENTCONNECT event occurs, then
+// the isolation settings (SOCKS username+password) become fixed for the
+// corresponding circuit. Whenever the first stream on a new circuit is seen,
+// looks up u+p and records the node data in the domainToNodeDataMap.
+let collectIsolationData = function (aController) {
   aController.watchEvent(
-    "CIRC",
-    circuitEvent => circuitEvent.status === "EXTENDED" ||
-                    circuitEvent.status === "BUILT",
-    function (circuitEvent) {
-      let domain = trimQuotes(circuitEvent.SOCKS_USERNAME);
-      if (domain) {
-        nodeDataForCircuit(aController, circuitEvent, function (nodeData) {
-          domainToNodeDataMap[domain] = nodeData;
-          updateCircuitDisplay();
+    "STREAM",
+    streamEvent => streamEvent.StreamStatus === "SENTCONNECT",
+    function (streamEvent) {
+      if (!knownCircuitIDs[streamEvent.CircuitID]) {
+        logger.eclog(4, "streamEvent.CircuitID: " + streamEvent.CircuitID);
+        knownCircuitIDs[streamEvent.CircuitID] = true;
+        getCircuitStatusByID(aController, streamEvent.CircuitID, function (circuitStatus) {
+          let domain = trimQuotes(circuitStatus.SOCKS_USERNAME);
+          if (domain) {
+            nodeDataForCircuit(aController, circuitStatus, function (nodeData) {
+              domainToNodeDataMap[domain] = nodeData;
+              updateCircuitDisplay();
+            });
+          } else {
+            updateCircuitDisplay();
+          }
         });
-      } else {
-        updateCircuitDisplay();
       }
     });
 };
@@ -181,7 +204,7 @@ let syncDisplayWithSelectedTab = function () {
 let display = function (host, port, password) {
   let myController = controller(host, port || 9151, password, function (x) { logger.eclog(5, x); });
   syncDisplayWithSelectedTab();
-  collectBuiltCircuitData(myController);
+  collectIsolationData(myController);
 };
 
 return display;
