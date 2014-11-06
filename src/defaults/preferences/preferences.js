@@ -4,6 +4,7 @@ pref("extensions.torbutton.loglevel",4);
 pref("extensions.torbutton.logmethod",1); // 0=stdout, 1=errorconsole, 2=debuglog
 
 // Display prefs
+pref("extensions.torbutton.display_circuit", true);
 pref("extensions.torbutton.display_panel",true);
 pref("extensions.torbutton.panel_style",'text');
 pref("extensions.torbutton@torproject.org.description", "chrome://torbutton/locale/torbutton.properties");

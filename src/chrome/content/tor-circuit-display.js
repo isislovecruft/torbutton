@@ -15,9 +15,12 @@
 /* global document, gBrowser, Components */
 
 // ### Main function
-// __runTorCircuitDisplay(host, port, password)__.
-// The single function we run to activate automatic display of the Tor circuit..
-let runTorCircuitDisplay = (function () {
+// __createTorCircuitDisplay(host, port, password, enablePrefName)__.
+// The single function that prepares tor circuit display. Connects to a tor
+// control port with the given host, port, and password, and binds to
+// a named bool pref whose value determines whether the circuit display
+// is enabled or disabled.
+let createTorCircuitDisplay = (function () {
 
 "use strict";
 
@@ -32,28 +35,12 @@ let { controller } = Cu.import("resource://torbutton/modules/tor-control-port.js
 let logger = Cc["@torproject.org/torbutton-logger;1"]
                .getService(Components.interfaces.nsISupports).wrappedJSObject;
 
-// __regionBundle__.
-// A list of localized region (country) names.
-let regionBundle = Services.strings.createBundle(
-                     "chrome://global/locale/regionNames.properties");
+// ## Circuit/stream domain and node monitoring
 
-// __localizedCountryNameFromCode(countryCode)__.
-// Convert a country code to a localized country name.
-// Example: `'de'` -> `'Deutschland'` in German locale.
-let localizedCountryNameFromCode = function (countryCode) {
-  if (typeof(countryCode) === "undefined") return "";
-  try {
-    return regionBundle.GetStringFromName(countryCode.toLowerCase());
-  } catch (e) {
-    return countryCode.toUpperCase();
-  }
-};
-
-// __domainToNodeDataMap__.
 // A mutable map that stores the current nodes for each domain.
-let domainToNodeDataMap = {};
-
-let knownCircuitIDs = {};
+let domainToNodeDataMap = {},
+    // A mutable map that records what circuits are already known.
+    knownCircuitIDs = {};
 
 // __trimQuotes(s)__.
 // Removes quotation marks around a quoted string.
@@ -84,6 +71,70 @@ let nodeDataForID = function (controller, ids, onResult) {
 let nodeDataForCircuit = function (controller, circuitEvent, onResult) {
   let ids = circuitEvent.circuit.map(circ => circ[0]);
   nodeDataForID(controller, ids, onResult);
+};
+
+// __getCircuitStatusByID(aController, circuitID, onCircuitStatus)__
+// Returns the circuit status for the circuit with the given ID
+// via onCircuitStatus(status).
+let getCircuitStatusByID = function(aController, circuitID, onCircuitStatus) {
+  aController.getInfo("circuit-status", function (circuitStatuses) {
+    for (let circuitStatus of circuitStatuses) {
+      if (circuitStatus.id === circuitID) {
+        onCircuitStatus(circuitStatus);
+      }
+    }
+  });
+};
+
+// __collectIsolationData(aController)__.
+// Watches for STREAM SENTCONNECT events. When a SENTCONNECT event occurs, then
+// we assume isolation settings (SOCKS username+password) are now fixed for the
+// corresponding circuit. Whenever the first stream on a new circuit is seen,
+// looks up u+p and records the node data in the domainToNodeDataMap.
+let collectIsolationData = function (aController) {
+  aController.watchEvent(
+    "STREAM",
+    streamEvent => streamEvent.StreamStatus === "SENTCONNECT",
+    function (streamEvent) {
+      if (!knownCircuitIDs[streamEvent.CircuitID]) {
+        logger.eclog(3, "streamEvent.CircuitID: " + streamEvent.CircuitID);
+        knownCircuitIDs[streamEvent.CircuitID] = true;
+        getCircuitStatusByID(aController, streamEvent.CircuitID, function (circuitStatus) {
+          let domain = trimQuotes(circuitStatus.SOCKS_USERNAME);
+          if (domain) {
+            nodeDataForCircuit(aController, circuitStatus, function (nodeData) {
+              domainToNodeDataMap[domain] = nodeData;
+            });
+          }
+        });
+      }
+    });
+};
+
+// ## User interface
+
+// __regionBundle__.
+// A list of localized region (country) names.
+let regionBundle = Services.strings.createBundle(
+                     "chrome://global/locale/regionNames.properties");
+
+// __localizedCountryNameFromCode(countryCode)__.
+// Convert a country code to a localized country name.
+// Example: `'de'` -> `'Deutschland'` in German locale.
+let localizedCountryNameFromCode = function (countryCode) {
+  if (typeof(countryCode) === "undefined") return "";
+  try {
+    return regionBundle.GetStringFromName(countryCode.toLowerCase());
+  } catch (e) {
+    return countryCode.toUpperCase();
+  }
+};
+
+// __showCircuitDisplay(show)__.
+// If show === true, makes the circuit display visible.
+let showCircuitDisplay = function (show) {
+  document.querySelector("svg#tor-circuit").style.display = show ?
+							    'block' : 'none';
 };
 
 // __nodeLines(nodeData)__.
@@ -121,7 +172,6 @@ let updateCircuitDisplay = function () {
 	document.querySelector("svg#tor-circuit text#domain").innerHTML = "(" + domain + "):";
 	// Update the displayed information for the relay nodes.
 	let diagramNodes = document.querySelectorAll("svg#tor-circuit text.node-text"),
-            //diagramCircles = document.querySelectorAll("svg#tor-circuit .node-circule"),
             lines = nodeLines(nodeData);
 	for (let i = 0; i < diagramNodes.length; ++i) {
           let line = lines[i];
@@ -130,85 +180,109 @@ let updateCircuitDisplay = function () {
       }
     }
     // Only show the Tor circuit if we have a domain and node data.
-    document.querySelector("svg#tor-circuit").style.display = (domain && nodeData) ?
-							      'block' : 'none';
+    showCircuitDisplay(domain && nodeData);
   }
 };
 
-// __getCircuitStatusByID(aController, circuitID, onCircuitStatus)__
-// Returns the circuit status for the circuit with the given ID
-// via onCircuitStatus(status).
-let getCircuitStatusByID = function(aController, circuitID, onCircuitStatus) {
-  aController.getInfo("circuit-status", function (circuitStatuses) {
-    for (let circuitStatus of circuitStatuses) {
-      if (circuitStatus.id === circuitID) {
-        onCircuitStatus(circuitStatus);
-      }
-    }
-  });
-};
-
-// __collectIsolationData(aController)__.
-// Watches for STREAM SENTCONNECT events. When a SENTCONNECT event occurs, then
-// the isolation settings (SOCKS username+password) become fixed for the
-// corresponding circuit. Whenever the first stream on a new circuit is seen,
-// looks up u+p and records the node data in the domainToNodeDataMap.
-let collectIsolationData = function (aController) {
-  aController.watchEvent(
-    "STREAM",
-    streamEvent => streamEvent.StreamStatus === "SENTCONNECT",
-    function (streamEvent) {
-      if (!knownCircuitIDs[streamEvent.CircuitID]) {
-        logger.eclog(4, "streamEvent.CircuitID: " + streamEvent.CircuitID);
-        knownCircuitIDs[streamEvent.CircuitID] = true;
-        getCircuitStatusByID(aController, streamEvent.CircuitID, function (circuitStatus) {
-          let domain = trimQuotes(circuitStatus.SOCKS_USERNAME);
-          if (domain) {
-            nodeDataForCircuit(aController, circuitStatus, function (nodeData) {
-              domainToNodeDataMap[domain] = nodeData;
-              updateCircuitDisplay();
-            });
-          } else {
-            updateCircuitDisplay();
-          }
-        });
-      }
-    });
-};
-
-// __syncDisplayWithSelectedTab()__.
+// __syncDisplayWithSelectedTab(syncOn)__.
 // We may have multiple tabs, but there is only one instance of TorButton's popup
 // panel for displaying the Tor circuit UI. Therefore we need to update the display
 // to show the currently selected tab at its current location.
-let syncDisplayWithSelectedTab = function () {
-  // Whenever a different tab is selected, change the circuit display
-  // to show the circuit for that tab's domain.
-  gBrowser.tabContainer.addEventListener("TabSelect", function (event) {
-    updateCircuitDisplay();
-  });
-  // If the currently selected tab has been sent to a new location,
-  // update the circuit to reflect that.
-  gBrowser.addTabsProgressListener({ onLocationChange : function (aBrowser) {
-    if (aBrowser == gBrowser.selectedBrowser) {
+let syncDisplayWithSelectedTab = (function() {
+  let listener1 = event => { updateCircuitDisplay(); },
+      listener2 = { onLocationChange : function (aBrowser) {
+                      if (aBrowser === gBrowser.selectedBrowser) {
+                        updateCircuitDisplay();
+                      }
+                    } };
+  return function (syncOn) {
+    if (syncOn) {
+      // Whenever a different tab is selected, change the circuit display
+      // to show the circuit for that tab's domain.
+      gBrowser.tabContainer.addEventListener("TabSelect", listener1);
+      // If the currently selected tab has been sent to a new location,
+      // update the circuit to reflect that.
+      gBrowser.addTabsProgressListener(listener2);
+      // Get started with a correct display.
       updateCircuitDisplay();
+    } else {
+      // Stop syncing.
+      gBrowser.tabContainer.removeEventListener("TabSelect", listener1);
+      gBrowser.removeTabsProgressListener(listener2);
+      // Hide the display.
+      showCircuitDisplay(false);
     }
-  } });
-
-  // Get started with a correct display.
-  updateCircuitDisplay();
-};
-
-// __display(host, port, password)__.
-// The main function for activating automatic display of the Tor circuit.
-// A reference to this function (called runTorCircuitDisplay) is exported as a global.
-let display = function (host, port, password) {
-  let myController = controller(host, port || 9151, password, function (x) { logger.eclog(5, x); });
-  syncDisplayWithSelectedTab();
-  collectIsolationData(myController);
-};
-
-return display;
-
-// Finish runTorCircuitDisplay()
+  };
 })();
 
+// ## Pref utils
+
+// __prefs__. A shortcut to Mozilla Services.prefs.
+let prefs = Services.prefs;
+
+// __getPrefValue(prefName)__
+// Returns the current value of a preference, regardless of its type.
+let getPrefValue = function (prefName) {
+  switch(prefs.getPrefType(prefName)) {
+    case prefs.PREF_BOOL: return prefs.getBoolPref(prefName);
+    case prefs.PREF_INT: return prefs.getIntPref(prefName);
+    case prefs.PREF_STRING: return prefs.getCharPref(prefName);
+    default: return null;
+  }
+};
+
+// __bindPrefAndInit(prefName, prefHandler)__
+// Applies prefHandler to the current value of pref specified by prefName.
+// Re-applies prefHandler whenever the value of the pref changes.
+// Returns a zero-arg function that unbinds the pref.
+let bindPrefAndInit = function (prefName, prefHandler) {
+  let update = () => { prefHandler(getPrefValue(prefName)); },
+      observer = { observe : function (subject, topic, data) {
+                     if (data === prefName) {
+                         update();
+                     }
+                   } };
+  prefs.addObserver(prefName, observer, false);
+  update();
+  return () => { prefs.removeObserver(prefName, observer); };
+};
+
+// ## Main function
+
+// setupDisplay(host, port, password, enablePrefName)__.
+// Returns a function that lets you start/stop automatic display of the Tor circuit.
+// A reference to this function (called createTorCircuitDisplay) is exported as a global.
+let setupDisplay = function (host, port, password, enablePrefName) {
+  let myController = null,
+      stop = function() {
+        if (myController) {
+          syncDisplayWithSelectedTab(false);
+          myController.close();
+          myController = null;
+        }
+      },
+      start = function () {
+        if (!myController) {
+          myController = controller(host, port || 9151, password, function (err) {
+            // An error has occurred.
+            logger.eclog(5, err);
+            logger.eclog(5, "Disabling tor display circuit because of an error.");
+            stop();
+          });
+          syncDisplayWithSelectedTab(true);
+          collectIsolationData(myController);
+       }
+     };
+  try {
+    let unbindPref = bindPrefAndInit(enablePrefName, on => { if (on) start(); else stop(); });
+    // When this chrome window is unloaded, we need to unbind the pref.
+    window.addEventListener("unload", unbindPref);
+  } catch (e) {
+    logger.eclog(5, "Error: " + e.message + "\n" + e.stack);
+  }
+};
+
+return setupDisplay;
+
+// Finish createTorCircuitDisplay()
+})();

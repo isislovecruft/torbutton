@@ -156,15 +156,16 @@ io.onLineFromOnMessage = function (onMessage) {
     // Add to the list of pending lines.
     pendingLines.push(line);
     // If line is the last in a message, then pass on the full multiline message.
-    if (line.match(/^\d\d\d /) && (pendingLines.length == 1 ||
-                                   pendingLines[0].startsWith(line.substring(0,3)))) {
+    if (line.match(/^\d\d\d /) &&
+        (pendingLines.length === 1 ||
+         pendingLines[0].substring(0,3) === line.substring(0,3))) {
       // Combine pending lines to form message.
       let message = pendingLines.join("\r\n");
+      log("controlPort >> " + message);
       // Wipe pendingLines before we call onMessage, in case onMessage throws an error.
       pendingLines = [];
       // Pass multiline message to onMessage.
       onMessage(message);
-      log("controlPort >> " + message);
     }
   };
 };
@@ -547,11 +548,17 @@ event.watchEvent = function (controlSocket, type, filter, onData) {
 // Things related to the main controller.
 let tor = tor || {};
 
+// __tor.controllerCache__.
+// A map from "host:port" to controller objects. Prevents redundant instantiation
+// of control sockets.
+tor.controllerCache = {};
+
 // __tor.controller(host, port, password, onError)__.
 // Creates a tor controller at the given host and port, with the given password.
 // onError returns asynchronously whenever a connection error occurs.
 tor.controller = function (host, port, password, onError) {
-  let socket = io.controlSocket(host, port, password, onError);
+  let socket = io.controlSocket(host, port, password, onError),
+      isOpen = true;
   return { getInfo : function (key, log) { info.getInfo(socket, key, log); } ,
            getInfoMultiple : function (keys, log) {
              info.getInfoMultiple(socket, keys, log);
@@ -559,13 +566,10 @@ tor.controller = function (host, port, password, onError) {
            watchEvent : function (type, filter, onData) {
              event.watchEvent(socket, type, filter, onData);
            },
-           close : socket.close };
+           isOpen : () => isOpen,
+           close : () => { isOpen = false; socket.close(); }
+         };
 };
-
-// __tor.controllerCache__.
-// A map from "host:port" to controller objects. Prevents redundant instantiation
-// of control sockets.
-tor.controllerCache = {};
 
 // ## Export
 
@@ -584,9 +588,12 @@ tor.controllerCache = {};
 //     // Close the controller permanently
 //     c.close();
 let controller = function (host, port, password, onError) {
-  let dest = host + ":" + port;
-  return (tor.controllerCache[dest] = tor.controllerCache[dest] ||
-          tor.controller(host, port, password, onError));
+  let dest = host + ":" + port,
+      maybeController = tor.controllerCache[dest];
+  return (tor.controllerCache[dest] =
+           (maybeController && maybeController.isOpen()) ?
+             maybeController :
+             tor.controller(host, port, password, onError));
 };
 
 // Export the controller function for external use.
