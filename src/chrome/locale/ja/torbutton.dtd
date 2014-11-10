@@ -44,7 +44,7 @@
 <!ENTITY torbutton.context_menu.openTorWindow.key "d">
 <!ENTITY torbutton.button.label "Torbutton">
 <!ENTITY torbutton.button.tooltip "Torbuttomを初期状態に戻す">
-<!ENTITY torbutton.prefs.sec_settings "セキュリティ設定">
+<!ENTITY torbutton.prefs.privacy_security_settings "プライバシーとセキュリティーの設定">
 <!ENTITY torbutton.prefs.block_thread "ブロック履歴がTor中に読みます (重要)">
 <!ENTITY torbutton.prefs.block_thwrite "ブロック履歴がTor中に書き込まれます (推奨)">
 <!ENTITY torbutton.prefs.block_nthread "非Tor中にブロック履歴を読みます (任意)">
@@ -144,7 +144,14 @@
 <!ENTITY torbutton.prefs.engine5 "duckduckgo.com">
 <!ENTITY torbutton.prefs.fix_google_srch "Google検索ボックスのクエリからプラットフォームと言語を外す">
 <!ENTITY torbutton.prefs.transparentTor "透過型Tor化 (カスタム透過型プロキシかTorのルーターが必要)">
+<!ENTITY torbutton.prefs.priv_caption "プライバシー設定">
 <!ENTITY torbutton.prefs.block_disk "ブラウジング履歴やウェブサイトのデータを記録しない (プライベートブラウジングモードを有効化)">
 <!ENTITY torbutton.prefs.restrict_thirdparty "サードパーティーのCookieやその他のトラッキングデータを制限">
 <!ENTITY torbutton.prefs.block_plugins "ブラウザのプラグイン(フラッシュなど)を無効化">
 <!ENTITY torbutton.prefs.resist_fingerprinting "あなたとほかのTorブラウザのユーザーを区別する詳細を変更">
+<!ENTITY torbutton.prefs.sec_caption "セキュリティレベル">
+<!ENTITY torbutton.prefs.sec_low "低い(デフォルト)">
+<!ENTITY torbutton.prefs.sec_med_low "中の低">
+<!ENTITY torbutton.prefs.sec_med_high "中の上">
+<!ENTITY torbutton.prefs.sec_high "高い">
+<!ENTITY torbutton.prefs.sec_custom "カスタム値">

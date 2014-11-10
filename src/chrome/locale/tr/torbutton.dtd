@@ -44,7 +44,7 @@
 <!ENTITY torbutton.context_menu.openTorWindow.key "d">
 <!ENTITY torbutton.button.label "Torbuton">
 <!ENTITY torbutton.button.tooltip "Başlat">
-<!ENTITY torbutton.prefs.sec_settings "Güvenlik Ayarları">
+<!ENTITY torbutton.prefs.privacy_security_settings "Gizlilik ve Güvenlik Ayarları">
 <!ENTITY torbutton.prefs.block_thread "Tor çalışırken geçmişi okumayı durdur(kritik)">
 <!ENTITY torbutton.prefs.block_thwrite "Tor çalışırken geçmişi oluşturmayı durdur(önerilen)">
 <!ENTITY torbutton.prefs.block_nthread "Tor çalışmıyorken geçmişi okumayı durdur (opsiyonel)">
@@ -144,7 +144,14 @@
 <!ENTITY torbutton.prefs.engine5 "duckduckgo.com">
 <!ENTITY torbutton.prefs.fix_google_srch "Kaldır platform ve Google Arama Kutusu gelen dil sorgular">
 <!ENTITY torbutton.prefs.transparentTor "Şeffaf Torifikasyon (özel transproxy veya Tor yönlendiricisi gerekir)">
+<!ENTITY torbutton.prefs.priv_caption "Gizlilik Ayarları">
 <!ENTITY torbutton.prefs.block_disk "Tarama geçmişini ve web sitesi bilgilerini kaydetme (Özel Tarama Kipi'ni etkinleştirir)">
 <!ENTITY torbutton.prefs.restrict_thirdparty "3. parti çerezleri ve diğer iz sürücü bilgileri engelle">
 <!ENTITY torbutton.prefs.block_plugins "Tarayıcı eklentilerini engelle (Flash benzeri)">
 <!ENTITY torbutton.prefs.resist_fingerprinting "Diğer Tor kullanıcılardan sizi ayıran detayları değiştir">
+<!ENTITY torbutton.prefs.sec_caption "Güvenlik Seviyesi">
+<!ENTITY torbutton.prefs.sec_low "Düşük (varsayılan)">
+<!ENTITY torbutton.prefs.sec_med_low "Orta-Düşük">
+<!ENTITY torbutton.prefs.sec_med_high "Orta-Yüksek">
+<!ENTITY torbutton.prefs.sec_high "Yüksek">
+<!ENTITY torbutton.prefs.sec_custom "Özel Değerler">

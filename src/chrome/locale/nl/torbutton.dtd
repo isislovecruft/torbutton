@@ -44,7 +44,7 @@
 <!ENTITY torbutton.context_menu.openTorWindow.key "d">
 <!ENTITY torbutton.button.label "Torbutton">
 <!ENTITY torbutton.button.tooltip "Klik hier om Torbutton te initialiseren">
-<!ENTITY torbutton.prefs.sec_settings "Beveiligingsinstellingen">
+<!ENTITY torbutton.prefs.privacy_security_settings "Privacy en Beveiligingsinstellingen">
 <!ENTITY torbutton.prefs.block_thread "Blokkeer het lezen van de geschiedenis met Tor (cruciaal)">
 <!ENTITY torbutton.prefs.block_thwrite "Blokkeer het schrijven van de geschiedenis met Tor (aangeraden)">
 <!ENTITY torbutton.prefs.block_nthread "Blokkeer het lezen van de geschiedenis zonder Tor (optioneel)">
@@ -144,7 +144,14 @@
 <!ENTITY torbutton.prefs.engine5 "duckduckgo.com">
 <!ENTITY torbutton.prefs.fix_google_srch "Systeem- en taalgegevens verwijderen bij gebruik van de Google zoekbalk">
 <!ENTITY torbutton.prefs.transparentTor "Transparante Torificatie (Heeft aangepaste transparente proxy of Tor router nodig)">
+<!ENTITY torbutton.prefs.priv_caption "Privacy configuratie">
 <!ENTITY torbutton.prefs.block_disk "Bewaar geen surfgeschiedenis of website-data (Schakelt private browsing modus in)">
 <!ENTITY torbutton.prefs.restrict_thirdparty "Beperk cookies en andere tracking-gegevens van derden">
 <!ENTITY torbutton.prefs.block_plugins "Schakel browser plugins uit (zoals Flash)">
 <!ENTITY torbutton.prefs.resist_fingerprinting "Verander details die je onderscheiden van andere Tor Browser gebruikers">
+<!ENTITY torbutton.prefs.sec_caption "Beveiligingsniveau">
+<!ENTITY torbutton.prefs.sec_low "Laag (standaard)">
+<!ENTITY torbutton.prefs.sec_med_low "Medium-Laag">
+<!ENTITY torbutton.prefs.sec_med_high "Medium-Hoog">
+<!ENTITY torbutton.prefs.sec_high "Hoog">
+<!ENTITY torbutton.prefs.sec_custom "Aangepaste waarden">

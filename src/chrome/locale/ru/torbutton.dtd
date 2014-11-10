@@ -44,7 +44,7 @@
 <!ENTITY torbutton.context_menu.openTorWindow.key "d">
 <!ENTITY torbutton.button.label "Torbutton">
 <!ENTITY torbutton.button.tooltip "Инициализировать Torbutton">
-<!ENTITY torbutton.prefs.sec_settings "Настройки безопасности">
+<!ENTITY torbutton.prefs.privacy_security_settings "Настройки Конфиденциальности и Безопасности">
 <!ENTITY torbutton.prefs.block_thread "Блокировать чтение из журнала в режиме Tor (важно)">
 <!ENTITY torbutton.prefs.block_thwrite "Блокировать запись в журнал в режиме Tor (желательно)">
 <!ENTITY torbutton.prefs.block_nthread "Блокировать чтение из журнала в режиме не-Tor (необяз.)">
@@ -144,7 +144,14 @@
 <!ENTITY torbutton.prefs.engine5 "duckduckgo.com">
 <!ENTITY torbutton.prefs.fix_google_srch "Удалять сведения о платформе и языке из запросов строки поиска Google">
 <!ENTITY torbutton.prefs.transparentTor "Прозрачная торификация (Требует пользовательских transproxy или Tor-маршрутизатора)">
+<!ENTITY torbutton.prefs.priv_caption "Настройки приватности">
 <!ENTITY torbutton.prefs.block_disk "Не сохранять журнал обозревателя и данные с посещаемых сайтов (активирует функцию приватного просмотра)">
 <!ENTITY torbutton.prefs.restrict_thirdparty "Блокировать сторонние куки и другие данные слежения">
 <!ENTITY torbutton.prefs.block_plugins "Отключить расширения браузера (такие как Flash)">
 <!ENTITY torbutton.prefs.resist_fingerprinting "Изменить сведения, отличающие вас от других пользователей Tor Browser">
+<!ENTITY torbutton.prefs.sec_caption "Уровень Безопасности">
+<!ENTITY torbutton.prefs.sec_low "Низкий (по умолчанию)">
+<!ENTITY torbutton.prefs.sec_med_low "Средне-Низкий">
+<!ENTITY torbutton.prefs.sec_med_high "Средне-Высокий">
+<!ENTITY torbutton.prefs.sec_high "Высокий">
+<!ENTITY torbutton.prefs.sec_custom "Собственные Значения">

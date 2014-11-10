@@ -44,7 +44,7 @@
 <!ENTITY torbutton.context_menu.openTorWindow.key "d">
 <!ENTITY torbutton.button.label "Torbutton">
 <!ENTITY torbutton.button.tooltip "Klicka för att installera Torbutton">
-<!ENTITY torbutton.prefs.sec_settings "Säkerhetsinställningar">
+<!ENTITY torbutton.prefs.privacy_security_settings "Privacy and Security Settings">
 <!ENTITY torbutton.prefs.block_thread "Blockera läsning av historik medan Tor är aktiverat (kritiskt)">
 <!ENTITY torbutton.prefs.block_thwrite "Blockera lagring av historik medan Tor är aktiverat (rekommenderat)">
 <!ENTITY torbutton.prefs.block_nthread "Blockera läsning av historik medan Tor är inaktiverat (valfritt)">
@@ -144,7 +144,14 @@
 <!ENTITY torbutton.prefs.engine5 "duckduckgo.com">
 <!ENTITY torbutton.prefs.fix_google_srch "Ta bort plattform och språk från Google Sök Box förfrågningar">
 <!ENTITY torbutton.prefs.transparentTor "Transparent torifikation (Kräver skräddarsydd transproxy eller Tor router)">
+<!ENTITY torbutton.prefs.priv_caption "Sekretessinställningar">
 <!ENTITY torbutton.prefs.block_disk "Spara ingen historik eller webbplatsdata (aktiverar privat surfning)">
 <!ENTITY torbutton.prefs.restrict_thirdparty "Begränsa tredjepartskakor och annan tracking data">
 <!ENTITY torbutton.prefs.block_plugins "Inaktivera insticksmoduler (så som Flash)">
 <!ENTITY torbutton.prefs.resist_fingerprinting "Ändra detailjer som utmärker dig ifrån andra Tor Browser användare">
+<!ENTITY torbutton.prefs.sec_caption "Security Level">
+<!ENTITY torbutton.prefs.sec_low "Low (default)">
+<!ENTITY torbutton.prefs.sec_med_low "Medium-Low">
+<!ENTITY torbutton.prefs.sec_med_high "Medium-High">
+<!ENTITY torbutton.prefs.sec_high "High">
+<!ENTITY torbutton.prefs.sec_custom "Custom Values">

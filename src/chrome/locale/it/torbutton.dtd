@@ -44,7 +44,7 @@
 <!ENTITY torbutton.context_menu.openTorWindow.key "d">
 <!ENTITY torbutton.button.label "Torbutton">
 <!ENTITY torbutton.button.tooltip "Fai clic per inizializzare Torbutton">
-<!ENTITY torbutton.prefs.sec_settings "Impostazioni di sicurezza">
+<!ENTITY torbutton.prefs.privacy_security_settings "Privacy and Security Settings">
 <!ENTITY torbutton.prefs.block_thread "Blocca la lettura della cronologia durante l'uso di Tor (essenziale)">
 <!ENTITY torbutton.prefs.block_thwrite "Blocca la scrittura della cronologia durante l'uso di Tor (consigliato)">
 <!ENTITY torbutton.prefs.block_nthread "Blocca la lettura della cronologia quando non si usa Tor (facoltativo)">
@@ -144,7 +144,14 @@
 <!ENTITY torbutton.prefs.engine5 "duckduckgo.com">
 <!ENTITY torbutton.prefs.fix_google_srch "Estrai sistema e idioma dalle interrogazioni di Google Search Box">
 <!ENTITY torbutton.prefs.transparentTor "Torificazione trasparente (richiede un transproxy personalizzato o un tor router)">
+<!ENTITY torbutton.prefs.priv_caption "Impostazioni Privacy">
 <!ENTITY torbutton.prefs.block_disk "Non registrare la cronologia di navigazione o i dati dei siti (attiva la Navigazione Anonima)">
 <!ENTITY torbutton.prefs.restrict_thirdparty "Limita i cookie di terze parti e altri dati di tracciamento">
 <!ENTITY torbutton.prefs.block_plugins "Disabilita i plugin del browser (come Flash)">
 <!ENTITY torbutton.prefs.resist_fingerprinting "Cambia i dettagli che ti distinguono dagli altri utenti di Tor Browser">
+<!ENTITY torbutton.prefs.sec_caption "Security Level">
+<!ENTITY torbutton.prefs.sec_low "Low (default)">
+<!ENTITY torbutton.prefs.sec_med_low "Medium-Low">
+<!ENTITY torbutton.prefs.sec_med_high "Medium-High">
+<!ENTITY torbutton.prefs.sec_high "High">
+<!ENTITY torbutton.prefs.sec_custom "Custom Values">

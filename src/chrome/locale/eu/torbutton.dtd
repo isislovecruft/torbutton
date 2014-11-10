@@ -44,7 +44,7 @@
 <!ENTITY torbutton.context_menu.openTorWindow.key "d">
 <!ENTITY torbutton.button.label "Torbutton">
 <!ENTITY torbutton.button.tooltip "Sakatu Torbutton abiarazteko">
-<!ENTITY torbutton.prefs.sec_settings "Segurtasun Ezarpenak">
+<!ENTITY torbutton.prefs.privacy_security_settings "Privacy and Security Settings">
 <!ENTITY torbutton.prefs.block_thread "Blokeatu historia irakurketak Tor bitartean (erabakigarria)">
 <!ENTITY torbutton.prefs.block_thwrite "Blokeatu historia idazketak Tor bitartean (gomendatua)">
 <!ENTITY torbutton.prefs.block_nthread "Blokeatu historia irakurketak Ez-Tor bitartean (hautazkoa)">
@@ -144,7 +144,14 @@
 <!ENTITY torbutton.prefs.engine5 "duckduckgo.com">
 <!ENTITY torbutton.prefs.fix_google_srch "Kendu plataforma eta hizkuntza Google Searh Box eskaeretatik">
 <!ENTITY torbutton.prefs.transparentTor "Torifikazio Gardena (transproxy pertsonalizatua edo Tor routerra behar du)">
+<!ENTITY torbutton.prefs.priv_caption "Pribatutasun ezarpenak">
 <!ENTITY torbutton.prefs.block_disk "Ez grabatu nabigatze historia edo webgune datuak (Nabigatze pribatu modua gaitzen du)">
 <!ENTITY torbutton.prefs.restrict_thirdparty "Hirugarrenen cookie-ak eta beste jarraipen datuak murriztu">
 <!ENTITY torbutton.prefs.block_plugins "Nabigatzaile pluginak ezgaitu (Flash bezala)">
 <!ENTITY torbutton.prefs.resist_fingerprinting "Zu beste Tor Browser erabiltzaileengandik nabarmentzen zaituzten xehetasunak aldatu">
+<!ENTITY torbutton.prefs.sec_caption "Security Level">
+<!ENTITY torbutton.prefs.sec_low "Low (default)">
+<!ENTITY torbutton.prefs.sec_med_low "Medium-Low">
+<!ENTITY torbutton.prefs.sec_med_high "Medium-High">
+<!ENTITY torbutton.prefs.sec_high "High">
+<!ENTITY torbutton.prefs.sec_custom "Custom Values">

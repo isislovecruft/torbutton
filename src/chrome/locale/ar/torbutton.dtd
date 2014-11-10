@@ -44,7 +44,7 @@
 <!ENTITY torbutton.context_menu.openTorWindow.key "d">
 <!ENTITY torbutton.button.label "زر تور">
 <!ENTITY torbutton.button.tooltip "انقر لبدء زر تور">
-<!ENTITY torbutton.prefs.sec_settings "إعدادات الأمان">
+<!ENTITY torbutton.prefs.privacy_security_settings "Privacy and Security Settings">
 <!ENTITY torbutton.prefs.block_thread "امنع قراءة تاريخ التصفح أثناء عمل تور (حَرِج)">
 <!ENTITY torbutton.prefs.block_thwrite "امنع كتابة تاريخ التصفح أثناء عمل تور (محبّذ)">
 <!ENTITY torbutton.prefs.block_nthread "امنع قراءة تاريخ التصفح أثناء توقف تور (اختياري)">
@@ -144,7 +144,14 @@
 <!ENTITY torbutton.prefs.engine5 "duckduckgo.com">
 <!ENTITY torbutton.prefs.fix_google_srch "أزل المنصة واللغة من استفسارات محرك بحث غوغل">
 <!ENTITY torbutton.prefs.transparentTor "شفافية توريفكيشن (تحتاج موجه تور أو ترانسبوكسي مخصص)">
+<!ENTITY torbutton.prefs.priv_caption "إعدادات الخصوصية">
 <!ENTITY torbutton.prefs.block_disk "لا تسجل سجل التصفح أو بيانات المواقع الألكترونية (تفعيل التصفح الخصوصي)">
 <!ENTITY torbutton.prefs.restrict_thirdparty "تقييد الـCookies الخاصة بالطرف الثالث و بيانات التتبع الأخري.">
 <!ENTITY torbutton.prefs.block_plugins "تعطيل إضافات المتصفح (مثل فلاش)">
 <!ENTITY torbutton.prefs.resist_fingerprinting "تغيير التفاصيل التي تميزك عن المستخدمين الآخرين لمتصفح تور">
+<!ENTITY torbutton.prefs.sec_caption "Security Level">
+<!ENTITY torbutton.prefs.sec_low "Low (default)">
+<!ENTITY torbutton.prefs.sec_med_low "Medium-Low">
+<!ENTITY torbutton.prefs.sec_med_high "Medium-High">
+<!ENTITY torbutton.prefs.sec_high "High">
+<!ENTITY torbutton.prefs.sec_custom "Custom Values">

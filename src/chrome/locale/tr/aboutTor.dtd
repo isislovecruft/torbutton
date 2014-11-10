@@ -8,14 +8,14 @@
 
 <!ENTITY aboutTor.outOfDateTorOn.label "AMA, bu tarayıcı güncel değil.">
 <!ENTITY aboutTor.outOfDateTorOff.label "AYRICA, bu tarayıcı güncel değil.">
-<!ENTITY aboutTor.outOfDate2.label "Soğana tıklayın ve Tor Tarayıcı Paketi Güncellemesini İndir seçin.">
+<!ENTITY aboutTor.outOfDate2.label "Soğana tıklayın ve Tor Tarayıcı Paketi Güncellemesini İndir'i seçin.">
 
-<!ENTITY aboutTor.check.label "Tor Ağ ayarlarını test edin">
+<!ENTITY aboutTor.check.label "Tor Ağ Ayarlarını Test Edin">
 
 <!ENTITY aboutTor.success.label "Tebrikler!">
 <!ENTITY aboutTor.success2.label "Bu tarayıcı Tor kullanımı için yapılandırılmıştır.">
 <!ENTITY aboutTor.success3.label "Artık İnternet'i anonim olarak kullanmakta özgürsünüz!">
-<!ENTITY aboutTor.failure.label "Üzgünüz, bir şeyler yanlış gitti!">
+<!ENTITY aboutTor.failure.label "Bir Şeyler Yanlış Gitti!">
 <!ENTITY aboutTor.failure2.label "Bu tarayıcıda Tor çalışmıyor.">
 <!ENTITY aboutTor.failure3prefix.label "Yardım için &#37;S ile bağlantıya geçin.">
 <!ENTITY aboutTor.failure3Link "help@rt.torproject.org">
@@ -28,19 +28,19 @@
 
 <!ENTITY aboutTor.torInfo1.label "Ek bilgi:">
 <!ENTITY aboutTor.torInfo2.label "Ülke ve IP Adresi:">
-<!ENTITY aboutTor.torInfo3.label "Çıkış düğümü:">
+<!ENTITY aboutTor.torInfo3.label "Çıkış Düğümü:">
 <!ENTITY aboutTor.torInfo4.label "Bu sunucu ziyaretçiler ile ilgili herhangi bir bilgi toplamaz.">
-<!ENTITY aboutTor.whatnextQuestion.label "Sırada ne var?">
+<!ENTITY aboutTor.whatnextQuestion.label "Sıradaki Ne?">
 <!ENTITY aboutTor.whatnextAnswer.label "Tor, anonim kalmanız için tüm ihtiyacınız olan şey değildir! Kimliğinizin güvende kalması için bazı İnternet alışkanlıklarınızı değiştirmeniz gerekebilir.">
 <!ENTITY aboutTor.whatnext.label "Anonim kalmak için püf noktalar »">
 <!ENTITY aboutTor.whatnext.link "https://www.torproject.org/download/download.html.en#warning">
-<!ENTITY aboutTor.helpInfo1.label "Yardım edebilirsiniz!">
+<!ENTITY aboutTor.helpInfo1.label "Yardım Edebilirsiniz!">
 <!ENTITY aboutTor.helpInfo2.label "Tor ağını daha hızlı ve daha güçlü yapmamız konusunda yardım edebilmeniz için bir çok yol var:">
 <!ENTITY aboutTor.helpInfo3.label "Bir Tor Ayna Düğümü Çalıştır »">
 <!ENTITY aboutTor.helpInfo3.link "https://www.torproject.org/docs/tor-doc-relay.html.en">
-<!ENTITY aboutTor.helpInfo4.label "Servislerinizi gönüllü yapın »">
+<!ENTITY aboutTor.helpInfo4.label "Servislerinizi Gönüllü Yapın »">
 <!ENTITY aboutTor.helpInfo4.link "https://www.torproject.org/getinvolved/volunteer.html.en">
-<!ENTITY aboutTor.helpInfo5.label "Bağış yapın »">
+<!ENTITY aboutTor.helpInfo5.label "Bağış Yapın »">
 <!ENTITY aboutTor.helpInfo5.link "https://www.torproject.org/donate/donate.html.en">
 
 <!ENTITY aboutTor.footer.label "Tor Projesi çevrimiçi gizlilik ve mahremiyet araştırma, geliştirme ve eğitime adanmış bir ABD 501(c)(3) kar amacı gütmeyen bir kuruluştur.">

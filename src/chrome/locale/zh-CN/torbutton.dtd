@@ -44,7 +44,7 @@
 <!ENTITY torbutton.context_menu.openTorWindow.key "d">
 <!ENTITY torbutton.button.label "Torbutton">
 <!ENTITY torbutton.button.tooltip "点此初始化 Torbutton">
-<!ENTITY torbutton.prefs.sec_settings "安全设置">
+<!ENTITY torbutton.prefs.privacy_security_settings "Privacy and Security Settings">
 <!ENTITY torbutton.prefs.block_thread "使用 Tor 时禁止读取历史记录（重要）">
 <!ENTITY torbutton.prefs.block_thwrite "使用 Tor 时禁止写入历史记录（推荐）">
 <!ENTITY torbutton.prefs.block_nthread "使用 Tor 之外的代理时禁止读取历史记录（可选）">
@@ -144,7 +144,14 @@
 <!ENTITY torbutton.prefs.engine5 "duckduckgo.com">
 <!ENTITY torbutton.prefs.fix_google_srch "在 Google 搜索栏搜索时分割平台和语言信息。">
 <!ENTITY torbutton.prefs.transparentTor "Tor 强化透明代理（需要自设 TransProxy 或 Tor 路由）">
+<!ENTITY torbutton.prefs.priv_caption "隐私设置">
 <!ENTITY torbutton.prefs.block_disk "禁止记录浏览历史或网站数据（启用隐私浏览模式）">
 <!ENTITY torbutton.prefs.restrict_thirdparty "限制第三方 cookie 和其他数据跟踪程序">
 <!ENTITY torbutton.prefs.block_plugins "禁用浏览器插件（比如 Flash）">
 <!ENTITY torbutton.prefs.resist_fingerprinting "请修改区别你与其他 Tor 浏览器用户的详细信息">
+<!ENTITY torbutton.prefs.sec_caption "Security Level">
+<!ENTITY torbutton.prefs.sec_low "Low (default)">
+<!ENTITY torbutton.prefs.sec_med_low "Medium-Low">
+<!ENTITY torbutton.prefs.sec_med_high "Medium-High">
+<!ENTITY torbutton.prefs.sec_high "High">
+<!ENTITY torbutton.prefs.sec_custom "Custom Values">
