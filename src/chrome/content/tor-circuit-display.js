@@ -27,6 +27,7 @@ let createTorCircuitDisplay = (function () {
 // Mozilla utilities
 const Cu = Components.utils;
 Cu.import("resource://gre/modules/Services.jsm");
+Cu.import("resource://gre/modules/Task.jsm");
 
 // Import the controller code.
 let { controller } = Cu.import("resource://torbutton/modules/tor-control-port.js");
@@ -39,51 +40,90 @@ let logger = Cc["@torproject.org/torbutton-logger;1"]
 
 // A mutable map that stores the current nodes for each domain.
 let domainToNodeDataMap = {},
-    // A mutable map that records what circuits are already known.
-    knownCircuitIDs = {};
+    // A mutable map that reports `true` for IDs of "mature" circuits
+    // (those that have conveyed a stream)..
+    knownCircuitIDs = {},
+    // A map from bridge fingerprint to its IP address.
+    bridgeIDtoIPmap = new Map();
 
 // __trimQuotes(s)__.
 // Removes quotation marks around a quoted string.
 let trimQuotes = s => s ? s.match(/^\"(.*)\"$/)[1] : undefined;
 
-// nodeDataForID(controller, id, onResult)__.
-// Requests the IP, country code, and name of a node with given ID.
-// Returns result via onResult.
-// Example: nodeData(["20BC91DC525C3DC9974B29FBEAB51230DE024C44"], show);
-let nodeDataForID = function (controller, ids, onResult) {
-  let idRequests = ids.map(id => "ns/id/" + id);
-  controller.getInfoMultiple(idRequests, function (statusMaps) {
-    let IPs = statusMaps.map(statusMap => statusMap.IP),
-        countryRequests = IPs.map(ip => "ip-to-country/" + ip);
-    controller.getInfoMultiple(countryRequests, function (countries) {
-      let results = [];
-      for (let i = 0; i < ids.length; ++i) {
-        results.push({ name : statusMaps[i].nickname, id : ids[i] ,
-                       ip : statusMaps[i].IP , country : countries[i] });
-      }
-      onResult(results);
-    });
-  });
-};
-
-// __nodeDataForCircuit(controller, circuitEvent, onResult)__.
-// Gets the information for a circuit.
-let nodeDataForCircuit = function (controller, circuitEvent, onResult) {
-  let ids = circuitEvent.circuit.map(circ => circ[0]);
-  nodeDataForID(controller, ids, onResult);
-};
-
-// __getCircuitStatusByID(aController, circuitID, onCircuitStatus)__
-// Returns the circuit status for the circuit with the given ID
-// via onCircuitStatus(status).
-let getCircuitStatusByID = function(aController, circuitID, onCircuitStatus) {
-  aController.getInfo("circuit-status", function (circuitStatuses) {
-    for (let circuitStatus of circuitStatuses) {
-      if (circuitStatus.id === circuitID) {
-        onCircuitStatus(circuitStatus);
-      }
+// __readBridgeIPs(controller)__.
+// Gets a map from bridge ID to bridge IP, and stores it
+// in `bridgeIDtoIPmap`.
+let readBridgeIPs = function (controller) {
+  Task.spawn(function* () {
+    let configText = yield controller.getInfo("config-text"),
+        bridgeEntries = configText.Bridge;
+    if (bridgeEntries) {
+      bridgeEntries.map(entry => {
+        let IPplusPort, ID,
+            tokens = entry.split(/\s+/);
+          // First check if we have a "vanilla" bridge:
+        if (tokens[0].match(/^\d+\.\d+\.\d+\.\d+/)) {
+          [IPplusPort, ID] = tokens;
+        // Several bridge types have a similar format:
+        } else if (["fte", "obfs3", "obfs4", "scramblesuit"]
+                     .indexOf(tokens[0]) >= 0) {
+          [IPplusPort, ID] = tokens.slice(1);
+        }
+        // (For now, we aren't dealing with meek bridges and flashproxy.)
+        if (IPplusPort && ID) {
+          let IP = IPplusPort.split(":")[0];
+          bridgeIDtoIPmap.set(ID.toUpperCase(), IP);
+        }
+      });
     }
-  });
+  }).then(null, Cu.reportError);
+};
+
+// nodeDataForID(controller, id)__.
+// Returns the type, IP and country code of a node with given ID.
+// Example: `nodeData(controller, "20BC91DC525C3DC9974B29FBEAB51230DE024C44")`
+// => `{ type : "default" , ip : "12.23.34.45" , countryCode : "fr" }`
+let nodeDataForID = function* (controller, id) {
+  let result = {}; // ip, type, countryCode;
+  if (bridgeIDtoIPmap.has(id.toUpperCase())) {
+    result.ip = bridgeIDtoIPmap.get(id.toUpperCase());
+    result.type = "bridge";
+  } else {
+    // Get the IP address for the given node ID.
+    try {
+      let statusMap = yield controller.getInfo("ns/id/" + id);
+      result.ip = statusMap.IP;
+    } catch (e) { }
+    result.type = "default";
+  }
+  if (result.ip) {
+    // Get the country code for the node's IP address.
+    try {
+      result.countryCode = yield controller.getInfo("ip-to-country/" + result.ip);
+    } catch (e) { }
+  }
+  return result;
+};
+
+// __nodeDataForCircuit(controller, circuitEvent)__.
+// Gets the information for a circuit.
+let nodeDataForCircuit = function* (controller, circuitEvent) {
+  let rawIDs = circuitEvent.circuit.map(circ => circ[0]),
+      // Remove the leading '$' if present.
+      ids = rawIDs.map(id => id[0] === "$" ? id.substring(1) : id);
+  // Get the node data for all IDs in circuit.
+  return [for (id of ids) yield nodeDataForID(controller, id)];
+};
+
+// __getCircuitStatusByID(aController, circuitID)__
+// Returns the circuit status for the circuit with the given ID.
+let getCircuitStatusByID = function* (aController, circuitID) {
+  let circuitStatuses = yield aController.getInfo("circuit-status");
+  for (let circuitStatus of circuitStatuses) {
+    if (circuitStatus.id === circuitID) {
+      return circuitStatus;
+    }
+  }
 };
 
 // __collectIsolationData(aController)__.
@@ -95,20 +135,18 @@ let collectIsolationData = function (aController) {
   aController.watchEvent(
     "STREAM",
     streamEvent => streamEvent.StreamStatus === "SENTCONNECT",
-    function (streamEvent) {
+    streamEvent => Task.spawn(function* () {
       if (!knownCircuitIDs[streamEvent.CircuitID]) {
         logger.eclog(3, "streamEvent.CircuitID: " + streamEvent.CircuitID);
         knownCircuitIDs[streamEvent.CircuitID] = true;
-        getCircuitStatusByID(aController, streamEvent.CircuitID, function (circuitStatus) {
-          let domain = trimQuotes(circuitStatus.SOCKS_USERNAME);
-          if (domain) {
-            nodeDataForCircuit(aController, circuitStatus, function (nodeData) {
-              domainToNodeDataMap[domain] = nodeData;
-            });
-          }
-        });
+        let circuitStatus = yield getCircuitStatusByID(aController, streamEvent.CircuitID),
+            domain = trimQuotes(circuitStatus.SOCKS_USERNAME);
+        if (domain) {
+          let nodeData = yield nodeDataForCircuit(aController, circuitStatus);
+          domainToNodeDataMap[domain] = nodeData;
+        }
       }
-    });
+    }).then(null, Cu.reportError));
 };
 
 // ## User interface
@@ -122,7 +160,7 @@ let regionBundle = Services.strings.createBundle(
 // Convert a country code to a localized country name.
 // Example: `'de'` -> `'Deutschland'` in German locale.
 let localizedCountryNameFromCode = function (countryCode) {
-  if (typeof(countryCode) === "undefined") return "";
+  if (typeof(countryCode) === "undefined") return undefined;
   try {
     return regionBundle.GetStringFromName(countryCode.toLowerCase());
   } catch (e) {
@@ -144,10 +182,13 @@ let showCircuitDisplay = function (show) {
 // `"France (12.34.56.78)"`.
 let nodeLines = function (nodeData) {
   let result = ["This browser"];
-  for (let {ip, country} of nodeData) {
-    result.push(localizedCountryNameFromCode(country) + " (" + ip + ")");
+  for (let {ip, countryCode, type} of nodeData) {
+    let bridge = type === "bridge";
+    result.push((countryCode ? localizedCountryNameFromCode(countryCode)
+                             : "Unknown country") +
+                " (" + (bridge ? "Bridge" : (ip || "IP unknown")) + ")");
   }
-  result[4] = ("Internet");
+  result[4] = "Internet";
   return result;
 };
 
@@ -207,7 +248,9 @@ let syncDisplayWithSelectedTab = (function() {
       updateCircuitDisplay();
     } else {
       // Stop syncing.
-      gBrowser.tabContainer.removeEventListener("TabSelect", listener1);
+      if (gBrowser.tabContainer) {
+        gBrowser.tabContainer.removeEventListener("TabSelect", listener1);
+      }
       gBrowser.removeTabsProgressListener(listener2);
       // Hide the display.
       showCircuitDisplay(false);
@@ -269,6 +312,7 @@ let setupDisplay = function (host, port, password, enablePrefName) {
             logger.eclog(5, "Disabling tor display circuit because of an error.");
             stop();
           });
+          readBridgeIPs(myController);
           syncDisplayWithSelectedTab(true);
           collectIsolationData(myController);
        }

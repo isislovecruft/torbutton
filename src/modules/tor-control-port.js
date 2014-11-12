@@ -23,10 +23,16 @@ let {classes: Cc, interfaces: Ci, results: Cr, Constructor: CC, utils: Cu } = Co
 // ### Import Mozilla Services
 Cu.import("resource://gre/modules/Services.jsm");
 
-// ## torbutton logger
-let logger = Cc["@torproject.org/torbutton-logger;1"]
-               .getService(Components.interfaces.nsISupports).wrappedJSObject,
-    log = x => logger.eclog(3, x);
+// __log__.
+// Logging function
+let log;
+if ((typeof console) !== "undefined") {
+  log = x => console.log(typeof(x) === "string" ? x : JSON.stringify(x));
+} else {
+  let logger = Cc["@torproject.org/torbutton-logger;1"]
+                 .getService(Components.interfaces.nsISupports).wrappedJSObject;
+  log = x => logger.eclog(3, x);
+}
 
 // ### announce this file
 log("Loading tor-control-port.js\n");
@@ -58,8 +64,8 @@ io.asyncSocketStreams = function (host, port) {
 // asynchronously pumps incoming data to the onInputData callback.
 io.pumpInputStream = function (inputStream, onInputData, onError) {
   // Wrap raw inputStream with a "ScriptableInputStream" so we can read incoming data.
-  let ScriptableInputStream = CC("@mozilla.org/scriptableinputstream;1",
-           "nsIScriptableInputStream", "init"),
+  let ScriptableInputStream = Components.Constructor(
+    "@mozilla.org/scriptableinputstream;1", "nsIScriptableInputStream", "init"),
       scriptableInputStream = new ScriptableInputStream(inputStream),
       // A private method to read all data available on the input stream.
       readAll = function() {
@@ -171,11 +177,12 @@ io.onLineFromOnMessage = function (onMessage) {
 };
 
 // __io.callbackDispatcher()__.
-// Returns [onString, dispatcher] where the latter is an object with two member functions:
-// dispatcher.addCallback(regex, callback), and dispatcher.removeCallback(callback).
-// Pass onString to another function that needs a callback with a single string argument.
-// Whenever dispatcher.onString receives a string, the dispatcher will check for any
-// regex matches and pass the string on to the corresponding callback(s).
+// Returns dispatcher object with three member functions:
+// dispatcher.addCallback(regex, callback), and dispatcher.removeCallback(callback),
+// and dispatcher.pushMessage(message).
+// Pass pushMessage to another function that needs a callback with a single string
+// argument. Whenever dispatcher.pushMessage receives a string, the dispatcher will
+// check for any regex matches and pass the string on to the corresponding callback(s).
 io.callbackDispatcher = function () {
   let callbackPairs = [],
       removeCallback = function (aCallback) {
@@ -189,34 +196,38 @@ io.callbackDispatcher = function () {
         }
         return function () { removeCallback(callback); };
       },
-      onString = function (message) {
+      pushMessage = function (message) {
         for (let [regex, callback] of callbackPairs) {
           if (message.match(regex)) {
             callback(message);
           }
         }
       };
-  return [onString, {addCallback : addCallback, removeCallback : removeCallback}];
+  return { pushMessage : pushMessage, removeCallback : removeCallback,
+           addCallback : addCallback };
 };
 
-// __io.matchRepliesToCommands(asyncSend)__.
-// Takes asyncSend(message), an asynchronous send function, and returns two functions
-// sendCommand(command, replyCallback) and onReply(response). If we call sendCommand,
-// then when onReply is called, the corresponding replyCallback will be called.
-io.matchRepliesToCommands = function (asyncSend) {
+// __io.matchRepliesToCommands(asyncSend, dispatcher)__.
+// Takes asyncSend(message), an asynchronous send function, and the callback
+// displatcher, and returns a function Promise<response> sendCommand(command).
+io.matchRepliesToCommands = function (asyncSend, dispatcher) {
   let commandQueue = [],
-      sendCommand = function (command, replyCallback) {
-        commandQueue.push([command, replyCallback]);
+      sendCommand = function (command, replyCallback, errorCallback) {
+        commandQueue.push([command, replyCallback, errorCallback]);
         asyncSend(command);
-      },
-      onReply = function (reply) {
-        let [command, replyCallback] = commandQueue.shift();
-        if (replyCallback) { replyCallback(reply); }
-      },
-      onFailure = function () {
-        commandQueue.shift();
       };
-  return [sendCommand, onReply, onFailure];
+  // Watch for responses (replies or error messages)
+  dispatcher.addCallback(/^[245]\d\d/, function (message) {
+    let [command, replyCallback, errorCallback] = commandQueue.shift();
+    if (message.match(/^2/) && replyCallback) replyCallback(message);
+    if (message.match(/^[45]/) && errorCallback) {
+      errorCallback(new Error(command + " -> " + message));
+    }
+  });
+  // Create and return a version of sendCommand that returns a Promise.
+  return command => new Promise(function (replyCallback, errorCallback) {
+    sendCommand(command, replyCallback, errorCallback);
+  });
 };
 
 // __io.controlSocket(host, port, password, onError)__.
@@ -228,7 +239,7 @@ io.matchRepliesToCommands = function (asyncSend) {
 //     let socket = controlSocket("127.0.0.1", 9151, "MyPassw0rd",
 //                    function (error) { console.log(error.message || error); });
 //     // Send command and receive "250" reply or error message
-//     socket.sendCommand(commandText, replyCallback);
+//     socket.sendCommand(commandText, replyCallback, errorCallback);
 //     // Register or deregister for "650" notifications
 //     // that match regex
 //     socket.addNotificationCallback(regex, callback);
@@ -237,26 +248,20 @@ io.matchRepliesToCommands = function (asyncSend) {
 //     socket.close();
 io.controlSocket = function (host, port, password, onError) {
   // Produce a callback dispatcher for Tor messages.
-  let [onMessage, mainDispatcher] = io.callbackDispatcher(),
+  let mainDispatcher = io.callbackDispatcher(),
       // Open the socket and convert format to Tor messages.
       socket = io.asyncSocket(host, port,
-                              io.onDataFromOnLine(io.onLineFromOnMessage(onMessage)),
+                              io.onDataFromOnLine(
+                                   io.onLineFromOnMessage(mainDispatcher.pushMessage)),
                               onError),
       // Tor expects any commands to be terminated by CRLF.
       writeLine = function (text) { socket.write(text + "\r\n"); },
-      // Ensure we return the correct reply for each sendCommand.
-      [sendCommand, onReply, onFailure] = io.matchRepliesToCommands(writeLine),
+      // Create a sendCommand method from writeLine.
+      sendCommand = io.matchRepliesToCommands(writeLine, mainDispatcher),
       // Create a secondary callback dispatcher for Tor notification messages.
-      [onNotification, notificationDispatcher] = io.callbackDispatcher();
-  // Pass successful reply back to sendCommand callback.
-  mainDispatcher.addCallback(/^2\d\d/, onReply);
-  // Pass error message to sendCommand callback.
-  mainDispatcher.addCallback(/^[45]\d\d/, function (message) {
-    onFailure();
-    onError(new Error(message));
-  });
+      notificationDispatcher = io.callbackDispatcher();
   // Pass asynchronous notifications to notification dispatcher.
-  mainDispatcher.addCallback(/^650/, onNotification);
+  mainDispatcher.addCallback(/^650/, notificationDispatcher.pushMessage);
   // Log in to control port.
   sendCommand("authenticate " + (password || ""));
   // Activate needed events.
@@ -310,6 +315,16 @@ utils.splitLines = function (string) { return string.split(/\r?\n/); };
 // inside pairs of quotation marks.
 utils.splitAtSpaces = utils.extractor(/((\S*?"(.*?)")+\S*|\S+)/g);
 
+// __utils.splitAtFirst(string, regex)__.
+// Splits a string at the first instance of regex match. If no match is
+// found, returns the whole string.
+utils.splitAtFirst = function (string, regex) {
+  let match = string.match(regex);
+  return match ? [ string.substring(0, match.index),
+                   string.substring(match.index + match[0].length) ]
+               : string;
+};
+
 // __utils.splitAtEquals(string)__.
 // Splits a string into chunks between equals. Does not split at equals
 // inside pairs of quotation marks.
@@ -321,7 +336,7 @@ utils.splitAtEquals = utils.extractor(/(([^=]*?"(.*?)")+[^=]*|[^=]+)/g);
 utils.mergeObjects = function (arrayOfObjects) {
   let result = {};
   for (let obj of arrayOfObjects) {
-    for (var key in obj) {
+    for (let key in obj) {
       result[key] = obj[key];
     }
   }
@@ -433,6 +448,20 @@ info.streamStatusParser = function (text) {
                                   "CircuitID", "Target"]);
 };
 
+// __info.configTextParser(text)__.
+// Parse the output of a `getinfo config-text`.
+info.configTextParser = function(text) {
+  let result = {};
+  utils.splitLines(text).map(function(line) {
+    let [name, value] = utils.splitAtFirst(line, /\s/);
+    if (name) {
+      if (!result.hasOwnProperty(name)) result[name] = [];
+      result[name].push(value);
+    }
+  });
+  return result;
+};
+
 // __info.parsers__.
 // A map of GETINFO keys to parsing function, which convert result strings to JavaScript
 // data.
@@ -440,7 +469,7 @@ info.parsers = {
   "version" : utils.identity,
   "config-file" : utils.identity,
   "config-defaults-file" : utils.identity,
-  "config-text" : utils.identity,
+  "config-text" : info.configTextParser,
   "ns/id/" : info.routerStatusParser,
   "ns/name/" : info.routerStatusParser,
   "ip-to-country/" : utils.identity,
@@ -471,10 +500,9 @@ info.stringToValue = function (string) {
   return info.getParser(key)(valueString);
 };
 
-// __info.getInfoMultiple(aControlSocket, keys, onData)__.
-// Sends GETINFO for an array of keys. Passes onData an array of their respective results,
-// in order.
-info.getInfoMultiple = function (aControlSocket, keys, onData) {
+// __info.getInfoMultiple(aControlSocket, keys)__.
+// Sends GETINFO for an array of keys. Returns a promise with an array of results.
+info.getInfoMultiple = function (aControlSocket, keys) {
   /*
   if (!(keys instanceof Array)) {
     throw new Error("keys argument should be an array");
@@ -490,14 +518,14 @@ info.getInfoMultiple = function (aControlSocket, keys, onData) {
     throw new Error("unsupported key");
   }
   */
-  aControlSocket.sendCommand("getinfo " + keys.join(" "), function (message) {
-    onData(info.keyValueStringsFromMessage(message).map(info.stringToValue));
-  });
+  return aControlSocket.sendCommand("getinfo " + keys.join(" "))
+                       .then(message => info.keyValueStringsFromMessage(message)
+                                            .map(info.stringToValue));
 };
 
-// __info.getInfo(controlSocket, key, onValue)__.
-// Sends GETINFO for a single key. Passes onValue the value for that key.
-info.getInfo = function (aControlSocket, key, onValue) {
+// __info.getInfo(controlSocket, key)__.
+// Sends GETINFO for a single key. Returns a promise with the result.
+info.getInfo = function (aControlSocket, key) {
   /*
   if (!utils.isString(key)) {
     throw new Error("key argument should be a string");
@@ -506,9 +534,7 @@ info.getInfo = function (aControlSocket, key, onValue) {
     throw new Error("onValue argument should be a function");
   }
   */
-  info.getInfoMultiple(aControlSocket, [key], function (data) {
-    onValue(data[0]);
-  });
+  return info.getInfoMultiple(aControlSocket, [key]).then(data => data[0]);
 };
 
 // ## event
@@ -559,10 +585,8 @@ tor.controllerCache = {};
 tor.controller = function (host, port, password, onError) {
   let socket = io.controlSocket(host, port, password, onError),
       isOpen = true;
-  return { getInfo : function (key, log) { info.getInfo(socket, key, log); } ,
-           getInfoMultiple : function (keys, log) {
-             info.getInfoMultiple(socket, keys, log);
-           },
+  return { getInfo : key => info.getInfo(socket, key),
+           getInfoMultiple : keys => info.getInfoMultiple(socket, keys),
            watchEvent : function (type, filter, onData) {
              event.watchEvent(socket, type, filter, onData);
            },
