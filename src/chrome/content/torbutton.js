@@ -2689,9 +2689,6 @@ function torbutton_do_main_window_startup()
 
     torbutton_unique_pref_observer.register();
 
-    // Bug 1506: This is probably the most important observer in this function
-    // XXX: We should fold this into our code/move it to its own component
-    SSC_startup();
 }
 
 // Bug 1506 P4: Most of this function is now useless, save
@@ -2956,9 +2953,6 @@ function torbutton_close_window(event) {
 
         progress.removeProgressListener(torbutton_weblistener);
         torbutton_unique_pref_observer.unregister();
-
-        // XXX: We should fold this into our code..
-        SSC_controller.removeListener();
 
         if(m_tb_is_main_window) { // main window not reset above
             // This happens on Mac OS because they allow firefox
