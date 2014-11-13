@@ -2120,7 +2120,11 @@ function torbutton_update_thirdparty_prefs() {
     var mode = m_tb_prefs.getBoolPref("extensions.torbutton.restrict_thirdparty");
 
     try {
-        m_tb_prefs.setBoolPref("privacy.thirdparty.isolate", mode);
+        if (mode) {
+            m_tb_prefs.setIntPref("privacy.thirdparty.isolate", 2);
+        } else {
+            m_tb_prefs.setIntPref("privacy.thirdparty.isolate", 0);
+        }
     } catch(e) {}
 
     if (mode) {
@@ -2130,7 +2134,6 @@ function torbutton_update_thirdparty_prefs() {
     }
 
     pref("security.enable_tls_session_tickets", !mode);
-    pref("network.http.spdy.enabled", !mode);
 
     // Force prefs to be synced to disk
     var prefService = Components.classes["@mozilla.org/preferences-service;1"]
