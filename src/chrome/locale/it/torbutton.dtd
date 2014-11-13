@@ -44,7 +44,7 @@
 <!ENTITY torbutton.context_menu.openTorWindow.key "d">
 <!ENTITY torbutton.button.label "Torbutton">
 <!ENTITY torbutton.button.tooltip "Fai clic per inizializzare Torbutton">
-<!ENTITY torbutton.prefs.privacy_security_settings "Privacy and Security Settings">
+<!ENTITY torbutton.prefs.privacy_security_settings "Impostazioni di Privacy e Sicurezza">
 <!ENTITY torbutton.prefs.block_thread "Blocca la lettura della cronologia durante l'uso di Tor (essenziale)">
 <!ENTITY torbutton.prefs.block_thwrite "Blocca la scrittura della cronologia durante l'uso di Tor (consigliato)">
 <!ENTITY torbutton.prefs.block_nthread "Blocca la lettura della cronologia quando non si usa Tor (facoltativo)">
@@ -149,9 +149,9 @@
 <!ENTITY torbutton.prefs.restrict_thirdparty "Limita i cookie di terze parti e altri dati di tracciamento">
 <!ENTITY torbutton.prefs.block_plugins "Disabilita i plugin del browser (come Flash)">
 <!ENTITY torbutton.prefs.resist_fingerprinting "Cambia i dettagli che ti distinguono dagli altri utenti di Tor Browser">
-<!ENTITY torbutton.prefs.sec_caption "Security Level">
-<!ENTITY torbutton.prefs.sec_low "Low (default)">
-<!ENTITY torbutton.prefs.sec_med_low "Medium-Low">
-<!ENTITY torbutton.prefs.sec_med_high "Medium-High">
-<!ENTITY torbutton.prefs.sec_high "High">
-<!ENTITY torbutton.prefs.sec_custom "Custom Values">
+<!ENTITY torbutton.prefs.sec_caption "Livello di Sicurezza">
+<!ENTITY torbutton.prefs.sec_low "Basso (default)">
+<!ENTITY torbutton.prefs.sec_med_low "Medio-Basso">
+<!ENTITY torbutton.prefs.sec_med_high "Medio-Alto">
+<!ENTITY torbutton.prefs.sec_high "Alto">
+<!ENTITY torbutton.prefs.sec_custom "Valori Customizzabili">
