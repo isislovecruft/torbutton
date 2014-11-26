@@ -1,3 +1,7 @@
+1.7.0.2
+ * Bug 13019: Synchronize locale spoofing pref with our Firefox patch
+ * Bug 13746: Properly link Torbutton UI to thirdparty pref.
+
 1.7.0.1
  * Bug 13378: Prevent addon reordering in toolbars on first-run.
 
