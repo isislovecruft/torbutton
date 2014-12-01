@@ -194,7 +194,7 @@ function torbutton_prefs_init(doc) {
     // non-responding. We need to handle |movetoclick| as well.
     sec_slider.setAttribute("movetoclick", !custom_values);
     sec_custom.checked = custom_values;
-    sec_custom.collapsed = !custom_values;
+    sec_custom.disabled = !custom_values;
 
     torbutton_prefs_set_field_attributes(doc);
 }
@@ -447,14 +447,18 @@ function torbutton_prefs_reset_defaults() {
     prefService.savePrefFile(null);
 }
 
-function torbutton_toggle_slider(doc) {
+function torbutton_toggle_slider(doc, pos) {
     let slider = doc.getElementById("torbutton_sec_slider");
-    if (doc.getElementById("torbutton_sec_custom").checked) {
-        slider.disabled = true;
-        slider.setAttribute("movetoclick", false);
+    // onclick is active even if the element it belongs to is disabled.
+    if (pos && !slider.disabled) {
+        slider.value = pos;
     } else {
-        slider.disabled = false;
-        slider.setAttribute("movetoclick", true);
+        if (doc.getElementById("torbutton_sec_custom").checked) {
+            slider.disabled = true;
+            slider.setAttribute("movetoclick", false);
+        } else {
+            slider.disabled = false;
+            slider.setAttribute("movetoclick", true);
+        }
     }
 }
-

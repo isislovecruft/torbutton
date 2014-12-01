@@ -97,7 +97,7 @@
                       <radiogroup align="center" orient="horizontal" id="torbutton_socksGroup">
                           <radio id="torbutton_socksv4"
                                 label="&torbutton.prefs.socks_vfour;"/>
-                          <radio id="torbutton_socksv5" 
+                          <radio id="torbutton_socksv5"
                                 label="&torbutton.prefs.socks_vfive;"/>
                       </radiogroup>
                     </row>
@@ -129,8 +129,7 @@
         oncommand="torbutton_prefs_set_field_attributes(document)"/>
 
         </radiogroup>
-       
-        
+
         <hbox>
          <spacer flex="1"/>
          <button id="torbutton_testSettings"
@@ -162,22 +161,26 @@
             </vbox>
             <vbox height="200">
               <hbox flex="1" align="center">
-                <description id="torbutton_sec_low">
+                <description id="torbutton_sec_low"
+                             onclick="torbutton_toggle_slider(document, 1);">
                   &torbutton.prefs.sec_low;
                 </description>
               </hbox>
               <hbox flex="1" align="center">
-                <description id="torbutton_sec_med_low">
+                <description id="torbutton_sec_med_low"
+                             onclick="torbutton_toggle_slider(document, 2);">
                   &torbutton.prefs.sec_med_low;
                 </description>
               </hbox>
               <hbox flex="1" align="center">
-                <description id="torbutton_sec_med_high">
+                <description id="torbutton_sec_med_high"
+                             onclick="torbutton_toggle_slider(document, 3);">
                   &torbutton.prefs.sec_med_high;
                 </description>
               </hbox>
               <hbox flex="1" align="center">
-                <description id="torbutton_sec_high">
+                <description id="torbutton_sec_high"
+                             onclick="torbutton_toggle_slider(document, 4);">
                   &torbutton.prefs.sec_high;
                 </description>
               </hbox>
@@ -185,7 +188,7 @@
           </hbox>
           <hbox>
             <checkbox id="torbutton_sec_custom" flex="1"
-                      oncommand="torbutton_toggle_slider(document);"
+                      oncommand="torbutton_toggle_slider(document, 0);"
                       label="&torbutton.prefs.sec_custom;"/>
           </hbox>
         </groupbox>

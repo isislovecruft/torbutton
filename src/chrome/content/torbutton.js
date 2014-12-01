@@ -552,8 +552,11 @@ function torbutton_init() {
 
     // initialize preferences before we start our prefs observer
     torbutton_init_prefs();
-    // set some important security prefs according to the chosen security level
-    torbutton_update_security_slider();
+    // Set some important security prefs according to the chosen security level
+    // if there are no custom settings to respect.
+    if (!m_tb_prefs.getBoolPref("extensions.torbutton.security_custom")) {
+      torbutton_update_security_slider();
+    }
 
     // set panel style from preferences
     torbutton_set_panel_style();
@@ -562,7 +565,7 @@ function torbutton_init() {
     torbutton_init_toolbutton();
 
     torbutton_log(1, 'registering pref observer');
-    torbutton_window_pref_observer.register(); 
+    torbutton_window_pref_observer.register();
 
     torbutton_log(1, "registering Tor check observer");
     torbutton_tor_check_observer.register();
