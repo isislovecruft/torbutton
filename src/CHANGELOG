@@ -1,3 +1,12 @@
+1.8.1.2
+ * Bug 13672: Make circuit display optional
+ * Bug 13671: Make bridges visible on circuit display
+ * Bug 9387: Incorporate user feedback
+ * Bug 13784: Remove third party authentication tokens
+
+1.8.1.1
+ * Bug 13751: Remove remaining SafeCache code.
+
 1.8.1.0
  * Bug 13746: Properly link Torbutton UI to thirdparty pref.
  * Bug 13742: Remove SafeCache code (in favor of C++ implementation)
