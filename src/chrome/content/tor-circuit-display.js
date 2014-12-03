@@ -81,10 +81,10 @@ let readBridgeIPs = function (controller) {
 
 // nodeDataForID(controller, id)__.
 // Returns the type, IP and country code of a node with given ID.
-// Example: `nodeData(controller, "20BC91DC525C3DC9974B29FBEAB51230DE024C44")`
-// => `{ type : "default" , ip : "12.23.34.45" , countryCode : "fr" }`
+// Example: `nodeDataForID(controller, "20BC91DC525C3DC9974B29FBEAB51230DE024C44")`
+// => `{ type : "default", ip : "12.23.34.45", countryCode : "fr" }`
 let nodeDataForID = function* (controller, id) {
-  let result = {}; // ip, type, countryCode;
+  let result = {}; // type, ip, countryCode;
   if (bridgeIDtoIPmap.has(id.toUpperCase())) {
     result.ip = bridgeIDtoIPmap.get(id.toUpperCase());
     result.type = "bridge";

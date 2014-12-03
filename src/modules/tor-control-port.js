@@ -178,7 +178,7 @@ io.onLineFromOnMessage = function (onMessage) {
 
 // __io.callbackDispatcher()__.
 // Returns dispatcher object with three member functions:
-// dispatcher.addCallback(regex, callback), and dispatcher.removeCallback(callback),
+// dispatcher.addCallback(regex, callback), dispatcher.removeCallback(callback),
 // and dispatcher.pushMessage(message).
 // Pass pushMessage to another function that needs a callback with a single string
 // argument. Whenever dispatcher.pushMessage receives a string, the dispatcher will
@@ -412,12 +412,12 @@ info.routerStatusParser = function (valueString) {
         dataFun = {
           "r" : data => utils.listMapData(data, ["nickname", "identity", "digest",
                                                  "publicationDate", "publicationTime",
-                                                 "IP", "ORPort", "DirPort"]) ,
-          "a" : data => ({ "IPv6" :  data }) ,
-          "s" : data => ({ "statusFlags" : utils.splitAtSpaces(data) }) ,
-          "v" : data => ({ "version" : data }) ,
-          "w" : data => utils.listMapData(data, []) ,
-          "p" : data => ({ "portList" : data.split(",") }) ,
+                                                 "IP", "ORPort", "DirPort"]),
+          "a" : data => ({ "IPv6" :  data }),
+          "s" : data => ({ "statusFlags" : utils.splitAtSpaces(data) }),
+          "v" : data => ({ "version" : data }),
+          "w" : data => utils.listMapData(data, []),
+          "p" : data => ({ "portList" : data.split(",") }),
           "m" : data => utils.listMapData(data, [])
         }[line.charAt(0)];
     if (dataFun !== undefined) {
