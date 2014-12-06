@@ -151,6 +151,17 @@ let collectIsolationData = function (aController) {
 
 // ## User interface
 
+// __torbuttonBundle__.
+// Bundle of localized strings for torbutton UI.
+let torbuttonBundle = Services.strings.createBundle(
+                        "chrome://torbutton/locale/torbutton.properties");
+
+// __uiString__.
+// Read the localized strings for this UI.
+let uiString = function (shortName) {
+  return torbuttonBundle.GetStringFromName("torbutton.circuit_display." + shortName);
+};
+
 // __regionBundle__.
 // A list of localized region (country) names.
 let regionBundle = Services.strings.createBundle(
@@ -181,14 +192,15 @@ let showCircuitDisplay = function (show) {
 // and converts each node data to text, as
 // `"France (12.34.56.78)"`.
 let nodeLines = function (nodeData) {
-  let result = ["This browser"];
+  let result = [uiString("this_browser")];
   for (let {ip, countryCode, type} of nodeData) {
     let bridge = type === "bridge";
     result.push((countryCode ? localizedCountryNameFromCode(countryCode)
-                             : "Unknown country") +
-                " (" + (bridge ? "Bridge" : (ip || "IP unknown")) + ")");
+                             : uiString("unknown_country")) +
+                " (" + (bridge ? uiString("tor_bridge")
+                               : (ip || uiString("ip_unknown"))) + ")");
   }
-  result[4] = "Internet";
+  result[4] = uiString("internet");
   return result;
 };
 

@@ -155,3 +155,4 @@
 <!ENTITY torbutton.prefs.sec_med_high "Medium-High">
 <!ENTITY torbutton.prefs.sec_high "High">
 <!ENTITY torbutton.prefs.sec_custom "Custom Values">
+<!ENTITY torbutton.circuit_display.title "Tor circuit for this site">
