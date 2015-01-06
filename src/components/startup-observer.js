@@ -38,6 +38,16 @@ function StartupObserver() {
             getService(Ci.nsIObserverService);
     observerService.addObserver(this, "quit-application-granted", false);
 
+    var env = Cc["@mozilla.org/process/environment;1"]
+                .getService(Ci.nsIEnvironment);
+    var prefName = "browser.startup.homepage";
+    if (env.exists("TOR_DEFAULT_HOMEPAGE")) {
+      // if the user has set this value in a previous installation, don't override it
+      if (!this._prefs.prefHasUserValue(prefName)) {
+        this._prefs.setCharPref(prefName, env.get("TOR_DEFAULT_HOMEPAGE"));
+      }
+    }
+
     try {
       var test = this._prefs.getCharPref("torbrowser.version");
       this.is_tbb = true;
