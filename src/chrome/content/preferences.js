@@ -286,6 +286,20 @@ function torbutton_prefs_save(doc) {
 
     // Privacy and Security Settings
     o_torprefs.setBoolPref('block_disk', doc.getElementById('torbutton_blockDisk').checked);
+    // If we have NoScript enabled we set `noscript.volatilePrivatePermissions`
+    // to `true` if we are blocking disk records and to `false` if we are
+    // enabling them.
+    try {
+      if ("@maone.net/noscript-service;1" in Components.classes) {
+        let o_noscriptprefs = torbutton_get_prefbranch('noscript.');
+        if (o_torprefs.getBoolPref('block_disk')) {
+          o_noscriptprefs.setBoolPref('volatilePrivatePermissions', true);
+        } else {
+          o_noscriptprefs.setBoolPref('volatilePrivatePermissions', false);
+        }
+      }
+    } catch (e) {}
+
     o_torprefs.setBoolPref('resist_fingerprinting', doc.getElementById('torbutton_resistFingerprinting').checked);
     o_torprefs.setBoolPref('no_tor_plugins', doc.getElementById('torbutton_blockPlugins').checked);
     o_torprefs.setBoolPref('restrict_thirdparty', doc.getElementById('torbutton_restrictThirdParty').checked);
