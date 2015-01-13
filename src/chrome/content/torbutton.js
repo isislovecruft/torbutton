@@ -124,8 +124,6 @@ var torbutton_unique_pref_observer =
         this._branch.addObserver("gfx", this, false);
         this._branch.addObserver("noscript", this, false);
         this._branch.addObserver("media", this, false);
-        this._branch.addObserver("capability.policy.maonoscript.sites", this,
-            false);
 
         // We observe xpcom-category-entry-added for plugins w/ Gecko-Content-Viewers
         var observerService = Cc["@mozilla.org/observer-service;1"].
@@ -144,7 +142,6 @@ var torbutton_unique_pref_observer =
         this._branch.removeObserver("gfx", this);
         this._branch.removeObserver("noscript", this);
         this._branch.removeObserver("media", this);
-        this._branch.removeObserver("capability.policy.maonoscript.sites", this);
 
         var observerService = Cc["@mozilla.org/observer-service;1"].
             getService(Ci.nsIObserverService);
@@ -246,7 +243,9 @@ var torbutton_unique_pref_observer =
             case "media.opus.enabled":
             case "media.wave.enabled":
             case "media.apple.mp3.enabled":
-            case "capability.policy.maonoscript.sites":
+                // XXX: This logic is bad.. Instead, we need a check here
+                // that only sets custom if the prefs differ from the current
+                // security slider level (and also can set it back if they are the same).
                 if (!m_tb_sliderUpdate) {
                   // Do we already have custom settings?
                   let customSlider = m_tb_prefs.
