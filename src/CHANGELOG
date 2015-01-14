@@ -1,3 +1,14 @@
+1.8.1.3
+ * Bug 13998: Handle changes in NoScript 2.6.9.8+
+ * Bug 14100: Option to hide NetworkSettings menuitem
+ * Bug 13079: Option to skip control port verification
+ * Bug 13835: Option to change default Tor Browser homepage
+ * Bug 11449: Fix new identity error if NoScript is not enabled
+ * Bug 13881: Localize strings for tor circuit display
+ * Bug 9387: Incorporate user feedback
+ * Bug 13671: Fixup for circuit display if bridges are used
+ * Translation updates
+
 1.8.1.2
  * Bug 13672: Make circuit display optional
  * Bug 13671: Make bridges visible on circuit display

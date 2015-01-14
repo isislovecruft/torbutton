@@ -1,7 +1,7 @@
 <!ENTITY torbutton.prefs.title "Torbutton設定">
 <!ENTITY torbutton.prefs.tor_settings "プロクシ設定">
 <!ENTITY torbutton.prefs.recommended_settings "Firefoxのプロクシ設定を使う">
-<!ENTITY torbutton.prefs.use_privoxy "プロクシを使う">
+<!ENTITY torbutton.prefs.use_privoxy "プロキシを使う">
 <!ENTITY torbutton.prefs.use_polipo "Polipoを使う">
 <!ENTITY torbutton.prefs.custom_settings "カスタム設定のプロキシを使う">
 <!ENTITY torbutton.prefs.proxy.host.http "HTTPプロキシ">

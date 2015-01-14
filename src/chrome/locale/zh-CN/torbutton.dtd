@@ -44,7 +44,7 @@
 <!ENTITY torbutton.context_menu.openTorWindow.key "d">
 <!ENTITY torbutton.button.label "Torbutton">
 <!ENTITY torbutton.button.tooltip "点此初始化 Torbutton">
-<!ENTITY torbutton.prefs.privacy_security_settings "Privacy and Security Settings">
+<!ENTITY torbutton.prefs.privacy_security_settings "隐私与安全设置">
 <!ENTITY torbutton.prefs.block_thread "使用 Tor 时禁止读取历史记录（重要）">
 <!ENTITY torbutton.prefs.block_thwrite "使用 Tor 时禁止写入历史记录（推荐）">
 <!ENTITY torbutton.prefs.block_nthread "使用 Tor 之外的代理时禁止读取历史记录（可选）">
@@ -149,9 +149,9 @@
 <!ENTITY torbutton.prefs.restrict_thirdparty "限制第三方 cookie 和其他数据跟踪程序">
 <!ENTITY torbutton.prefs.block_plugins "禁用浏览器插件（比如 Flash）">
 <!ENTITY torbutton.prefs.resist_fingerprinting "请修改区别你与其他 Tor 浏览器用户的详细信息">
-<!ENTITY torbutton.prefs.sec_caption "Security Level">
-<!ENTITY torbutton.prefs.sec_low "Low (default)">
-<!ENTITY torbutton.prefs.sec_med_low "Medium-Low">
-<!ENTITY torbutton.prefs.sec_med_high "Medium-High">
-<!ENTITY torbutton.prefs.sec_high "High">
-<!ENTITY torbutton.prefs.sec_custom "Custom Values">
+<!ENTITY torbutton.prefs.sec_caption "安全等级">
+<!ENTITY torbutton.prefs.sec_low "低（默认）">
+<!ENTITY torbutton.prefs.sec_med_low "中低">
+<!ENTITY torbutton.prefs.sec_med_high "中高">
+<!ENTITY torbutton.prefs.sec_high "高">
+<!ENTITY torbutton.prefs.sec_custom "自定义">
