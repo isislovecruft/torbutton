@@ -225,10 +225,6 @@ pref("extensions.torbutton.cookie_js_allow", true);
 pref("extensions.torbutton.prompt_torbrowser", true);
 pref("extensions.torbutton.confirm_plugins", true);
 
-// Browser home page, spell checker dictionary, and search engine overrides:
+// Browser home page, and spell checker dictionary:
 pref("browser.startup.homepage", "chrome://torbutton/locale/browser.properties");
 pref("spellchecker.dictionary", "chrome://torbutton/locale/browser.properties");
-pref("browser.search.defaultenginename", "chrome://torbutton/locale/browser.properties");
-pref("browser.search.order.1", "chrome://torbutton/locale/browser.properties");
-pref("browser.search.order.2", "chrome://torbutton/locale/browser.properties");
-pref("browser.search.order.3", "chrome://torbutton/locale/browser.properties");
