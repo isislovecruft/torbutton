@@ -234,6 +234,7 @@ var torbutton_unique_pref_observer =
             case "javascript.options.asmjs":
             case "noscript.forbidMedia":
             case "media.webaudio.enabled":
+            case "network.jar.block-remote-files":
             case "javascript.options.baselinejit.content":
             case "noscript.forbidFonts":
             case "gfx.font_rendering.graphite.enabled":
@@ -2160,6 +2161,7 @@ var torbutton_sec_ml_bool_prefs = {
   "javascript.options.asmjs" : false,
   "noscript.forbidMedia" : true,
   "media.webaudio.enabled" : false,
+  "network.jar.block-remote-files", true,
   // XXX: pref for disabling MathML is missing
 };
 
