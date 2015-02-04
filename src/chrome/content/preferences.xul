@@ -188,7 +188,6 @@
           </hbox>
           <hbox>
             <checkbox id="torbutton_sec_custom" flex="1"
-                      oncommand="torbutton_toggle_slider(document, 0);"
                       label="&torbutton.prefs.sec_custom;"/>
           </hbox>
         </groupbox>

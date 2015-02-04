@@ -189,12 +189,15 @@ function torbutton_prefs_init(doc) {
     let sec_custom = doc.getElementById('torbutton_sec_custom');
     let custom_values = o_torprefs.getBoolPref('security_custom');
     sec_slider.value = o_torprefs.getIntPref('security_slider');
-    sec_slider.disabled = custom_values;
-    // Setting |disabled| to |false| is not enough to have the element
-    // non-responding. We need to handle |movetoclick| as well.
-    sec_slider.setAttribute("movetoclick", !custom_values);
     sec_custom.checked = custom_values;
     sec_custom.disabled = !custom_values;
+    // If the custom checkbox is checked and the user is done with dragging
+    // uncheck the checkbox to allow setting the (newly) chosen security level.
+    sec_slider.dragStateChanged = function(isDragging) {
+        if (!isDragging && sec_custom.checked) {
+           sec_custom.checked = false;
+        }
+    }
 
     torbutton_prefs_set_field_attributes(doc);
 }
@@ -462,17 +465,11 @@ function torbutton_prefs_reset_defaults() {
 }
 
 function torbutton_toggle_slider(doc, pos) {
-    let slider = doc.getElementById("torbutton_sec_slider");
-    // onclick is active even if the element it belongs to is disabled.
-    if (pos && !slider.disabled) {
-        slider.value = pos;
-    } else {
-        if (doc.getElementById("torbutton_sec_custom").checked) {
-            slider.disabled = true;
-            slider.setAttribute("movetoclick", false);
-        } else {
-            slider.disabled = false;
-            slider.setAttribute("movetoclick", true);
-        }
+    doc.getElementById("torbutton_sec_slider").value = pos;
+    // Make sure the custom checkbox is unchecked as the user seems to want one
+    // of the defined security levels.
+    let sec_custom = doc.getElementById("torbutton_sec_custom");
+    if (sec_custom.checked) {
+        sec_custom.checked = false;
     }
 }
