@@ -219,9 +219,6 @@ pref("extensions.torbutton.buildID_override","0");
 pref("extensions.torbutton.useragent_vendor", "");
 pref("extensions.torbutton.useragent_vendorSub","");
 
-pref("extensions.torbutton.safecache",1); // 0=always, 1=during tor, 2=never
-pref("extensions.torbutton.dual_key_cookies",false);
-pref("extensions.torbutton.cookie_js_allow", true);
 pref("extensions.torbutton.prompt_torbrowser", true);
 pref("extensions.torbutton.confirm_plugins", true);
 
