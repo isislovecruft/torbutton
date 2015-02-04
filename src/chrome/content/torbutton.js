@@ -243,17 +243,29 @@ var torbutton_unique_pref_observer =
             case "media.opus.enabled":
             case "media.wave.enabled":
             case "media.apple.mp3.enabled":
-                // XXX: This logic is bad.. Instead, we need a check here
-                // that only sets custom if the prefs differ from the current
-                // security slider level (and also can set it back if they are the same).
+                // |m_tb_slider_update| is only set if the user updated a
+                // preference under control of the security slider via the
+                // slider on the Torbutton dialog. This in turn means we can
+                // skip the code dealing with setting/unsetting the custom mode
+                // in this case.
                 if (!m_tb_sliderUpdate) {
-                  // Do we already have custom settings?
-                  let customSlider = m_tb_prefs.
-                    getBoolPref("extensions.torbutton.security_custom");
-                  if (!customSlider) {
-                    m_tb_prefs.
-                      setBoolPref("extensions.torbutton.security_custom", true);
-                  }
+                    // Do we already have custom settings?
+                    let customSlider = m_tb_prefs.
+                        getBoolPref("extensions.torbutton.security_custom");
+                    // A preference governed by the security slider got changed
+                    // but we are not in custom mode yet. Change that.
+                    if (!customSlider) {
+                        m_tb_prefs.
+                            setBoolPref("extensions.torbutton.security_custom",
+                            true);
+                    } else {
+                        // We are in custom mode. Check whether all prefs are
+                        // reset and reset the mode if so. Otherwise we remain
+                        // in custom mode.
+                        torbutton_log(4, "custom mode and we got: " + data);
+                        torbutton_security_slider_custom_check(m_tb_prefs.
+                            getIntPref("extensions.torbutton.security_slider"));
+                    }
                 }
                 break;
         }
@@ -2272,7 +2284,7 @@ function torbutton_update_security_slider() {
         m_tb_prefs.setBoolPref(p, torbutton_sec_mh_bool_prefs[p])
         // noscript.globalHttpsWhitelist is special: We don't want it in this
         // mode.
-        if (p == "noscript.globalHttpsWhitelist") {
+        if (p === "noscript.globalHttpsWhitelist") {
           m_tb_prefs.setBoolPref(p, !torbutton_sec_mh_bool_prefs[p])
         }
       }
@@ -2291,6 +2303,155 @@ function torbutton_update_security_slider() {
       break;
   }
   m_tb_sliderUpdate = false;
+}
+
+// The user (re)set a pref which is relevant to the security slider while she
+// was in custom mode. Check whether the preference values fit to the mode which
+// is still on the slider. Iff so, we are leaving the custom mode.
+function torbutton_security_slider_custom_check(mode) {
+  let capValue = m_tb_prefs.getCharPref("capability.policy.maonoscript.sites");
+  switch (mode) {
+    case 1:
+      for (p in torbutton_sec_l_bool_prefs) {
+        if (m_tb_prefs.getBoolPref(p) !== torbutton_sec_l_bool_prefs[p]) {
+          return;
+        }
+      }
+      for (p in torbutton_sec_ml_bool_prefs) {
+        if (m_tb_prefs.getBoolPref(p) === torbutton_sec_ml_bool_prefs[p]) {
+          return;
+        }
+      }
+      for (p in torbutton_sec_mh_bool_prefs) {
+        if (m_tb_prefs.getBoolPref(p) === torbutton_sec_mh_bool_prefs[p]) {
+          return;
+        }
+      }
+      for (p in torbutton_sec_h_bool_prefs) {
+        if (m_tb_prefs.getBoolPref(p) === torbutton_sec_h_bool_prefs[p]) {
+          return;
+        }
+      }
+      if (m_tb_prefs.getCharPref("general.useragent.locale") !== "ko" ||
+          m_tb_prefs.getCharPref("general.useragent.locale") !== "vi" ||
+          m_tb_prefs.getCharPref("general.useragent.locale") !== "zh-CN") {
+
+        if (m_tb_prefs.getBoolPref("gfx.font_rendering.graphite.enabled")) {
+          return;
+        }
+      } else {
+        if (!m_tb_prefs.getBoolPref("gfx.font_rendering.graphite.enabled")) {
+          return;
+        }
+      }
+      // We are still here which means all preferences are properly reset. Leave
+      // custom mode.
+      m_tb_prefs.setBoolPref("extensions.torbutton.security_custom", false);
+      break;
+    case 2:
+      for (p in torbutton_sec_l_bool_prefs) {
+        if (m_tb_prefs.getBoolPref(p) !== torbutton_sec_l_bool_prefs[p]) {
+          return;
+        }
+      }
+      for (p in torbutton_sec_ml_bool_prefs) {
+        if (m_tb_prefs.getBoolPref(p) !== torbutton_sec_ml_bool_prefs[p]) {
+          return;
+        }
+      }
+      for (p in torbutton_sec_mh_bool_prefs) {
+        if (m_tb_prefs.getBoolPref(p) === torbutton_sec_mh_bool_prefs[p]) {
+          return;
+        }
+      }
+      for (p in torbutton_sec_h_bool_prefs) {
+        if (m_tb_prefs.getBoolPref(p) === torbutton_sec_h_bool_prefs[p]) {
+          return;
+        }
+      }
+      if (m_tb_prefs.getCharPref("general.useragent.locale") !== "ko" ||
+          m_tb_prefs.getCharPref("general.useragent.locale") !== "vi" ||
+          m_tb_prefs.getCharPref("general.useragent.locale") !== "zh-CN") {
+
+        if (m_tb_prefs.getBoolPref("gfx.font_rendering.graphite.enabled")) {
+          return;
+        }
+      } else {
+        if (!m_tb_prefs.getBoolPref("gfx.font_rendering.graphite.enabled")) {
+          return;
+        }
+      }
+      // We are still here which means all preferences are properly reset. Leave
+      // custom mode.
+      m_tb_prefs.setBoolPref("extensions.torbutton.security_custom", false);
+      break;
+    case 3:
+      for (p in torbutton_sec_l_bool_prefs) {
+        if (m_tb_prefs.getBoolPref(p) !== torbutton_sec_l_bool_prefs[p]) {
+          return;
+        }
+      }
+      for (p in torbutton_sec_ml_bool_prefs) {
+        if (m_tb_prefs.getBoolPref(p) !== torbutton_sec_ml_bool_prefs[p]) {
+          return;
+        }
+      }
+      for (p in torbutton_sec_mh_bool_prefs) {
+        if (m_tb_prefs.getBoolPref(p) !== torbutton_sec_mh_bool_prefs[p]) {
+          return;
+        }
+      }
+      for (p in torbutton_sec_h_bool_prefs) {
+        if (m_tb_prefs.getBoolPref(p) === torbutton_sec_h_bool_prefs[p]) {
+          // We have the whitelist and JavaScript is disabled in medium-high
+          // mode as well.
+          if (p === "noscript.global") {
+            continue;
+          }
+          return;
+        }
+      }
+      if (m_tb_prefs.getBoolPref("gfx.font_rendering.graphite.enabled")) {
+        return;
+      }
+      // We are still here which means all preferences are properly reset. Leave
+      // custom mode.
+      m_tb_prefs.setBoolPref("extensions.torbutton.security_custom", false);
+      break;
+    case 4:
+      for (p in torbutton_sec_l_bool_prefs) {
+        if (m_tb_prefs.getBoolPref(p) !== torbutton_sec_l_bool_prefs[p]) {
+          return;
+        }
+      }
+      for (p in torbutton_sec_ml_bool_prefs) {
+        if (m_tb_prefs.getBoolPref(p) !== torbutton_sec_ml_bool_prefs[p]) {
+          return;
+        }
+      }
+      for (p in torbutton_sec_mh_bool_prefs) {
+        if (m_tb_prefs.getBoolPref(p) !== torbutton_sec_mh_bool_prefs[p]) {
+          // We don't want to have the whitelist in high mode. JavaScript is
+          // disabled globally.
+          if (p === "noscript.globalHttpsWhitelist") {
+            continue;
+          }
+          return;
+        }
+      }
+      for (p in torbutton_sec_h_bool_prefs) {
+        if (m_tb_prefs.getBoolPref(p) !== torbutton_sec_h_bool_prefs[p]) {
+          return;
+        }
+      }
+      if (!m_tb_prefs.getBoolPref("gfx.font_rendering.graphite.enabled")) {
+        return;
+      }
+      // We are still here which means all preferences are properly reset. Leave
+      // custom mode.
+      m_tb_prefs.setBoolPref("extensions.torbutton.security_custom", false);
+      break;
+  }
 }
 
 // Bug 1506 P0: This code is a toggle-relic. 
