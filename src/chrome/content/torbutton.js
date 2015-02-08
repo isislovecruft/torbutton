@@ -636,6 +636,8 @@ function torbutton_init() {
     createTorCircuitDisplay(m_tb_control_host, m_tb_control_port, m_tb_control_pass,
                             "extensions.torbutton.display_circuit");
 
+    quantizeBrowserSizeOnLoad(window, 200, 100);
+
     torbutton_log(3, 'init completed');
 }
 

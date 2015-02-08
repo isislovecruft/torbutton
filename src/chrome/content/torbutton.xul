@@ -9,6 +9,7 @@
 
     <script type="application/x-javascript" src="chrome://torbutton/content/torbutton_util.js" />
     <script type="application/x-javascript" src="chrome://torbutton/content/tor-circuit-display.js" />
+    <script type="application/x-javascript" src="chrome://torbutton/content/content-sizer.js" />
     <script type="application/x-javascript" src="chrome://torbutton/content/torbutton.js" />
     <script language="JavaScript">
         //onLoad Hander
