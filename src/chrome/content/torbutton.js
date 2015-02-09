@@ -876,27 +876,15 @@ function torbutton_notify_if_update_needed() {
     // Update all open about:tor pages.
     torbutton_update_all_abouttor_pages(updateNeeded, undefined);
 
-    // Hide/show download menu item and preceding separator.
-    var item = document.getElementById("torbutton-downloadUpdate");
-    setOrClearAttribute(item, "hidden", !updateNeeded);
-    if (item)
-        setOrClearAttribute(item.previousSibling, "hidden", !updateNeeded);
+    // Make the "check for update" menu item bold if an update is needed.
+    var item = document.getElementById("torbutton-checkForUpdate");
+    setOrClearAttribute(item, "tbUpdateNeeded", updateNeeded);
 }
 
-function torbutton_download_update() {
-    var downloadURI = "https://www.torproject.org/download/download-easy.html";
-    var rtSvc = Components.classes["@mozilla.org/xre/app-info;1"]
-                          .getService(Components.interfaces.nsIXULRuntime);
-    downloadURI += "?os=" + rtSvc.OS + "&arch=" + rtSvc.XPCOMABI;
-    if (rtSvc.OS == "Darwin")
-      downloadURI += "#mac";
-    else if (rtSvc.OS == "WINNT")
-      downloadURI += "#win";
-    else if (rtSvc.OS == "Linux")
-      downloadURI += "#linux";
-
-    var newTab = gBrowser.addTab(downloadURI);
-    gBrowser.selectedTab = newTab;
+function torbutton_check_for_update() {
+    let prompter = Cc["@mozilla.org/updates/update-prompt;1"]
+                     .createInstance(Ci.nsIUpdatePrompt);
+    prompter.checkForUpdates();
 }
 
 // Pass undefined for a parameter to have this function determine it.
