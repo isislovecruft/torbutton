@@ -21,7 +21,8 @@
         <menuitem id="torbutton-cookie-protector"
                   label="&torbutton.context_menu.cookieProtections;"
                   accesskey="&torbutton.context_menu.cookieProtections.key;"
-                  insertafter="context-stop"                  
+                  insertafter="context-stop"
+                  hidden="true"
                   oncommand="torbutton_open_cookie_dialog()"/>
         <menuitem id="torbutton-preferences"
                   label="&torbutton.context_menu.preferences;"
