@@ -28,11 +28,6 @@
                   accesskey="&torbutton.context_menu.preferences.key;"
                   insertafter="context-stop"
                   oncommand="torbutton_open_prefs_dialog()"/>
-        <menuitem id="torbutton-about"
-                  label="&torbutton.context_menu.about;"
-                  accesskey="&torbutton.context_menu.about.key;"
-                  insertafter="context-stop"
-                  oncommand="window.open('chrome://torbutton/content/about.xul', '', 'chrome,centerscreen');"/>
         <menuitem id="torbutton-networksettings"
                   label="&torbutton.context_menu.networksettings;"
                   accesskey="&torbutton.context_menu.networksettings.key;"
