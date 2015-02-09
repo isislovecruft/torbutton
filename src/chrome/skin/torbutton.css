@@ -101,7 +101,7 @@ statusbarpanel#plugins-status[status="0"] {
     list-style-image: url("chrome://torbutton/skin/poff.png");
 }
 
-#torbutton-downloadUpdate {
+#torbutton-checkForUpdate[tbUpdateNeeded] {
     font-weight: bold;
 }
 

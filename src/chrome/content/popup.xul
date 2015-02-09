@@ -37,13 +37,12 @@
                   label="&torbutton.context_menu.networksettings;"
                   accesskey="&torbutton.context_menu.networksettings.key;"
                   oncommand="torbutton_open_network_settings()"/>
-        <menuseparator hidden="true"/>
-        <menuitem id="torbutton-downloadUpdate"
+        <menuseparator/>
+        <menuitem id="torbutton-checkForUpdate"
                   label="&torbutton.context_menu.downloadUpdate;"
                   accesskey="&torbutton.context_menu.downloadUpdate.key;"
                   insertafter="context-stop"
-                  oncommand="torbutton_download_update()"
-                  hidden="true"/>
+                  oncommand="torbutton_check_for_update()"/>
         </vbox>
         <vbox>
          <!-- The following SVG is used to display a Tor circuit diagram for the current tab.
