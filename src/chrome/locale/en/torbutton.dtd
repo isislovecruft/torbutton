@@ -26,11 +26,11 @@
 <!ENTITY torbutton.context_menu.new_identity_key "I">
 <!ENTITY torbutton.context_menu.toggle "Toggle Tor status">
 <!ENTITY torbutton.context_menu.toggle.key "T">
-<!ENTITY torbutton.context_menu.preferences "Preferences...">
+<!ENTITY torbutton.context_menu.preferences "Privacy and Security Settings…">
 <!ENTITY torbutton.context_menu.preferences.key "P">
 <!ENTITY torbutton.context_menu.about "About Torbutton...">
 <!ENTITY torbutton.context_menu.about.key "A">
-<!ENTITY torbutton.context_menu.networksettings "Open Network Settings…">
+<!ENTITY torbutton.context_menu.networksettings "Tor Network Settings…">
 <!ENTITY torbutton.context_menu.networksettings.key "S">
 <!ENTITY torbutton.context_menu.downloadUpdate "Check for Tor Browser Update…">
 <!ENTITY torbutton.context_menu.downloadUpdate.key "U">
