@@ -2042,6 +2042,7 @@ function torbutton_update_disk_prefs() {
 
     m_tb_prefs.setBoolPref("browser.privatebrowsing.autostart", mode);
     m_tb_prefs.setBoolPref("browser.cache.disk.enable", !mode);
+    m_tb_prefs.setBoolPref("places.history.enabled", !mode);
 
     m_tb_prefs.setBoolPref("security.nocertdb", mode);
 
