@@ -1558,7 +1558,33 @@ function torbutton_new_identity() {
     // Make sure that we can only click once on New Identiy to avoid race
     // conditions leading to failures (see bug 11783 for an example).
     document.getElementById("torbutton-new-identity").disabled = true;
-    torbutton_do_new_identity();
+
+    let shouldConfirm =  m_tb_prefs.getBoolPref("extensions.torbutton.confirm_newnym");
+
+    if (shouldConfirm) {
+      let prompts = Cc["@mozilla.org/embedcomp/prompt-service;1"]
+                      .getService(Ci.nsIPromptService);
+
+      // Display two buttons, both with string titles.
+      let flags = prompts.STD_YES_NO_BUTTONS;
+
+      let message = torbutton_get_property_string("torbutton.popup.confirm_newnym");
+      let askAgainText = torbutton_get_property_string("torbutton.popup.never_ask_again");
+      let askAgain = {value: false};
+
+      let confirmed = (prompts.confirmEx(null, "", message, flags, null, null, null,
+          askAgainText, askAgain) == 0);
+
+      m_tb_prefs.setBoolPref("extensions.torbutton.confirm_newnym", !askAgain.value);
+
+      if (confirmed) {
+        torbutton_do_new_identity();
+      } else {
+        document.getElementById("torbutton-new-identity").disabled = false;
+      }
+    } else {
+        torbutton_do_new_identity();
+    }
   } catch(e) {
     // If something went wrong make sure we have the New Identity button
     // enabled (again).

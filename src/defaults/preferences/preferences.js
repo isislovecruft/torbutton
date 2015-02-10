@@ -221,6 +221,7 @@ pref("extensions.torbutton.useragent_vendorSub","");
 
 pref("extensions.torbutton.prompt_torbrowser", true);
 pref("extensions.torbutton.confirm_plugins", true);
+pref("extensions.torbutton.confirm_newnym", true);
 
 // Browser home page, and spell checker dictionary:
 pref("browser.startup.homepage", "chrome://torbutton/locale/browser.properties");
