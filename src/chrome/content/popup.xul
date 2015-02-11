@@ -18,6 +18,11 @@
                   accesskey="&torbutton.context_menu.new_identity_key;"
                   insertafter="context-stop"
                   oncommand="torbutton_new_identity()"/>
+        <menuitem id="torbutton-new-circuit"
+                  label="&torbutton.context_menu.new_circuit;"
+                  accesskey="&torbutton.context_menu.new_circuit_key;"
+                  insertafter="context-stop"
+                  oncommand="torbutton_new_circuit()"/>
         <menuseparator/>
         <menuitem id="torbutton-cookie-protector"
                   label="&torbutton.context_menu.cookieProtections;"

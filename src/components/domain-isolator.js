@@ -108,8 +108,10 @@ const kMODULE_CID = Components.ID("e33fd6d4-270f-475f-a96f-ff3140279f68");
 // Import XPCOMUtils object.
 Cu.import("resource://gre/modules/XPCOMUtils.jsm");
 
-// DomainIsolator object. Constructor does nothing.
-function DomainIsolator() { }
+// DomainIsolator object.
+function DomainIsolator() {
+    this.wrappedJSObject = this;
+}
 // Firefox component requirements
 DomainIsolator.prototype = {
   QueryInterface: XPCOMUtils.generateQI([Ci.nsISupports, Ci.nsIObserver]),
@@ -121,7 +123,19 @@ DomainIsolator.prototype = {
       logger.eclog(3, "domain isolator: set up isolating circuits by domain");
       tor.isolateCircuitsByDomain();
     }
-  }
+  },
+  newCircuitForDomain: function (domain) {
+    // Check if we already have a nonce. If not, create
+    // one for this domain.
+    if (!tor.noncesForDomains.hasOwnProperty(domain)) {
+      tor.noncesForDomains[domain] = 0;
+    } else {
+      tor.noncesForDomains[domain] += 1;
+    }
+    logger.eclog(3, "New domain isolation count " +tor.noncesForDomains[domain] + " for " + domain);
+  },
+
+  wrappedJSObject: null
 };
 
 // Assign factory to global object.
