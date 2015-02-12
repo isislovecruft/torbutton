@@ -36,12 +36,13 @@ let { controller } = Cu.import("resource://torbutton/modules/tor-control-port.js
 let logger = Cc["@torproject.org/torbutton-logger;1"]
                .getService(Components.interfaces.nsISupports).wrappedJSObject;
 
-// ## Circuit/stream domain and node monitoring
+// ## Circuit/stream credentials and node monitoring
 
-// A mutable map that stores the current nodes for each domain.
-let domainToNodeDataMap = {},
+// A mutable map that stores the current nodes for each
+// SOCKS username/password pair.
+let credentialsToNodeDataMap = {},
     // A mutable map that reports `true` for IDs of "mature" circuits
-    // (those that have conveyed a stream)..
+    // (those that have conveyed a stream).
     knownCircuitIDs = {},
     // A map from bridge fingerprint to its IP address.
     bridgeIDtoIPmap = new Map();
@@ -130,7 +131,7 @@ let getCircuitStatusByID = function* (aController, circuitID) {
 // Watches for STREAM SENTCONNECT events. When a SENTCONNECT event occurs, then
 // we assume isolation settings (SOCKS username+password) are now fixed for the
 // corresponding circuit. Whenever the first stream on a new circuit is seen,
-// looks up u+p and records the node data in the domainToNodeDataMap.
+// looks up u+p and records the node data in the credentialsToNodeDataMap.
 let collectIsolationData = function (aController) {
   aController.watchEvent(
     "STREAM",
@@ -140,10 +141,11 @@ let collectIsolationData = function (aController) {
         logger.eclog(3, "streamEvent.CircuitID: " + streamEvent.CircuitID);
         knownCircuitIDs[streamEvent.CircuitID] = true;
         let circuitStatus = yield getCircuitStatusByID(aController, streamEvent.CircuitID),
-            domain = trimQuotes(circuitStatus.SOCKS_USERNAME);
-        if (domain) {
+            credentials = trimQuotes(circuitStatus.SOCKS_USERNAME) + ":" +
+                          trimQuotes(circuitStatus.SOCKS_PASSWORD);
+        if (credentials) {
           let nodeData = yield nodeDataForCircuit(aController, circuitStatus);
-          domainToNodeDataMap[domain] = nodeData;
+          credentialsToNodeDataMap[credentials] = nodeData;
         }
       }
     }).then(null, Cu.reportError));
@@ -204,24 +206,38 @@ let nodeLines = function (nodeData) {
   return result;
 };
 
+// __getSOCKSCredentials(browser)__.
+// Reads the SOCKS credentials for the corresponding browser object.
+let getSOCKSCredentialsForBrowser = function (browser) {
+  if (browser === null) return null;
+  let docShell = browser.docShell;
+  if (docShell === null) return null;
+  let channel = docShell.currentDocumentChannel;
+  if (channel === null) return null;
+  try {
+    channel.QueryInterface(Ci.nsIProxiedChannel);
+  } catch (e) {
+    return null;
+  }
+  let proxyInfo = channel.proxyInfo;
+  if (proxyInfo === null) return null;
+  return proxyInfo.username + ":" + proxyInfo.password;
+};
+
 // __updateCircuitDisplay()__.
 // Updates the Tor circuit display SVG, showing the current domain
 // and the relay nodes for that domain.
 let updateCircuitDisplay = function () {
   let selectedBrowser = gBrowser.selectedBrowser;
   if (selectedBrowser) {
-    let URI = selectedBrowser.currentURI,
-	domain = null,
-	nodeData = null;
-    // Try to get a domain for this URI. Otherwise it remains null.
-    try {
-      domain = URI.host;
-    } catch (e) { }
-    if (domain) {
-    // Check if we have anything to show for this domain.
-      nodeData = domainToNodeDataMap[domain];
+    let credentials = getSOCKSCredentialsForBrowser(selectedBrowser),
+        nodeData = null;
+    if (credentials) {
+    // Check if we have anything to show for these credentials.
+      nodeData = credentialsToNodeDataMap[credentials];
       if (nodeData) {
 	// Update the displayed domain.
+        let domain = credentials.split(":")[0];
 	document.querySelector("svg#tor-circuit text#domain").innerHTML = "(" + domain + "):";
 	// Update the displayed information for the relay nodes.
 	let diagramNodes = document.querySelectorAll("svg#tor-circuit text.node-text"),
@@ -232,8 +248,8 @@ let updateCircuitDisplay = function () {
 	}
       }
     }
-    // Only show the Tor circuit if we have a domain and node data.
-    showCircuitDisplay(domain && nodeData);
+    // Only show the Tor circuit if we have credentials and node data.
+    showCircuitDisplay(credentials && nodeData);
   }
 };
 
