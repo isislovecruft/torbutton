@@ -2161,7 +2161,7 @@ var torbutton_sec_ml_bool_prefs = {
   "javascript.options.asmjs" : false,
   "noscript.forbidMedia" : true,
   "media.webaudio.enabled" : false,
-  "network.jar.block-remote-files", true,
+  "network.jar.block-remote-files" : true,
   // XXX: pref for disabling MathML is missing
 };
 
