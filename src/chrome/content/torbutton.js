@@ -2062,6 +2062,8 @@ function torbutton_tor_check_ok()
 // toggles plugins: true for disabled, false for enabled
 function torbutton_toggle_plugins(disable_plugins) {
   if (m_tb_tbb) {
+    m_tb_prefs.setBoolPref("plugin.disable", disable_plugins);
+
     var PH=Cc["@mozilla.org/plugin/host;1"].getService(Ci.nsIPluginHost);
     var P=PH.getPluginTags({});
     for(var i=0; i<P.length; i++) {
