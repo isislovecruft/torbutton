@@ -8,6 +8,7 @@ resource torbutton ./
 # browser branding
 override chrome://branding/locale/brand.dtd chrome://torbutton/locale/brand.dtd
 override chrome://branding/locale/brand.properties chrome://torbutton/locale/brand.properties
+overlay chrome://browser/content/aboutDialog.xul chrome://torbutton/content/aboutDialog.xul
 
 locale torbutton af chrome/locale/af/
 locale torbutton ak chrome/locale/ak/
