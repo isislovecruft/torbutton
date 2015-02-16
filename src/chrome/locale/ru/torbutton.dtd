@@ -24,17 +24,19 @@
 <!ENTITY torbutton.pref_connection_more_info.text "Torbutton включен.  Если будут изменяться настройки прокси, не являющегося частью сети Tor, необходимо сначала отключить Torbutton и затем вернуться сюда.  Если будут изменяться настройки Tor, необходимо использовать окно настроек Torbutton.">
 <!ENTITY torbutton.context_menu.new_identity "Новая личность">
 <!ENTITY torbutton.context_menu.new_identity_key "Я">
+<!ENTITY torbutton.context_menu.new_circuit "New Tor Circuit for this Site">
+<!ENTITY torbutton.context_menu.new_circuit_key "C">
 <!ENTITY torbutton.context_menu.toggle "Изменить состояние Tor">
 <!ENTITY torbutton.context_menu.toggle.key "T">
-<!ENTITY torbutton.context_menu.preferences "Настройки...">
+<!ENTITY torbutton.context_menu.preferences "Privacy and Security Settings…">
 <!ENTITY torbutton.context_menu.preferences.key "Н">
 <!ENTITY torbutton.context_menu.about "О Torbutton...">
 <!ENTITY torbutton.context_menu.about.key "О">
-<!ENTITY torbutton.context_menu.networksettings "Открыть Сетевые настройки...">
+<!ENTITY torbutton.context_menu.networksettings "Tor Network Settings…">
 <!ENTITY torbutton.context_menu.networksettings.key "S">
-<!ENTITY torbutton.context_menu.downloadUpdate "Скачать обновления Tor Browser Bundle">
+<!ENTITY torbutton.context_menu.downloadUpdate "Check for Tor Browser Update…">
 <!ENTITY torbutton.context_menu.downloadUpdate.key "U">
-<!ENTITY torbutton.context_menu.cookieProtections "Защита Cookie">
+<!ENTITY torbutton.context_menu.cookieProtections "Cookie Protections…">
 <!ENTITY torbutton.context_menu.cookieProtections.key "C">
 <!ENTITY torbutton.context_menu.copyTor "Копировать URL Tor">
 <!ENTITY torbutton.context_menu.copyTor.key "p">
@@ -155,3 +157,4 @@
 <!ENTITY torbutton.prefs.sec_med_high "Средне-Высокий">
 <!ENTITY torbutton.prefs.sec_high "Высокий">
 <!ENTITY torbutton.prefs.sec_custom "Собственные Значения">
+<!ENTITY torbutton.circuit_display.title "Tor circuit for this site">

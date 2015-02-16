@@ -6,3 +6,9 @@
 <!ENTITY  brandFullName         "مرورگر تور">
 <!ENTITY  vendorShortName       "پروژهٔ تور">
 <!ENTITY  trademarkInfo.part1   "فایرفاکس و لوگو فایرفاکس نشان تجاری بنیاد موزیلا می باشند.">
+
+<!-- The following strings are for bug #10280's UI. We place them here for our translators -->
+<!ENTITY plugins.installed.find "Click to load installed system plugins">
+<!ENTITY plugins.installed.enable "Enable plugins">
+<!ENTITY plugins.installed.disable "Disable plugins">
+<!ENTITY plugins.installed.disable.tip "Click to prevent loading system plugins">

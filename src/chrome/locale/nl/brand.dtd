@@ -6,3 +6,9 @@
 <!ENTITY  brandFullName         "Tor Browser">
 <!ENTITY  vendorShortName       "Tor Project">
 <!ENTITY  trademarkInfo.part1   "Firefox and het Firefox logo zijn handelsmerken van de Mozilla Foundation.">
+
+<!-- The following strings are for bug #10280's UI. We place them here for our translators -->
+<!ENTITY plugins.installed.find "Klok om de geïnstalleerde systeem plugins te laden">
+<!ENTITY plugins.installed.enable "Zet de plugins aan">
+<!ENTITY plugins.installed.disable "Zet de plugins uit">
+<!ENTITY plugins.installed.disable.tip "Klik om het laden van systeem plugins te voorkomen">

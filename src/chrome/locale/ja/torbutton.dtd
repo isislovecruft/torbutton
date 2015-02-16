@@ -24,17 +24,19 @@
 <!ENTITY torbutton.pref_connection_more_info.text "Torbuttonは現在オンになっています。もし、非Torの設定を変更する場合は、まずTorbuttonをオフにしてください。Torの設定を変更する場合にはTorbutton設定ウィンドウを使ってください。">
 <!ENTITY torbutton.context_menu.new_identity "新しい識別">
 <!ENTITY torbutton.context_menu.new_identity_key "I">
+<!ENTITY torbutton.context_menu.new_circuit "New Tor Circuit for this Site">
+<!ENTITY torbutton.context_menu.new_circuit_key "C">
 <!ENTITY torbutton.context_menu.toggle "Torのステータスを変更">
 <!ENTITY torbutton.context_menu.toggle.key "T">
-<!ENTITY torbutton.context_menu.preferences "設定...">
+<!ENTITY torbutton.context_menu.preferences "Privacy and Security Settings…">
 <!ENTITY torbutton.context_menu.preferences.key "P">
 <!ENTITY torbutton.context_menu.about "Torbuttonについて...">
 <!ENTITY torbutton.context_menu.about.key "A">
-<!ENTITY torbutton.context_menu.networksettings "ネットワーク設定を開く...">
+<!ENTITY torbutton.context_menu.networksettings "Tor Network Settings…">
 <!ENTITY torbutton.context_menu.networksettings.key "S">
-<!ENTITY torbutton.context_menu.downloadUpdate "Tor Browser Bundleのアップデートをダウンロード">
+<!ENTITY torbutton.context_menu.downloadUpdate "Check for Tor Browser Update…">
 <!ENTITY torbutton.context_menu.downloadUpdate.key "U">
-<!ENTITY torbutton.context_menu.cookieProtections "Cookie保護">
+<!ENTITY torbutton.context_menu.cookieProtections "Cookie Protections…">
 <!ENTITY torbutton.context_menu.cookieProtections.key "C">
 <!ENTITY torbutton.context_menu.copyTor "TorのURLをコピー">
 <!ENTITY torbutton.context_menu.copyTor.key "p">
@@ -155,3 +157,4 @@
 <!ENTITY torbutton.prefs.sec_med_high "中の上">
 <!ENTITY torbutton.prefs.sec_high "高い">
 <!ENTITY torbutton.prefs.sec_custom "カスタム値">
+<!ENTITY torbutton.circuit_display.title "Tor circuit for this site">

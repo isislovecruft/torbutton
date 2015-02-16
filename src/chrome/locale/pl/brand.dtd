@@ -6,3 +6,9 @@
 <!ENTITY  brandFullName         "Przeglądarka Tor">
 <!ENTITY  vendorShortName       "Project Tor">
 <!ENTITY  trademarkInfo.part1   "Firefox i jego loga są znakami towarowymi Mozilla Foundation.">
+
+<!-- The following strings are for bug #10280's UI. We place them here for our translators -->
+<!ENTITY plugins.installed.find "Kliknij, aby załadować wszystkie zainstalowane wtyczki">
+<!ENTITY plugins.installed.enable "Włącz wtyczki">
+<!ENTITY plugins.installed.disable "Wyłącz wtyczki">
+<!ENTITY plugins.installed.disable.tip "Kliknij, aby zapobiec włączaniu wtyczek systemowych.">

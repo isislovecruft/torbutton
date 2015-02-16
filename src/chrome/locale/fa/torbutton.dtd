@@ -24,17 +24,19 @@
 <!ENTITY torbutton.pref_connection_more_info.text "دکمه تُرهم اکنون فعال شده است.اگر می‌خواهيد تنظيمات پراکسی غيرمرتبط با تُر را تغيير دهيد، لطفا دکمه تُر را غيرفعال کنيد و دوباره به اينجا بازگرديد. اگر ميخواهيد تنظيمات تُر را تغيير دهيد، از پنجره تنظيمات دکمه تُر استفاده کنيد.">
 <!ENTITY torbutton.context_menu.new_identity "هویت جدید">
 <!ENTITY torbutton.context_menu.new_identity_key "من">
+<!ENTITY torbutton.context_menu.new_circuit "New Tor Circuit for this Site">
+<!ENTITY torbutton.context_menu.new_circuit_key "C">
 <!ENTITY torbutton.context_menu.toggle "ضامن فعال/غيرفعال کردن تُر">
 <!ENTITY torbutton.context_menu.toggle.key "T">
-<!ENTITY torbutton.context_menu.preferences "تنظيمات...">
+<!ENTITY torbutton.context_menu.preferences "Privacy and Security Settings…">
 <!ENTITY torbutton.context_menu.preferences.key "P">
 <!ENTITY torbutton.context_menu.about "درباره ي دکمه تُر...">
 <!ENTITY torbutton.context_menu.about.key "A">
-<!ENTITY torbutton.context_menu.networksettings "باز کردن تنظیمات شبکه">
+<!ENTITY torbutton.context_menu.networksettings "Tor Network Settings…">
 <!ENTITY torbutton.context_menu.networksettings.key "S">
-<!ENTITY torbutton.context_menu.downloadUpdate "به‌روزرساندن مرورگر تُر">
+<!ENTITY torbutton.context_menu.downloadUpdate "Check for Tor Browser Update…">
 <!ENTITY torbutton.context_menu.downloadUpdate.key "U">
-<!ENTITY torbutton.context_menu.cookieProtections "حفاظت کلوچک‌ها">
+<!ENTITY torbutton.context_menu.cookieProtections "Cookie Protections…">
 <!ENTITY torbutton.context_menu.cookieProtections.key "C">
 <!ENTITY torbutton.context_menu.copyTor "کپی به نشانی اينترنتی">
 <!ENTITY torbutton.context_menu.copyTor.key "p">
@@ -155,3 +157,4 @@
 <!ENTITY torbutton.prefs.sec_med_high "متوسط ​​- بالا">
 <!ENTITY torbutton.prefs.sec_high "زیاد">
 <!ENTITY torbutton.prefs.sec_custom "تنظیم سفارشی">
+<!ENTITY torbutton.circuit_display.title "Tor circuit for this site">

@@ -1,5 +1,5 @@
 <!--
-   - Copyright (c) 2014, The Tor Project, Inc.
+   - Copyright (c) 2015, The Tor Project, Inc.
    - See LICENSE for licensing information.
    - vim: set sw=2 sts=2 ts=8 et syntax=xml:
   -->
@@ -8,7 +8,7 @@
 
 <!ENTITY aboutTor.outOfDateTorOn.label "但是该浏览器并非最新版本。">
 <!ENTITY aboutTor.outOfDateTorOff.label "另外，该浏览器并非最新版本。">
-<!ENTITY aboutTor.outOfDate2.label "请单击洋葱图标，然后选择“下载 Tor Browser Bundle”更新。">
+<!ENTITY aboutTor.outOfDate2.label "点击洋葱，然后选择 Tor Browser 检查更新。">
 
 <!ENTITY aboutTor.check.label "测试 Tor 网络设置">
 
@@ -25,6 +25,7 @@
 
 <!ENTITY aboutTor.searchSPPost.link "https://startpage.com/rth/search">
 <!ENTITY aboutTor.searchDDGPost.link "https://duckduckgo.com/html/">
+<!ENTITY aboutTor.searchDCPost.link "https://search.disconnect.me/searchTerms/search?ses=Google&amp;location_option=CN">
 
 <!ENTITY aboutTor.torInfo1.label "更多信息：">
 <!ENTITY aboutTor.torInfo2.label "国家与 IP 地址：">

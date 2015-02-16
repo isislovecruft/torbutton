@@ -1,5 +1,5 @@
 <!--
-   - Copyright (c) 2014, The Tor Project, Inc.
+   - Copyright (c) 2015, The Tor Project, Inc.
    - See LICENSE for licensing information.
    - vim: set sw=2 sts=2 ts=8 et syntax=xml:
   -->
@@ -8,7 +8,7 @@
 
 <!ENTITY aboutTor.outOfDateTorOn.label "CEPENDANT, ce navigateur n'est pas à jour.">
 <!ENTITY aboutTor.outOfDateTorOff.label "DE PLUS, ce navigateur n'est pas à jour.">
-<!ENTITY aboutTor.outOfDate2.label "Cliquez sur l'oignon, puis choisissez Télécharger les mises à jour du Tor Browser Bundle.">
+<!ENTITY aboutTor.outOfDate2.label "Cliquez sur l'oignon et choissisez ensuite Vérifier les mises à jour du Tor Browser">
 
 <!ENTITY aboutTor.check.label "Tester les paramètres du réseau Tor">
 
@@ -25,6 +25,7 @@
 
 <!ENTITY aboutTor.searchSPPost.link "https://startpage.com/rth/search">
 <!ENTITY aboutTor.searchDDGPost.link "https://duckduckgo.com/html/">
+<!ENTITY aboutTor.searchDCPost.link "https://search.disconnect.me/searchTerms/search?ses=Google&amp;location_option=US">
 
 <!ENTITY aboutTor.torInfo1.label "Informations supplémentaires :">
 <!ENTITY aboutTor.torInfo2.label "Pays &amp; adresse IP :">

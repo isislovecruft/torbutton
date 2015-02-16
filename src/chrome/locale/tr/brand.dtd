@@ -6,3 +6,9 @@
 <!ENTITY  brandFullName         "Tor Tarayıcı">
 <!ENTITY  vendorShortName       "Tor Projesi">
 <!ENTITY  trademarkInfo.part1   "Firefox ve Firefox logoları Mozilla Vakfı'nın ticari markalarıdır.">
+
+<!-- The following strings are for bug #10280's UI. We place them here for our translators -->
+<!ENTITY plugins.installed.find "Yüklü sistem eklentilerini yüklemek için tıklayın">
+<!ENTITY plugins.installed.enable "Eklentileri etkinleştir">
+<!ENTITY plugins.installed.disable "Eklentileri devre dışı bırak">
+<!ENTITY plugins.installed.disable.tip "Sistem eklentilerinin yüklenmesini önlemek için tıklayın">

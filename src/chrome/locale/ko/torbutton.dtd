@@ -24,17 +24,19 @@
 <!ENTITY torbutton.pref_connection_more_info.text "Torbutton이 현재 활성화되었습니다. 만약 Tor 프록시가 아닌 일반 프록시 서버 설정을 하시려면, Torbutton을 비활성화하고 이 창으로 돌아오십시오. 혹시 Tor 프록시 설정을 바꾸고 싶으시다면, Torbutton 설정 화면을 사용해 주세요.">
 <!ENTITY torbutton.context_menu.new_identity "새로운 신원">
 <!ENTITY torbutton.context_menu.new_identity_key "I">
+<!ENTITY torbutton.context_menu.new_circuit "New Tor Circuit for this Site">
+<!ENTITY torbutton.context_menu.new_circuit_key "C">
 <!ENTITY torbutton.context_menu.toggle "Tor 작동 상태">
 <!ENTITY torbutton.context_menu.toggle.key "T">
-<!ENTITY torbutton.context_menu.preferences "설정...">
+<!ENTITY torbutton.context_menu.preferences "Privacy and Security Settings…">
 <!ENTITY torbutton.context_menu.preferences.key "P">
 <!ENTITY torbutton.context_menu.about "Torbutton에 대하여...">
 <!ENTITY torbutton.context_menu.about.key "A">
-<!ENTITY torbutton.context_menu.networksettings "네트워크 설정 열기">
+<!ENTITY torbutton.context_menu.networksettings "Tor Network Settings…">
 <!ENTITY torbutton.context_menu.networksettings.key "S">
-<!ENTITY torbutton.context_menu.downloadUpdate "Tor browser bundle 업데이트 다운로드">
+<!ENTITY torbutton.context_menu.downloadUpdate "Check for Tor Browser Update…">
 <!ENTITY torbutton.context_menu.downloadUpdate.key "U">
-<!ENTITY torbutton.context_menu.cookieProtections "쿠키 보호">
+<!ENTITY torbutton.context_menu.cookieProtections "Cookie Protections…">
 <!ENTITY torbutton.context_menu.cookieProtections.key "C">
 <!ENTITY torbutton.context_menu.copyTor "Tor URL 복사">
 <!ENTITY torbutton.context_menu.copyTor.key "P">
@@ -155,3 +157,4 @@
 <!ENTITY torbutton.prefs.sec_med_high "중간 높음">
 <!ENTITY torbutton.prefs.sec_high "높음">
 <!ENTITY torbutton.prefs.sec_custom "맞춤 값">
+<!ENTITY torbutton.circuit_display.title "Tor circuit for this site">

@@ -24,17 +24,19 @@
 <!ENTITY torbutton.pref_connection_more_info.text "Torbutton är aktiverad. Om du vill ändra inställningar för proxy utan Tor, inaktivera Tor och kom tillbaka hit. Om du vill ändra inställningar för Tor, använd Torbutton-inställningarna.">
 <!ENTITY torbutton.context_menu.new_identity "Ny identitet">
 <!ENTITY torbutton.context_menu.new_identity_key "N">
+<!ENTITY torbutton.context_menu.new_circuit "New Tor Circuit for this Site">
+<!ENTITY torbutton.context_menu.new_circuit_key "S">
 <!ENTITY torbutton.context_menu.toggle "Slå på/av Tor">
 <!ENTITY torbutton.context_menu.toggle.key "T">
-<!ENTITY torbutton.context_menu.preferences "Inställningar...">
+<!ENTITY torbutton.context_menu.preferences "Privacy and Security Settings…">
 <!ENTITY torbutton.context_menu.preferences.key "I">
 <!ENTITY torbutton.context_menu.about "Om Torbutton...">
 <!ENTITY torbutton.context_menu.about.key "O">
-<!ENTITY torbutton.context_menu.networksettings "Öppna nätverksinställningar...">
+<!ENTITY torbutton.context_menu.networksettings "Tor Network Settings…">
 <!ENTITY torbutton.context_menu.networksettings.key "Ö">
-<!ENTITY torbutton.context_menu.downloadUpdate "Ladda ner uppdatering för Tor Browser Bundle...">
+<!ENTITY torbutton.context_menu.downloadUpdate "Check for Tor Browser Update…">
 <!ENTITY torbutton.context_menu.downloadUpdate.key "U">
-<!ENTITY torbutton.context_menu.cookieProtections "Skyddade kakor">
+<!ENTITY torbutton.context_menu.cookieProtections "Cookie Protections…">
 <!ENTITY torbutton.context_menu.cookieProtections.key "S">
 <!ENTITY torbutton.context_menu.copyTor "Kopiera Tor URL">
 <!ENTITY torbutton.context_menu.copyTor.key "p">
@@ -155,3 +157,4 @@
 <!ENTITY torbutton.prefs.sec_med_high "Medium-hög">
 <!ENTITY torbutton.prefs.sec_high "Hög">
 <!ENTITY torbutton.prefs.sec_custom "Anpassad nivå">
+<!ENTITY torbutton.circuit_display.title "Tor circuit for this site">

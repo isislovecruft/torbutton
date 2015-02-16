@@ -24,17 +24,19 @@
 <!ENTITY torbutton.pref_connection_more_info.text "Torbutton 当前已启用。如需对 Tor 之外的代理设置进行更改，请禁用 Torbutton 后再返回这里。如需更改 Tor 的设置，请在 Torbutton 首选项窗口中进行设置。">
 <!ENTITY torbutton.context_menu.new_identity "新标识">
 <!ENTITY torbutton.context_menu.new_identity_key "I">
+<!ENTITY torbutton.context_menu.new_circuit "对此网站使用新的 Tor 线路">
+<!ENTITY torbutton.context_menu.new_circuit_key "C">
 <!ENTITY torbutton.context_menu.toggle "切换 Tor 状态">
 <!ENTITY torbutton.context_menu.toggle.key "T">
-<!ENTITY torbutton.context_menu.preferences "首选项...">
+<!ENTITY torbutton.context_menu.preferences "隐私与安全设置…">
 <!ENTITY torbutton.context_menu.preferences.key "P">
 <!ENTITY torbutton.context_menu.about "关于 Torbutton...">
 <!ENTITY torbutton.context_menu.about.key "A">
-<!ENTITY torbutton.context_menu.networksettings "打开网络设置…">
+<!ENTITY torbutton.context_menu.networksettings "Tor 网络设置…">
 <!ENTITY torbutton.context_menu.networksettings.key "S">
-<!ENTITY torbutton.context_menu.downloadUpdate "下载 Tor Browser Bundle 更新...">
+<!ENTITY torbutton.context_menu.downloadUpdate "Tor Browser 检查更新…">
 <!ENTITY torbutton.context_menu.downloadUpdate.key "U">
-<!ENTITY torbutton.context_menu.cookieProtections "Cookie 保护">
+<!ENTITY torbutton.context_menu.cookieProtections "Cookie 保护…">
 <!ENTITY torbutton.context_menu.cookieProtections.key "C">
 <!ENTITY torbutton.context_menu.copyTor "复制 Tor 网址">
 <!ENTITY torbutton.context_menu.copyTor.key "p">
@@ -155,3 +157,4 @@
 <!ENTITY torbutton.prefs.sec_med_high "中高">
 <!ENTITY torbutton.prefs.sec_high "高">
 <!ENTITY torbutton.prefs.sec_custom "自定义">
+<!ENTITY torbutton.circuit_display.title "对此网站的 Tor 线路">

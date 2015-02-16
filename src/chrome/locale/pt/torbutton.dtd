@@ -24,17 +24,19 @@
 <!ENTITY torbutton.pref_connection_more_info.text "Torbutton está activo. Se deseja mudar as configurações de Proxy que não sejam do Tor, por favor desactive o Torbutton e volte aqui. Se deseja alterar as configurações do Tor, por favor, use a janela de preferências do Torbutton.">
 <!ENTITY torbutton.context_menu.new_identity "Identidade Nova">
 <!ENTITY torbutton.context_menu.new_identity_key "I">
+<!ENTITY torbutton.context_menu.new_circuit "New Tor Circuit for this Site">
+<!ENTITY torbutton.context_menu.new_circuit_key "C">
 <!ENTITY torbutton.context_menu.toggle "Alterar Status Tor">
 <!ENTITY torbutton.context_menu.toggle.key "T">
-<!ENTITY torbutton.context_menu.preferences "Preferências...">
+<!ENTITY torbutton.context_menu.preferences "Privacy and Security Settings…">
 <!ENTITY torbutton.context_menu.preferences.key "P">
 <!ENTITY torbutton.context_menu.about "Sobre o Torbutton...">
 <!ENTITY torbutton.context_menu.about.key "A">
-<!ENTITY torbutton.context_menu.networksettings "Open Network Settings…">
+<!ENTITY torbutton.context_menu.networksettings "Tor Network Settings…">
 <!ENTITY torbutton.context_menu.networksettings.key "S">
-<!ENTITY torbutton.context_menu.downloadUpdate "Download Tor Browser Bundle Update...">
+<!ENTITY torbutton.context_menu.downloadUpdate "Check for Tor Browser Update…">
 <!ENTITY torbutton.context_menu.downloadUpdate.key "A">
-<!ENTITY torbutton.context_menu.cookieProtections "Proteções de Cookies">
+<!ENTITY torbutton.context_menu.cookieProtections "Cookie Protections…">
 <!ENTITY torbutton.context_menu.cookieProtections.key "C">
 <!ENTITY torbutton.context_menu.copyTor "Copiar endereço do Tor">
 <!ENTITY torbutton.context_menu.copyTor.key "P">
@@ -155,3 +157,4 @@
 <!ENTITY torbutton.prefs.sec_med_high "Médio-Alto">
 <!ENTITY torbutton.prefs.sec_high "Alto">
 <!ENTITY torbutton.prefs.sec_custom "Valores definidos">
+<!ENTITY torbutton.circuit_display.title "Tor circuit for this site">

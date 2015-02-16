@@ -24,17 +24,19 @@
 <!ENTITY torbutton.pref_connection_more_info.text "Torbutton is momenteel ingeschakeld. Als u uw niet aan Tor gerelateerde proxy-instellingen wilt wijzigen dient u Torbutton uit te schakelen en dan hier terug te komen. Als u uw Tor instellingen wilt wijzigen, gebruik dan het Torbutton Voorkeuren-venster.">
 <!ENTITY torbutton.context_menu.new_identity "Nieuwe identiteit">
 <!ENTITY torbutton.context_menu.new_identity_key "I">
+<!ENTITY torbutton.context_menu.new_circuit "Nieuw tor circuit voor deze website">
+<!ENTITY torbutton.context_menu.new_circuit_key "C">
 <!ENTITY torbutton.context_menu.toggle "Tor status wisselen">
 <!ENTITY torbutton.context_menu.toggle.key "W">
-<!ENTITY torbutton.context_menu.preferences "Voorkeuren...">
+<!ENTITY torbutton.context_menu.preferences "Privacy en beveiliging instellingen...">
 <!ENTITY torbutton.context_menu.preferences.key "V">
 <!ENTITY torbutton.context_menu.about "Over Torbutton...">
 <!ENTITY torbutton.context_menu.about.key "O">
-<!ENTITY torbutton.context_menu.networksettings "Open netwerkinstellingen">
+<!ENTITY torbutton.context_menu.networksettings "Tor netwerk instellingen">
 <!ENTITY torbutton.context_menu.networksettings.key "S">
-<!ENTITY torbutton.context_menu.downloadUpdate "Download Tor Browser Bundle update...">
+<!ENTITY torbutton.context_menu.downloadUpdate "Controleer op updates voor de Tor Browser...">
 <!ENTITY torbutton.context_menu.downloadUpdate.key "U">
-<!ENTITY torbutton.context_menu.cookieProtections "Cookie Beveiligingen">
+<!ENTITY torbutton.context_menu.cookieProtections "Cookie beveiligingen...">
 <!ENTITY torbutton.context_menu.cookieProtections.key "C">
 <!ENTITY torbutton.context_menu.copyTor "Kopieer Tor URL">
 <!ENTITY torbutton.context_menu.copyTor.key "P">
@@ -155,3 +157,4 @@
 <!ENTITY torbutton.prefs.sec_med_high "Medium-Hoog">
 <!ENTITY torbutton.prefs.sec_high "Hoog">
 <!ENTITY torbutton.prefs.sec_custom "Aangepaste waarden">
+<!ENTITY torbutton.circuit_display.title "Tor circuit voor deze website">

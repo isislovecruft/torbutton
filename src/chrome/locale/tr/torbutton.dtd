@@ -24,17 +24,19 @@
 <!ENTITY torbutton.pref_connection_more_info.text "Torbutton şu anda devre dışı. Vekil sunucu ayarlarını değiştirmek istiyorsanız, Torbutton'ı tekrar devre dışı bırakın. Genel ayarları değiştirecekseniz, ayarlar penceresini kullanın.">
 <!ENTITY torbutton.context_menu.new_identity "Yeni Bağlantı">
 <!ENTITY torbutton.context_menu.new_identity_key "S">
+<!ENTITY torbutton.context_menu.new_circuit "Bu site için yeni Tor devresi">
+<!ENTITY torbutton.context_menu.new_circuit_key "C">
 <!ENTITY torbutton.context_menu.toggle "Durum">
 <!ENTITY torbutton.context_menu.toggle.key "T">
-<!ENTITY torbutton.context_menu.preferences "Ayarlar">
+<!ENTITY torbutton.context_menu.preferences "Gizlilik ve Güvenlik Ayarları...">
 <!ENTITY torbutton.context_menu.preferences.key "A">
 <!ENTITY torbutton.context_menu.about "Hakkında">
 <!ENTITY torbutton.context_menu.about.key "H">
-<!ENTITY torbutton.context_menu.networksettings "Ağ Ayarlarını Aç...">
+<!ENTITY torbutton.context_menu.networksettings "Tor Ağ Ayarları...">
 <!ENTITY torbutton.context_menu.networksettings.key "S">
-<!ENTITY torbutton.context_menu.downloadUpdate "Tor Tarayıcı Paketi Güncelleştirmesini İndirin.">
+<!ENTITY torbutton.context_menu.downloadUpdate "Tor Tarayıcı Güncellemesini Denetle...">
 <!ENTITY torbutton.context_menu.downloadUpdate.key "H">
-<!ENTITY torbutton.context_menu.cookieProtections "Çerez Korumaları">
+<!ENTITY torbutton.context_menu.cookieProtections "Çerez Korumaları...">
 <!ENTITY torbutton.context_menu.cookieProtections.key "C">
 <!ENTITY torbutton.context_menu.copyTor "Tor URL'sini kopyala">
 <!ENTITY torbutton.context_menu.copyTor.key "p">
@@ -155,3 +157,4 @@
 <!ENTITY torbutton.prefs.sec_med_high "Orta-Yüksek">
 <!ENTITY torbutton.prefs.sec_high "Yüksek">
 <!ENTITY torbutton.prefs.sec_custom "Özel Değerler">
+<!ENTITY torbutton.circuit_display.title "Bu site için Tor devresi">

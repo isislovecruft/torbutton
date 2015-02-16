@@ -6,3 +6,9 @@
 <!ENTITY  brandFullName         "Navegador Tor">
 <!ENTITY  vendorShortName       "Proyecto Tor">
 <!ENTITY  trademarkInfo.part1   "Firefox y los logotipos de Firefox son marcas registradas de la Mozilla Foundation.">
+
+<!-- The following strings are for bug #10280's UI. We place them here for our translators -->
+<!ENTITY plugins.installed.find "Haga clic para cargar los complementos de sistema instalados">
+<!ENTITY plugins.installed.enable "Habilitar complementos">
+<!ENTITY plugins.installed.disable "Deshabilitar complementos">
+<!ENTITY plugins.installed.disable.tip "Haga clic para prevenir que se carguen complementos de sistema">

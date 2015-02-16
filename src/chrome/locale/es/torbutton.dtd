@@ -24,17 +24,19 @@
 <!ENTITY torbutton.pref_connection_more_info.text "Torbutton está activo. Si desea cambiar la configuración para proxy de su navegación sin Tor, desactive Torbutton y regrese aquí. Si desea cambiar su configuración para Tor, use la ventana de preferencias de Torbutton.">
 <!ENTITY torbutton.context_menu.new_identity "Nueva identidad (nueva instancia y conexiones de Tor)">
 <!ENTITY torbutton.context_menu.new_identity_key "I">
+<!ENTITY torbutton.context_menu.new_circuit "Nuevo circuito Tor para este sitio">
+<!ENTITY torbutton.context_menu.new_circuit_key "C">
 <!ENTITY torbutton.context_menu.toggle "Cambiar estado de Tor">
 <!ENTITY torbutton.context_menu.toggle.key "T">
-<!ENTITY torbutton.context_menu.preferences "Preferencias...">
+<!ENTITY torbutton.context_menu.preferences "Configuración de privacidad y seguridad...">
 <!ENTITY torbutton.context_menu.preferences.key "P">
 <!ENTITY torbutton.context_menu.about "Acerca de Torbutton...">
 <!ENTITY torbutton.context_menu.about.key "A">
-<!ENTITY torbutton.context_menu.networksettings "Abrir configuración de red…">
+<!ENTITY torbutton.context_menu.networksettings "Configuración de red Tor...">
 <!ENTITY torbutton.context_menu.networksettings.key "G">
-<!ENTITY torbutton.context_menu.downloadUpdate "Descargar actualización del Paquete de Navegador Tor">
+<!ENTITY torbutton.context_menu.downloadUpdate "Comprobar actualización del Navegador Tor...">
 <!ENTITY torbutton.context_menu.downloadUpdate.key "a">
-<!ENTITY torbutton.context_menu.cookieProtections "Protecciones de cookie">
+<!ENTITY torbutton.context_menu.cookieProtections "Protecciones de cookie...">
 <!ENTITY torbutton.context_menu.cookieProtections.key "C">
 <!ENTITY torbutton.context_menu.copyTor "Copiar URL de Tor">
 <!ENTITY torbutton.context_menu.copyTor.key "U">
@@ -155,3 +157,4 @@
 <!ENTITY torbutton.prefs.sec_med_high "Medio-Alto">
 <!ENTITY torbutton.prefs.sec_high "Alto">
 <!ENTITY torbutton.prefs.sec_custom "Valores Personalizados">
+<!ENTITY torbutton.circuit_display.title "Circuito Tor para este sitio">
