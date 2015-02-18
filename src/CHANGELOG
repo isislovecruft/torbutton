@@ -1,3 +1,22 @@
+1.9.0.0
+ * Bug 13882: Fix display of bridges after bridge settings have been changed
+ * Bug 5698: Use "Tor Browser" branding in "About Tor Browser" dialog
+ * Bug 10280: Strings and pref for preventing plugin initialization.
+ * Bug 14866: Show correct circuit when more than one exists for a given domain
+ * Bug 9442: Add New Circuit button to Torbutton menu
+ * Bug 9906: Warn users before closing all windows and performing new identity.
+ * Bug 8400: Prompt for restart if disk records are enabled/disabled.
+ * Bug 14630: Hide Torbutton's proxy settings tab.
+ * Bug 14632: Disable Cookie Manager until we get it working.
+ * Bug 11175: Remove "About Torbutton" from onion menu.
+ * Bug 13900: Remove SafeCache code.
+ * Bug 14490: Use Disconnect search in about:tor search box
+ * Bug 14392: Don't steal input focus in about:tor search box
+ * Bug 11236: Don't set omnibox order in Torbutton (to prevent translation)
+ * Bug 13406: Stop directing users to download-easy.html.en on update
+ * Bug 9387: Handle "custom" mode better in Security Slider
+ * Bug 12430: Bind jar: pref to Security Slider
+
 1.8.1.3
  * Bug 13998: Handle changes in NoScript 2.6.9.8+
  * Bug 14100: Option to hide NetworkSettings menuitem
