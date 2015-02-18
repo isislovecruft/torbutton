@@ -372,22 +372,22 @@ utils.listMapData = function (parameterString, listNames) {
 };
 
 // ## info
-// A namespace for functions related to tor's GETINFO command.
+// A namespace for functions related to tor's GETINFO and GETCONF command.
 let info = info || {};
 
 // __info.keyValueStringsFromMessage(messageText)__.
-// Takes a message (text) response to GETINFO and provides a series of key-value
-// strings, which are either multiline (with a `250+` prefix):
+// Takes a message (text) response to GETINFO or GETCONF and provides
+// a series of key-value strings, which are either multiline (with a `250+` prefix):
 //
 //     250+config/defaults=
 //     AccountingMax "0 bytes"
 //     AllowDotExit "0"
 //     .
 //
-// or single-line (with a `250-` prefix):
+// or single-line (with a `250-` or `250 ` prefix):
 //
 //     250-version=0.2.6.0-alpha-dev (git-b408125288ad6943)
-info.keyValueStringsFromMessage = utils.extractor(/^(250\+[\s\S]+?^\.|250-.+?)$/gmi);
+info.keyValueStringsFromMessage = utils.extractor(/^(250\+[\s\S]+?^\.|250[-\ ].+?)$/gmi);
 
 // __info.applyPerLine(transformFunction)__.
 // Returns a function that splits text into lines,
@@ -462,9 +462,33 @@ info.configTextParser = function(text) {
   return result;
 };
 
+
+// __info.bridgeParser(bridgeLine)__.
+// Takes a single line from a `getconf bridge` result and returns
+// a map containing the bridge's type, address, and ID.
+info.bridgeParser = function(bridgeLine) {
+  let result = {},
+      tokens = bridgeLine.split(/\s+/);
+  // First check if we have a "vanilla" bridge:
+  if (tokens[0].match(/^\d+\.\d+\.\d+\.\d+/)) {
+    result.type = "vanilla";
+    [result.address, result.ID] = tokens;
+  // Several bridge types have a similar format:
+  } else {
+    result.type = tokens[0];
+    if (["fte", "obfs3", "obfs4", "scramblesuit"]
+               .indexOf(result.type) >= 0) {
+      [result.address, result.ID] = tokens.slice(1);
+    } else if (result.type === "meek") {
+      // do nothing for now
+    }
+  }
+  return result.type ? result : null;
+};
+
 // __info.parsers__.
-// A map of GETINFO keys to parsing function, which convert result strings to JavaScript
-// data.
+// A map of GETINFO and GETCONF keys to parsing function, which convert
+// result strings to JavaScript data.
 info.parsers = {
   "version" : utils.identity,
   "config-file" : utils.identity,
@@ -474,7 +498,8 @@ info.parsers = {
   "ns/name/" : info.routerStatusParser,
   "ip-to-country/" : utils.identity,
   "circuit-status" : info.applyPerLine(info.circuitStatusParser),
-  "stream-status" : info.applyPerLine(info.streamStatusParser)
+  "stream-status" : info.applyPerLine(info.streamStatusParser),
+  "bridge" : info.bridgeParser
 };
 
 // __info.getParser(key)__.
@@ -482,22 +507,37 @@ info.parsers = {
 // convert its corresponding valueString to JavaScript data.
 info.getParser = function(key) {
   return info.parsers[key] ||
-         info.parsers[key.substring(0, key.lastIndexOf("/") + 1)] ||
-         "unknown";
+         info.parsers[key.substring(0, key.lastIndexOf("/") + 1)];
 };
 
 // __info.stringToValue(string)__.
-// Converts a key-value string as from GETINFO to a value.
+// Converts a key-value string as from GETINFO or GETCONF to a value.
 info.stringToValue = function (string) {
   // key should look something like `250+circuit-status=` or `250-circuit-status=...`
-  let key = string.match(/^250[\+-](.+?)=/mi)[1],
-      // matchResult finds a single-line result for `250-` or a multi-line one for `250+`.
-      matchResult = string.match(/250\-.+?=(.*?)$/mi) ||
+  // or `250 circuit-status...`
+  let matchForKey = string.match(/^250[ +-](.+?)=/mi),
+      key = matchForKey ? matchForKey[1] : null;
+  if (key === null) return null;
+  // matchResult finds a single-line result for `250-` or a multi-line one for `250+`.
+  let matchResult = string.match(/250[ -].+?=(.*?)$/mi) ||
                     string.match(/250\+.+?=([\s\S]*?)^\.$/mi),
       // Retrieve the captured group (the text of the value in the key-value pair)
-      valueString = matchResult ? matchResult[1] : null;
-  // Return value where the latter has been parsed according to the key requested.
-  return info.getParser(key)(valueString);
+      valueString = matchResult ? matchResult[1] : null,
+      // Get the parser functino for the key found.
+      parse = info.getParser(key.toLowerCase());
+  if (parse === undefined) {
+    throw new Error("No parser found for '" + key + "'");
+  }
+  // Return value produced by the parser.
+  return parse(valueString);
+};
+
+// __info.getMultipleResponseValues(message)__.
+// Process multiple responses to a GETINFO or GETCONF request.
+info.getMultipleResponseValues = function (message) {
+  return info.keyValueStringsFromMessage(message)
+             .map(info.stringToValue)
+             .filter(utils.identity);
 };
 
 // __info.getInfoMultiple(aControlSocket, keys)__.
@@ -519,8 +559,7 @@ info.getInfoMultiple = function (aControlSocket, keys) {
   }
   */
   return aControlSocket.sendCommand("getinfo " + keys.join(" "))
-                       .then(message => info.keyValueStringsFromMessage(message)
-                                            .map(info.stringToValue));
+                       .then(info.getMultipleResponseValues);
 };
 
 // __info.getInfo(controlSocket, key)__.
@@ -535,6 +574,16 @@ info.getInfo = function (aControlSocket, key) {
   }
   */
   return info.getInfoMultiple(aControlSocket, [key]).then(data => data[0]);
+};
+
+// __info.getConf(aControlSocket, key)__.
+// Sends GETCONF for a single key. Returns a promise with the result.
+info.getConf = function (aControlSocket, key) {
+  // GETCONF with a single argument returns results that look like
+  // results from GETINFO with multiple arguments.
+  // So we can use the same kind of parsing for
+  return aControlSocket.sendCommand("getconf " + key)
+                       .then(info.getMultipleResponseValues);
 };
 
 // ## event
@@ -587,6 +636,7 @@ tor.controller = function (host, port, password, onError) {
       isOpen = true;
   return { getInfo : key => info.getInfo(socket, key),
            getInfoMultiple : keys => info.getInfoMultiple(socket, keys),
+           getConf : key => info.getConf(socket, key),
            watchEvent : function (type, filter, onData) {
              event.watchEvent(socket, type, filter, onData);
            },
