@@ -8,7 +8,7 @@
 <!ENTITY  trademarkInfo.part1   "Firefox och Firefox-logotypen är varumärken som tillhör Mozilla Foundation.">
 
 <!-- The following strings are for bug #10280's UI. We place them here for our translators -->
-<!ENTITY plugins.installed.find "Click to load installed system plugins">
-<!ENTITY plugins.installed.enable "Enable plugins">
-<!ENTITY plugins.installed.disable "Disable plugins">
-<!ENTITY plugins.installed.disable.tip "Click to prevent loading system plugins">
+<!ENTITY plugins.installed.find "Klicka här för att ladda installerade systemtillägg.">
+<!ENTITY plugins.installed.enable "Tillåt tillägg">
+<!ENTITY plugins.installed.disable "Stäng av tillägg.">
+<!ENTITY plugins.installed.disable.tip "Klicka för att förhindra laddningen av systemtillägg.">

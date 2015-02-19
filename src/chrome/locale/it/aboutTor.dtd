@@ -8,7 +8,7 @@
 
 <!ENTITY aboutTor.outOfDateTorOn.label "TUTTAVIA, questo browser non è aggiornato.">
 <!ENTITY aboutTor.outOfDateTorOff.label "INOLTRE, questo browser non è aggiornato.">
-<!ENTITY aboutTor.outOfDate2.label "Click on the onion and then choose Check for Tor Browser Update.">
+<!ENTITY aboutTor.outOfDate2.label "Clicca sulla cipolla e scegli &quot;Scarica Aggiornamento Tor Browser Bundle&quot;.">
 
 <!ENTITY aboutTor.check.label "Test Impostazioni della Rete Tor">
 

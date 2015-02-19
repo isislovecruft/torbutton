@@ -11,4 +11,4 @@
 <!ENTITY plugins.installed.find "Haga clic para cargar los complementos de sistema instalados">
 <!ENTITY plugins.installed.enable "Habilitar complementos">
 <!ENTITY plugins.installed.disable "Deshabilitar complementos">
-<!ENTITY plugins.installed.disable.tip "Haga clic para prevenir que se carguen complementos de sistema">
+<!ENTITY plugins.installed.disable.tip "Haga clic para evitar que se carguen complementos de sistema">

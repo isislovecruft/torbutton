@@ -8,7 +8,7 @@
 <!ENTITY  trademarkInfo.part1   "파이어폭스와 파이어폭스 로고들은 모질라 재단의 등록 상표입니다.">
 
 <!-- The following strings are for bug #10280's UI. We place them here for our translators -->
-<!ENTITY plugins.installed.find "Click to load installed system plugins">
-<!ENTITY plugins.installed.enable "Enable plugins">
-<!ENTITY plugins.installed.disable "Disable plugins">
-<!ENTITY plugins.installed.disable.tip "Click to prevent loading system plugins">
+<!ENTITY plugins.installed.find "클릭하여 플러그인 불러오기">
+<!ENTITY plugins.installed.enable "플러그인 활성">
+<!ENTITY plugins.installed.disable "플러그인 비활성">
+<!ENTITY plugins.installed.disable.tip "클릭하여 플러그인 열기 취소">

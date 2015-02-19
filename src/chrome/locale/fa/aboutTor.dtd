@@ -8,7 +8,7 @@
 
 <!ENTITY aboutTor.outOfDateTorOn.label "با این حال ٫ این مرورگر قدیمی می باشد.">
 <!ENTITY aboutTor.outOfDateTorOff.label "همچنین ٫ این مرورگر قدیمی می باشد .">
-<!ENTITY aboutTor.outOfDate2.label "Click on the onion and then choose Check for Tor Browser Update.">
+<!ENTITY aboutTor.outOfDate2.label "روی پیاز کلیک کنید و سپس انتخاب کنید Check را برای به روز رسانی Tor Browser">
 
 <!ENTITY aboutTor.check.label "تنظیمات شبکه‌ی تور را بررسی کنید">
 

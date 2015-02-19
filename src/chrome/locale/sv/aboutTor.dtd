@@ -8,7 +8,7 @@
 
 <!ENTITY aboutTor.outOfDateTorOn.label "EMELLERTID, denna webbläsare är ej uppdaterad.">
 <!ENTITY aboutTor.outOfDateTorOff.label "DESSUTOM, denna webbläsare är ej uppdaterad.">
-<!ENTITY aboutTor.outOfDate2.label "Click on the onion and then choose Check for Tor Browser Update.">
+<!ENTITY aboutTor.outOfDate2.label "Klicka på Tor-löken och välj sedan 'Sök efter uppdateringar för Tor webbläsare'.">
 
 <!ENTITY aboutTor.check.label "Testa nätverksinställningarna för Tor">
 
