@@ -1,18 +1,21 @@
 <?xml version="1.0"?>
 <?xml-stylesheet href="chrome://torbutton/skin/torbutton.css" type="text/css"?>
+<?xml-stylesheet href="chrome://torbutton/skin/tor-circuit-display.css" type="text/css"?>
 
 <!DOCTYPE overlay SYSTEM "chrome://torbutton/locale/torbutton.dtd">
 
 <overlay id="torbutton-popup-overlay"
          xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 
-    <stringbundleset id="torbutton-stringbundleset">
-        <stringbundle id="torbutton-bundle" src="chrome://torbutton/locale/torbutton.properties"/>
-    </stringbundleset>
-    <panel id="torbutton-context-menu" onpopupshowing="torbutton_check_protections();" titlebar="normal" noautohide="true"
-        anchor="torbutton-button" position="after_start" >
-        <hbox align="start">
-        <vbox>
+  <stringbundleset id="torbutton-stringbundleset">
+    <stringbundle id="torbutton-bundle" src="chrome://torbutton/locale/torbutton.properties"/>
+  </stringbundleset>
+  <panel id="torbutton-context-menu"
+         onpopupshowing="torbutton_check_protections();"
+         titlebar="normal" noautohide="true"
+         anchor="torbutton-button" position="after_start" >
+    <hbox align="start">
+      <vbox>
         <menuitem id="torbutton-new-identity"
                   label="&torbutton.context_menu.new_identity;"
                   accesskey="&torbutton.context_menu.new_identity_key;"
@@ -45,29 +48,18 @@
                   accesskey="&torbutton.context_menu.downloadUpdate.key;"
                   insertafter="context-stop"
                   oncommand="torbutton_check_for_update()"/>
-        </vbox>
-        <vbox>
-         <!-- The following SVG is used to display a Tor circuit diagram for the current tab.
-              It is not displayed unless activated by tor-circuit-display.js. -->
-         <svg xmlns="http://www.w3.org/2000/svg" version="1.1" baseProfile="full"
-              width="290" height="140" id="tor-circuit" style="display:none;"> 
-              <rect x="0" y="0" width="100%" height="100%" fill="#e8f4f4" />
-              <text id="title" style="font-size:14px;font-weight:bold;" x="10" y="20" fill="#2c26a7">&torbutton.circuit_display.title;</text>
-              <text id="domain" style="font-size:13px;" x="10" y="38" fill="black">(trac.torproject.org):</text>
-              <rect x="18.5" width="3" y="56" height="64" fill="#4d363a" stroke-width="0"/>
-              <circle class="node-circle" cx="20" cy="56" r="4" />
-              <text class="node-text" x="32" y="56">This Browser</text>
-              <circle class="node-circle" cx="20" cy="72" r="4" />
-              <text class="node-text" x="32" y="72">Test123 (54.67.87.34)</text>
-              <circle class="node-circle" cx="20" cy="88" r="4" />
-              <text class="node-text" x="32" y="88">TestABC (121.4.56.67)</text>
-              <circle class="node-circle" cx="20" cy="104" r="4" />
-              <text class="node-text" x="32" y="104">TestXYZ (74.3.30.9)</text>
-              <circle class="node-circle" cx="20" cy="120" r="4" />
-              <text class="node-text" x="32" y="120">Internet</text>
-         </svg>
-        </vbox>
-       </hbox>
-    </panel>
-
+      </vbox>
+      <vbox id="circuit-display-container">
+        <div id="circuit-display" xmlns="http://www.w3.org/1999/xhtml" dir="auto">
+          <p id="title">&torbutton.circuit_display.title;</p>
+          <p id="domain">(example.com):</p>
+          <ul id="circuit-nodes" dir="auto">
+            <li>example A</li>
+            <li>example B</li>
+            <li>example C</li>
+          </ul>
+        </div>
+      </vbox>
+    </hbox>
+  </panel>
 </overlay>
