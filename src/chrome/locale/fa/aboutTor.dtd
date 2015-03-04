@@ -44,6 +44,6 @@
 <!ENTITY aboutTor.helpInfo5.label "اهدا كنيد »">
 <!ENTITY aboutTor.helpInfo5.link "https://www.torproject.org/donate/donate.html.en">
 
-<!ENTITY aboutTor.footer.label "پروژهٔ تور سازمان غیر انتفاعی آمریکایی 501(c)3 مختص پژوهش, توسعه و آموزش در زمین ناشناسی و حریم شخصی آنلاين هست.">
+<!ENTITY aboutTor.footer.label "پروژهٔ تور سازمان غیر انتفاعی آمریکایی &#x202D;501(c)(3)&#x202C; مختص پژوهش, توسعه و آموزش در زمین ناشناسی و حریم شخصی آنلاين هست.">
 <!ENTITY aboutTor.learnMore.label "اطلاعات بیشتر در پروژهٔ تور كسب كنيد">
 <!ENTITY aboutTor.learnMore.link "https://www.torproject.org/about/overview.html.en">

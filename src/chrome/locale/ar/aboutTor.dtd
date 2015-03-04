@@ -44,6 +44,6 @@
 <!ENTITY aboutTor.helpInfo5.label "تبرع »">
 <!ENTITY aboutTor.helpInfo5.link "https://www.torproject.org/donate/donate.html.en">
 
-<!ENTITY aboutTor.footer.label "مشروع تور هو US 501(c)(3) غير ربحي مُكرس للبحث، و التطوير، و التوعية بإخفاء الهوية والخصوصية.">
+<!ENTITY aboutTor.footer.label "مشروع تور هو &#x202D;US 501(c)(3)&#x202C; غير ربحي مُكرس للبحث، و التطوير، و التوعية بإخفاء الهوية والخصوصية.">
 <!ENTITY aboutTor.learnMore.label "تعلم المزيد عن مشروع تور »">
 <!ENTITY aboutTor.learnMore.link "https://www.torproject.org/about/overview.html.en">
