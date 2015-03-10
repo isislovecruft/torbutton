@@ -55,7 +55,7 @@ let trimQuotes = s => s ? s.match(/^\"(.*)\"$/)[1] : undefined;
 let getBridge = function* (controller, id) {
   let bridges = yield controller.getConf("bridge");
   for (let bridge of bridges) {
-    if (bridge.ID.toUpperCase() === id.toUpperCase()) {
+    if (bridge.ID && bridge.ID.toUpperCase() === id.toUpperCase()) {
       return bridge;
     }
   }
