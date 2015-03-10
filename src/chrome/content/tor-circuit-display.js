@@ -54,9 +54,11 @@ let trimQuotes = s => s ? s.match(/^\"(.*)\"$/)[1] : undefined;
 // is not currently used as a bridge, returns null.
 let getBridge = function* (controller, id) {
   let bridges = yield controller.getConf("bridge");
-  for (let bridge of bridges) {
-    if (bridge.ID && bridge.ID.toUpperCase() === id.toUpperCase()) {
-      return bridge;
+  if (bridges) {
+    for (let bridge of bridges) {
+      if (bridge.ID && bridge.ID.toUpperCase() === id.toUpperCase()) {
+        return bridge;
+      }
     }
   }
   return null;
@@ -107,11 +109,14 @@ let nodeDataForCircuit = function* (controller, circuitEvent) {
 // Returns the circuit status for the circuit with the given ID.
 let getCircuitStatusByID = function* (aController, circuitID) {
   let circuitStatuses = yield aController.getInfo("circuit-status");
-  for (let circuitStatus of circuitStatuses) {
-    if (circuitStatus.id === circuitID) {
-      return circuitStatus;
+  if (circuitStatuses) {
+    for (let circuitStatus of circuitStatuses) {
+      if (circuitStatus.id === circuitID) {
+        return circuitStatus;
+      }
     }
   }
+  return null;
 };
 
 // __collectIsolationData(aController)__.
