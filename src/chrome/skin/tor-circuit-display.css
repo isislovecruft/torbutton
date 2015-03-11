@@ -104,3 +104,8 @@ ul#circuit-nodes li:first-child:before {
 ul#circuit-nodes li:last-child:before {
   height: 50%;
 }
+
+/* Onion site relay node text should be gray. */
+ul#circuit-nodes li.relay {
+  color: gray;
+}

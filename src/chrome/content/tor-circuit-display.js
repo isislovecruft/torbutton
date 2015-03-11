@@ -181,10 +181,9 @@ let showCircuitDisplay = function (show) {
 // Takes a nodeData array of node items, each like
 // `{ ip : "12.34.56.78", country : "fr" }`
 // and converts each node data to text, as
-// `"France (12.34.56.78)"`, prepended by "This browser"
-// and appended by "Internet".
+// `"France (12.34.56.78)"`.
 let nodeLines = function (nodeData) {
-  let result = [uiString("this_browser")];
+  let result = [];
   for (let {ip, countryCode, type, bridgeType} of nodeData) {
     let bridge = type === "bridge";
     result.push(
@@ -203,7 +202,6 @@ let nodeLines = function (nodeData) {
                           // and right-to-left languages.
                           " &#x202D; (" + (ip || uiString("ip_unknown")) + ")&#x202C;"));
   }
-  result.push(uiString("internet"));
   return result;
 };
 
@@ -225,6 +223,10 @@ let getSOCKSCredentialsForBrowser = function (browser) {
   return proxyInfo.username + ":" + proxyInfo.password;
 };
 
+// __onionSiteRelayLine__.
+// When we have an onion site, we simply show the word '(relay)'.
+let onionSiteRelayLine = "<li class='relay'>(" + uiString("relay") + ")</li>";
+
 // __updateCircuitDisplay()__.
 // Updates the Tor circuit display, showing the current domain
 // and the relay nodes for that domain.
@@ -242,10 +244,16 @@ let updateCircuitDisplay = function () {
 	document.getElementById("domain").innerHTML = "(" + domain + "):";
 	// Update the displayed information for the relay nodes.
         let lines = nodeLines(nodeData),
-            nodeInnerHTML = "";
+            nodeInnerHTML = "<li>" + uiString("this_browser") + "</li>";
 	for (let line of lines) {
           nodeInnerHTML += "<li>" + line + "</li>";
 	}
+        nodeInnerHTML += domain.endsWith(".onion") ?
+                           (onionSiteRelayLine +
+                            onionSiteRelayLine +
+                            onionSiteRelayLine +
+                            "<li>" + uiString("onion_site") + "</li>") :
+                           "<li>" + uiString("internet") + "</li>";
         document.getElementById("circuit-nodes").innerHTML = nodeInnerHTML;
       }
     }
