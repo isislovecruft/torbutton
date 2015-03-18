@@ -2107,10 +2107,6 @@ function torbutton_update_disk_prefs() {
         m_tb_prefs.setIntPref("browser.download.manager.retention", 2);
     }
 
-    // XXX: Bug 14632: The cookie dialog is useless in private browsing mode in FF31ESR
-    // See https://trac.torproject.org/projects/tor/ticket/10353 for more info.
-    document.getElementById("torbutton-cookie-protector").hidden = mode;
-
     // Force prefs to be synced to disk
     var prefService = Components.classes["@mozilla.org/preferences-service;1"]
         .getService(Components.interfaces.nsIPrefService);
@@ -2605,6 +2601,10 @@ function torbutton_check_protections()
 
   var cookie_pref = m_tb_prefs.getBoolPref("extensions.torbutton.cookie_protections");
   document.getElementById("torbutton-cookie-protector").disabled = !cookie_pref;
+
+  // XXX: Bug 14632: The cookie dialog is useless in private browsing mode in FF31ESR
+  // See https://trac.torproject.org/projects/tor/ticket/10353 for more info.
+  document.getElementById("torbutton-cookie-protector").hidden = m_tb_prefs.getBoolPref("extensions.torbutton.block_disk");
 
   if (!m_tb_control_pass || !m_tb_control_port)
     document.getElementById("torbutton-new-identity").disabled = true;
