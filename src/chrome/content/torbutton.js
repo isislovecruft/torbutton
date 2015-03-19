@@ -1913,7 +1913,7 @@ function torbutton_do_tor_check()
   let checkSvc = Cc["@torproject.org/torbutton-torCheckService;1"]
                    .getService(Ci.nsISupports).wrappedJSObject;
   if (checkSvc.kCheckNotInitiated != checkSvc.statusOfTorCheck ||
-      !m.tb_prefs.getBoolPref("extensions.torbutton.test_enabled"))
+      !m_tb_prefs.getBoolPref("extensions.torbutton.test_enabled"))
     return; // Only do the check once.
 
   // If we have a tor control port and transparent torification is off,
