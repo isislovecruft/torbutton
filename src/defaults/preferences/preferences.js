@@ -178,6 +178,7 @@ pref("extensions.torbutton.restrict_thirdparty", true);
 // Security Slider
 pref("extensions.torbutton.security_slider", 4);
 pref("extensions.torbutton.security_custom", false);
+pref("extensions.torbutton.show_slider_notification", true);
 
 // Google Captcha prefs
 // FIXME: NID cookie?

@@ -1044,6 +1044,34 @@ function torbutton_on_abouttor_load(aDoc) {
 
   if (m_tb_orig_BrowserOnAboutPageLoad)
     m_tb_orig_BrowserOnAboutPageLoad(aDoc);
+
+  // Show the notification about the new security slider.
+  if (m_tb_prefs.
+      getBoolPref("extensions.torbutton.show_slider_notification")) {
+    let sb = torbutton_get_stringbundle();
+    let button_label =
+      torbutton_get_property_string("torbutton.slider_notification_button");
+    let box = gBrowser.getNotificationBox();
+
+    let buttons = [{
+      label: button_label,
+      accessKey: 'S',
+      popup: null,
+      callback: function() {
+        window.openDialog("chrome://torbutton/content/preferences.xul",
+        "torbutton-preferences","chrome");}
+    }];
+
+    let priority = box.PRIORITY_INFO_LOW;
+    let message =
+      torbutton_get_property_string("torbutton.slider_notification");
+
+    box.appendNotification(message, 'new-menu-notification',
+                           "chrome://torbutton/skin/tor-enabled-16.png",
+                           priority, buttons);
+    m_tb_prefs.
+      setBoolPref("extensions.torbutton.show_slider_notification", false);
+  }
 }
 
 function torbutton_is_abouttor_doc(aDoc) {
