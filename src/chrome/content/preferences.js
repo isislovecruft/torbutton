@@ -192,12 +192,17 @@ function torbutton_prefs_init(doc) {
     sec_slider.value = o_torprefs.getIntPref('security_slider');
     sec_custom.checked = custom_values;
     sec_custom.disabled = !custom_values;
+    torbutton_set_slider_text(doc, sec_custom.checked);
     // If the custom checkbox is checked and the user is done with dragging
     // uncheck the checkbox to allow setting the (newly) chosen security level.
     sec_slider.dragStateChanged = function(isDragging) {
         if (!isDragging && sec_custom.checked) {
            sec_custom.checked = false;
+           sec_custom.disabled = true;
         }
+    }
+    sec_slider.valueChanged = function(which, newValue, userChanged) {
+        torbutton_set_slider_text(doc, false);
     }
 
     torbutton_prefs_set_field_attributes(doc);
@@ -473,6 +478,49 @@ function torbutton_toggle_slider(doc, pos) {
     if (sec_custom.checked) {
         sec_custom.checked = false;
     }
+    torbutton_set_slider_text(doc, false);
+}
+
+function torbutton_set_slider_text(doc, custom) {
+  let level = doc.getElementById("torbutton_sec_slider").value;
+  if (custom) {
+    level = 5;
+  }
+  switch (level) {
+    case (1):
+      doc.getElementById("desc_low").collapsed = true;
+      doc.getElementById("desc_medium_low").collapsed = true;
+      doc.getElementById("desc_medium_high").collapsed = true;
+      doc.getElementById("desc_high").collapsed = false;
+      break;
+    case (2):
+      doc.getElementById("desc_low").collapsed = true;
+      doc.getElementById("desc_medium_low").collapsed = true;
+      doc.getElementById("desc_medium_high").collapsed = false;
+      doc.getElementById("desc_high").collapsed = true;
+      break;
+   case (3):
+      doc.getElementById("desc_low").collapsed = true;
+      doc.getElementById("desc_medium_low").collapsed = false;
+      doc.getElementById("desc_medium_high").collapsed = true;
+      doc.getElementById("desc_high").collapsed = true;
+      break;
+    case (4):
+      doc.getElementById("desc_low").collapsed = false;
+      doc.getElementById("desc_medium_low").collapsed = true;
+      doc.getElementById("desc_medium_high").collapsed = true;
+      doc.getElementById("desc_high").collapsed = true;
+      break;
+    case (5):
+      doc.getElementById("desc_low").collapsed = true;
+      doc.getElementById("desc_medium_low").collapsed = true;
+      doc.getElementById("desc_medium_high").collapsed = true;
+      doc.getElementById("desc_high").collapsed = true;
+      break;
+  }
+  // It can happen that the descriptions of the slider settings consume more
+  // space than originally allocated. Adapt the dialog size accordingly.
+  sizeToContent();
 }
 
 function torbutton_prefs_check_disk() {

@@ -235,15 +235,12 @@ var torbutton_unique_pref_observer =
             case "noscript.forbidMedia":
             case "media.webaudio.enabled":
             case "network.jar.block-remote-files":
+            case "mathml.disabled":
             case "javascript.options.baselinejit.content":
             case "noscript.forbidFonts":
             case "gfx.font_rendering.graphite.enabled":
             case "noscript.globalHttpsWhitelist":
             case "noscript.global":
-            case "media.ogg.enabled":
-            case "media.opus.enabled":
-            case "media.wave.enabled":
-            case "media.apple.mp3.enabled":
                 // |m_tb_slider_update| is only set if the user updated a
                 // preference under control of the security slider via the
                 // slider on the Torbutton dialog. This in turn means we can
@@ -2197,10 +2194,6 @@ function torbutton_update_thirdparty_prefs() {
     prefService.savePrefFile(null);
 }
 
-var torbutton_sec_l_bool_prefs = {
-  "gfx.font_rendering.opentype_svg.enabled" : false,
-};
-
 var torbutton_sec_ml_bool_prefs = {
   "javascript.options.ion.content" : false,
   "javascript.options.typeinference" : false,
@@ -2208,23 +2201,21 @@ var torbutton_sec_ml_bool_prefs = {
   "noscript.forbidMedia" : true,
   "media.webaudio.enabled" : false,
   "network.jar.block-remote-files" : true,
-  // XXX: pref for disabling MathML is missing
+  "mathml.disabled" : true
 };
 
 var torbutton_sec_mh_bool_prefs = {
   "javascript.options.baselinejit.content" : false,
+  "gfx.font_rendering.graphite.enabled" : false,
+  "gfx.font_rendering.opentype_svg.enabled" : false,
   "noscript.global" : false,
-  "noscript.globalHttpsWhitelist" : true,
-  // XXX: pref for disableing SVG is missing
+  "noscript.globalHttpsWhitelist" : true
 };
 
 var torbutton_sec_h_bool_prefs = {
   "noscript.forbidFonts" : true,
   "noscript.global" : false,
-  "media.ogg.enabled" : false,
-  "media.opus.enabled" :  false,
-  "media.wave.enabled" : false,
-  "media.apple.mp3.enabled" : false
+  // XXX: pref for disabling SVG is missing
 };
 
 function torbutton_update_security_slider() {
@@ -2233,86 +2224,7 @@ function torbutton_update_security_slider() {
   let mode = m_tb_prefs.getIntPref("extensions.torbutton.security_slider");
   let capValue = m_tb_prefs.getCharPref("capability.policy.maonoscript.sites");
   switch (mode) {
-    case 1:
-      for (p in torbutton_sec_l_bool_prefs) {
-        m_tb_prefs.setBoolPref(p, torbutton_sec_l_bool_prefs[p]);
-      }
-      for (p in torbutton_sec_ml_bool_prefs) {
-        m_tb_prefs.setBoolPref(p, !torbutton_sec_ml_bool_prefs[p])
-      }
-      for (p in torbutton_sec_mh_bool_prefs) {
-        m_tb_prefs.setBoolPref(p, !torbutton_sec_mh_bool_prefs[p])
-      }
-      for (p in torbutton_sec_h_bool_prefs) {
-        m_tb_prefs.setBoolPref(p, !torbutton_sec_h_bool_prefs[p])
-      }
-      // Removing "https:" is needed due to a bug in older Noscript versions.
-      // We leave that in for a while as there may be users that were affected
-      // by this bug. Removing it immediately and having the auto-updater might
-      // leave users exposed to the problem.
-      if (capValue.indexOf(" https:") >= 0) {
-        m_tb_prefs.setCharPref("capability.policy.maonoscript.sites",
-          capValue.replace(" https:", ""));
-      }
-      if (m_tb_prefs.getCharPref("general.useragent.locale") !== "ko" ||
-          m_tb_prefs.getCharPref("general.useragent.locale") !== "vi" ||
-          m_tb_prefs.getCharPref("general.useragent.locale") !== "zh-CN") {
-        m_tb_prefs.setBoolPref("gfx.font_rendering.graphite.enabled", false);
-      } else {
-        m_tb_prefs.setBoolPref("gfx.font_rendering.graphite.enabled", true);
-      }
-      break;
-    case 2:
-      for (p in torbutton_sec_l_bool_prefs) {
-        m_tb_prefs.setBoolPref(p, torbutton_sec_l_bool_prefs[p]);
-      }
-      for (p in torbutton_sec_ml_bool_prefs) {
-        m_tb_prefs.setBoolPref(p, torbutton_sec_ml_bool_prefs[p])
-      }
-      for (p in torbutton_sec_mh_bool_prefs) {
-        m_tb_prefs.setBoolPref(p, !torbutton_sec_mh_bool_prefs[p])
-      }
-      for (p in torbutton_sec_h_bool_prefs) {
-        m_tb_prefs.setBoolPref(p, !torbutton_sec_h_bool_prefs[p])
-      }
-      // Removing "https:" is needed due to a bug in older Noscript versions.
-      // We leave that in for a while as there may be users that were affected
-      // by this bug. Removing it immediately and having the auto-updater might
-      // leave users exposed to the problem.
-      if (capValue.indexOf(" https:") >= 0) {
-        m_tb_prefs.setCharPref("capability.policy.maonoscript.sites",
-          capValue.replace(" https:", ""));
-      }
-      if (m_tb_prefs.getCharPref("general.useragent.locale") !== "ko" ||
-          m_tb_prefs.getCharPref("general.useragent.locale") !== "vi" ||
-          m_tb_prefs.getCharPref("general.useragent.locale") !== "zh-CN") {
-        m_tb_prefs.setBoolPref("gfx.font_rendering.graphite.enabled", false);
-      } else {
-        m_tb_prefs.setBoolPref("gfx.font_rendering.graphite.enabled", true);
-      }
-      break;
-    case 3:
-      for (p in torbutton_sec_l_bool_prefs) {
-        m_tb_prefs.setBoolPref(p, torbutton_sec_l_bool_prefs[p]);
-      }
-      for (p in torbutton_sec_ml_bool_prefs) {
-        m_tb_prefs.setBoolPref(p, torbutton_sec_ml_bool_prefs[p])
-      }
-      // Order matters here as both the high mode and the medium-high mode
-      // share some preferences/values. So, let's revert the high mode
-      // preferences first and set the medium-high mode ones afterwards.
-      for (p in torbutton_sec_h_bool_prefs) {
-        m_tb_prefs.setBoolPref(p, !torbutton_sec_h_bool_prefs[p])
-      }
-      for (p in torbutton_sec_mh_bool_prefs) {
-        m_tb_prefs.setBoolPref(p, torbutton_sec_mh_bool_prefs[p])
-      }
-      m_tb_prefs.setBoolPref("gfx.font_rendering.graphite.enabled", false);
-      break;
-    case 4:
-      for (p in torbutton_sec_l_bool_prefs) {
-        m_tb_prefs.setBoolPref(p, torbutton_sec_l_bool_prefs[p]);
-      }
+   case 1:
       for (p in torbutton_sec_ml_bool_prefs) {
         m_tb_prefs.setBoolPref(p, torbutton_sec_ml_bool_prefs[p])
       }
@@ -2335,7 +2247,58 @@ function torbutton_update_security_slider() {
         m_tb_prefs.setCharPref("capability.policy.maonoscript.sites",
           capValue.replace(" https:", ""));
       }
-      m_tb_prefs.setBoolPref("gfx.font_rendering.graphite.enabled", true);
+      break;
+    case 2:
+      for (p in torbutton_sec_ml_bool_prefs) {
+        m_tb_prefs.setBoolPref(p, torbutton_sec_ml_bool_prefs[p])
+      }
+      // Order matters here as both the high mode and the medium-high mode
+      // share some preferences/values. So, let's revert the high mode
+      // preferences first and set the medium-high mode ones afterwards.
+      for (p in torbutton_sec_h_bool_prefs) {
+        m_tb_prefs.setBoolPref(p, !torbutton_sec_h_bool_prefs[p])
+      }
+      for (p in torbutton_sec_mh_bool_prefs) {
+        m_tb_prefs.setBoolPref(p, torbutton_sec_mh_bool_prefs[p])
+      }
+      break;
+    case 3:
+      for (p in torbutton_sec_ml_bool_prefs) {
+        m_tb_prefs.setBoolPref(p, torbutton_sec_ml_bool_prefs[p])
+      }
+      for (p in torbutton_sec_mh_bool_prefs) {
+        m_tb_prefs.setBoolPref(p, !torbutton_sec_mh_bool_prefs[p])
+      }
+      for (p in torbutton_sec_h_bool_prefs) {
+        m_tb_prefs.setBoolPref(p, !torbutton_sec_h_bool_prefs[p])
+      }
+      // Removing "https:" is needed due to a bug in older Noscript versions.
+      // We leave that in for a while as there may be users that were affected
+      // by this bug. Removing it immediately and having the auto-updater might
+      // leave users exposed to the problem.
+      if (capValue.indexOf(" https:") >= 0) {
+        m_tb_prefs.setCharPref("capability.policy.maonoscript.sites",
+          capValue.replace(" https:", ""));
+      }
+      break;
+    case 4:
+      for (p in torbutton_sec_ml_bool_prefs) {
+        m_tb_prefs.setBoolPref(p, !torbutton_sec_ml_bool_prefs[p])
+      }
+      for (p in torbutton_sec_mh_bool_prefs) {
+        m_tb_prefs.setBoolPref(p, !torbutton_sec_mh_bool_prefs[p])
+      }
+      for (p in torbutton_sec_h_bool_prefs) {
+        m_tb_prefs.setBoolPref(p, !torbutton_sec_h_bool_prefs[p])
+      }
+      // Removing "https:" is needed due to a bug in older Noscript versions.
+      // We leave that in for a while as there may be users that were affected
+      // by this bug. Removing it immediately and having the auto-updater might
+      // leave users exposed to the problem.
+      if (capValue.indexOf(" https:") >= 0) {
+        m_tb_prefs.setCharPref("capability.policy.maonoscript.sites",
+          capValue.replace(" https:", ""));
+      }
       break;
   }
   m_tb_sliderUpdate = false;
@@ -2348,118 +2311,6 @@ function torbutton_security_slider_custom_check(mode) {
   let capValue = m_tb_prefs.getCharPref("capability.policy.maonoscript.sites");
   switch (mode) {
     case 1:
-      for (p in torbutton_sec_l_bool_prefs) {
-        if (m_tb_prefs.getBoolPref(p) !== torbutton_sec_l_bool_prefs[p]) {
-          return;
-        }
-      }
-      for (p in torbutton_sec_ml_bool_prefs) {
-        if (m_tb_prefs.getBoolPref(p) === torbutton_sec_ml_bool_prefs[p]) {
-          return;
-        }
-      }
-      for (p in torbutton_sec_mh_bool_prefs) {
-        if (m_tb_prefs.getBoolPref(p) === torbutton_sec_mh_bool_prefs[p]) {
-          return;
-        }
-      }
-      for (p in torbutton_sec_h_bool_prefs) {
-        if (m_tb_prefs.getBoolPref(p) === torbutton_sec_h_bool_prefs[p]) {
-          return;
-        }
-      }
-      if (m_tb_prefs.getCharPref("general.useragent.locale") !== "ko" ||
-          m_tb_prefs.getCharPref("general.useragent.locale") !== "vi" ||
-          m_tb_prefs.getCharPref("general.useragent.locale") !== "zh-CN") {
-
-        if (m_tb_prefs.getBoolPref("gfx.font_rendering.graphite.enabled")) {
-          return;
-        }
-      } else {
-        if (!m_tb_prefs.getBoolPref("gfx.font_rendering.graphite.enabled")) {
-          return;
-        }
-      }
-      // We are still here which means all preferences are properly reset. Leave
-      // custom mode.
-      m_tb_prefs.setBoolPref("extensions.torbutton.security_custom", false);
-      break;
-    case 2:
-      for (p in torbutton_sec_l_bool_prefs) {
-        if (m_tb_prefs.getBoolPref(p) !== torbutton_sec_l_bool_prefs[p]) {
-          return;
-        }
-      }
-      for (p in torbutton_sec_ml_bool_prefs) {
-        if (m_tb_prefs.getBoolPref(p) !== torbutton_sec_ml_bool_prefs[p]) {
-          return;
-        }
-      }
-      for (p in torbutton_sec_mh_bool_prefs) {
-        if (m_tb_prefs.getBoolPref(p) === torbutton_sec_mh_bool_prefs[p]) {
-          return;
-        }
-      }
-      for (p in torbutton_sec_h_bool_prefs) {
-        if (m_tb_prefs.getBoolPref(p) === torbutton_sec_h_bool_prefs[p]) {
-          return;
-        }
-      }
-      if (m_tb_prefs.getCharPref("general.useragent.locale") !== "ko" ||
-          m_tb_prefs.getCharPref("general.useragent.locale") !== "vi" ||
-          m_tb_prefs.getCharPref("general.useragent.locale") !== "zh-CN") {
-
-        if (m_tb_prefs.getBoolPref("gfx.font_rendering.graphite.enabled")) {
-          return;
-        }
-      } else {
-        if (!m_tb_prefs.getBoolPref("gfx.font_rendering.graphite.enabled")) {
-          return;
-        }
-      }
-      // We are still here which means all preferences are properly reset. Leave
-      // custom mode.
-      m_tb_prefs.setBoolPref("extensions.torbutton.security_custom", false);
-      break;
-    case 3:
-      for (p in torbutton_sec_l_bool_prefs) {
-        if (m_tb_prefs.getBoolPref(p) !== torbutton_sec_l_bool_prefs[p]) {
-          return;
-        }
-      }
-      for (p in torbutton_sec_ml_bool_prefs) {
-        if (m_tb_prefs.getBoolPref(p) !== torbutton_sec_ml_bool_prefs[p]) {
-          return;
-        }
-      }
-      for (p in torbutton_sec_mh_bool_prefs) {
-        if (m_tb_prefs.getBoolPref(p) !== torbutton_sec_mh_bool_prefs[p]) {
-          return;
-        }
-      }
-      for (p in torbutton_sec_h_bool_prefs) {
-        if (m_tb_prefs.getBoolPref(p) === torbutton_sec_h_bool_prefs[p]) {
-          // We have the whitelist and JavaScript is disabled in medium-high
-          // mode as well.
-          if (p === "noscript.global") {
-            continue;
-          }
-          return;
-        }
-      }
-      if (m_tb_prefs.getBoolPref("gfx.font_rendering.graphite.enabled")) {
-        return;
-      }
-      // We are still here which means all preferences are properly reset. Leave
-      // custom mode.
-      m_tb_prefs.setBoolPref("extensions.torbutton.security_custom", false);
-      break;
-    case 4:
-      for (p in torbutton_sec_l_bool_prefs) {
-        if (m_tb_prefs.getBoolPref(p) !== torbutton_sec_l_bool_prefs[p]) {
-          return;
-        }
-      }
       for (p in torbutton_sec_ml_bool_prefs) {
         if (m_tb_prefs.getBoolPref(p) !== torbutton_sec_ml_bool_prefs[p]) {
           return;
@@ -2480,8 +2331,70 @@ function torbutton_security_slider_custom_check(mode) {
           return;
         }
       }
-      if (!m_tb_prefs.getBoolPref("gfx.font_rendering.graphite.enabled")) {
-        return;
+      // We are still here which means all preferences are properly reset. Leave
+      // custom mode.
+      m_tb_prefs.setBoolPref("extensions.torbutton.security_custom", false);
+      break;
+    case 2:
+      for (p in torbutton_sec_ml_bool_prefs) {
+        if (m_tb_prefs.getBoolPref(p) !== torbutton_sec_ml_bool_prefs[p]) {
+          return;
+        }
+      }
+      for (p in torbutton_sec_mh_bool_prefs) {
+        if (m_tb_prefs.getBoolPref(p) !== torbutton_sec_mh_bool_prefs[p]) {
+          return;
+        }
+      }
+      for (p in torbutton_sec_h_bool_prefs) {
+        if (m_tb_prefs.getBoolPref(p) === torbutton_sec_h_bool_prefs[p]) {
+          // We have the whitelist and JavaScript is disabled in medium-high
+          // mode as well.
+          if (p === "noscript.global") {
+            continue;
+          }
+          return;
+        }
+      }
+      // We are still here which means all preferences are properly reset. Leave
+      // custom mode.
+      m_tb_prefs.setBoolPref("extensions.torbutton.security_custom", false);
+      break;
+    case 3:
+      for (p in torbutton_sec_ml_bool_prefs) {
+        if (m_tb_prefs.getBoolPref(p) !== torbutton_sec_ml_bool_prefs[p]) {
+          return;
+        }
+      }
+      for (p in torbutton_sec_mh_bool_prefs) {
+        if (m_tb_prefs.getBoolPref(p) === torbutton_sec_mh_bool_prefs[p]) {
+          return;
+        }
+      }
+      for (p in torbutton_sec_h_bool_prefs) {
+        if (m_tb_prefs.getBoolPref(p) === torbutton_sec_h_bool_prefs[p]) {
+          return;
+        }
+      }
+      // We are still here which means all preferences are properly reset. Leave
+      // custom mode.
+      m_tb_prefs.setBoolPref("extensions.torbutton.security_custom", false);
+      break;
+    case 4:
+      for (p in torbutton_sec_ml_bool_prefs) {
+        if (m_tb_prefs.getBoolPref(p) === torbutton_sec_ml_bool_prefs[p]) {
+          return;
+        }
+      }
+      for (p in torbutton_sec_mh_bool_prefs) {
+        if (m_tb_prefs.getBoolPref(p) === torbutton_sec_mh_bool_prefs[p]) {
+          return;
+        }
+      }
+      for (p in torbutton_sec_h_bool_prefs) {
+        if (m_tb_prefs.getBoolPref(p) === torbutton_sec_h_bool_prefs[p]) {
+          return;
+        }
       }
       // We are still here which means all preferences are properly reset. Leave
       // custom mode.
