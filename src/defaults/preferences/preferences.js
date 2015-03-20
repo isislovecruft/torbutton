@@ -228,3 +228,6 @@ pref("extensions.torbutton.confirm_newnym", true);
 // Browser home page, and spell checker dictionary:
 pref("browser.startup.homepage", "chrome://torbutton/locale/browser.properties");
 pref("spellchecker.dictionary", "chrome://torbutton/locale/browser.properties");
+
+pref("extensions.torbutton.window.maxHeight", 1000);
+pref("extensions.torbutton.window.maxWidth", 1000);
