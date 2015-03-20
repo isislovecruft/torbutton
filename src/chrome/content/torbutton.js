@@ -3452,16 +3452,20 @@ var torbutton_resizelistener =
       try {
         width = m_tb_prefs.getIntPref("extensions.torbutton.window.innerWidth");
       } catch(e) {
-        if (maxWidth > 1000) {
-          width = 1000;
-        } else {
-          width = Math.floor(maxWidth/200.0)*200;
+        let cappedWidth = m_tb_prefs.getIntPref("extensions.torbutton.window.maxWidth");
+        if (maxWidth > cappedWidth) {
+          maxWidth = cappedWidth;
         }
+        width = Math.floor(maxWidth/200.0)*200;
       }
 
       try {
         height = m_tb_prefs.getIntPref("extensions.torbutton.window.innerHeight");
       } catch(e) {
+        let cappedHeight = m_tb_prefs.getIntPref("extensions.torbutton.window.maxHeight");
+        if (maxHeight > cappedHeight) {
+          maxHeight = cappedHeight;
+        }
         height = Math.floor(maxHeight/100.0)*100;
       }
 
