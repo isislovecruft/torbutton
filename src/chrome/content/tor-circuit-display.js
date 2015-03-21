@@ -47,7 +47,7 @@ let credentialsToNodeDataMap = {},
 
 // __trimQuotes(s)__.
 // Removes quotation marks around a quoted string.
-let trimQuotes = s => s ? s.match(/^\"(.*)\"$/)[1] : undefined;
+let trimQuotes = s => s ? s.match(/^"(.*)"$/)[1] : undefined;
 
 // __getBridge(id)__.
 // Gets the bridge parameters for a given node ID. If the node
@@ -89,7 +89,8 @@ let nodeDataForID = function* (controller, id) {
   if (result.ip) {
     // Get the country code for the node's IP address.
     try {
-      result.countryCode = yield controller.getInfo("ip-to-country/" + result.ip);
+      let countryCode = yield controller.getInfo("ip-to-country/" + result.ip);
+      result.countryCode = countryCode === "??" ? null : countryCode;
     } catch (e) { }
   }
   return result;
@@ -190,22 +191,24 @@ let showCircuitDisplay = function (show) {
 let nodeLines = function (nodeData) {
   let result = [];
   for (let {ip, countryCode, type, bridgeType} of nodeData) {
-    let bridge = type === "bridge";
+    let bridge = type === "bridge",
+        country = countryCode ? localizedCountryNameFromCode(countryCode) : null;
     result.push(
-                // For each relay, show its apparent host country.
-                (countryCode ? localizedCountryNameFromCode(countryCode)
-                             : uiString("unknown_country")) +
-                (bridge ?
-                          // As we have a bridge, don't show the IP address
-                          // but show the bridge type.
-                          " (" + uiString("tor_bridge") +
-                          ((bridgeType !== "vanilla") ? (": " + bridgeType) : "") + ")"
-                        :
-                          // As we don't have a bridge, show the IP address
-                          // of the node. Use unicode escapes to ensure that
-                          // parentheses behave properly in both left-to-right
-                          // and right-to-left languages.
-                          " &#x202D; (" + (ip || uiString("ip_unknown")) + ")&#x202C;"));
+      bridge ?
+               // As we have a bridge, don't show the IP address
+               // but show the bridge type.
+               (uiString("tor_bridge") +
+                ((bridgeType !== "vanilla") ? (": " + bridgeType) : "") +
+                 (country ? " (" + country + ")" : ""))
+             :
+               // For each non-bridge relay, show its host country and IP.
+               (country || uiString("unknown_country")) +
+               // As we don't have a bridge, show the IP address
+               // of the node. Use unicode escapes to ensure that
+               // parentheses behave properly in both left-to-right
+               // and right-to-left languages.
+               " &#x202D; (" + (ip || uiString("ip_unknown")) + ")&#x202C;"
+    );
   }
   return result;
 };
