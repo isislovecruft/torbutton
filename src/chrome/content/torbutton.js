@@ -2243,7 +2243,7 @@ var torbutton_sec_mh_bool_prefs = {
 var torbutton_sec_h_bool_prefs = {
   "noscript.forbidFonts" : true,
   "noscript.global" : false,
-  // XXX: pref for disabling SVG is missing
+  "svg.in-content.enabled" : false
 };
 
 function torbutton_update_security_slider() {
