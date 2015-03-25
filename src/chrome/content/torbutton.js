@@ -3421,7 +3421,7 @@ var torbutton_resizelistener =
       m_tb_resize_handler = function() {
         if (window.windowState === 1) {
           if (m_tb_prefs.
-              getIntPref("extensions.torbutton.maximize_warning_counter") < 3) {
+              getIntPref("extensions.torbutton.maximize_warnings_remaining") > 0) {
 
             // Rate-limit showing our notification if needed.
             if (m_tb_resize_date === null) {
@@ -3452,8 +3452,8 @@ var torbutton_resizelistener =
               popup: null,
               callback:
                 function() {
-                  m_tb_prefs.setIntPref("extensions.torbutton.maximize_warning_counter",
-                  m_tb_prefs.getIntPref("extensions.torbutton.maximize_warning_counter") + 1);
+                  m_tb_prefs.setIntPref("extensions.torbutton.maximize_warnings_remaining",
+                  m_tb_prefs.getIntPref("extensions.torbutton.maximize_warnings_remaining") - 1);
                 }
             }];
 

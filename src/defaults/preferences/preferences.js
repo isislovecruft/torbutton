@@ -118,7 +118,7 @@ pref("extensions.torbutton.prompted_language",false);
 // TODO: This is just part of a stopgap until #14429 gets properly implemented.
 // See #7255 for details. We display the warning three times to make sure the
 // user did not click on it by accident.
-pref("extensions.torbutton.maximize_warning_counter", 0);
+pref("extensions.torbutton.maximize_warnings_remaining", 3);
 pref("extensions.torbutton.startup_resize_period", true);
 
 // Security prefs:
