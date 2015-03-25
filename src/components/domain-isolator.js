@@ -53,6 +53,10 @@ let tor = tor || {};
 // A mutable map that records what nonce we are using for each domain.
 tor.noncesForDomains = {};
 
+// __tor.unknownDirtySince__.
+// Specifies when the current catch-all circuit was first used
+tor.unknownDirtySince = Date.now();
+
 // __tor.socksProxyCredentials(originalProxy, domain)__.
 // Takes a proxyInfo object (originalProxy) and returns a new proxyInfo
 // object with the same properties, except the username is set to the 
@@ -74,6 +78,17 @@ tor.socksProxyCredentials = function (originalProxy, domain) {
                               proxy.failoverProxy);
 };
 
+tor.newCircuitForDomain = function(domain) {
+  // Check if we already have a nonce. If not, create
+  // one for this domain.
+  if (!tor.noncesForDomains.hasOwnProperty(domain)) {
+    tor.noncesForDomains[domain] = 0;
+  } else {
+    tor.noncesForDomains[domain] += 1;
+  }
+  logger.eclog(3, "New domain isolation count " +tor.noncesForDomains[domain] + " for " + domain);
+}
+
 // __tor.isolateCircuitsByDomain()__.
 // For every HTTPChannel, replaces the default SOCKS proxy with one that authenticates
 // to the SOCKS server (the tor client process) with a username (the first party domain)
@@ -93,8 +108,16 @@ tor.isolateCircuitsByDomain = function () {
                       replacementProxy.username + ":" + replacementProxy.password); 
       return replacementProxy;
     } catch (err) {
-      // If we fail, then just use the default proxyInfo.
-      return aProxy;
+      if (Date.now() - tor.unknownDirtySince > 1000*10*60) {
+        logger.eclog(3, "tor catchall circuit has been dirty for over 10 minutes. Rotating.");
+        tor.newCircuitForDomain("--unknown--");
+        tor.unknownDirtySince = Date.now();
+      }
+      let replacementProxy = tor.socksProxyCredentials(aProxy, "--unknown--");
+
+      logger.eclog(3, "tor SOCKS isolation catchall: " + aChannel.URI.spec + " via " +
+                      replacementProxy.username + ":" + replacementProxy.password);
+      return replacementProxy;
     }
   }, 0);
 };
@@ -125,14 +148,7 @@ DomainIsolator.prototype = {
     }
   },
   newCircuitForDomain: function (domain) {
-    // Check if we already have a nonce. If not, create
-    // one for this domain.
-    if (!tor.noncesForDomains.hasOwnProperty(domain)) {
-      tor.noncesForDomains[domain] = 0;
-    } else {
-      tor.noncesForDomains[domain] += 1;
-    }
-    logger.eclog(3, "New domain isolation count " +tor.noncesForDomains[domain] + " for " + domain);
+    tor.newCircuitForDomain(domain);
   },
 
   wrappedJSObject: null
