@@ -2162,8 +2162,7 @@ function torbutton_update_fingerprinting_prefs() {
             m_tb_prefs.clearUserPref("intl.charsetmenu.browser.cache");
           if(m_tb_prefs.prefHasUserValue("intl.accept_charsets"))
             m_tb_prefs.clearUserPref("intl.accept_charsets");
-          if(m_tb_prefs.prefHasUserValue("javascript.use_us_english_locale"))
-            m_tb_prefs.clearUserPref("javascript.use_us_english_locale");
+          m_tb_prefs.setBoolPref("javascript.use_us_english_locale", false);
         }
       } else {
         m_tb_prefs.setIntPref("browser.display.max_font_attempts",-1);
