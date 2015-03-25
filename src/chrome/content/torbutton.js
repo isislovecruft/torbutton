@@ -22,7 +22,6 @@ const k_tb_last_browser_version_pref = "extensions.torbutton.lastBrowserVersion"
 const k_tb_browser_update_needed_pref = "extensions.torbutton.updateNeeded";
 const k_tb_last_update_check_pref = "extensions.torbutton.lastUpdateCheck";
 const k_tb_tor_check_failed_topic = "Torbutton:TorCheckFailed";
-
 // status
 var m_tb_wasinited = false;
 var m_tb_prefs = false;
@@ -1072,6 +1071,10 @@ function torbutton_on_abouttor_load(aDoc) {
     m_tb_prefs.
       setBoolPref("extensions.torbutton.show_slider_notification", false);
   }
+
+  // OS-specific window maximization on start-up should be done by now. Disable
+  // the respective preference to make sure the user is seeing our notification.
+  m_tb_prefs.setBoolPref("extensions.torbutton.startup_resize_period", false);
 }
 
 function torbutton_is_abouttor_doc(aDoc) {
@@ -3094,6 +3097,9 @@ function torbutton_close_window(event) {
     torbutton_tor_check_observer.unregister();
     torbutton_console_observer.unregister();
 
+    window.removeEventListener("sizemodechange", m_tb_resize_handler,
+        false);
+
     // TODO: This is a real ghetto hack.. When the original window
     // closes, we need to find another window to handle observing 
     // unique events... The right way to do this is to move the 
@@ -3301,6 +3307,9 @@ var torbutton_weblistener =
   { /*torbutton_eclog(1, 'called linkIcon'); */ return 0; }
 }
 
+var m_tb_resize_handler = null;
+var m_tb_resize_date = null;
+
 // Bug 1506 P1/P3: Setting a fixed window size is important, but
 // probably not for android.
 var torbutton_resizelistener =
@@ -3410,30 +3419,87 @@ var torbutton_resizelistener =
         height = Math.floor(maxHeight/100.0)*100;
       }
 
-      var handler = function() {
+      m_tb_resize_handler = function() {
         if (window.windowState === 1) {
-          window.addEventListener("resize",
-            function() {
-              win.resizeBy(width - win.innerWidth, height - win.innerHeight);
-              var calling_function = arguments.callee;
-              setTimeout(function() {
-                           torbutton_log(3, "Removing resize listener..");
-                           window.removeEventListener("resize",
-                             calling_function, false);
-                         }, 1000);
-            }, false);
+          if (m_tb_prefs.
+              getIntPref("extensions.torbutton.maximize_warning_counter") < 3) {
+
+            // Rate-limit showing our notification if needed.
+            if (m_tb_resize_date === null) {
+              m_tb_resize_date = Date.now();
+            } else {
+              // We at least another second before we show a new notification.
+              // Should be enough to rule out OSes that call our handler rapidly
+              // due to internal workings.
+              if (Date.now() - m_tb_resize_date < 1000) {
+                return;
+              }
+              // Resizing but we need to reset |m_tb_resize_date| now.
+              m_tb_resize_date = Date.now();
+            }
+
+            let sb = torbutton_get_stringbundle();
+            // No need to get "OK" translated again.
+            let sbSvc = Cc["@mozilla.org/intl/stringbundle;1"].
+              getService(Ci.nsIStringBundleService);
+            let bundle = sbSvc.
+              createBundle("chrome://global/locale/commonDialogs.properties");
+            let button_label = bundle.GetStringFromName("OK");
+            let box = gBrowser.getNotificationBox();
+
+            let buttons = [{
+              label: button_label,
+              accessKey: 'O',
+              popup: null,
+              callback:
+                function() {
+                  m_tb_prefs.setIntPref("extensions.torbutton.maximize_warning_counter",
+                  m_tb_prefs.getIntPref("extensions.torbutton.maximize_warning_counter") + 1);
+                }
+            }];
+
+            let priority = box.PRIORITY_WARNING_LOW;
+            let message =
+              torbutton_get_property_string("torbutton.maximize_warning");
+
+            box.appendNotification(message, 'new-menu-notification', null,
+                                   priority, buttons);
+
+            return;
+          }
+          // This is for some weird OS-specific behavior on start-up where,
+          // depending on the available screen size, the OS thinks it has to
+          // maximize the window. We don't want to do that AND don't want to
+          // show the user our notification in this case.
+          if (m_tb_prefs.
+                getBoolPref("extensions.torbutton.startup_resize_period")) {
+            window.addEventListener("resize",
+              function() {
+                win.resizeBy(width - win.innerWidth, height - win.innerHeight);
+                var calling_function = arguments.callee;
+                setTimeout(function() {
+                             torbutton_log(3, "Removing resize listener..");
+                             window.removeEventListener("resize",
+                               calling_function, false);
+                           }, 1000);
+              }, false);
+          }
         }
       };
 
       // We need to handle OSes that auto-maximize windows depending on user
-      // settings and/or screen resolution. We add a listener which is
-      // triggerred as soon as the window gets maximized (windowState = 1).
+      // settings and/or screen resolution in the start-up phase and users that
+      // try to shoot themselves in the foot by maximizing the window manually.
+      // We add a listener which is triggerred as soon as the window gets
+      // maximized (windowState = 1). We are resizing during start-up but not
+      // later as the user should see only a warning there as a stopgap before
+      // #14229 lands.
       // Alas, the Firefox window code is handling the event not itself:
       // "// Note the current implementation of SetSizeMode just stores
       //  // the new state; it doesn't actually resize. So here we store
       //  // the state and pass the event on to the OS."
-      // (See: https://mxr.mozilla.org/mozilla-esr24/source/xpfe/appshell/src/
-      // nsWebShellWindow.cpp#353)
+      // (See: https://mxr.mozilla.org/mozilla-esr31/source/xpfe/appshell/src/
+      // nsWebShellWindow.cpp#348)
       // This means we have to cope with race conditions and resizing in the
       // sizemodechange listener is likely to fail. Thus, we add a specific
       // resize listener that is doing the work for us. It seems (at least on
@@ -3441,14 +3507,9 @@ var torbutton_resizelistener =
       // the window triggers more than one resize event the first being not the
       // one we need. Thus we can't remove the listener after the first resize
       // event got fired. Thus, we have the rather klunky setTimeout() call.
-      window.addEventListener("sizemodechange", handler, false);
-
-      // We like to remove the sizemodechange listener for everybody again in
-      // order to allow resizing the window after the start-up
-      setTimeout(function() {
-                   torbutton_log(3, "Removing sizemodechange listener..");
-                   window.removeEventListener("sizemodechange", handler, false);
-                  }, 1000);
+      m_tb_prefs.setBoolPref("extensions.torbutton.startup_resize_period",
+        true);
+      window.addEventListener("sizemodechange", m_tb_resize_handler, false);
 
       // This is fun. any attempt to directly set the inner window actually
       // resizes the outer width to that value instead. Must use resizeBy()
