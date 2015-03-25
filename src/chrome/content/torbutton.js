@@ -1175,7 +1175,7 @@ function torbutton_do_async_versioncheck() {
   }
 
   // Suppress update check if done recently.
-  const kMinSecsBetweenChecks = 90 * 60; // 1.5 hours
+  const kMinSecsBetweenChecks = 120 * 60; // 2.0 hours
   var now = Date.now() / 1000;
   var lastCheckTime;
   try {
