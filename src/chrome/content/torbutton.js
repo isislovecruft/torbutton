@@ -22,6 +22,9 @@ const k_tb_last_browser_version_pref = "extensions.torbutton.lastBrowserVersion"
 const k_tb_browser_update_needed_pref = "extensions.torbutton.updateNeeded";
 const k_tb_last_update_check_pref = "extensions.torbutton.lastUpdateCheck";
 const k_tb_tor_check_failed_topic = "Torbutton:TorCheckFailed";
+const k_tb_tor_resize_warn_pref =
+  "extensions.torbutton.startup_resize_period"
+
 // status
 var m_tb_wasinited = false;
 var m_tb_prefs = false;
@@ -1074,7 +1077,7 @@ function torbutton_on_abouttor_load(aDoc) {
 
   // OS-specific window maximization on start-up should be done by now. Disable
   // the respective preference to make sure the user is seeing our notification.
-  m_tb_prefs.setBoolPref("extensions.torbutton.startup_resize_period", false);
+  m_tb_prefs.setBoolPref(k_tb_tor_resize_warn_pref, false);
 }
 
 function torbutton_is_abouttor_doc(aDoc) {
@@ -3427,9 +3430,9 @@ var torbutton_resizelistener =
             if (m_tb_resize_date === null) {
               m_tb_resize_date = Date.now();
             } else {
-              // We at least another second before we show a new notification.
-              // Should be enough to rule out OSes that call our handler rapidly
-              // due to internal workings.
+              // We wait at least another second before we show a new
+              // notification. Should be enough to rule out OSes that call our
+              // handler rapidly due to internal workings.
               if (Date.now() - m_tb_resize_date < 1000) {
                 return;
               }
@@ -3471,7 +3474,7 @@ var torbutton_resizelistener =
           // maximize the window. We don't want to do that AND don't want to
           // show the user our notification in this case.
           if (m_tb_prefs.
-                getBoolPref("extensions.torbutton.startup_resize_period")) {
+                getBoolPref(k_tb_tor_resize_warn_pref)) {
             window.addEventListener("resize",
               function() {
                 win.resizeBy(width - win.innerWidth, height - win.innerHeight);
@@ -3506,8 +3509,7 @@ var torbutton_resizelistener =
       // the window triggers more than one resize event the first being not the
       // one we need. Thus we can't remove the listener after the first resize
       // event got fired. Thus, we have the rather klunky setTimeout() call.
-      m_tb_prefs.setBoolPref("extensions.torbutton.startup_resize_period",
-        true);
+      m_tb_prefs.setBoolPref(k_tb_tor_resize_warn_pref, true);
       window.addEventListener("sizemodechange", m_tb_resize_handler, false);
 
       // This is fun. any attempt to directly set the inner window actually
