@@ -97,7 +97,7 @@ tor.newCircuitForDomain = function(domain) {
 tor.isolateCircuitsByDomain = function () {
   mozilla.registerProxyChannelFilter(function (aChannel, aProxy) {
     try {
-      let channel = aChannel.QueryInterface(Ci.nsIHttpChannel),
+      let channel = aChannel.QueryInterface(Ci.nsIChannel),
           firstPartyURI = mozilla.thirdPartyUtil.getFirstPartyURIFromChannel(channel, true)
                             .QueryInterface(Ci.nsIURI),
           firstPartyDomain = mozilla.thirdPartyUtil
@@ -108,6 +108,7 @@ tor.isolateCircuitsByDomain = function () {
                       replacementProxy.username + ":" + replacementProxy.password); 
       return replacementProxy;
     } catch (err) {
+      logger.eclog(3, err.message);
       if (Date.now() - tor.unknownDirtySince > 1000*10*60) {
         logger.eclog(3, "tor catchall circuit has been dirty for over 10 minutes. Rotating.");
         tor.newCircuitForDomain("--unknown--");
