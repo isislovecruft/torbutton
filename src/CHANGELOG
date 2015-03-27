@@ -16,7 +16,8 @@
  * Bug 14937: Show meek and flashproxy bridges in tor circuit display
  * Bugs 13891+15207: Fix exceptions/errors in circuit display with bridges
  * Bug 13019: Change locale hiding pref to boolean
- * Bug 7255: Warn users about maximizing windows (off by default)
+ * Bug 7255: Warn users about maximizing windows
+ * Bug 14631: Improve profile access error msgs (strings).
 
 1.9.0.0
  * Bug 13882: Fix display of bridges after bridge settings have been changed
