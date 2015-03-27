@@ -18,11 +18,11 @@
 <!ENTITY torbutton.about.security_review "Güvenlik özeti:">
 <!ENTITY torbutton.about.donate "Tor kullanmayı seviyorsanız ayrıca şunu da düşünebilirsiniz: ">
 <!ENTITY torbutton.about.make_donation "Bağış yapmak">
-<!ENTITY torbutton.pref_connection.notice "Ayarları uygulumak için Torbutonu devredışı bırak.">
+<!ENTITY torbutton.pref_connection.notice "Ayarları uygulamak için Torbuttonu devre dışı bırak.">
 <!ENTITY torbutton.pref_connection.more_info "Daha fazla bilgi">
 <!ENTITY torbutton.pref_connection_more_info.title "Yardım">
 <!ENTITY torbutton.pref_connection_more_info.text "Torbutton şu anda devre dışı. Vekil sunucu ayarlarını değiştirmek istiyorsanız, Torbutton'ı tekrar devre dışı bırakın. Genel ayarları değiştirecekseniz, ayarlar penceresini kullanın.">
-<!ENTITY torbutton.context_menu.new_identity "Yeni Bağlantı">
+<!ENTITY torbutton.context_menu.new_identity "Yeni Kimlik">
 <!ENTITY torbutton.context_menu.new_identity_key "S">
 <!ENTITY torbutton.context_menu.new_circuit "Bu site için yeni Tor devresi">
 <!ENTITY torbutton.context_menu.new_circuit_key "C">
@@ -44,7 +44,7 @@
 <!ENTITY torbutton.context_menu.openTorTab.key "p">
 <!ENTITY torbutton.context_menu.openTorWindow "Tor URL'sini Yeni Pencerede Aç">
 <!ENTITY torbutton.context_menu.openTorWindow.key "d">
-<!ENTITY torbutton.button.label "Torbuton">
+<!ENTITY torbutton.button.label "Torbutton">
 <!ENTITY torbutton.button.tooltip "Başlat">
 <!ENTITY torbutton.prefs.privacy_security_settings "Gizlilik ve Güvenlik Ayarları">
 <!ENTITY torbutton.prefs.block_thread "Tor çalışırken geçmişi okumayı durdur(kritik)">
@@ -153,8 +153,35 @@
 <!ENTITY torbutton.prefs.resist_fingerprinting "Diğer Tor kullanıcılardan sizi ayıran detayları değiştir">
 <!ENTITY torbutton.prefs.sec_caption "Güvenlik Seviyesi">
 <!ENTITY torbutton.prefs.sec_low "Düşük (varsayılan)">
+<!ENTITY torbutton.prefs.sec_low_usable_desc "Bu en kullanılabilir deneyimi sunar.">
+<!ENTITY torbutton.prefs.sec_low_desc "Bu güvenlik seviyesinde tüm tarayıcı özellikleri etkindir.">
+<!ENTITY torbutton.prefs.sec_font_rend_svg_tooltip "SVG OpenType yazı tipi işleme mekanizması devre dışı.">
 <!ENTITY torbutton.prefs.sec_med_low "Orta-Düşük">
+<!ENTITY torbutton.prefs.sec_gen_desc "Bu güvenlik seviyesinde, aşağıdaki değişiklikler uygulanır (ayrıntılar için fare ile üzerine gelin):">
+<!ENTITY torbutton.prefs.sec_html5_desc "HTML5 video ve ses ortamı NoScript aracılığıyla tıkla ve oynat yapıldı.">
+<!ENTITY torbutton.prefs.sec_html5_tooltip "Bazı sitelerde bu ortam nesnelerini etkinleştirebilmek için NoScript düğmesini kullanmanız gerekebilir.">
+<!ENTITY torbutton.prefs.sec_some_jit_desc "Bazı JavaScript başarım iyileştirmeleri devre dışı.">
+<!ENTITY torbutton.prefs.sec_jit_desc_tooltip "ION JIT, Tür çıkarımı, ASM.JS.">
+<!ENTITY torbutton.prefs.sec_baseline_jit_desc_tooltip "Sınır Çizgi JIT.">
+<!ENTITY torbutton.prefs.sec_jit_slower_desc "Bazı sitelerde betikler daha yavaş çalışabilir.">
+<!ENTITY torbutton.prefs.sec_jar_desc "Uzak JAR dosyaları engellendi.">
+<!ENTITY torbutton.prefs.sec_jar_tooltip "JAR dosyalarına ağda oldukça ender rastlanır, ancak XSS ve diğer saldırıların kaynağı olabilir.">
+<!ENTITY torbutton.prefs.sec_mathml_desc "Matematik denklemlerini gösteren bazı mekanizmalar devre dışı.">
+<!ENTITY torbutton.prefs.sec_mathml_desc_tooltip "MathML devre dışı.">
 <!ENTITY torbutton.prefs.sec_med_high "Orta-Yüksek">
+<!ENTITY torbutton.prefs.sec_all_jit_desc "Tüm JavaScript başarım iyileştirmeleri devre dışı.">
+<!ENTITY torbutton.prefs.sec_font_rend_desc "Bazı yazı tipi işleme özellikleri devre dışı.">
+<!ENTITY torbutton.prefs.sec_font_rend_graphite_tooltip "Graphite yazı tipi işleme mekanizması devre dışı.">
+<!ENTITY torbutton.prefs.sec_svg_desc "Bazı resim türleri devre dışı.">
+<!ENTITY torbutton.prefs.sec_svg_desc_tooltip "SVG resimleri devre dışı.">
+<!ENTITY torbutton.prefs.sec_js_https_desc "JavaScript öntanımlı olarak tüm HTTPS olmayan sitelerde devre dışı.">
+<!ENTITY torbutton.prefs.sec_js_desc_tooltip "JavaScript, NoScript araç çubuğu düğmesi kullanılarak her site için ayrı ayrı etkinleştirilebilir.">
 <!ENTITY torbutton.prefs.sec_high "Yüksek">
+<!ENTITY torbutton.prefs.sec_all_js_desc "JavaScript öntanımlı olarak tüm sitelerde devre dışı.">
+<!ENTITY torbutton.prefs.sec_audio_video_desc "Çoğu ses ve video biçimi devre dışı.">
+<!ENTITY torbutton.prefs.sec_audio_video_desc_tooltip "WebM, etkin bırakılan tek çözücü.">
+<!ENTITY torbutton.prefs.sec_webfonts_desc "Bazı yazı tipi ve simgeler düzgün görüntülenemeyebilir.">
+<!ENTITY torbutton.prefs.sec_webfonts_desc_tooltip "Web site tarafından sağlanan yazı tipi dosyaları engellenmiş.">
 <!ENTITY torbutton.prefs.sec_custom "Özel Değerler">
 <!ENTITY torbutton.circuit_display.title "Bu site için Tor devresi">
+

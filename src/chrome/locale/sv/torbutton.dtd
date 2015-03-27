@@ -24,19 +24,19 @@
 <!ENTITY torbutton.pref_connection_more_info.text "Torbutton är aktiverad. Om du vill ändra inställningar för proxy utan Tor, inaktivera Tor och kom tillbaka hit. Om du vill ändra inställningar för Tor, använd Torbutton-inställningarna.">
 <!ENTITY torbutton.context_menu.new_identity "Ny identitet">
 <!ENTITY torbutton.context_menu.new_identity_key "N">
-<!ENTITY torbutton.context_menu.new_circuit "New Tor Circuit for this Site">
+<!ENTITY torbutton.context_menu.new_circuit "Ny Tor circuit för den här sajten">
 <!ENTITY torbutton.context_menu.new_circuit_key "S">
 <!ENTITY torbutton.context_menu.toggle "Slå på/av Tor">
 <!ENTITY torbutton.context_menu.toggle.key "T">
-<!ENTITY torbutton.context_menu.preferences "Privacy and Security Settings…">
+<!ENTITY torbutton.context_menu.preferences "Inställningar för privatliv och säkerhet...">
 <!ENTITY torbutton.context_menu.preferences.key "I">
 <!ENTITY torbutton.context_menu.about "Om Torbutton...">
 <!ENTITY torbutton.context_menu.about.key "O">
-<!ENTITY torbutton.context_menu.networksettings "Tor Network Settings…">
+<!ENTITY torbutton.context_menu.networksettings "Tor nätverksinställningar...">
 <!ENTITY torbutton.context_menu.networksettings.key "Ö">
-<!ENTITY torbutton.context_menu.downloadUpdate "Check for Tor Browser Update…">
+<!ENTITY torbutton.context_menu.downloadUpdate "Sök efter uppdateringar för Tor webbläsare...">
 <!ENTITY torbutton.context_menu.downloadUpdate.key "U">
-<!ENTITY torbutton.context_menu.cookieProtections "Cookie Protections…">
+<!ENTITY torbutton.context_menu.cookieProtections "Skydd mot Cookies...">
 <!ENTITY torbutton.context_menu.cookieProtections.key "S">
 <!ENTITY torbutton.context_menu.copyTor "Kopiera Tor URL">
 <!ENTITY torbutton.context_menu.copyTor.key "p">
@@ -153,8 +153,35 @@
 <!ENTITY torbutton.prefs.resist_fingerprinting "Ändra detailjer som utmärker dig ifrån andra Tor Browser användare">
 <!ENTITY torbutton.prefs.sec_caption "Säkerhetsnivå">
 <!ENTITY torbutton.prefs.sec_low "Låg (förvald)">
+<!ENTITY torbutton.prefs.sec_low_usable_desc "This provides the most usable experience.">
+<!ENTITY torbutton.prefs.sec_low_desc "At this security level, all browser features are enabled.">
+<!ENTITY torbutton.prefs.sec_font_rend_svg_tooltip "The SVG OpenType font rendering mechanism is disabled.">
 <!ENTITY torbutton.prefs.sec_med_low "Medium-låg">
+<!ENTITY torbutton.prefs.sec_gen_desc "At this security level, the following changes apply (mouseover for details):">
+<!ENTITY torbutton.prefs.sec_html5_desc "HTML5 video and audio media become click-to-play via NoScript.">
+<!ENTITY torbutton.prefs.sec_html5_tooltip "On some sites, you might need to use the NoScript toolbar button to enable these media objects.">
+<!ENTITY torbutton.prefs.sec_some_jit_desc "Some JavaScript performance optimizations are disabled.">
+<!ENTITY torbutton.prefs.sec_jit_desc_tooltip "ION JIT, Type Inference, ASM.JS.">
+<!ENTITY torbutton.prefs.sec_baseline_jit_desc_tooltip "Baseline JIT.">
+<!ENTITY torbutton.prefs.sec_jit_slower_desc "Scripts on some sites may run slower.">
+<!ENTITY torbutton.prefs.sec_jar_desc "Remote JAR files are blocked.">
+<!ENTITY torbutton.prefs.sec_jar_tooltip "JAR files are extremely rare on the web, but can be a source of XSS and other attacks.">
+<!ENTITY torbutton.prefs.sec_mathml_desc "Some mechanisms of displaying math equations are disabled.">
+<!ENTITY torbutton.prefs.sec_mathml_desc_tooltip "MathML is disabled.">
 <!ENTITY torbutton.prefs.sec_med_high "Medium-hög">
+<!ENTITY torbutton.prefs.sec_all_jit_desc "All JavaScript performance optimizations are disabled.">
+<!ENTITY torbutton.prefs.sec_font_rend_desc "Some font rendering features are disabled.">
+<!ENTITY torbutton.prefs.sec_font_rend_graphite_tooltip "The Graphite font rendering mechanism is disabled.">
+<!ENTITY torbutton.prefs.sec_svg_desc "Some types of images are disabled.">
+<!ENTITY torbutton.prefs.sec_svg_desc_tooltip "SVG images are disabled.">
+<!ENTITY torbutton.prefs.sec_js_https_desc "JavaScript is disabled by default on all non-HTTPS sites.">
+<!ENTITY torbutton.prefs.sec_js_desc_tooltip "JavaScript can be enabled on a per-site basis via the NoScript toolbar button.">
 <!ENTITY torbutton.prefs.sec_high "Hög">
+<!ENTITY torbutton.prefs.sec_all_js_desc "JavaScript is disabled by default on all sites.">
+<!ENTITY torbutton.prefs.sec_audio_video_desc "Most audio and video formats are disabled.">
+<!ENTITY torbutton.prefs.sec_audio_video_desc_tooltip "WebM is the only codec that remains enabled.">
+<!ENTITY torbutton.prefs.sec_webfonts_desc "Some fonts and icons may display incorrectly.">
+<!ENTITY torbutton.prefs.sec_webfonts_desc_tooltip "Website-provided font files are blocked.">
 <!ENTITY torbutton.prefs.sec_custom "Anpassad nivå">
-<!ENTITY torbutton.circuit_display.title "Tor circuit for this site">
+<!ENTITY torbutton.circuit_display.title "Tor circuit för den här sajten">
+

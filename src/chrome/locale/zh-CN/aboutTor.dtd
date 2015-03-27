@@ -8,7 +8,7 @@
 
 <!ENTITY aboutTor.outOfDateTorOn.label "但是该浏览器并非最新版本。">
 <!ENTITY aboutTor.outOfDateTorOff.label "另外，该浏览器并非最新版本。">
-<!ENTITY aboutTor.outOfDate2.label "点击洋葱，然后选择 Tor Browser 检查更新。">
+<!ENTITY aboutTor.outOfDate2.label "点击洋葱图标，然后选择“Tor Browser 检查更新”。">
 
 <!ENTITY aboutTor.check.label "测试 Tor 网络设置">
 

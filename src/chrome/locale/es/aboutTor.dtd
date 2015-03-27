@@ -19,27 +19,27 @@
 <!ENTITY aboutTor.failure2.label "Tor no está funcionando en este navegador.">
 <!ENTITY aboutTor.failure3prefix.label "Para obtener asistencia, por favor contacte">
 <!ENTITY aboutTor.failure3Link "help@rt.torproject.org">
-<!ENTITY aboutTor.failure3suffix.label ",">
+<!ENTITY aboutTor.failure3suffix.label ".">
 
 <!ENTITY aboutTor.search.label "Buscar">
 
 <!ENTITY aboutTor.searchSPPost.link "https://startpage.com/rth/search">
 <!ENTITY aboutTor.searchDDGPost.link "https://duckduckgo.com/html/">
-<!ENTITY aboutTor.searchDCPost.link "https://search.disconnect.me/searchTerms/search?ses=Google&amp;location_option=ES">
+<!ENTITY aboutTor.searchDCPost.link "https://search.disconnect.me/searchTerms/search?ses=Google&amp;location_option=US">
 
 <!ENTITY aboutTor.torInfo1.label "Información adicional:">
 <!ENTITY aboutTor.torInfo2.label "País y dirección IP:">
 <!ENTITY aboutTor.torInfo3.label "Nodo de salida:">
-<!ENTITY aboutTor.torInfo4.label "Este servidor no registra información alguna de los visitantes.">
-<!ENTITY aboutTor.whatnextQuestion.label "¿Qué es lo siguiente?">
+<!ENTITY aboutTor.torInfo4.label "Este servidor no registra ninguna información sobre los visitantes.">
+<!ENTITY aboutTor.whatnextQuestion.label "¿Qué sigue?">
 <!ENTITY aboutTor.whatnextAnswer.label "¡Tor NO es todo lo que necesita para navegar anónimamente! Puede necesitar cambiar alguno de sus hábitos de navegación para asegurar que su identidad permanezca segura.">
 <!ENTITY aboutTor.whatnext.label "Consejos para permenecer anónimo »">
 <!ENTITY aboutTor.whatnext.link "https://www.torproject.org/download/download.html.en#warning">
 <!ENTITY aboutTor.helpInfo1.label "¡Usted puede ayudar!">
-<!ENTITY aboutTor.helpInfo2.label "Hay muchas formas en las puede ayudar a hacer la red Tor más rápida y fuerte.">
+<!ENTITY aboutTor.helpInfo2.label "Hay muchas formas en que las puede ayudar a hacer la red Tor más rápida y fuerte.">
 <!ENTITY aboutTor.helpInfo3.label "Ejecutar un nodo de repetidor Tor »">
 <!ENTITY aboutTor.helpInfo3.link "https://www.torproject.org/docs/tor-doc-relay.html.en">
-<!ENTITY aboutTor.helpInfo4.label "Ofrece voluntariamente tus servicios »">
+<!ENTITY aboutTor.helpInfo4.label "Ofrece sus servicios como voluntario »">
 <!ENTITY aboutTor.helpInfo4.link "https://www.torproject.org/getinvolved/volunteer.html.en">
 <!ENTITY aboutTor.helpInfo5.label "Realiza una donación »">
 <!ENTITY aboutTor.helpInfo5.link "https://www.torproject.org/donate/donate.html.en">

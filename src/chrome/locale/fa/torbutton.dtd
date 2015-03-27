@@ -9,13 +9,13 @@
 <!ENTITY torbutton.prefs.proxy.host.ftp "پراکسی FTP:">
 <!ENTITY torbutton.prefs.proxy.host.gopher "پراکسی Gopher:">
 <!ENTITY torbutton.prefs.proxy.host.socks "ميزبان SOCKS:">
-<!ENTITY torbutton.prefs.proxy.port "درگاهی (Port):">
+<!ENTITY torbutton.prefs.proxy.port "درگاه (Port):">
 <!ENTITY torbutton.about.title "دربارۀ دکمه تُر">
 <!ENTITY torbutton.about.version "نسخه :">
 <!ENTITY torbutton.about.summary "محافظت از حریم خصوصی در هنگام وبگردی با تُر.">
-<!ENTITY torbutton.about.code "کانون کد :">
+<!ENTITY torbutton.about.code "همکاران کد :">
 <!ENTITY torbutton.about.maintainer "نگهدارنده :">
-<!ENTITY torbutton.about.security_review "دیدگاه های ایمنی :">
+<!ENTITY torbutton.about.security_review "نکات امنیتی :">
 <!ENTITY torbutton.about.donate "اگر مایل به استفاده از تُر هستید، میتوانید مدنظر قرار دهید">
 <!ENTITY torbutton.about.make_donation "اهداء کمک نقدی.">
 <!ENTITY torbutton.pref_connection.notice "غيرفعال کردن دکمه تُر جهت تغيير دراين تنظيمات.">
@@ -23,10 +23,10 @@
 <!ENTITY torbutton.pref_connection_more_info.title "راهنما">
 <!ENTITY torbutton.pref_connection_more_info.text "دکمه تُرهم اکنون فعال شده است.اگر می‌خواهيد تنظيمات پراکسی غيرمرتبط با تُر را تغيير دهيد، لطفا دکمه تُر را غيرفعال کنيد و دوباره به اينجا بازگرديد. اگر ميخواهيد تنظيمات تُر را تغيير دهيد، از پنجره تنظيمات دکمه تُر استفاده کنيد.">
 <!ENTITY torbutton.context_menu.new_identity "هویت جدید">
-<!ENTITY torbutton.context_menu.new_identity_key "من">
-<!ENTITY torbutton.context_menu.new_circuit "مدار جدید Tor برای این سایت">
+<!ENTITY torbutton.context_menu.new_identity_key "I">
+<!ENTITY torbutton.context_menu.new_circuit "شبکه جدید Tor برای این سایت">
 <!ENTITY torbutton.context_menu.new_circuit_key "C">
-<!ENTITY torbutton.context_menu.toggle "ضامن فعال/غيرفعال کردن تُر">
+<!ENTITY torbutton.context_menu.toggle "دکمه فعال/غيرفعال کردن تُر">
 <!ENTITY torbutton.context_menu.toggle.key "T">
 <!ENTITY torbutton.context_menu.preferences "حفظ حریم خصوصی و تنظیمات امنیتی">
 <!ENTITY torbutton.context_menu.preferences.key "P">
@@ -34,7 +34,7 @@
 <!ENTITY torbutton.context_menu.about.key "A">
 <!ENTITY torbutton.context_menu.networksettings "تنظیمات شبکه تور">
 <!ENTITY torbutton.context_menu.networksettings.key "S">
-<!ENTITY torbutton.context_menu.downloadUpdate "بررسی برای به روز رسانی Tor Browser ...">
+<!ENTITY torbutton.context_menu.downloadUpdate "بررسی بروز رسانی Tor Browser ...">
 <!ENTITY torbutton.context_menu.downloadUpdate.key "U">
 <!ENTITY torbutton.context_menu.cookieProtections "حفاظت کوکی ها...">
 <!ENTITY torbutton.context_menu.cookieProtections.key "C">
@@ -64,14 +64,14 @@
 <!ENTITY torbutton.prefs.no_updates "غیرفعال کردن به‌روزرسانی در هنگام استفاده از تُر">
 <!ENTITY torbutton.prefs.set_uagent "تعيين کاربر برای استفاده از تُر (بسیار مهم)">
 <!ENTITY torbutton.prefs.dynamic "محتوای پویا">
-<!ENTITY torbutton.prefs.cookies "کلوچک‌ها">
+<!ENTITY torbutton.prefs.cookies "کوکی ها">
 <!ENTITY torbutton.prefs.cache "ذخيره‌گاه">
 <!ENTITY torbutton.prefs.history "تاریخچه">
 <!ENTITY torbutton.prefs.no_search "غیرفعال کردن پیشنهادهای جستجو هنگام اجرای تُر (توصیه شده)">
-<!ENTITY torbutton.prefs.shutdown "بستن">
-<!ENTITY torbutton.prefs.tor_shutdown "پاک کردن کلوچک‌های تُردرهنگام بستن مرورگری که با تُر کار می‌کند">
-<!ENTITY torbutton.prefs.all_shutdown "پاک کردن کلوچک‌ها هنگام بستن هر مرورگری">
-<!ENTITY torbutton.prefs.no_shutdown "پاک نکردن کلوچک‌ها هنگام بستن">
+<!ENTITY torbutton.prefs.shutdown "خاموش کردن">
+<!ENTITY torbutton.prefs.tor_shutdown "پاک کردن کوکی های تُردرهنگام بستن مرورگری که با تُر کار می‌کند">
+<!ENTITY torbutton.prefs.all_shutdown "پاک کردن کوکی ها هنگام بستن هر مرورگری">
+<!ENTITY torbutton.prefs.no_shutdown "پاک نکردن کوکی ها هنگام بستن">
 <!ENTITY torbutton.prefs.disable_sessionstore "غیرفعال کردن ذخیره‌سازی نشست (Session) ها (توصیه شده)">
 <!ENTITY torbutton.prefs.headers "سربرگ‌ها">
 <!ENTITY torbutton.prefs.spoof_english "جعل هویت یک مرورگر با زبان انگليسی آمریکایی">
@@ -153,8 +153,35 @@
 <!ENTITY torbutton.prefs.resist_fingerprinting "تغييردادن جزئياتى كه شمارا از كاربران ديگر تُر تميزمى‌كند">
 <!ENTITY torbutton.prefs.sec_caption "سطح امنیت">
 <!ENTITY torbutton.prefs.sec_low "پایین (به طور پیش فرض)">
+<!ENTITY torbutton.prefs.sec_low_usable_desc "این فراهم می کند بیشترین تجربه قابل استفاده.">
+<!ENTITY torbutton.prefs.sec_low_desc "در این سطح امنیتی، تمام ویژگی های مرورگر ها فعال است.">
+<!ENTITY torbutton.prefs.sec_font_rend_svg_tooltip "مکانیسم رندر فونت SVG اپن تایپ غیر فعال است.">
 <!ENTITY torbutton.prefs.sec_med_low "متوسط ​​- کم">
+<!ENTITY torbutton.prefs.sec_gen_desc "در این سطح امنیتی، تغییرات زیر اعمال می شود (خلاصه شده برای جزئیات بیشتر):">
+<!ENTITY torbutton.prefs.sec_html5_desc "صدا و تصویر HTML5 از طریق دکمه NoScript نوار ابزار به حالت -کلیک برای پخش- در می آید">
+<!ENTITY torbutton.prefs.sec_html5_tooltip "در برخی سایت ها، ممکن است شما نیاز به استفاده از دکمه NoScript نوار ابزار برای فعال کردن این اشیاء رسانه داشته باشید.">
+<!ENTITY torbutton.prefs.sec_some_jit_desc "برخی از بهینه سازی عملکرد جاوا اسکریپت غیر فعال شده است.">
+<!ENTITY torbutton.prefs.sec_jit_desc_tooltip "ION JIT, Type Inference, ASM.JS.">
+<!ENTITY torbutton.prefs.sec_baseline_jit_desc_tooltip "JIT در شروع مطالعه.">
+<!ENTITY torbutton.prefs.sec_jit_slower_desc "اسکریپت هل در برخی از سایت ها ممکن است آهسته تر اجرا شود.">
+<!ENTITY torbutton.prefs.sec_jar_desc "فایل های JAR از راه دور مسدود.">
+<!ENTITY torbutton.prefs.sec_jar_tooltip "فایل ها با پسوند JAR به ندرت در وب استفاده می شوند ، ولی می توانند مبدایی برای هک به روش XSS و دیگر حملات هکری شوند.">
+<!ENTITY torbutton.prefs.sec_mathml_desc "برخی مکانیسم ها نمایش معادلات ریاضی غیر فعال می باشد.">
+<!ENTITY torbutton.prefs.sec_mathml_desc_tooltip "MathML غیر فعال است.">
 <!ENTITY torbutton.prefs.sec_med_high "متوسط ​​- بالا">
+<!ENTITY torbutton.prefs.sec_all_jit_desc "همه بهینه سازی عملکرد جاوا اسکریپت غیر فعال شده است.">
+<!ENTITY torbutton.prefs.sec_font_rend_desc "برخی از ویژگی های رندر فونت غیر فعال می باشد.">
+<!ENTITY torbutton.prefs.sec_font_rend_graphite_tooltip "مکانیسم گرافیت رندر فونت غیر فعال است.">
+<!ENTITY torbutton.prefs.sec_svg_desc "برخی از انواع تصاویر غیر فعال هستند.">
+<!ENTITY torbutton.prefs.sec_svg_desc_tooltip "تصاویر SVG غیر فعال می باشد.">
+<!ENTITY torbutton.prefs.sec_js_https_desc "جاوا اسکریپت به طور پیش فرض در تمامی سایت های غیر HTTPS غیر فعال است.">
+<!ENTITY torbutton.prefs.sec_js_desc_tooltip "جاوا اسکریپ برای هر وب سایت از طریق دکمه NoScript نوار ابزار فعال می شود.">
 <!ENTITY torbutton.prefs.sec_high "زیاد">
+<!ENTITY torbutton.prefs.sec_all_js_desc "جاوا اسکریپت به طور پیش فرض در تمامی سایت ها غیر فعال است.">
+<!ENTITY torbutton.prefs.sec_audio_video_desc "اکثر فرمت های صوتی و تصویری غیر فعال می باشد.">
+<!ENTITY torbutton.prefs.sec_audio_video_desc_tooltip "WebM تنها کدکی است که فعال باقی می ماند.">
+<!ENTITY torbutton.prefs.sec_webfonts_desc "برخی از فونت ها و آیکون های ممکن است نمایش نادرست داشته باشند.">
+<!ENTITY torbutton.prefs.sec_webfonts_desc_tooltip "فایل های فونتی که در وب سایت ارائه می شوند مسدود شده است.">
 <!ENTITY torbutton.prefs.sec_custom "تنظیم سفارشی">
 <!ENTITY torbutton.circuit_display.title "مدار Tor برای این سایت">
+
