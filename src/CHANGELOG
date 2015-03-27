@@ -1,3 +1,23 @@
+1.9.1.0:
+ * Bug 9387: "Security Slider 1.0"
+   * Include descriptions and tooltip hints for security levels
+   * Notify users that the security slider exists
+   * Flip slider so that "low" is on the bottom
+   * Make use of new SVG and MathML prefs
+ * Bug 13766: Set a 10 minute circuit lifespan for non-content requests
+ * Bug 15460: Ensure FTP urls use content-window circuit isolation
+ * Bug 13650: Clip initial window height to 1000px
+ * Bug 14429: Ensure windows can only be resized to 200x100px multiples
+ * Bug 15334: Display Cookie Protections menu if disk records are enabled
+ * Bug 14324: Show HS circuit in Tor circuit display
+ * Bug 15086: Handle RTL text in Tor circuit display
+ * Bug 15085: Fix about:tor RTL text alignment problems
+ * Bug 10216: Add a pref to disable the local tor control port test
+ * Bug 14937: Show meek and flashproxy bridges in tor circuit display
+ * Bugs 13891+15207: Fix exceptions/errors in circuit display with bridges
+ * Bug 13019: Change locale hiding pref to boolean
+ * Bug 7255: Warn users about maximizing windows (off by default)
+
 1.9.0.0
  * Bug 13882: Fix display of bridges after bridge settings have been changed
  * Bug 5698: Use "Tor Browser" branding in "About Tor Browser" dialog
