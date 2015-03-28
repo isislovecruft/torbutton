@@ -1,16 +1,16 @@
 /*
-This CSS file is for styling the tor circuit display. It consists of a title,
+This CSS file is for styling the tor circuit display, which consists of a title,
 a domain, and a bulleted list.
 
 Each bullet in the circuit node list is supposed to represent a Tor circuit node,
 and lines drawn between them to represent Tor network inter-relay connections.
 
-CSS for line between bullets is Derived in part from https://jsfiddle.net/5JP8Q/
-
-Color the background to make circuit display distinct from the rest of popup.
+CSS for line between bullets is derived in part from https://jsfiddle.net/5JP8Q/
 */
 
-/* The circuit-display div encloses all other HTML elements. */
+/* The circuit-display div encloses all other HTML elements.
+   Color the background to make circuit display distinct
+   from the rest of the popup. */
 div#circuit-display {
   background-color: #e8f4f4;
   font-family: Arial;
@@ -40,6 +40,7 @@ div#circuit-display p#domain {
 ul#circuit-nodes {
   font-family: Arial;
   font-size: 14px;
+  color: black;
   margin-top: 8px;
   padding-left: 8px;
   padding-right: 8px;
