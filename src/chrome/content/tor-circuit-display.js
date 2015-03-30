@@ -129,7 +129,7 @@ let getCircuitStatusByID = function* (aController, circuitID) {
 // corresponding circuit. Whenever the first stream on a new circuit is seen,
 // looks up u+p and records the node data in the credentialsToNodeDataMap.
 let collectIsolationData = function (aController) {
-  aController.watchEvent(
+  return aController.watchEvent(
     "STREAM",
     streamEvent => streamEvent.StreamStatus === "SENTCONNECT",
     streamEvent => Task.spawn(function* () {
@@ -313,10 +313,13 @@ let syncDisplayWithSelectedTab = (function() {
 // A reference to this function (called createTorCircuitDisplay) is exported as a global.
 let setupDisplay = function (host, port, password, enablePrefName) {
   let myController = null,
+      stopCollectingIsolationData = null,
       stop = function() {
         if (myController) {
           syncDisplayWithSelectedTab(false);
-          myController.close();
+          if (stopCollectingIsolationData) {
+	    stopCollectingIsolationData();
+          }
           myController = null;
         }
       },
@@ -326,16 +329,20 @@ let setupDisplay = function (host, port, password, enablePrefName) {
             // An error has occurred.
             logger.eclog(5, err);
             logger.eclog(5, "Disabling tor display circuit because of an error.");
+            myController.close();
             stop();
           });
           syncDisplayWithSelectedTab(true);
-          collectIsolationData(myController);
+          stopCollectingIsolationData = collectIsolationData(myController);
        }
      };
   try {
     let unbindPref = bindPrefAndInit(enablePrefName, on => { if (on) start(); else stop(); });
     // When this chrome window is unloaded, we need to unbind the pref.
-    window.addEventListener("unload", unbindPref);
+    window.addEventListener("unload", function () {
+      unbindPref();
+      stop();
+    });
   } catch (e) {
     logger.eclog(5, "Error: " + e.message + "\n" + e.stack);
   }

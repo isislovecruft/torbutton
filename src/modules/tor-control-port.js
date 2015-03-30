@@ -606,9 +606,10 @@ event.messageToData = function (type, message) {
 
 // __event.watchEvent(controlSocket, type, filter, onData)__.
 // Watches for a particular type of event. If filter(data) returns true, the event's
-// data is pass to the onData callback.
+// data is pass to the onData callback. Returns a zero arg function that
+// stops watching the event.
 event.watchEvent = function (controlSocket, type, filter, onData) {
-  controlSocket.addNotificationCallback(new RegExp("^650." + type, "i"),
+  return controlSocket.addNotificationCallback(new RegExp("^650." + type, "i"),
     function (message) {
       let data = event.messageToData(type, message);
       if (filter === null || filter(data)) {
@@ -635,9 +636,8 @@ tor.controller = function (host, port, password, onError) {
   return { getInfo : key => info.getInfo(socket, key),
            getInfoMultiple : keys => info.getInfoMultiple(socket, keys),
            getConf : key => info.getConf(socket, key),
-           watchEvent : function (type, filter, onData) {
-             event.watchEvent(socket, type, filter, onData);
-           },
+           watchEvent : (type, filter, onData) =>
+                          event.watchEvent(socket, type, filter, onData),
            isOpen : () => isOpen,
            close : () => { isOpen = false; socket.close(); }
          };
