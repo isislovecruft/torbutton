@@ -5,10 +5,10 @@
 
 /* jshint esnext: true */
 
-// __quantizeBrowserSizeOnLoad(window, xStep, yStep)__.
-// Once a window is fully loaded, ensures that gBrowser width and height are multiples of
+// __quantizeBrowserSize(window, xStep, yStep)__.
+// Ensures that gBrowser width and height are multiples of
 // xStep and yStep.
-let quantizeBrowserSizeOnLoad = function (window, xStep, yStep) {
+let quantizeBrowserSize = function (window, xStep, yStep) {
 
 // Use Task.jsm to avoid callback hell.
 Cu.import("resource://gre/modules/Task.jsm");
@@ -247,7 +247,7 @@ let updateDimensions = function (gBrowser, xStep, yStep) {
 // __quantizeBrowserSizeNow(window, xStep, yStep)__.
 // Ensures that gBrowser width and height are multiples of xStep and yStep, and always as
 // large as possible inside the chrome window.
-let quantizeBrowserSizeNow = function (window, xStep, yStep) {
+let quantizeBrowserSizeMain = function (window, xStep, yStep) {
   let gBrowser = window.gBrowser,
       container = window.gBrowser.parentElement,
       updater = event => updateDimensions(gBrowser, xStep, yStep),
@@ -278,9 +278,7 @@ let quantizeBrowserSizeNow = function (window, xStep, yStep) {
   bindPrefAndInit("extensions.torbutton.resize_windows", activate);
 };
 
-let onLoad = () => quantizeBrowserSizeNow(window, xStep, yStep);
-window.gBrowser.addEventListener("load", onLoad, true);
-return () => window.gBrowser.removeEventListener("load", onLoad, true);
+quantizeBrowserSizeMain(window, xStep, yStep);
 
-// quantizeBrowserSizeOnLoad
+// quantizeBrowserSize
 };
