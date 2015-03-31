@@ -606,7 +606,7 @@ event.messageToData = function (type, message) {
 
 // __event.watchEvent(controlSocket, type, filter, onData)__.
 // Watches for a particular type of event. If filter(data) returns true, the event's
-// data is pass to the onData callback. Returns a zero arg function that
+// data is passed to the onData callback. Returns a zero arg function that
 // stops watching the event.
 event.watchEvent = function (controlSocket, type, filter, onData) {
   return controlSocket.addNotificationCallback(new RegExp("^650." + type, "i"),
