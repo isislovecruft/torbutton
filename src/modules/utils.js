@@ -39,5 +39,18 @@ let bindPrefAndInit = function (prefName, prefHandler) {
   return () => { prefs.removeObserver(prefName, observer); };
 };
 
+// ## Environment variables
+
+// __env__.
+// Provides access to process environment variables.
+let env = Components.classes["@mozilla.org/process/environment;1"]
+            .getService(Components.interfaces.nsIEnvironment);
+
+// __getEnv(name)__.
+// Reads the environment variable of the given name.
+let getEnv = function (name) {
+  return env.exists(name) ? env.get(name) : undefined;
+};
+
 // Export utility functions for external use.
-let EXPORTED_SYMBOLS = ["bindPrefAndInit", "getPrefValue"];
+let EXPORTED_SYMBOLS = ["bindPrefAndInit", "getPrefValue", "getEnv"];
