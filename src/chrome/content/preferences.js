@@ -458,7 +458,7 @@ function torbutton_prefs_reset_defaults() {
 
     // Resetting the Security Slider preferences
     o_torprefs.setBoolPref('security_custom', false);
-    o_torprefs.setIntPref('security_slider', 1);
+    o_torprefs.setIntPref('security_slider', 4);
     chrome.torbutton_update_security_slider();
 
     torbutton_log(4, "Preferences reset to defaults");
