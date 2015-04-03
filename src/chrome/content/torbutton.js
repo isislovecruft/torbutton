@@ -2221,6 +2221,7 @@ function torbutton_update_thirdparty_prefs() {
       m_tb_prefs.setIntPref("network.cookie.cookieBehavior", 0);
     }
 
+    m_tb_prefs.setBoolPref("dom.workers.sharedWorkers.enabled", !mode);
     m_tb_prefs.setBoolPref("security.enable_tls_session_tickets", !mode);
 
     // Force prefs to be synced to disk
