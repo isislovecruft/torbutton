@@ -1,3 +1,4 @@
+// Bug 1506 P0-P5: This is the main Torbutton overlay file. Much needs to be
 // preserved here, but in an ideal world, most of this code should perhaps be
 // moved into an XPCOM service, and much can also be tossed. See also
 // individual 1506 comments for details.
