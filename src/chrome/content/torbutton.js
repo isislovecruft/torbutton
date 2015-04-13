@@ -1884,6 +1884,12 @@ function torbutton_do_new_identity() {
 
   torbutton_log(3, "New identity successful");
 
+  // Run garbage collection and cycle collection after window is gone.
+  // This ensures that blob URIs are forgotten.
+  window.addEventListener("unload", function (event) {
+    m_tb_domWindowUtils.garbageCollect();
+  });
+
   // Close the current window for added safety
   window.close();
 }
