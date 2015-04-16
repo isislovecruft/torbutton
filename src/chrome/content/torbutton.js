@@ -1887,7 +1887,34 @@ function torbutton_do_new_identity() {
   // Run garbage collection and cycle collection after window is gone.
   // This ensures that blob URIs are forgotten.
   window.addEventListener("unload", function (event) {
+    torbutton_log(3, "Initiating New Identity GC pass");
+    // Clear out potential pending sInterSliceGCTimer:
+    m_tb_domWindowUtils.runNextCollectorTimer();
+
+    // Clear out potential pending sICCTimer:
+    m_tb_domWindowUtils.runNextCollectorTimer();
+
+    // Schedule a garbage collection in 4000-1000ms...
     m_tb_domWindowUtils.garbageCollect();
+
+    // To ensure the GC runs immediately instead of 4-10s from now, we need
+    // to poke it at least 11 times.
+    // We need 5 pokes for GC, 1 poke for the interSliceGC, and 5 pokes for CC.
+    // See nsJSContext::RunNextCollectorTimer() in
+    // https://mxr.mozilla.org/mozilla-central/source/dom/base/nsJSEnvironment.cpp#1970.
+    // XXX: We might want to make our own method for immediate full GC...
+    for (let poke = 0; poke < 11; poke++) {
+       m_tb_domWindowUtils.runNextCollectorTimer();
+    }
+
+    // And now, since the GC probably actually ran *after* the CC last time,
+    // run the whole thing again.
+    m_tb_domWindowUtils.garbageCollect();
+    for (let poke = 0; poke < 11; poke++) {
+       m_tb_domWindowUtils.runNextCollectorTimer();
+    }
+
+    torbutton_log(3, "Completed New Identity GC pass");
   });
 
   // Close the current window for added safety
