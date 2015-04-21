@@ -1,3 +1,10 @@
+1.9.2.0:
+ * Bug 15562: Bind SharedWorkers to thirdparty pref
+ * Bug 15533: Restore default security level when restoring defaults
+ * Bug 15510: Close Tor Circuit UI control port connections on New Identity
+ * Bug 15472: Make node text black in circuit status UI.
+ * Bug 15502: Wipe blob URIs on New Identity
+
 1.9.1.0:
  * Bug 9387: "Security Slider 1.0"
    * Include descriptions and tooltip hints for security levels
