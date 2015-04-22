@@ -144,26 +144,26 @@
 <!ENTITY torbutton.prefs.engine3 "Yahoo.com">
 <!ENTITY torbutton.prefs.engine4 "startpage.com">
 <!ENTITY torbutton.prefs.engine5 "duckduckgo.com">
-<!ENTITY torbutton.prefs.fix_google_srch "在 Google 搜索栏搜索时分割平台和语言信息。">
+<!ENTITY torbutton.prefs.fix_google_srch "在 Google 搜索栏搜索时去掉平台和语言信息。">
 <!ENTITY torbutton.prefs.transparentTor "Tor 强化透明代理（需要自设 TransProxy 或 Tor 路由）">
 <!ENTITY torbutton.prefs.priv_caption "隐私设置">
 <!ENTITY torbutton.prefs.block_disk "禁止记录浏览历史或网站数据（启用隐私浏览模式）">
 <!ENTITY torbutton.prefs.restrict_thirdparty "限制第三方 cookie 和其他数据跟踪程序">
 <!ENTITY torbutton.prefs.block_plugins "禁用浏览器插件（比如 Flash）">
-<!ENTITY torbutton.prefs.resist_fingerprinting "请修改区别你与其他 Tor 浏览器用户的详细信息">
+<!ENTITY torbutton.prefs.resist_fingerprinting "对相关 Tor 浏览器信息进行修改，以区别你与其他 Tor 用户">
 <!ENTITY torbutton.prefs.sec_caption "安全等级">
 <!ENTITY torbutton.prefs.sec_low "低（默认）">
-<!ENTITY torbutton.prefs.sec_low_usable_desc "该选项提供最具可用性的用户体验。">
+<!ENTITY torbutton.prefs.sec_low_usable_desc "该选项可提供最佳的用户体验。">
 <!ENTITY torbutton.prefs.sec_low_desc "该安全级别将启用所有浏览器功能。">
 <!ENTITY torbutton.prefs.sec_font_rend_svg_tooltip "禁用 SVG OpenType 字体渲染功能。">
 <!ENTITY torbutton.prefs.sec_med_low "中低">
-<!ENTITY torbutton.prefs.sec_gen_desc "该安全级别具有以下更改（鼠标悬停可查看细节）：">
-<!ENTITY torbutton.prefs.sec_html5_desc "HTML5 视频和音频媒体通过 NoScript 实现点击播放。">
-<!ENTITY torbutton.prefs.sec_html5_tooltip "在某些网站，可使用 NoScript 工具栏按钮来启用这些媒体对象。">
+<!ENTITY torbutton.prefs.sec_gen_desc "该安全级别设置如下（光标悬停查看更多信息）：">
+<!ENTITY torbutton.prefs.sec_html5_desc "HTML5 视频和音频需通过 NoScript 点击播放。">
+<!ENTITY torbutton.prefs.sec_html5_tooltip "在某些网站，可通过 NoScript 工具栏按钮播放这些媒体。">
 <!ENTITY torbutton.prefs.sec_some_jit_desc "禁用某些 JavaScript 性能优化。">
 <!ENTITY torbutton.prefs.sec_jit_desc_tooltip "ION JIT、类型推断、ASM.JS。">
 <!ENTITY torbutton.prefs.sec_baseline_jit_desc_tooltip "Baseline JIT。">
-<!ENTITY torbutton.prefs.sec_jit_slower_desc "一些网站的脚本可能运行更慢。">
+<!ENTITY torbutton.prefs.sec_jit_slower_desc "一些网站脚本执行变慢。">
 <!ENTITY torbutton.prefs.sec_jar_desc "禁用远程 JAR 文件。">
 <!ENTITY torbutton.prefs.sec_jar_tooltip "网站上很少出现 JAR 文件，但可能成为 XSS 及其他攻击的源头。">
 <!ENTITY torbutton.prefs.sec_mathml_desc "禁用数学方程式的某些显示机制。">
@@ -174,8 +174,8 @@
 <!ENTITY torbutton.prefs.sec_font_rend_graphite_tooltip "禁用 Graphite 字体渲染。">
 <!ENTITY torbutton.prefs.sec_svg_desc "禁用某些图像类型。">
 <!ENTITY torbutton.prefs.sec_svg_desc_tooltip "禁用 SVG 图像。">
-<!ENTITY torbutton.prefs.sec_js_https_desc "JavaScript 在所有非 HTTPS 网站上被禁用。">
-<!ENTITY torbutton.prefs.sec_js_desc_tooltip "可按站点通过 NoScript 工具栏按钮上启用 JavaScript。">
+<!ENTITY torbutton.prefs.sec_js_https_desc "对于非 HTTPS 网站，默认禁用 JavaScript。">
+<!ENTITY torbutton.prefs.sec_js_desc_tooltip "可通过工具栏上的  NoScript 按钮，启用某个网站上的 JavaScript。">
 <!ENTITY torbutton.prefs.sec_high "高">
 <!ENTITY torbutton.prefs.sec_all_js_desc "默认禁用所有网站 JavaScript。">
 <!ENTITY torbutton.prefs.sec_audio_video_desc "禁用大多数音频和视频格式。">

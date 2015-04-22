@@ -8,7 +8,7 @@
 
 <!ENTITY aboutTor.outOfDateTorOn.label "HALA ERE, nabigatzaile hau zaharkituta dago.">
 <!ENTITY aboutTor.outOfDateTorOff.label "BAITA, nabigatzaile hau zaharkituta dago.">
-<!ENTITY aboutTor.outOfDate2.label "Click on the onion and then choose Check for Tor Browser Update.">
+<!ENTITY aboutTor.outOfDate2.label "Tipulan sakatu eta ondoren Tor Browser Bundlea egiaztatu hautatu">
 
 <!ENTITY aboutTor.check.label "Tor sare ezarpenak frogatu">
 

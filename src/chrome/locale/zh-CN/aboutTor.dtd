@@ -33,7 +33,7 @@
 <!ENTITY aboutTor.torInfo4.label "本服务器不记录有关访问者的任何信息。">
 <!ENTITY aboutTor.whatnextQuestion.label "下一步？">
 <!ENTITY aboutTor.whatnextAnswer.label "仅仅使用 Tor 无法实现匿名浏览。为了确保身份安全，你可能需要改变某些浏览习惯。">
-<!ENTITY aboutTor.whatnext.label "保持匿名小技巧 »">
+<!ENTITY aboutTor.whatnext.label "匿名提示 »">
 <!ENTITY aboutTor.whatnext.link "https://www.torproject.org/download/download.html.en#warning">
 <!ENTITY aboutTor.helpInfo1.label "你也可以帮忙！">
 <!ENTITY aboutTor.helpInfo2.label "可通过很多方式提供帮助，让 Tor 网络变得更快更强大：">

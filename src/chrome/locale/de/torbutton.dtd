@@ -163,8 +163,8 @@
 <!ENTITY torbutton.prefs.sec_some_jit_desc "Einige JavaScript Ausführungsoptimierungen sind unterbunden.">
 <!ENTITY torbutton.prefs.sec_jit_desc_tooltip "ION JIT, Typinferenz, ASM.JS.">
 <!ENTITY torbutton.prefs.sec_baseline_jit_desc_tooltip "JIT-Basis.">
-<!ENTITY torbutton.prefs.sec_jit_slower_desc "Scripts können auf manchen seiten langsamer laufen.">
-<!ENTITY torbutton.prefs.sec_jar_desc "JAR-Dateieen sind im Web extrem selten, können aaber eine Quelle von XSS und anderen Attacken sein.">
+<!ENTITY torbutton.prefs.sec_jit_slower_desc "Scripts können auf manchen Seiten langsamer laufen.">
+<!ENTITY torbutton.prefs.sec_jar_desc "JAR-Dateien sind im Web extrem selten, können aber eine Quelle von XSS und anderen Attacken sein.">
 <!ENTITY torbutton.prefs.sec_jar_tooltip "JAR-Dateien sind sehr selten im Internet, aber sie können eine Quelle von XSS (Webseitenübergreifendes Skripting) und anderer Angriffe sein.">
 <!ENTITY torbutton.prefs.sec_mathml_desc "Manche Vorgänge zur Anzeige von mathematischen Gleichungen sind deaktiviert.">
 <!ENTITY torbutton.prefs.sec_mathml_desc_tooltip "MathML ist blockiert.">

@@ -153,34 +153,34 @@
 <!ENTITY torbutton.prefs.resist_fingerprinting "Verander details die je onderscheiden van andere Tor Browser gebruikers">
 <!ENTITY torbutton.prefs.sec_caption "Beveiligingsniveau">
 <!ENTITY torbutton.prefs.sec_low "Laag (standaard)">
-<!ENTITY torbutton.prefs.sec_low_usable_desc "This provides the most usable experience.">
-<!ENTITY torbutton.prefs.sec_low_desc "At this security level, all browser features are enabled.">
-<!ENTITY torbutton.prefs.sec_font_rend_svg_tooltip "The SVG OpenType font rendering mechanism is disabled.">
+<!ENTITY torbutton.prefs.sec_low_usable_desc "Dit verschaft de meest bruikbare ervaring">
+<!ENTITY torbutton.prefs.sec_low_desc "Op dit beveiligingsniveau worden alle browser functies ingeschakeld.">
+<!ENTITY torbutton.prefs.sec_font_rend_svg_tooltip "De SVG OpenType font rendering mechanisme is uitgeschakeld.">
 <!ENTITY torbutton.prefs.sec_med_low "Medium-Laag">
-<!ENTITY torbutton.prefs.sec_gen_desc "At this security level, the following changes apply (mouseover for details):">
-<!ENTITY torbutton.prefs.sec_html5_desc "HTML5 video and audio media become click-to-play via NoScript.">
-<!ENTITY torbutton.prefs.sec_html5_tooltip "On some sites, you might need to use the NoScript toolbar button to enable these media objects.">
-<!ENTITY torbutton.prefs.sec_some_jit_desc "Some JavaScript performance optimizations are disabled.">
+<!ENTITY torbutton.prefs.sec_gen_desc "Op dit veiligheidsniveau , gelden de volgende wijzigingen ( muis over voor meer informatie) ">
+<!ENTITY torbutton.prefs.sec_html5_desc "HTML5 video en audio media geworden click-to-play via NoScript.">
+<!ENTITY torbutton.prefs.sec_html5_tooltip "Op sommige sites , zou je  de NoScript werkbalk knop moeten  gebruiken om deze media -objecten mogelijk te maken.">
+<!ENTITY torbutton.prefs.sec_some_jit_desc "Sommige JavaScript performance optimizations zijn uitgeschakeld.">
 <!ENTITY torbutton.prefs.sec_jit_desc_tooltip "ION JIT, Type Inference, ASM.JS.">
 <!ENTITY torbutton.prefs.sec_baseline_jit_desc_tooltip "Baseline JIT.">
 <!ENTITY torbutton.prefs.sec_jit_slower_desc "Scripts kunnen op sommige websites trager zijn.">
-<!ENTITY torbutton.prefs.sec_jar_desc "Remote JAR files are blocked.">
-<!ENTITY torbutton.prefs.sec_jar_tooltip "JAR files are extremely rare on the web, but can be a source of XSS and other attacks.">
-<!ENTITY torbutton.prefs.sec_mathml_desc "Some mechanisms of displaying math equations are disabled.">
+<!ENTITY torbutton.prefs.sec_jar_desc "Externe JAR bestanden worden geblokkeerd.">
+<!ENTITY torbutton.prefs.sec_jar_tooltip "JAR-bestanden zijn uiterst zeldzaam op het web, maar kan een bron van XSS en andere attacks">
+<!ENTITY torbutton.prefs.sec_mathml_desc "Sommige mechanismen van het weergeven van wiskundige vergelijkingen zijn uitgeschakeld.">
 <!ENTITY torbutton.prefs.sec_mathml_desc_tooltip "MathML is uitgeschakeld.">
 <!ENTITY torbutton.prefs.sec_med_high "Medium-Hoog">
-<!ENTITY torbutton.prefs.sec_all_jit_desc "All JavaScript performance optimizations are disabled.">
-<!ENTITY torbutton.prefs.sec_font_rend_desc "Some font rendering features are disabled.">
-<!ENTITY torbutton.prefs.sec_font_rend_graphite_tooltip "The Graphite font rendering mechanism is disabled.">
+<!ENTITY torbutton.prefs.sec_all_jit_desc "Alle JavaScript performance optimizations zijn uitgeschakeld.">
+<!ENTITY torbutton.prefs.sec_font_rend_desc "Sommige lettertype rendering functies zijn uitgeschakeld.">
+<!ENTITY torbutton.prefs.sec_font_rend_graphite_tooltip "De Graphite lettertype rendering mechanisme is uitgeschakeld.">
 <!ENTITY torbutton.prefs.sec_svg_desc "Sommige afbeeldingtypes zijn uitgeschakeld.">
 <!ENTITY torbutton.prefs.sec_svg_desc_tooltip "SVG afbeeldingen zijn uitgeschakeld.">
 <!ENTITY torbutton.prefs.sec_js_https_desc "JavaScript is standaard uitgeschakeld op alle niet-HTTPS websites.">
-<!ENTITY torbutton.prefs.sec_js_desc_tooltip "JavaScript can be enabled on a per-site basis via the NoScript toolbar button.">
+<!ENTITY torbutton.prefs.sec_js_desc_tooltip "JavaScript kan worden ingeschakeld op een basis per - site via de NoScript werkbalk knop.">
 <!ENTITY torbutton.prefs.sec_high "Hoog">
 <!ENTITY torbutton.prefs.sec_all_js_desc "JavaScript is standaard uitgeschakeld op alle websites.">
 <!ENTITY torbutton.prefs.sec_audio_video_desc "Meeste audio en video formaten zijn uitgeschakeld.">
 <!ENTITY torbutton.prefs.sec_audio_video_desc_tooltip "WebM blijft de enige codec die is ingeschakeld.">
-<!ENTITY torbutton.prefs.sec_webfonts_desc "Some fonts and icons may display incorrectly.">
+<!ENTITY torbutton.prefs.sec_webfonts_desc "Sommige lettertypen en pictogrammen worden mogelijk niet goed weergegeven. ">
 <!ENTITY torbutton.prefs.sec_webfonts_desc_tooltip "Door websites aangeleverde lettertypes worden geblokkeerd.">
 <!ENTITY torbutton.prefs.sec_custom "Aangepaste waarden">
 <!ENTITY torbutton.circuit_display.title "Tor circuit voor deze website">

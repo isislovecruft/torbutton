@@ -24,19 +24,19 @@
 <!ENTITY torbutton.pref_connection_more_info.text "Une honetan Torbutton gaituta dago. Zure ez-Tor proxy ezarpenak aldatu nahi badituzu, mesedez ezgaitu Torbutton eta hona bueltatu. Zure Tor ezarpenak aldatu nahi badituzu, mesedez erabili Torbutton ezarpen leihoa.">
 <!ENTITY torbutton.context_menu.new_identity "Nortasun berria">
 <!ENTITY torbutton.context_menu.new_identity_key "I">
-<!ENTITY torbutton.context_menu.new_circuit "New Tor Circuit for this Site">
+<!ENTITY torbutton.context_menu.new_circuit "Tor zirkuitu berria gune honetarako">
 <!ENTITY torbutton.context_menu.new_circuit_key "C">
 <!ENTITY torbutton.context_menu.toggle "Aldatu Toren egoera">
 <!ENTITY torbutton.context_menu.toggle.key "T">
-<!ENTITY torbutton.context_menu.preferences "Privacy and Security Settings…">
+<!ENTITY torbutton.context_menu.preferences "Pribatutasun eta segurtasun ezarpenak...">
 <!ENTITY torbutton.context_menu.preferences.key "P">
 <!ENTITY torbutton.context_menu.about "Torbuttoni buruz...">
 <!ENTITY torbutton.context_menu.about.key "A">
 <!ENTITY torbutton.context_menu.networksettings "Tor Sarearen Ezarpenak...">
 <!ENTITY torbutton.context_menu.networksettings.key "S">
-<!ENTITY torbutton.context_menu.downloadUpdate "Check for Tor Browser Update…">
+<!ENTITY torbutton.context_menu.downloadUpdate "Tor Browser eguneraketa egiaztatu">
 <!ENTITY torbutton.context_menu.downloadUpdate.key "U">
-<!ENTITY torbutton.context_menu.cookieProtections "Cookie Protections…">
+<!ENTITY torbutton.context_menu.cookieProtections "Cookie babesak...">
 <!ENTITY torbutton.context_menu.cookieProtections.key "C">
 <!ENTITY torbutton.context_menu.copyTor "Kopiatu Tor URLa">
 <!ENTITY torbutton.context_menu.copyTor.key "p">
