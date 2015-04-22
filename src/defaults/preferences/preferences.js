@@ -159,7 +159,7 @@ pref("extensions.torbutton.close_newnym",true);
 pref("extensions.torbutton.block_js_history",true);
 pref("extensions.torbutton.resize_on_toggle",true);
 pref("extensions.torbutton.resize_new_windows",true);
-pref("extensions.torbutton.resize_windows",true);
+pref("extensions.torbutton.resize_windows",false);
 pref("extensions.torbutton.banned_ports","9050,9051,9150,9151");
 pref("extensions.torbutton.block_tor_file_net",true);
 pref("extensions.torbutton.block_nontor_file_net",false);
