@@ -1,3 +1,6 @@
+1.9.2.1:
+ * Bug 14429: Disable window resizing for now.
+
 1.9.2.0:
  * Bug 15562: Bind SharedWorkers to thirdparty pref
  * Bug 15533: Restore default security level when restoring defaults
