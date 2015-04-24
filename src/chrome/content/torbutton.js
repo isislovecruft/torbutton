@@ -122,11 +122,14 @@ var torbutton_unique_pref_observer =
         this._branch.addObserver("extensions.torbutton", this, false);
         this._branch.addObserver("network.proxy", this, false);
         this._branch.addObserver("network.cookie", this, false);
+        this._branch.addObserver("network.jar", this, false);
         this._branch.addObserver("browser.privatebrowsing.autostart", this, false);
         this._branch.addObserver("javascript", this, false);
         this._branch.addObserver("gfx", this, false);
         this._branch.addObserver("noscript", this, false);
         this._branch.addObserver("media", this, false);
+        this._branch.addObserver("mathml", this, false);
+        this._branch.addObserver("svg", this, false);
 
         // We observe xpcom-category-entry-added for plugins w/ Gecko-Content-Viewers
         var observerService = Cc["@mozilla.org/observer-service;1"].
@@ -140,11 +143,14 @@ var torbutton_unique_pref_observer =
         this._branch.removeObserver("extensions.torbutton", this);
         this._branch.removeObserver("network.proxy", this);
         this._branch.removeObserver("network.cookie", this);
+        this._branch.removeObserver("network.jar", this);
         this._branch.removeObserver("browser.privatebrowsing.autostart", this);
         this._branch.removeObserver("javascript", this);
         this._branch.removeObserver("gfx", this);
         this._branch.removeObserver("noscript", this);
         this._branch.removeObserver("media", this);
+        this._branch.removeObserver("mathml", this);
+        this._branch.removeObserver("svg", this);
 
         var observerService = Cc["@mozilla.org/observer-service;1"].
             getService(Ci.nsIObserverService);
@@ -244,6 +250,7 @@ var torbutton_unique_pref_observer =
             case "gfx.font_rendering.graphite.enabled":
             case "noscript.globalHttpsWhitelist":
             case "noscript.global":
+            case "svg.in-content.enabled":
                 // |m_tb_slider_update| is only set if the user updated a
                 // preference under control of the security slider via the
                 // slider on the Torbutton dialog. This in turn means we can
