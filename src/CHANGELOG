@@ -1,3 +1,6 @@
+1.9.2.2:
+ * Bug 15795: Some security slider prefs do not trigger custom checkbox
+
 1.9.2.1:
  * Bug 14429: Disable window resizing for now.
 
