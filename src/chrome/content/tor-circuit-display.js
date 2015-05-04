@@ -315,8 +315,8 @@ let setupDisplay = function (host, port, password, enablePrefName) {
   let myController = null,
       stopCollectingIsolationData = null,
       stop = function() {
+        syncDisplayWithSelectedTab(false);
         if (myController) {
-          syncDisplayWithSelectedTab(false);
           if (stopCollectingIsolationData) {
 	    stopCollectingIsolationData();
           }
