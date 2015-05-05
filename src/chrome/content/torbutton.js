@@ -2378,6 +2378,22 @@ function torbutton_update_security_slider() {
       }
       break;
   }
+  /* Update the NoScript button to reflect any changes */
+  try {
+      let wm = Components.classes["@mozilla.org/appshell/window-mediator;1"]
+                         .getService(Components.interfaces.nsIWindowMediator);
+      let browserEnumerator = wm.getEnumerator("navigator:browser");
+
+      // Update every window's NoScript status...
+      while (browserEnumerator.hasMoreElements()) {
+          let win = browserEnumerator.getNext();
+          win.noscriptOverlay._syncUINow();
+      }
+      torbutton_log(3, 'Updated NoScript status for security slider');
+  } catch(e) {
+      torbutton_log(4, 'Failed to update NoScript status for security slider: '+e);
+  }
+  torbutton_log(3, 'Security Slider Pref Update Complete');
   m_tb_sliderUpdate = false;
 }
 
