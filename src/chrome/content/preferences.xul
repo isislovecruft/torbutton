@@ -297,8 +297,12 @@
             </vbox>
           </hbox>
           <hbox>
+            <!-- We are using |oncommand| instead of |onclick| as the former does
+               not fire if the checkbox is disabled and it does fire after the
+               checkbox adapted its state. -->
             <checkbox id="torbutton_sec_custom" flex="1"
-                      label="&torbutton.prefs.sec_custom;"/>
+               oncommand="torbutton_set_slider_text(document, event.target.checked);"
+               label="&torbutton.prefs.sec_custom;"/>
           </hbox>
         </groupbox>
       </vbox>
