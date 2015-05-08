@@ -1,3 +1,8 @@
+1.9.2.3:
+ * Bug 15837: Show descriptions if unchecking custom mode
+ * Bug 15927: Force update of the NoScript UI when changing security level
+ * Bug 15915: Hide circuit display if it is disabled.
+
 1.9.2.2:
  * Bug 15795: Some security slider prefs do not trigger custom checkbox
 
