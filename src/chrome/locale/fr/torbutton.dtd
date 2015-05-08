@@ -161,8 +161,8 @@
 <!ENTITY torbutton.prefs.sec_html5_desc "Les vidéos et médias audio HTML5 deviennent jouable d'un clic via NoScript.">
 <!ENTITY torbutton.prefs.sec_html5_tooltip "Sur quelques sites, vous pourriez devoir utiliser le bouton de barre d'outils de NoScript pour permettre ces objets médiatiques.">
 <!ENTITY torbutton.prefs.sec_some_jit_desc "Quelques optimisations de performance liés à Javascript sont désactivées.">
-<!ENTITY torbutton.prefs.sec_jit_desc_tooltip "ION JIT, Type Inference, ASM.JS.">
-<!ENTITY torbutton.prefs.sec_baseline_jit_desc_tooltip "Baseline JIT.">
+<!ENTITY torbutton.prefs.sec_jit_desc_tooltip "JIT ION,  Inférence de types, ASM.JS.">
+<!ENTITY torbutton.prefs.sec_baseline_jit_desc_tooltip "JIT Baseline.">
 <!ENTITY torbutton.prefs.sec_jit_slower_desc "Les scripts sur quelques sites peuvent fonctionner plus lentement.">
 <!ENTITY torbutton.prefs.sec_jar_desc "Les fichiers distants JAR sont bloqués.">
 <!ENTITY torbutton.prefs.sec_jar_tooltip "Les fichiers JAR sont extrêmement rares sur le Web, mais peuvent être une source d'attaques XSS et autres.">
