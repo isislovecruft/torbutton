@@ -1,3 +1,6 @@
+1.9.2.4
+ * Bug 14429: Improved automatic window resizing
+
 1.9.2.3:
  * Bug 15837: Show descriptions if unchecking custom mode
  * Bug 15927: Force update of the NoScript UI when changing security level
