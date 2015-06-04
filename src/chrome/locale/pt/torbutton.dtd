@@ -1,58 +1,58 @@
 <!ENTITY torbutton.prefs.title "Preferências Torbutton">
 <!ENTITY torbutton.prefs.tor_settings "Configurações do Proxy">
-<!ENTITY torbutton.prefs.recommended_settings "Utilizar as configurações recomendadas do proxy para minha versão do Firefox">
+<!ENTITY torbutton.prefs.recommended_settings "Utilize as configurações recomendadas do proxy para a minha versão do Firefox">
 <!ENTITY torbutton.prefs.use_privoxy "Utilizar Privoxy">
-<!ENTITY torbutton.prefs.use_polipo "Utilizar Privoxy">
-<!ENTITY torbutton.prefs.custom_settings "Utilizar configurações padrão do proxy">
+<!ENTITY torbutton.prefs.use_polipo "Utilizar Polipo">
+<!ENTITY torbutton.prefs.custom_settings "Utilize as configurações do proxy personalizadas">
 <!ENTITY torbutton.prefs.proxy.host.http "Proxy HTTP:">
 <!ENTITY torbutton.prefs.proxy.host.https "Proxy SSL:">
 <!ENTITY torbutton.prefs.proxy.host.ftp "Proxy FTP:">
 <!ENTITY torbutton.prefs.proxy.host.gopher "Proxy Gopher:">
-<!ENTITY torbutton.prefs.proxy.host.socks "Host SOCKS:">
-<!ENTITY torbutton.prefs.proxy.port "Porto:">
+<!ENTITY torbutton.prefs.proxy.host.socks "Hospedeiro SOCKS:">
+<!ENTITY torbutton.prefs.proxy.port "Porta:">
 <!ENTITY torbutton.about.title "Sobre o Torbutton">
 <!ENTITY torbutton.about.version "Versão:">
-<!ENTITY torbutton.about.summary "Protege a privacidade da navegação do Tor.">
-<!ENTITY torbutton.about.code "Contribuidores de Código:">
+<!ENTITY torbutton.about.summary "Protege a privacidade da sua navegação Tor.">
+<!ENTITY torbutton.about.code "Contribuidores do Código:">
 <!ENTITY torbutton.about.maintainer "Mantenedor:">
 <!ENTITY torbutton.about.security_review "Revisão de Segurança:">
-<!ENTITY torbutton.about.donate "Se gosta de usar o Tor, poderá considerar">
-<!ENTITY torbutton.about.make_donation "fazer uma doação">
-<!ENTITY torbutton.pref_connection.notice "Desactivar o Torbutton para mudar estas configurações.">
-<!ENTITY torbutton.pref_connection.more_info "Mais informações">
+<!ENTITY torbutton.about.donate "Se gosta de utilizar o Tor, poderá considerar">
+<!ENTITY torbutton.about.make_donation "efetuar uma doação">
+<!ENTITY torbutton.pref_connection.notice "Desativar o Torbutton para alterar estas configurações.">
+<!ENTITY torbutton.pref_connection.more_info "Mais informação">
 <!ENTITY torbutton.pref_connection_more_info.title "Ajuda">
-<!ENTITY torbutton.pref_connection_more_info.text "Torbutton está activo. Se deseja mudar as configurações de Proxy que não sejam do Tor, por favor desactive o Torbutton e volte aqui. Se deseja alterar as configurações do Tor, por favor, use a janela de preferências do Torbutton.">
+<!ENTITY torbutton.pref_connection_more_info.text "O Torbutton está ativado. Se desejar alterar as configurações do Proxy que não sejam do Tor, por favor, desative o Torbutton e volte aqui. Se desejar alterar as configurações do Tor, por favor, utilize a janela de preferências do Torbutton.">
 <!ENTITY torbutton.context_menu.new_identity "Identidade Nova">
 <!ENTITY torbutton.context_menu.new_identity_key "I">
-<!ENTITY torbutton.context_menu.new_circuit "Novo circuito Tor para este site">
+<!ENTITY torbutton.context_menu.new_circuit "Novo Circuito Tor para este Site">
 <!ENTITY torbutton.context_menu.new_circuit_key "C">
-<!ENTITY torbutton.context_menu.toggle "Alterar Status Tor">
+<!ENTITY torbutton.context_menu.toggle "Alterar Estado do Tor">
 <!ENTITY torbutton.context_menu.toggle.key "T">
-<!ENTITY torbutton.context_menu.preferences "Definições de segurança e privacidade...">
+<!ENTITY torbutton.context_menu.preferences "Configurações de Segurança e Privacidade...">
 <!ENTITY torbutton.context_menu.preferences.key "P">
 <!ENTITY torbutton.context_menu.about "Sobre o Torbutton...">
 <!ENTITY torbutton.context_menu.about.key "A">
-<!ENTITY torbutton.context_menu.networksettings "Definições de rede do Tor...">
+<!ENTITY torbutton.context_menu.networksettings "Configurações da Rede Tor...">
 <!ENTITY torbutton.context_menu.networksettings.key "S">
-<!ENTITY torbutton.context_menu.downloadUpdate "Procurar por atualizações do Tor...">
+<!ENTITY torbutton.context_menu.downloadUpdate "Procurar por Atualizações do Tor...">
 <!ENTITY torbutton.context_menu.downloadUpdate.key "A">
-<!ENTITY torbutton.context_menu.cookieProtections "Proteções para Cookies...">
+<!ENTITY torbutton.context_menu.cookieProtections "Proteções para os Cookies...">
 <!ENTITY torbutton.context_menu.cookieProtections.key "C">
-<!ENTITY torbutton.context_menu.copyTor "Copiar endereço do Tor">
+<!ENTITY torbutton.context_menu.copyTor "Copiar URL do Tor">
 <!ENTITY torbutton.context_menu.copyTor.key "P">
-<!ENTITY torbutton.context_menu.openTorTab "Abrir endereço do Tor numa nova Aba">
+<!ENTITY torbutton.context_menu.openTorTab "Abrir URL do Tor num novo Separador">
 <!ENTITY torbutton.context_menu.openTorTab.key "r">
-<!ENTITY torbutton.context_menu.openTorWindow "Abrir endereço do Tor numa nova página">
+<!ENTITY torbutton.context_menu.openTorWindow "Abrir URL do Tor numa nova Janela">
 <!ENTITY torbutton.context_menu.openTorWindow.key "d">
 <!ENTITY torbutton.button.label "Torbutton">
-<!ENTITY torbutton.button.tooltip "Clique para iniciar o Torbutton">
-<!ENTITY torbutton.prefs.privacy_security_settings "Privacidade e Definições de Segurança">
+<!ENTITY torbutton.button.tooltip "Clique para inicializar o Torbutton">
+<!ENTITY torbutton.prefs.privacy_security_settings "Privacidade  e Configurações de Segurança">
 <!ENTITY torbutton.prefs.block_thread "Bloquear leitura do histórico durante a utilização do Tor (crucial)">
-<!ENTITY torbutton.prefs.block_thwrite "Bloquear escrita no histórico durante a utilização do Tor (recomendado)">
-<!ENTITY torbutton.prefs.block_nthread "Bloquear leitura do histórico durante a não utilização do Tor (opcional)">
-<!ENTITY torbutton.prefs.block_nthwrite "Bloquear escrita no histórico durante a não utilização do Tor (opcional)">
-<!ENTITY torbutton.prefs.clear_history "Limpar histórico ao alterar o uso do Tor (opcional)">
-<!ENTITY torbutton.prefs.clear_cache "Bloquear a cópia local e limpar todos as cópias ao alterar o uso do Tor">
+<!ENTITY torbutton.prefs.block_thwrite "Bloquear a gravação no histórico durante a utilização do Tor (recomendado)">
+<!ENTITY torbutton.prefs.block_nthread "Bloquear a leitura do histórico durante a não utilização do Tor (opcional)">
+<!ENTITY torbutton.prefs.block_nthwrite "Bloquear a gravação no histórico durante a não utilização do Tor (opcional)">
+<!ENTITY torbutton.prefs.clear_history "Limpar histórico ao alternar a utilização do Tor (opcional)">
+<!ENTITY torbutton.prefs.clear_cache "Bloquear a cache do disco Tor e limpar toda a cache ao alternar a utilização do Tor">
 <!ENTITY torbutton.prefs.block_cache "Bloquear cache de memória e disco durante o uso do Tor">
 <!ENTITY torbutton.prefs.cookie_jars "Armazenar todos os cookies não-Tor num local protegido">
 <!ENTITY torbutton.prefs.cookie_protection "Usar a caixa de diálogo das Proteções dos Cookies para escolher">
@@ -165,23 +165,23 @@
 <!ENTITY torbutton.prefs.sec_baseline_jit_desc_tooltip "Linha de base JIT.">
 <!ENTITY torbutton.prefs.sec_jit_slower_desc "Os scripts em alguns sítios poderão funcionar muito lentamente.">
 <!ENTITY torbutton.prefs.sec_jar_desc "Os ficheiros JAR remotos estão bloqueados.">
-<!ENTITY torbutton.prefs.sec_jar_tooltip "JAR files are extremely rare on the web, but can be a source of XSS and other attacks.">
-<!ENTITY torbutton.prefs.sec_mathml_desc "Some mechanisms of displaying math equations are disabled.">
+<!ENTITY torbutton.prefs.sec_jar_tooltip "Os ficheiros JAR são extremamente raros na Web, mas podem ser uma fonte de XSS e outros ataques.">
+<!ENTITY torbutton.prefs.sec_mathml_desc "Alguns mecanismos de visualização de equações matemáticas estão desativados.">
 <!ENTITY torbutton.prefs.sec_mathml_desc_tooltip "MathML está desativado.">
 <!ENTITY torbutton.prefs.sec_med_high "Médio-Alto">
-<!ENTITY torbutton.prefs.sec_all_jit_desc "All JavaScript performance optimizations are disabled.">
-<!ENTITY torbutton.prefs.sec_font_rend_desc "Some font rendering features are disabled.">
-<!ENTITY torbutton.prefs.sec_font_rend_graphite_tooltip "The Graphite font rendering mechanism is disabled.">
-<!ENTITY torbutton.prefs.sec_svg_desc "Some types of images are disabled.">
+<!ENTITY torbutton.prefs.sec_all_jit_desc "Todas as otimizações de desempenho JavaScript estão desativadas.">
+<!ENTITY torbutton.prefs.sec_font_rend_desc "Algumas funções de renderização do tipo de letra estão desativadas.">
+<!ENTITY torbutton.prefs.sec_font_rend_graphite_tooltip "O mecanismo de renderização do tipo de letra Graphite está desativado.">
+<!ENTITY torbutton.prefs.sec_svg_desc "Alguns tipos de imagens estão desativados.">
 <!ENTITY torbutton.prefs.sec_svg_desc_tooltip "As imagens SVG estão desativadas.">
-<!ENTITY torbutton.prefs.sec_js_https_desc "JavaScript is disabled by default on all non-HTTPS sites.">
-<!ENTITY torbutton.prefs.sec_js_desc_tooltip "JavaScript can be enabled on a per-site basis via the NoScript toolbar button.">
+<!ENTITY torbutton.prefs.sec_js_https_desc "JavaScript está desativado por predefinição em todos os sites não HTTPS.">
+<!ENTITY torbutton.prefs.sec_js_desc_tooltip "O JavaScript pode ser ativado numa base de per-sítio através do botão da barra de ferramentas NoScript.">
 <!ENTITY torbutton.prefs.sec_high "Alto">
 <!ENTITY torbutton.prefs.sec_all_js_desc "JavaScript está desativado por predefinição em todos os sítios.">
-<!ENTITY torbutton.prefs.sec_audio_video_desc "Most audio and video formats are disabled.">
-<!ENTITY torbutton.prefs.sec_audio_video_desc_tooltip "WebM is the only codec that remains enabled.">
-<!ENTITY torbutton.prefs.sec_webfonts_desc "Some fonts and icons may display incorrectly.">
-<!ENTITY torbutton.prefs.sec_webfonts_desc_tooltip "Website-provided font files are blocked.">
+<!ENTITY torbutton.prefs.sec_audio_video_desc "A maioria dos formatos de áudio e vídeo estão desativados.">
+<!ENTITY torbutton.prefs.sec_audio_video_desc_tooltip "WebM é o único codec que se mantém ativado.">
+<!ENTITY torbutton.prefs.sec_webfonts_desc "Alguns tipos de letra e ícones poderão ser visualizados incorretamente.">
+<!ENTITY torbutton.prefs.sec_webfonts_desc_tooltip "Os ficheiros dos tipos de letra fornecidos pelo sítio da Web estão bloqueados.">
 <!ENTITY torbutton.prefs.sec_custom "Valores definidos">
 <!ENTITY torbutton.circuit_display.title "Circuito Tor para este site">
 

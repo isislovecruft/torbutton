@@ -8,7 +8,7 @@
 
 <!ENTITY aboutTor.outOfDateTorOn.label "しかし、このブラウザは古いバージョンです。">
 <!ENTITY aboutTor.outOfDateTorOff.label "また、このブラウザは古いバージョンです。">
-<!ENTITY aboutTor.outOfDate2.label "Click on the onion and then choose Check for Tor Browser Update.">
+<!ENTITY aboutTor.outOfDate2.label "Onion をクリックして Tor Browser のアップデートを確認してください。">
 
 <!ENTITY aboutTor.check.label "Torのネットワーク設定をテストする">
 

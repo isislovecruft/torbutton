@@ -8,7 +8,7 @@
 
 <!ENTITY aboutTor.outOfDateTorOn.label "Dieser Browser ist nicht mehr aktuell.">
 <!ENTITY aboutTor.outOfDateTorOff.label "DIESER Browser ist auch veraltet.">
-<!ENTITY aboutTor.outOfDate2.label "Klicken Sie auf die Zwiebel and wählen Sie dann Überprüfe auf Tor-Browser Aktualisierung.">
+<!ENTITY aboutTor.outOfDate2.label "Klicken Sie auf die Zwiebel und wählen Sie dann Suche nach Tor-Browser-Aktualisierung.">
 
 <!ENTITY aboutTor.check.label "Tor-Netzwerkeinstellungen testen">
 

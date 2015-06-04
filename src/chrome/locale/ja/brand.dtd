@@ -8,7 +8,7 @@
 <!ENTITY  trademarkInfo.part1   "FirefoxおよびFirefoxのロゴはMozilla財団の登録商標です。">
 
 <!-- The following strings are for bug #10280's UI. We place them here for our translators -->
-<!ENTITY plugins.installed.find "Click to load installed system plugins">
-<!ENTITY plugins.installed.enable "Enable plugins">
-<!ENTITY plugins.installed.disable "Disable plugins">
-<!ENTITY plugins.installed.disable.tip "Click to prevent loading system plugins">
+<!ENTITY plugins.installed.find "クリックするとインストールされたシステムプラグインをロードします。">
+<!ENTITY plugins.installed.enable "プラグインを有効化">
+<!ENTITY plugins.installed.disable "プラグインを無効化">
+<!ENTITY plugins.installed.disable.tip "クリックするとインストールされたプラグインを読み込まなくします。">
