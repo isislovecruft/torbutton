@@ -1,3 +1,6 @@
+1.9.2.7
+ * Bug 14429: Make sure the automatic resizing is enabled
+
 1.9.2.6
  * Bug 15984: Disabling Torbutton breaks the Add-ons Manager
  * Bug 14429: Make sure the automatic resizing is disabled
