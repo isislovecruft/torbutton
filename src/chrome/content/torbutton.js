@@ -19,6 +19,8 @@ XPCOMUtils.defineLazyModuleGetter(this, "ConsoleServiceListener",
 XPCOMUtils.defineLazyModuleGetter(this, "WebConsoleUtils",
   "resource://gre/modules/devtools/WebConsoleUtils.jsm");
 
+let { LoadContextInfo } = Cu.import('resource://gre/modules/LoadContextInfo.jsm');
+
 const k_tb_last_browser_version_pref = "extensions.torbutton.lastBrowserVersion";
 const k_tb_browser_update_needed_pref = "extensions.torbutton.updateNeeded";
 const k_tb_last_update_check_pref = "extensions.torbutton.lastUpdateCheck";
@@ -1785,30 +1787,26 @@ function torbutton_do_new_identity() {
 
   torbutton_log(3, "New Identity: Clearing Offline Cache");
 
-  var cache = Components.classes["@mozilla.org/network/cache-service;1"].
-      getService(Components.interfaces.nsICacheService);
-
   try {
-      cache.evictEntries(Ci.nsICache.STORE_OFFLINE);
+    for (let contextInfo of [LoadContextInfo.default, LoadContextInfo.private]) {
+      let appCacheStorage = Services.cache2.appCacheStorage(contextInfo, null);
+      // The following call (asyncEvictStorage) is actually synchronous, either
+      // if we have pref "browser.cache.use_new_backend" -> 1 or
+      // "browser.cache.use_new_backend_temp" -> true,
+      // then we are using the new cache (cache2) which operates synchronously.
+      // If we are using the old cache, then the tor-browser.git patch for
+      // #5715 also makes this synchronous. So we pass a null callback.
+      appCacheStorage.asyncEvictStorage(null);
+    }
   } catch(e) {
       torbutton_log(5, "Exception on cache clearing: "+e);
       window.alert("Torbutton: Unexpected error during offline cache clearing: "+e);
   }
 
-  torbutton_log(3, "New Identity: Clearing LocalStorage");
+  torbutton_log(3, "New Identity: Clearing Disk and Memory Caches");
 
   try {
-      Components.utils.import("resource:///modules/offlineAppCache.jsm");
-      OfflineAppCacheHelper.clear();
-  } catch(e) {
-      torbutton_log(5, "Exception on localStorage clearing: "+e);
-      window.alert("Torbutton: Unexpected error during localStorage clearing: "+e);
-  }
-
-  torbutton_log(3, "New Identity: Clearing Disk Cache");
-
-  try {
-      cache.evictEntries(0);
+      Services.cache2.clear();
   } catch(e) {
       torbutton_log(5, "Exception on cache clearing: "+e);
       window.alert("Torbutton: Unexpected error during cache clearing: "+e);
