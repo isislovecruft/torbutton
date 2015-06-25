@@ -20,6 +20,7 @@ XPCOMUtils.defineLazyModuleGetter(this, "WebConsoleUtils",
   "resource://gre/modules/devtools/WebConsoleUtils.jsm");
 
 let { LoadContextInfo } = Cu.import('resource://gre/modules/LoadContextInfo.jsm');
+let { Services } = Cu.import("resource://gre/modules/Services.jsm");
 
 const k_tb_last_browser_version_pref = "extensions.torbutton.lastBrowserVersion";
 const k_tb_browser_update_needed_pref = "extensions.torbutton.updateNeeded";
@@ -1769,8 +1770,7 @@ function torbutton_do_new_identity() {
   // This clears the STS cache and site permissions on Tor Browser
   // XXX: Tie to some kind of disk-ok pref?
   try {
-      m_tb_prefs.setBoolPref('permissions.memory_only', false);
-      m_tb_prefs.setBoolPref('permissions.memory_only', true);
+      Services.perms.removeAll();
   } catch(e) {
       // Actually, this catch does not appear to be needed. Leaving it in for
       // safety though.
