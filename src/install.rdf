@@ -10,8 +10,8 @@
         <em:homepageURL>https://www.torproject.org/projects/torbrowser.html.en</em:homepageURL>
         <em:optionsURL>chrome://torbutton/content/preferences.xul</em:optionsURL>
         <em:iconURL>chrome://torbutton/skin/tor.png</em:iconURL>
-        <em:updateURL>https://127.0.0.1/</em:updateURL>
-      <!--  <em:updateKey></em:updateKey> -->
+        <em:updateURL>data:text/plain,</em:updateURL>
+        <em:updateKey>-</em:updateKey>
         <!-- firefox -->
         <em:targetApplication>
             <Description>
