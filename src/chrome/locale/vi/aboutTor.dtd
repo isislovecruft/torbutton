@@ -25,7 +25,7 @@
 
 <!ENTITY aboutTor.searchSPPost.link "https://startpage.com/rth/search">
 <!ENTITY aboutTor.searchDDGPost.link "https://duckduckgo.com/html/">
-<!ENTITY aboutTor.searchDCPost.link "https://search.disconnect.me/searchTerms/search?ses=Google&amp;location_option=US">
+<!ENTITY aboutTor.searchDCPost.link "https://search.disconnect.me/searchTerms/search?ses=Google&amp;location_option=US&amp;source=tor">
 
 <!ENTITY aboutTor.torInfo1.label "Additional Info:">
 <!ENTITY aboutTor.torInfo2.label "Quốc gia &amp; Địa chỉ IP:">

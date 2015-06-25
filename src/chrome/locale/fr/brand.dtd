@@ -2,6 +2,7 @@
    - License, v. 2.0. If a copy of the MPL was not distributed with this
    - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
 
+<!ENTITY  brandShorterName      "Navigateur Tor">
 <!ENTITY  brandShortName        "Navigateur Tor">
 <!ENTITY  brandFullName         "Navigateur Tor">
 <!ENTITY  vendorShortName       "Projet Tor">

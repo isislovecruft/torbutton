@@ -28,7 +28,7 @@
 <!ENTITY torbutton.context_menu.new_circuit_key "C">
 <!ENTITY torbutton.context_menu.toggle "Tor status wisselen">
 <!ENTITY torbutton.context_menu.toggle.key "W">
-<!ENTITY torbutton.context_menu.preferences "Privacy en beveiliging instellingen...">
+<!ENTITY torbutton.context_menu.preferences "Privacy- en beveiligingsinstellingen...">
 <!ENTITY torbutton.context_menu.preferences.key "V">
 <!ENTITY torbutton.context_menu.about "Over Torbutton...">
 <!ENTITY torbutton.context_menu.about.key "O">
@@ -46,7 +46,7 @@
 <!ENTITY torbutton.context_menu.openTorWindow.key "d">
 <!ENTITY torbutton.button.label "Torbutton">
 <!ENTITY torbutton.button.tooltip "Klik hier om Torbutton te initialiseren">
-<!ENTITY torbutton.prefs.privacy_security_settings "Privacy en Beveiligingsinstellingen">
+<!ENTITY torbutton.prefs.privacy_security_settings "Privacy- en beveiligingsinstellingen">
 <!ENTITY torbutton.prefs.block_thread "Blokkeer het lezen van de geschiedenis met Tor (cruciaal)">
 <!ENTITY torbutton.prefs.block_thwrite "Blokkeer het schrijven van de geschiedenis met Tor (aangeraden)">
 <!ENTITY torbutton.prefs.block_nthread "Blokkeer het lezen van de geschiedenis zonder Tor (optioneel)">
@@ -146,21 +146,21 @@
 <!ENTITY torbutton.prefs.engine5 "duckduckgo.com">
 <!ENTITY torbutton.prefs.fix_google_srch "Systeem- en taalgegevens verwijderen bij gebruik van de Google zoekbalk">
 <!ENTITY torbutton.prefs.transparentTor "Transparante Torificatie (Heeft aangepaste transparente proxy of Tor router nodig)">
-<!ENTITY torbutton.prefs.priv_caption "Privacy configuratie">
-<!ENTITY torbutton.prefs.block_disk "Bewaar geen surfgeschiedenis of website-data (Schakelt private browsing modus in)">
+<!ENTITY torbutton.prefs.priv_caption "Privacyinstellingen">
+<!ENTITY torbutton.prefs.block_disk "Bewaar geen surfgeschiedenis of websitegegevens. (Schakelt Privénavigatie in.)">
 <!ENTITY torbutton.prefs.restrict_thirdparty "Beperk cookies en andere tracking-gegevens van derden">
-<!ENTITY torbutton.prefs.block_plugins "Schakel browser plugins uit (zoals Flash)">
+<!ENTITY torbutton.prefs.block_plugins "Schakel browserplug-ins uit (zoals Flash)">
 <!ENTITY torbutton.prefs.resist_fingerprinting "Verander details die je onderscheiden van andere Tor Browser gebruikers">
 <!ENTITY torbutton.prefs.sec_caption "Beveiligingsniveau">
 <!ENTITY torbutton.prefs.sec_low "Laag (standaard)">
 <!ENTITY torbutton.prefs.sec_low_usable_desc "Dit verschaft de meest bruikbare ervaring">
-<!ENTITY torbutton.prefs.sec_low_desc "Op dit beveiligingsniveau worden alle browser functies ingeschakeld.">
+<!ENTITY torbutton.prefs.sec_low_desc "Op dit beveiligingsniveau worden alle browserfuncties ingeschakeld.">
 <!ENTITY torbutton.prefs.sec_font_rend_svg_tooltip "De SVG OpenType font rendering mechanisme is uitgeschakeld.">
 <!ENTITY torbutton.prefs.sec_med_low "Medium-Laag">
-<!ENTITY torbutton.prefs.sec_gen_desc "Op dit veiligheidsniveau , gelden de volgende wijzigingen ( muis over voor meer informatie) ">
+<!ENTITY torbutton.prefs.sec_gen_desc "Op dit beveiligingsniveau gelden de volgende wijzigingen (beweeg de muis over de items voor meer informatie)">
 <!ENTITY torbutton.prefs.sec_html5_desc "HTML5 video en audio media geworden click-to-play via NoScript.">
 <!ENTITY torbutton.prefs.sec_html5_tooltip "Op sommige sites , zou je  de NoScript werkbalk knop moeten  gebruiken om deze media -objecten mogelijk te maken.">
-<!ENTITY torbutton.prefs.sec_some_jit_desc "Sommige JavaScript performance optimizations zijn uitgeschakeld.">
+<!ENTITY torbutton.prefs.sec_some_jit_desc "Sommige JavaScript-prestatieverbeteringen zijn uitgeschakeld.">
 <!ENTITY torbutton.prefs.sec_jit_desc_tooltip "ION JIT, Type Inference, ASM.JS.">
 <!ENTITY torbutton.prefs.sec_baseline_jit_desc_tooltip "Baseline JIT.">
 <!ENTITY torbutton.prefs.sec_jit_slower_desc "Scripts kunnen op sommige websites trager zijn.">
@@ -169,8 +169,8 @@
 <!ENTITY torbutton.prefs.sec_mathml_desc "Sommige mechanismen van het weergeven van wiskundige vergelijkingen zijn uitgeschakeld.">
 <!ENTITY torbutton.prefs.sec_mathml_desc_tooltip "MathML is uitgeschakeld.">
 <!ENTITY torbutton.prefs.sec_med_high "Medium-Hoog">
-<!ENTITY torbutton.prefs.sec_all_jit_desc "Alle JavaScript performance optimizations zijn uitgeschakeld.">
-<!ENTITY torbutton.prefs.sec_font_rend_desc "Sommige lettertype rendering functies zijn uitgeschakeld.">
+<!ENTITY torbutton.prefs.sec_all_jit_desc "Alle JavaScript-prestatieverbeteringen zijn uitgeschakeld.">
+<!ENTITY torbutton.prefs.sec_font_rend_desc "Sommige lettertype-weergavefuncties zijn uitgeschakeld.">
 <!ENTITY torbutton.prefs.sec_font_rend_graphite_tooltip "De Graphite lettertype rendering mechanisme is uitgeschakeld.">
 <!ENTITY torbutton.prefs.sec_svg_desc "Sommige afbeeldingtypes zijn uitgeschakeld.">
 <!ENTITY torbutton.prefs.sec_svg_desc_tooltip "SVG afbeeldingen zijn uitgeschakeld.">
