@@ -1,3 +1,8 @@
+1.9.3.0
+ * Bug 16427: Use internal update URL
+ * Bug 16200: Update Cache API usage and prefs for FF38
+ * Bug 16357: Use Mozilla API to wipe permissions db
+
 1.9.2.8
  * Bug 16403: Set search parameters for Disconnect
  * Bug 14429: Make sure the automatic resizing is disabled
