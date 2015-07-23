@@ -893,9 +893,23 @@ function torbutton_notify_if_update_needed() {
 }
 
 function torbutton_check_for_update() {
+    // Open the update prompt in the correct mode.  The update state
+    // checks used here were adapted from isPending() and isApplied() in
+    // Mozilla's browser/base/content/aboutDialog.js code.
+    let updateMgr = Cc["@mozilla.org/updates/update-manager;1"]
+                     .getService(Ci.nsIUpdateManager);
+    let update = updateMgr.activeUpdate;
+    let updateState = (update) ? update.state : undefined;
+    let pendingStates = [ "pending", "pending-service",
+                          "applied", "applied-service" ];
+    let isPending = (updateState && (pendingStates.indexOf(updateState) >= 0));
+
     let prompter = Cc["@mozilla.org/updates/update-prompt;1"]
                      .createInstance(Ci.nsIUpdatePrompt);
-    prompter.checkForUpdates();
+    if (isPending)
+        prompter.showUpdateDownloaded(update, false);
+    else
+        prompter.checkForUpdates();
 }
 
 // Pass undefined for a parameter to have this function determine it.
