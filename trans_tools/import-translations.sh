@@ -1,4 +1,4 @@
-#!/bin/sh -e
+#!/bin/bash -e
 
 # This var comes from the TBB locale list.
 # XXX: Find some way to keep this, tor-launcher, and Tor Browser in sync
@@ -11,6 +11,48 @@ BUNDLE_LOCALES="ar de es fa fr it ko nl pl pt ru tr vi zh-CN"
 # and translations are available.
 BUNDLE_LOCALES="$BUNDLE_LOCALES eu ja sv"
 
+LOCALE_DIR=../src/chrome/locale
+
+# FILEMAP is an array of "localeFile:translationBranch" strings.
+FILEMAP=( "aboutDialog.dtd:torbutton-aboutdialogdtd"
+          "aboutTor.dtd:abouttor-homepage"
+          "aboutTor.properties:torbutton-abouttorproperties"
+          "brand.dtd:torbutton-branddtd"
+          "brand.properties:torbutton-brandproperties"
+          "browser.properties:torbutton-browserproperties"
+          "torbutton.dtd:torbutton-torbuttondtd"
+          "torbutton.properties:torbutton-torbuttonproperties"
+         )
+
+# Verify that the FILEMAP contains an entry for each Torbutton file.
+FILES_ARE_MISSING=0
+for DEST_PATH in $LOCALE_DIR/en/*.dtd $LOCALE_DIR/en/*.properties;
+do
+  IS_FILE_IN_MAP=0
+  DEST_FILE=${DEST_PATH##*/}
+  for KEYVAL in "${FILEMAP[@]}";
+  do
+    FILE="${KEYVAL%%:*}"
+    if [ $FILE = $DEST_FILE ];
+    then
+      IS_FILE_IN_MAP=1
+      break;
+    fi
+  done
+
+  if [ $IS_FILE_IN_MAP -eq 0 ];
+  then
+    echo "Please add $DEST_FILE to FILEMAP." 1>&2
+    FILES_ARE_MISSING=1
+  fi
+done
+
+if [ $FILES_ARE_MISSING -ne 0 ];
+then
+  exit 1
+fi
+
+# Clone or update our translation repo.
 if [ -d translation ];
 then
   cd translation
@@ -20,32 +62,22 @@ else
   git clone https://git.torproject.org/translation.git
 fi
 
+# Update each translated file for each locale.
+echo "Locales: $BUNDLE_LOCALES"
 cd translation
-for i in $BUNDLE_LOCALES
-do
-  UL="`echo $i|tr - _`"
-  mkdir -p ../../src/chrome/locale/$i/
-  git checkout abouttor-homepage
-  git merge origin/abouttor-homepage
-  cp $UL/aboutTor.dtd ../../src/chrome/locale/$i/
-
-  git checkout torbutton-torbuttondtd
-  git merge origin/torbutton-torbuttondtd
-  cp $UL/torbutton.dtd ../../src/chrome/locale/$i/
-
-  git checkout torbutton-branddtd
-  git merge origin/torbutton-branddtd
-  cp $UL/brand.dtd ../../src/chrome/locale/$i/
-
-  git checkout torbutton-torbuttonproperties
-  git merge origin/torbutton-torbuttonproperties
-  cp $UL/torbutton.properties ../../src/chrome/locale/$i/
-
-  git checkout torbutton-browserproperties
-  git merge origin/torbutton-browserproperties
-  cp $UL/browser.properties ../../src/chrome/locale/$i/
-
-  git checkout torbutton-brandproperties
-  git merge origin/torbutton-brandproperties
-  cp $UL/brand.properties ../../src/chrome/locale/$i/
+for KEYVAL in "${FILEMAP[@]}"; do
+  FILE="${KEYVAL%%:*}"
+  BRANCH="${KEYVAL##*:}"
+  echo "Updating ${FILE}..."
+  git checkout -q "$BRANCH"
+  git merge -q origin/"$BRANCH"
+  for i in $BUNDLE_LOCALES;
+  do
+    UL="`echo $i|tr - _`"
+    mkdir -p ../$LOCALE_DIR/$i/
+# Use sed to work around a Transifex "double entity" issue.
+    sed -e 's/\&amp;brandShortName;/\&brandShortName;/g'			\
+        -e 's/\&amp;vendorShortName;/\&vendorShortName;/g'			\
+        $UL/"$FILE" > ../$LOCALE_DIR/$i/"$FILE"
+  done
 done
