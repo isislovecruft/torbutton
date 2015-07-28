@@ -66,18 +66,24 @@ fi
 echo "Locales: $BUNDLE_LOCALES"
 cd translation
 for KEYVAL in "${FILEMAP[@]}"; do
-  FILE="${KEYVAL%%:*}"
+  DEST_FILE="${KEYVAL%%:*}"
   BRANCH="${KEYVAL##*:}"
-  echo "Updating ${FILE}..."
+  echo "Updating ${DEST_FILE}..."
   git checkout -q "$BRANCH"
   git merge -q origin/"$BRANCH"
   for i in $BUNDLE_LOCALES;
   do
     UL="`echo $i|tr - _`"
     mkdir -p ../$LOCALE_DIR/$i/
+# Some file names are lowercase in Transifex.
+    if [ -f $UL/"$DEST_FILE" ]; then
+      SRCFILE="$DEST_FILE"
+    else
+      SRCFILE="`echo $DEST_FILE | tr '[:upper:]' '[:lower:]'`"
+    fi
 # Use sed to work around a Transifex "double entity" issue.
     sed -e 's/\&amp;brandShortName;/\&brandShortName;/g'			\
         -e 's/\&amp;vendorShortName;/\&vendorShortName;/g'			\
-        $UL/"$FILE" > ../$LOCALE_DIR/$i/"$FILE"
+        $UL/"$SRCFILE" > ../$LOCALE_DIR/$i/"$DEST_FILE"
   done
 done
