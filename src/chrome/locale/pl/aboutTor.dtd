@@ -8,7 +8,7 @@
 
 <!ENTITY aboutTor.outOfDateTorOn.label "JEDNAK, ta przeglądarka jest nieaktualna.">
 <!ENTITY aboutTor.outOfDateTorOff.label "PONADTO, ta przeglądarka jest nieaktualna.">
-<!ENTITY aboutTor.outOfDate2.label "Kliknij na cebulę a następnie wybierz Sprawdź czy są dostępne aktualizacje.">
+<!ENTITY aboutTor.outOfDate2.label "Kliknij na ikonę cebuli, a następnie wybierz Sprawdź czy są dostępne aktualizacje.">
 
 <!ENTITY aboutTor.check.label "Przetestuj Ustawienia Sieci Tor">
 

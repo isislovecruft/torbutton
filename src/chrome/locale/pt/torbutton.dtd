@@ -1,6 +1,6 @@
 <!ENTITY torbutton.prefs.title "Preferências Torbutton">
 <!ENTITY torbutton.prefs.tor_settings "Configurações do Proxy">
-<!ENTITY torbutton.prefs.recommended_settings "Utilize as configurações recomendadas do proxy para a minha versão do Firefox">
+<!ENTITY torbutton.prefs.recommended_settings "Use as configurações recomendadas do proxy para a minha versão do Firefox">
 <!ENTITY torbutton.prefs.use_privoxy "Utilizar Privoxy">
 <!ENTITY torbutton.prefs.use_polipo "Utilizar Polipo">
 <!ENTITY torbutton.prefs.custom_settings "Utilize as configurações do proxy personalizadas">
@@ -13,7 +13,7 @@
 <!ENTITY torbutton.about.title "Sobre o Torbutton">
 <!ENTITY torbutton.about.version "Versão:">
 <!ENTITY torbutton.about.summary "Protege a privacidade da sua navegação Tor.">
-<!ENTITY torbutton.about.code "Contribuidores do Código:">
+<!ENTITY torbutton.about.code "Contribuidores do código:">
 <!ENTITY torbutton.about.maintainer "Mantenedor:">
 <!ENTITY torbutton.about.security_review "Revisão de Segurança:">
 <!ENTITY torbutton.about.donate "Se gosta de utilizar o Tor, poderá considerar">
@@ -24,9 +24,9 @@
 <!ENTITY torbutton.pref_connection_more_info.text "O Torbutton está ativado. Se desejar alterar as configurações do Proxy que não sejam do Tor, por favor, desative o Torbutton e volte aqui. Se desejar alterar as configurações do Tor, por favor, utilize a janela de preferências do Torbutton.">
 <!ENTITY torbutton.context_menu.new_identity "Identidade Nova">
 <!ENTITY torbutton.context_menu.new_identity_key "I">
-<!ENTITY torbutton.context_menu.new_circuit "Novo Circuito Tor para este Site">
+<!ENTITY torbutton.context_menu.new_circuit "Novo circuito Tor para este sítio">
 <!ENTITY torbutton.context_menu.new_circuit_key "C">
-<!ENTITY torbutton.context_menu.toggle "Alterar Estado do Tor">
+<!ENTITY torbutton.context_menu.toggle "Alterar estado do Tor">
 <!ENTITY torbutton.context_menu.toggle.key "T">
 <!ENTITY torbutton.context_menu.preferences "Configurações de Segurança e Privacidade...">
 <!ENTITY torbutton.context_menu.preferences.key "P">
@@ -34,15 +34,15 @@
 <!ENTITY torbutton.context_menu.about.key "A">
 <!ENTITY torbutton.context_menu.networksettings "Configurações da Rede Tor...">
 <!ENTITY torbutton.context_menu.networksettings.key "S">
-<!ENTITY torbutton.context_menu.downloadUpdate "Procurar por Atualizações do Tor...">
+<!ENTITY torbutton.context_menu.downloadUpdate "Procurar atualizações do Tor...">
 <!ENTITY torbutton.context_menu.downloadUpdate.key "A">
-<!ENTITY torbutton.context_menu.cookieProtections "Proteções para os Cookies...">
+<!ENTITY torbutton.context_menu.cookieProtections "Proteções das Cookies...">
 <!ENTITY torbutton.context_menu.cookieProtections.key "C">
 <!ENTITY torbutton.context_menu.copyTor "Copiar URL do Tor">
 <!ENTITY torbutton.context_menu.copyTor.key "P">
-<!ENTITY torbutton.context_menu.openTorTab "Abrir URL do Tor num novo Separador">
+<!ENTITY torbutton.context_menu.openTorTab "Abrir URL do Tor num separador novo ">
 <!ENTITY torbutton.context_menu.openTorTab.key "r">
-<!ENTITY torbutton.context_menu.openTorWindow "Abrir URL do Tor numa nova Janela">
+<!ENTITY torbutton.context_menu.openTorWindow "Abrir URL do Tor numa janela nova ">
 <!ENTITY torbutton.context_menu.openTorWindow.key "d">
 <!ENTITY torbutton.button.label "Torbutton">
 <!ENTITY torbutton.button.tooltip "Clique para inicializar o Torbutton">
