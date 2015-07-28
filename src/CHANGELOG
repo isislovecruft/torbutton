@@ -1,3 +1,9 @@
+1.9.3.1
+ * Bug 16268: Show Tor Browser logo on About page
+ * Bug 16639: Check for Updates menu item can cause update failure
+ * Bug 15781: Remove the sessionstore filter
+ * Bug 15656: Sync privacy.resistFingerprinting with Torbutton pref
+
 1.9.3.0
  * Bug 16427: Use internal update URL
  * Bug 16200: Update Cache API usage and prefs for FF38
