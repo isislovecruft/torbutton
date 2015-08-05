@@ -191,7 +191,8 @@ ExternalWrapper.prototype =
     return result;
   },
   
-  doContent: function(aMimeContentType, aRequest, aWindowContext, aForceSave) {
+  doContent: function(aMimeContentType, aRequest, aContentContext,
+                      aForceSave, aWindowContext) {
     if(this.blockApp()) {
       var check = {value: false};
       var result = this._confirmLaunch(aRequest.name, check);
@@ -201,7 +202,8 @@ ExternalWrapper.prototype =
       }
     }
  
-    return this._external().doContent(aMimeContentType, aRequest, aWindowContext, aForceSave);
+    return this._external().doContent(aMimeContentType, aRequest,
+                                 aContentContext, aForceSave, aWindowContext);
   },
 
   observe: function(subject, topic, data) {
