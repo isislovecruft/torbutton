@@ -1,187 +1,187 @@
-<!ENTITY torbutton.prefs.title "Ayarlar">
+<!ENTITY torbutton.prefs.title "Torbutton Ayarları">
 <!ENTITY torbutton.prefs.tor_settings "Vekil Sunucu Ayarları">
 <!ENTITY torbutton.prefs.recommended_settings "Firefox sürümüm için önerilen vekil sunucu ayarlarını kullan">
-<!ENTITY torbutton.prefs.use_privoxy "Privoxy kullan">
-<!ENTITY torbutton.prefs.use_polipo "Polipo'yu kullan">
-<!ENTITY torbutton.prefs.custom_settings "Özel vekil sunucu ayarlarını kullan">
+<!ENTITY torbutton.prefs.use_privoxy "Privoxy Kullan">
+<!ENTITY torbutton.prefs.use_polipo "Polipo Kullan">
+<!ENTITY torbutton.prefs.custom_settings "Özel vekil sunucu ayarları kullanılsın">
 <!ENTITY torbutton.prefs.proxy.host.http "HTTP Vekil Sunucusu:">
 <!ENTITY torbutton.prefs.proxy.host.https "SSL Vekil Sunucusu:">
 <!ENTITY torbutton.prefs.proxy.host.ftp "FTP Vekil Sunucusu:">
 <!ENTITY torbutton.prefs.proxy.host.gopher "Gopher Vekil Sunucusu:">
 <!ENTITY torbutton.prefs.proxy.host.socks "SOCKS Sunucusu:">
-<!ENTITY torbutton.prefs.proxy.port "Bağl. Nok.:">
+<!ENTITY torbutton.prefs.proxy.port "Kapı:">
 <!ENTITY torbutton.about.title "Torbutton Hakkında">
 <!ENTITY torbutton.about.version "Sürüm:">
 <!ENTITY torbutton.about.summary "Tor tarama gizliliğinizi korur.">
-<!ENTITY torbutton.about.code "Kodlarda yardımı bulunanlar:">
-<!ENTITY torbutton.about.maintainer "Bakımcı:">
-<!ENTITY torbutton.about.security_review "Güvenlik özeti:">
-<!ENTITY torbutton.about.donate "Tor kullanmayı seviyorsanız ayrıca şunu da düşünebilirsiniz: ">
-<!ENTITY torbutton.about.make_donation "Bağış yapmak">
-<!ENTITY torbutton.pref_connection.notice "Ayarları uygulamak için Torbuttonu devre dışı bırak.">
-<!ENTITY torbutton.pref_connection.more_info "Daha fazla bilgi">
+<!ENTITY torbutton.about.code "Geliştirmeye Katkıda Bulunanlar:">
+<!ENTITY torbutton.about.maintainer "Yönetici:">
+<!ENTITY torbutton.about.security_review "Güvenlik Özeti:">
+<!ENTITY torbutton.about.donate "Tor yazılımını beğendiyseniz">
+<!ENTITY torbutton.about.make_donation "bağış yapmayı düşünün.">
+<!ENTITY torbutton.pref_connection.notice "Bu ayarları uygulamak için Torbutton devre dışı bırakılsın.">
+<!ENTITY torbutton.pref_connection.more_info "Ayrıntılı bilgiler">
 <!ENTITY torbutton.pref_connection_more_info.title "Yardım">
-<!ENTITY torbutton.pref_connection_more_info.text "Torbutton şu anda devre dışı. Vekil sunucu ayarlarını değiştirmek istiyorsanız, Torbutton'ı tekrar devre dışı bırakın. Genel ayarları değiştirecekseniz, ayarlar penceresini kullanın.">
+<!ENTITY torbutton.pref_connection_more_info.text "Torbutton şu anda etkin. Tor-Dışı vekil sunucu ayarlarını değiştirmek istiyorsanız, Torbutton uygulamasını devre dışı bırakıp buraya geri gelin. Tor ayarlarınızı değiştirmek istiyorsanız Torbutton ayarları penceresini kullanın.">
 <!ENTITY torbutton.context_menu.new_identity "Yeni Kimlik">
-<!ENTITY torbutton.context_menu.new_identity_key "S">
-<!ENTITY torbutton.context_menu.new_circuit "Bu site için yeni Tor devresi">
+<!ENTITY torbutton.context_menu.new_identity_key "I">
+<!ENTITY torbutton.context_menu.new_circuit "Bu site için Tor devresini yenile">
 <!ENTITY torbutton.context_menu.new_circuit_key "C">
-<!ENTITY torbutton.context_menu.toggle "Durum">
+<!ENTITY torbutton.context_menu.toggle "Tor durumunu değiştir">
 <!ENTITY torbutton.context_menu.toggle.key "T">
 <!ENTITY torbutton.context_menu.preferences "Gizlilik ve Güvenlik Ayarları...">
-<!ENTITY torbutton.context_menu.preferences.key "A">
+<!ENTITY torbutton.context_menu.preferences.key "P">
 <!ENTITY torbutton.context_menu.about "Hakkında">
-<!ENTITY torbutton.context_menu.about.key "H">
+<!ENTITY torbutton.context_menu.about.key "A">
 <!ENTITY torbutton.context_menu.networksettings "Tor Ağ Ayarları...">
 <!ENTITY torbutton.context_menu.networksettings.key "S">
-<!ENTITY torbutton.context_menu.downloadUpdate "Tor Tarayıcı Güncellemesini Denetle...">
-<!ENTITY torbutton.context_menu.downloadUpdate.key "H">
-<!ENTITY torbutton.context_menu.cookieProtections "Çerez Korumaları...">
+<!ENTITY torbutton.context_menu.downloadUpdate "Tor Browser Güncelleme Denetimi...">
+<!ENTITY torbutton.context_menu.downloadUpdate.key "U">
+<!ENTITY torbutton.context_menu.cookieProtections "Çerez Koruması...">
 <!ENTITY torbutton.context_menu.cookieProtections.key "C">
-<!ENTITY torbutton.context_menu.copyTor "Tor URL'sini kopyala">
+<!ENTITY torbutton.context_menu.copyTor "Tor İnternet Adresini Kopyala">
 <!ENTITY torbutton.context_menu.copyTor.key "p">
-<!ENTITY torbutton.context_menu.openTorTab "Tor URL'sini yeni sekmede aç">
-<!ENTITY torbutton.context_menu.openTorTab.key "p">
-<!ENTITY torbutton.context_menu.openTorWindow "Tor URL'sini Yeni Pencerede Aç">
+<!ENTITY torbutton.context_menu.openTorTab "Tor İnternet adresini yeni sekmede aç">
+<!ENTITY torbutton.context_menu.openTorTab.key "r">
+<!ENTITY torbutton.context_menu.openTorWindow "Tor İnternet adresini yeni pencerede aç">
 <!ENTITY torbutton.context_menu.openTorWindow.key "d">
 <!ENTITY torbutton.button.label "Torbutton">
-<!ENTITY torbutton.button.tooltip "Başlat">
+<!ENTITY torbutton.button.tooltip "Torbutton uygulamasını başlatmak için tıklayın">
 <!ENTITY torbutton.prefs.privacy_security_settings "Gizlilik ve Güvenlik Ayarları">
-<!ENTITY torbutton.prefs.block_thread "Tor çalışırken geçmişi okumayı durdur(kritik)">
-<!ENTITY torbutton.prefs.block_thwrite "Tor çalışırken geçmişi oluşturmayı durdur(önerilen)">
-<!ENTITY torbutton.prefs.block_nthread "Tor çalışmıyorken geçmişi okumayı durdur (opsiyonel)">
-<!ENTITY torbutton.prefs.block_nthwrite "Tor çalışırken geçmişi oluştururken durdur(önerilen)">
-<!ENTITY torbutton.prefs.clear_history "Tor başlatılırken geçmişi temizle(önerilen)">
-<!ENTITY torbutton.prefs.clear_cache "Tor devredeyken tüm önbelleklemeleri temizle">
-<!ENTITY torbutton.prefs.block_cache "Disk ve önbellek erişimini engelle">
-<!ENTITY torbutton.prefs.cookie_jars "Çerezleri korumalı &quot;jar&quot; dosyasında tut">
-<!ENTITY torbutton.prefs.cookie_protection "Seçmek için çerez seçenekleri dialogunu kullan">
-<!ENTITY torbutton.prefs.mmm_cookies "Çerezlerimi kendim yönetmek istiyorum (tehlikeli)">
-<!ENTITY torbutton.prefs.clear_cookies "Tor çalışırken tüm çerezleri temizle">
-<!ENTITY torbutton.prefs.disable_plugins "Tor çalışırken eklentileri devredışı bırak(kritik)">
-<!ENTITY torbutton.prefs.kill_bad_js "Tehlikeli javascriptleri yakala(kritik)">
-<!ENTITY torbutton.prefs.isolate_content "Tor çalışırken dinamik içeriği koru(kritik)">
-<!ENTITY torbutton.prefs.no_updates "Tor çalışırken güncellemeleri devredışı bırak">
-<!ENTITY torbutton.prefs.set_uagent "Tor kullanımı için arabirim ayarla(kritik)">
-<!ENTITY torbutton.prefs.dynamic "Dinamik içerik">
+<!ENTITY torbutton.prefs.block_thread "Tor kullanılırken geçmiş okunamasın (önemli)">
+<!ENTITY torbutton.prefs.block_thwrite "Tor kullanılırken geçmiş kaydedilemesin (önerilir)">
+<!ENTITY torbutton.prefs.block_nthread "Tor-Dışı kullanılırken geçmiş okunamasın (isteğe bağlı)">
+<!ENTITY torbutton.prefs.block_nthwrite "Tor-Dışı kullanılırken geçmiş kaydedilemesin (isteğe bağlı)">
+<!ENTITY torbutton.prefs.clear_history "Tor durumu değiştirildiğinde geçmiş temizlensin (önerilir)">
+<!ENTITY torbutton.prefs.clear_cache "Tor durumu değiştirildiğinde Tor disk ön belleği engellenip tüm ön bellekler temizlensin">
+<!ENTITY torbutton.prefs.block_cache "Tor kullanılırken disk ve ön bellek erişimi engellensin">
+<!ENTITY torbutton.prefs.cookie_jars "Tor-Dışı çerezler korumalı bir jar dosyasında saklansın">
+<!ENTITY torbutton.prefs.cookie_protection "Seçmek için Çerez Koruması penceresini kullanın">
+<!ENTITY torbutton.prefs.mmm_cookies "Çerezlerimi kendim yöneteceğim (tehlikeli)">
+<!ENTITY torbutton.prefs.clear_cookies "Tor durumu değiştirildiğinde tüm çerezler temizlensin">
+<!ENTITY torbutton.prefs.disable_plugins "Tor kullanılırken uygulama ekleri devre dışı bırakılsın (önemli)">
+<!ENTITY torbutton.prefs.kill_bad_js "Tehlikeli javascriptler yakalansın (önemli)">
+<!ENTITY torbutton.prefs.isolate_content "Tor çalışırken devingen içerik korunsun (önemli)">
+<!ENTITY torbutton.prefs.no_updates "Tor kullanılırken güncellemeler devre dışı bırakılsın">
+<!ENTITY torbutton.prefs.set_uagent "Tor kullanılırken bildirilecek kullanıcı yazılımı (önemli)">
+<!ENTITY torbutton.prefs.dynamic "Devingen İçerik">
 <!ENTITY torbutton.prefs.cookies "Çerezler">
-<!ENTITY torbutton.prefs.cache "Önbellek">
+<!ENTITY torbutton.prefs.cache "Ön bellek">
 <!ENTITY torbutton.prefs.history "Geçmiş">
-<!ENTITY torbutton.prefs.no_search "Arama yaparken &quot;öneriler&quot; özelliğini devredışı bırak(tavsiye edilen)\">
+<!ENTITY torbutton.prefs.no_search "Tor kullanılırken arama önerileri devre dışı bırakılsın (önerilir)">
 <!ENTITY torbutton.prefs.shutdown "Kapat">
-<!ENTITY torbutton.prefs.tor_shutdown "Etkin-Devredışı bırakırken tüm çerezleri temizle">
-<!ENTITY torbutton.prefs.all_shutdown "Tarayıcıyı kapattığımda tüm çerezleri temizle">
-<!ENTITY torbutton.prefs.no_shutdown "Programı kapatığımda çerezlerimi silme">
-<!ENTITY torbutton.prefs.disable_sessionstore "Oturum kaydı devredışı(tavsiye edilen)">
-<!ENTITY torbutton.prefs.headers "Başlık Bilgileri">
-<!ENTITY torbutton.prefs.spoof_english "İngilizce Web Tarayıcılarını Aldat">
-<!ENTITY torbutton.prefs.refererspoofing "Kastedilmiş Bilgi Hırsızlığı">
-<!ENTITY torbutton.prefs.spoofblank "Spoof blank referer during Tor usage (may break some sites)">
-<!ENTITY torbutton.prefs.smartspoof "Tor kullanırken akıllı referans aldatmacası kullan (siteler arası referansları aldatır)">
-<!ENTITY torbutton.prefs.nospoof "No referer spoof during Tor usage (sends referers as normal)">
-<!ENTITY torbutton.prefs.disable_domstorage "Tor çalışırken DCOM belleğini devredışı bırak(kritik)">
+<!ENTITY torbutton.prefs.tor_shutdown "Tor kullanılıan tarayıcı kapatılırken Tor çerezleri temizlensin">
+<!ENTITY torbutton.prefs.all_shutdown "Tüm tarayıcılar kapatılırken tüm çerezler temizlensin">
+<!ENTITY torbutton.prefs.no_shutdown "Programı kapatığımda çerezlerim silinmesin">
+<!ENTITY torbutton.prefs.disable_sessionstore "Oturum Kaydedilmesin (önerilir)">
+<!ENTITY torbutton.prefs.headers "Üst Bilgiler">
+<!ENTITY torbutton.prefs.spoof_english "Amerikan İngilizce Web Tarayıcısı Aldatması">
+<!ENTITY torbutton.prefs.refererspoofing "Gönderici aldatması">
+<!ENTITY torbutton.prefs.spoofblank "Tor kullanılırken boş gönderici aldatması yapılsın (bazı sitelerde çalışmayabilir)">
+<!ENTITY torbutton.prefs.smartspoof "Tor kullanılırken akıllı gönderici aldatması yapılsın (siteler arası göndericileri değiştirir)">
+<!ENTITY torbutton.prefs.nospoof "Tor kullanılırken gönderici aldatması yapılmasın (normal gönderici iletilir)">
+<!ENTITY torbutton.prefs.disable_domstorage "Tor kullanılırken DCOM belleği devre dışı bırakılsın (önemli)">
 <!ENTITY torbutton.prefs.forms "Formlar">
-<!ENTITY torbutton.prefs.block_tforms "Tor kullanılırken şifreleri kaydetme(önerilen)">
-<!ENTITY torbutton.prefs.block_ntforms "Tor çalışmıyorken şifreleri kaydetme(isteğe bağlı)">
+<!ENTITY torbutton.prefs.block_tforms "Tor kullanılırken parola ve formların kaydedilmesi engellensin (önerilen)">
+<!ENTITY torbutton.prefs.block_ntforms "Tor-Dışı parola ve formların kaydedilmesi engellensin (isteğe bağlı)">
 <!ENTITY torbutton.prefs.tor "Tor">
-<!ENTITY torbutton.prefs.non_tor "Non-Tor">
-<!ENTITY torbutton.prefs.restore_tor "Oturumunda restore başlangıç, Tor devlet ayarlamak için:">
-<!ENTITY torbutton.prefs.startup_tor "Tarayıcı başlatıldığında Tor durumunu şu şekilde ayarla:">
-<!ENTITY torbutton.prefs.reload_crashed_jar "Firefox çöktüğünde, çerezleri &quot;jar&quot; dosyalarından geri yükle(Tavsiye edilen)">
-<!ENTITY torbutton.prefs.dual_cookie_jars "Tüm çerezleri korunan jar dosyalarında tut(tehlikeli)">
-<!ENTITY torbutton.prefs.clear_http_auth "HTTP oturum doğrulamalarının tümünü temizle(önerilen)">
-<!ENTITY torbutton.prefs.block_js_history "Tor çalışıyorken geçmiş bilgisinde gezinmeyi yasakla(kritik)">
-<!ENTITY torbutton.prefs.resize_on_toggle "Tor kullanırken pencereleri 50px'le ölçekle (önerilen)">
-<!ENTITY torbutton.prefs.close_tor "Tor aktif olduğunda tüm pencereleri temizle (önerilen)">
-<!ENTITY torbutton.prefs.close_nontor "Kapatmak tüm Sigara Tor pencereleri ve sekmeleri toggle (isteğe bağlı)">
-<!ENTITY torbutton.prefs.block_links "Blok link tıklama ve farklı Tor devletler (isteğe bağlı), sayfa yeniden yükler            ">
-<!ENTITY torbutton.prefs.jar_certs "Tor / Non-Tor için ayrı kavanozlarda saklayın SSL certs (tavsiye)">
-<!ENTITY torbutton.prefs.jar_ca_certs "Tor / Non-Tor için ayrı kavanozlarda saklayın CA certs (önerilir)            ">
-<!ENTITY torbutton.prefs.locked_mode "Sakatlar Düğme ve Hotkeys yanlışlıkla geçiş önlemek için">
-<!ENTITY torbutton.prefs.startup_state "Normal çalışmaya başlayınca, Tor devlet ayarlamak için:">
-<!ENTITY torbutton.prefs.shutdown_state "Kapatma devlet            ">
+<!ENTITY torbutton.prefs.non_tor "Tor-Dışı">
+<!ENTITY torbutton.prefs.restore_tor "Başlangıçta oturum geri yüklendiğinde ayarlanacak Tor durumu:">
+<!ENTITY torbutton.prefs.startup_tor "Tarayıcı başlatıldığında ayarlanacak Tor durumu:">
+<!ENTITY torbutton.prefs.reload_crashed_jar "Firefox çöktüğünde, çerezler jar dosyasından yüklensin ya da temizlensin (önerilir)">
+<!ENTITY torbutton.prefs.dual_cookie_jars "Tor ve Tor-Dışı tüm çerezler korunan jar dosyalarında saklansın (tehlikeli)">
+<!ENTITY torbutton.prefs.clear_http_auth "Kimliği doğrulanmış tüm HTTP oturumları temizlensin (önerilir)">
+<!ENTITY torbutton.prefs.block_js_history "Geçmiş bilgilerine erişim Tor durumuna göre engellensin (önemli)">
+<!ENTITY torbutton.prefs.resize_on_toggle "Tor kullanırken pencereler 50 piksel ve katlarıyla boyutlandırılsın (önerilir)">
+<!ENTITY torbutton.prefs.close_tor "Tor durumu değişikliğinde tüm Tor pencere ve sekmeleri kapatılsın (isteğe bağlı)">
+<!ENTITY torbutton.prefs.close_nontor "Tor durumu değişikliğinde tüm Tor-Dışı pencere ve sekmeler kapatılsın (isteğe bağlı)">
+<!ENTITY torbutton.prefs.block_links "Farklı Tor durumlarında bağlantılara tıklama ve sayfayı yenileme engellensin (isteğe bağlı)">
+<!ENTITY torbutton.prefs.jar_certs "Tor/Tor-Dışı durumların SSL sertifikaları ayrı jar dosyalarında saklansın (önerilir)">
+<!ENTITY torbutton.prefs.jar_ca_certs "Tor/Tor-Dışı durumların CA sertifikaları ayrı ayrı jar dosyalarında saklansın (önerilir)">
+<!ENTITY torbutton.prefs.locked_mode "İstenmeyen durum değişikliğini engellemek için düğme ve kısayol tuşları devre dışı bırakılsın">
+<!ENTITY torbutton.prefs.startup_state "Normal başlangıçta ayarlanacak Tor durumu:">
+<!ENTITY torbutton.prefs.shutdown_state "Kapanış durumu">
 <!ENTITY torbutton.prefs.startup "Başlangıç">
-<!ENTITY torbutton.prefs.block_tor_file_net "Dosyadan Tor ağ erişimi file:// url (önerilir)">
-<!ENTITY torbutton.prefs.block_nontor_file_net "Dosyadan non-Tor ağ erişimi file:// url (önerilir)">
-<!ENTITY torbutton.prefs.restore_defaults "Varsayılan Ayarlar">
-<!ENTITY torbutton.prefs.test_settings "Ayarları test et">
-<!ENTITY torbutton.prefs.test_auto "Her ateş başlar toggle ilk defa sonra Test benim Tor ayarları">
-<!ENTITY torbutton.prefs.disable_livemarks "Disable livemarks updates during Tor usage">
-<!ENTITY torbutton.prefs.tor_memory_jar "Diske Tor çerezleri yazmayın   ">
-<!ENTITY torbutton.prefs.nontor_memory_jar "Diske Non-Tor çerezleri yazmayın">
-<!ENTITY torbutton.prefs.session_restore "Kurtarmak oturum mağaza var ve bu sekmeleri geri yükleme:">
-<!ENTITY torbutton.prefs.nontor_tabs "Sekmeler Non-Tor yüklendi">
-<!ENTITY torbutton.prefs.tor_tabs "Sekmeler Tor yüklendi">
+<!ENTITY torbutton.prefs.block_tor_file_net "file:// İnternet adresleri yoluyla Tor ağ erişimi engellensin (önerilir)">
+<!ENTITY torbutton.prefs.block_nontor_file_net "file:// İnternet adresleri yoluyla Tor-Dışı ağ erişimi engellensin">
+<!ENTITY torbutton.prefs.restore_defaults "Varsayılanları Yükle">
+<!ENTITY torbutton.prefs.test_settings "Ayarları Sına">
+<!ENTITY torbutton.prefs.test_auto "İlk durum değişikliğinden sonra Firefox her başlatıldığında Tor ayarlarım sınansın">
+<!ENTITY torbutton.prefs.disable_livemarks "Tor kullanılırken livemarks güncellemeleri devre dışı bırakılsın">
+<!ENTITY torbutton.prefs.tor_memory_jar "Tor çerezleri diske yazılmasın">
+<!ENTITY torbutton.prefs.nontor_memory_jar "Tor-Dışı çerezler diske yazılmasın">
+<!ENTITY torbutton.prefs.session_restore "Oturum kaydında şu sekmeler kaydedilip geri yüklensin:">
+<!ENTITY torbutton.prefs.nontor_tabs "Tor-Dışı Yüklenen Sekmeler">
+<!ENTITY torbutton.prefs.tor_tabs "Tor İle Yüklenen Sekmeler">
 <!ENTITY torbutton.prefs.socks_vfour "SOCKS v4">
 <!ENTITY torbutton.prefs.socks_vfive "SOCKS v5">
 <!ENTITY torbutton.prefs.no_proxies_on "Şunun için vekil sunucu yok:">
-<!ENTITY torbutton.prefs.no_proxy_warning "Uyarı: Yukarıdaki alan adlarını kullanmaktan kaçının">
-<!ENTITY torbutton.prefs.spoofreresh "Aldatmaca Yenile">
-<!ENTITY torbutton.prefs.refereroptions "Referans Aldatmacası Ayarları">
-<!ENTITY torbutton.prefs.nospoof "No referer spoof during Tor usage (sends referers as normal)">
-<!ENTITY torbutton.prefs.spoofroot "Geçerli klasör için aldatmaca kullan">
-<!ENTITY torbutton.prefs.spoofdomain "Referans olarak alanı aldat">
-<!ENTITY torbutton.prefs.spoofblank "Spoof blank referer during Tor usage (may break some sites)">
-<!ENTITY torbutton.cookiedialog.title "Çerez Korumasını Yönet">
-<!ENTITY torbutton.cookiedialog.lockCol "Korunan">
+<!ENTITY torbutton.prefs.no_proxy_warning "Uyarı: Yukarıdaki sunucu adlarını kullanmaktan kaçının">
+<!ENTITY torbutton.prefs.spoofreresh "Aldatma Yenileme">
+<!ENTITY torbutton.prefs.refereroptions "Gönderici Aldatma Ayarları">
+<!ENTITY torbutton.prefs.nospoof "Tor kullanılırken gönderici aldatması yapılmasın (normal gönderici iletilir)">
+<!ENTITY torbutton.prefs.spoofroot "Sayfayı içeren klasörü aldat">
+<!ENTITY torbutton.prefs.spoofdomain "Etki alanını gönderici olarak aldat">
+<!ENTITY torbutton.prefs.spoofblank "Tor kullanılırken boş gönderici aldatması yapılsın (bazı sitelerde çalışmayabilir)">
+<!ENTITY torbutton.cookiedialog.title "Çerez Koruması Yönetimi">
+<!ENTITY torbutton.cookiedialog.lockCol "Korunmuş">
 <!ENTITY torbutton.cookiedialog.domainCol "Sunucu">
-<!ENTITY torbutton.cookiedialog.nameCol "İsim">
+<!ENTITY torbutton.cookiedialog.nameCol "Ad">
 <!ENTITY torbutton.cookiedialog.pathCol "Yol">
 <!ENTITY torbutton.cookiedialog.protectCookie "Çerezi Koru">
 <!ENTITY torbutton.cookiedialog.removeCookie "Çerezi Sil">
-<!ENTITY torbutton.cookiedialog.unprotectCookie "Çerezi Korumayı Sonlandır">
-<!ENTITY torbutton.cookiedialog.removeAllBut "Korunanlar Hariç Tümünü Sil">
-<!ENTITY torbutton.cookiedialog.saveAllCookies "Yeni çerezleri koru">
-<!ENTITY torbutton.cookiedialog.doNotSaveAllCookies "Yeni çerezleri koruma">
-<!ENTITY torbutton.prefs.disable_livemarks "Disable livemarks updates during Tor usage">
-<!ENTITY torbutton.prefs.dtd_recommended "(önerilen)">
+<!ENTITY torbutton.cookiedialog.unprotectCookie "Çerez Korumasını Kaldır">
+<!ENTITY torbutton.cookiedialog.removeAllBut "Korunanlar Dışında Tümünü Sil">
+<!ENTITY torbutton.cookiedialog.saveAllCookies "Yeni Çerezleri Koru">
+<!ENTITY torbutton.cookiedialog.doNotSaveAllCookies "Yeni Çerezleri Koruma">
+<!ENTITY torbutton.prefs.disable_livemarks "Tor kullanılırken livemarks güncellemeleri devre dışı bırakılsın">
+<!ENTITY torbutton.prefs.dtd_recommended "(önerilir)">
 <!ENTITY torbutton.prefs.dtd_optional "(isteğe bağlı)">
-<!ENTITY torbutton.prefs.dtd_crucial "(kritik)">
-<!ENTITY torbutton.prefs.update_torbutton_via_tor "Tor üzerinden yönlendirme Torbutton güncellemeleri">
-<!ENTITY torbutton.prefs.dodge_google_captcha "Otomatik olarak alternatif bir arama motoru Google Captcha başvurdu kullanın:">
+<!ENTITY torbutton.prefs.dtd_crucial "(önemli)">
+<!ENTITY torbutton.prefs.update_torbutton_via_tor "Torbutton güncellemeleri Tor üzerinden yapılsın">
+<!ENTITY torbutton.prefs.dodge_google_captcha "Google Captcha sunulduğunda otomatik olarak başka bir arama motoru kullanılsın:">
 <!ENTITY torbutton.prefs.engine1 "ixquick.com">
 <!ENTITY torbutton.prefs.engine2 "Bing.com">
 <!ENTITY torbutton.prefs.engine3 "Yahoo.com">
 <!ENTITY torbutton.prefs.engine4 "startpage.com">
 <!ENTITY torbutton.prefs.engine5 "duckduckgo.com">
-<!ENTITY torbutton.prefs.fix_google_srch "Kaldır platform ve Google Arama Kutusu gelen dil sorgular">
-<!ENTITY torbutton.prefs.transparentTor "Şeffaf Torifikasyon (özel transproxy veya Tor yönlendiricisi gerekir)">
+<!ENTITY torbutton.prefs.fix_google_srch "Google Arama Kutusu sorgularında platform ve dil bilgileri ayıklansın">
+<!ENTITY torbutton.prefs.transparentTor "Saydam Tor İletişimi (özel transproxy yada Tor yönelticisi gerekir)">
 <!ENTITY torbutton.prefs.priv_caption "Gizlilik Ayarları">
-<!ENTITY torbutton.prefs.block_disk "Tarama geçmişini ve web sitesi bilgilerini kaydetme (Özel Tarama Kipi'ni etkinleştirir)">
-<!ENTITY torbutton.prefs.restrict_thirdparty "3. parti çerezleri ve diğer iz sürücü bilgileri engelle">
-<!ENTITY torbutton.prefs.block_plugins "Tarayıcı eklentilerini engelle (Flash benzeri)">
-<!ENTITY torbutton.prefs.resist_fingerprinting "Diğer Tor kullanıcılardan sizi ayıran detayları değiştir">
-<!ENTITY torbutton.prefs.sec_caption "Güvenlik Seviyesi">
+<!ENTITY torbutton.prefs.block_disk "Tarama geçmişini ve web sitesi bilgileri kaydedilmesin (Gizli Tarama Kipi kullanılır)">
+<!ENTITY torbutton.prefs.restrict_thirdparty "3. taraf çerez ve diğer iz sürücü bilgiler engellensin">
+<!ENTITY torbutton.prefs.block_plugins "Tarayıcı eklentileri engellensin (Flash gibi)">
+<!ENTITY torbutton.prefs.resist_fingerprinting "Diğer Tor Browser kullanıcılarından sizi ayıran ayrıntılar değiştirilsin">
+<!ENTITY torbutton.prefs.sec_caption "Güvenlik Düzeyi">
 <!ENTITY torbutton.prefs.sec_low "Düşük (varsayılan)">
-<!ENTITY torbutton.prefs.sec_low_usable_desc "Bu en kullanılabilir deneyimi sunar.">
-<!ENTITY torbutton.prefs.sec_low_desc "Bu güvenlik seviyesinde tüm tarayıcı özellikleri etkindir.">
-<!ENTITY torbutton.prefs.sec_font_rend_svg_tooltip "SVG OpenType yazı tipi işleme mekanizması devre dışı.">
+<!ENTITY torbutton.prefs.sec_low_usable_desc "Bu seçenek en kullanılabilir deneyimi sunar.">
+<!ENTITY torbutton.prefs.sec_low_desc "Bu güvenlik düzeyinde tüm tarayıcı özellikleri kullanılabilir.">
+<!ENTITY torbutton.prefs.sec_font_rend_svg_tooltip "SVG OpenType yazı tipi görüntüleme düzeneği devre dışı bırakılır.">
 <!ENTITY torbutton.prefs.sec_med_low "Orta-Düşük">
-<!ENTITY torbutton.prefs.sec_gen_desc "Bu güvenlik seviyesinde, aşağıdaki değişiklikler uygulanır (ayrıntılar için fare ile üzerine gelin):">
-<!ENTITY torbutton.prefs.sec_html5_desc "HTML5 video ve ses ortamı NoScript aracılığıyla tıkla ve oynat yapıldı.">
-<!ENTITY torbutton.prefs.sec_html5_tooltip "Bazı sitelerde bu ortam nesnelerini etkinleştirebilmek için NoScript düğmesini kullanmanız gerekebilir.">
-<!ENTITY torbutton.prefs.sec_some_jit_desc "Bazı JavaScript başarım iyileştirmeleri devre dışı.">
-<!ENTITY torbutton.prefs.sec_jit_desc_tooltip "ION JIT, Tür çıkarımı, ASM.JS.">
+<!ENTITY torbutton.prefs.sec_gen_desc "Bu güvenlik düzeyinde, şu değişiklikler uygulanır (ayrıntılar için fare ile üzerlerinde dolaşın):">
+<!ENTITY torbutton.prefs.sec_html5_desc "HTML5 görüntü ve ses ortamı NoScript aracılığıyla tıklayıp oynat şekline dönüştürülür.">
+<!ENTITY torbutton.prefs.sec_html5_tooltip "Bazı sitelerde bu ortam nesnelerini etkinleştirebilmek için NoScript düğmesinin kullanılması gerekebilir.">
+<!ENTITY torbutton.prefs.sec_some_jit_desc "Bazı JavaScript başarım iyileştirmeleri devre dışı bırakılır.">
+<!ENTITY torbutton.prefs.sec_jit_desc_tooltip "ION JIT, Type Inference, ASM.JS.">
 <!ENTITY torbutton.prefs.sec_baseline_jit_desc_tooltip "Sınır Çizgi JIT.">
 <!ENTITY torbutton.prefs.sec_jit_slower_desc "Bazı sitelerde betikler daha yavaş çalışabilir.">
-<!ENTITY torbutton.prefs.sec_jar_desc "Uzak JAR dosyaları engellendi.">
+<!ENTITY torbutton.prefs.sec_jar_desc "Uzak JAR dosyaları engellenir.">
 <!ENTITY torbutton.prefs.sec_jar_tooltip "JAR dosyalarına ağda oldukça ender rastlanır, ancak XSS ve diğer saldırıların kaynağı olabilir.">
-<!ENTITY torbutton.prefs.sec_mathml_desc "Matematik denklemlerini gösteren bazı mekanizmalar devre dışı.">
-<!ENTITY torbutton.prefs.sec_mathml_desc_tooltip "MathML devre dışı.">
+<!ENTITY torbutton.prefs.sec_mathml_desc "Matematik denklemlerini görüntüleyen bazı düzenekler devre dışı bırakılır.">
+<!ENTITY torbutton.prefs.sec_mathml_desc_tooltip "MathML devre dışı bırakılır.">
 <!ENTITY torbutton.prefs.sec_med_high "Orta-Yüksek">
-<!ENTITY torbutton.prefs.sec_all_jit_desc "Tüm JavaScript başarım iyileştirmeleri devre dışı.">
-<!ENTITY torbutton.prefs.sec_font_rend_desc "Bazı yazı tipi işleme özellikleri devre dışı.">
-<!ENTITY torbutton.prefs.sec_font_rend_graphite_tooltip "Graphite yazı tipi işleme mekanizması devre dışı.">
-<!ENTITY torbutton.prefs.sec_svg_desc "Bazı resim türleri devre dışı.">
-<!ENTITY torbutton.prefs.sec_svg_desc_tooltip "SVG resimleri devre dışı.">
-<!ENTITY torbutton.prefs.sec_js_https_desc "JavaScript öntanımlı olarak tüm HTTPS olmayan sitelerde devre dışı.">
+<!ENTITY torbutton.prefs.sec_all_jit_desc "Tüm JavaScript başarım iyileştirmeleri devre dışı bırakılır.">
+<!ENTITY torbutton.prefs.sec_font_rend_desc "Bazı yazı tipi işleme özellikleri devre dışı bırakılır.">
+<!ENTITY torbutton.prefs.sec_font_rend_graphite_tooltip "Graphite yazı tipi görüntüleme düzeneği devre dışı bırakılır.">
+<!ENTITY torbutton.prefs.sec_svg_desc "Bazı görsel tipleri devre dışı bırakılır.">
+<!ENTITY torbutton.prefs.sec_svg_desc_tooltip "SVG görselleri devre dışı bırakılır.">
+<!ENTITY torbutton.prefs.sec_js_https_desc "HTTPS kullanılmayan sitelerde JavaScript varsayılan olarak devre dışı bırakılır.">
 <!ENTITY torbutton.prefs.sec_js_desc_tooltip "JavaScript, NoScript araç çubuğu düğmesi kullanılarak her site için ayrı ayrı etkinleştirilebilir.">
 <!ENTITY torbutton.prefs.sec_high "Yüksek">
-<!ENTITY torbutton.prefs.sec_all_js_desc "JavaScript öntanımlı olarak tüm sitelerde devre dışı.">
-<!ENTITY torbutton.prefs.sec_audio_video_desc "Çoğu ses ve video biçimi devre dışı.">
-<!ENTITY torbutton.prefs.sec_audio_video_desc_tooltip "WebM, etkin bırakılan tek çözücü.">
+<!ENTITY torbutton.prefs.sec_all_js_desc "JavaScript varsayılan olarak tüm sitelerde devre dışı bırakılır.">
+<!ENTITY torbutton.prefs.sec_audio_video_desc "Çoğu ses ve görüntü biçimi devre dışı bırakılır.">
+<!ENTITY torbutton.prefs.sec_audio_video_desc_tooltip "Kodlayıcı çözücü olarak yalnız WebM etkin bırakılır.">
 <!ENTITY torbutton.prefs.sec_webfonts_desc "Bazı yazı tipi ve simgeler düzgün görüntülenemeyebilir.">
-<!ENTITY torbutton.prefs.sec_webfonts_desc_tooltip "Web site tarafından sağlanan yazı tipi dosyaları engellenmiş.">
+<!ENTITY torbutton.prefs.sec_webfonts_desc_tooltip "Web sitesi tarafından sunulan yazı tipi dosyaları engellenir.">
 <!ENTITY torbutton.prefs.sec_custom "Özel Değerler">
 <!ENTITY torbutton.circuit_display.title "Bu site için Tor devresi">
 
