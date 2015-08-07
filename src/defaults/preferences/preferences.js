@@ -225,3 +225,6 @@ pref("spellchecker.dictionary", "chrome://torbutton/locale/browser.properties");
 
 pref("extensions.torbutton.window.maxHeight", 1000);
 pref("extensions.torbutton.window.maxWidth", 1000);
+
+// This pref specifies an ad-hoc "version" for various pref update hacks we need to do
+pref("extensions.torbutton.pref_fixup_version", 0);

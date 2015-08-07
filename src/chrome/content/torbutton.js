@@ -2864,6 +2864,41 @@ function torbutton_restore_cookies(tor_enabled)
     }
 }
 
+// Bug 1506 P1: This function just cleans up prefs that got set badly in previous releases
+function torbutton_fixup_old_prefs()
+{
+    if(m_tb_prefs.getIntPref('extensions.torbutton.pref_fixup_version') < 1) {
+        // TBB 5.0a3 had bad Firefox code that silently flipped this pref on us
+        if (m_tb_prefs.prefHasUserValue("browser.newtabpage.enhanced")) {
+            m_tb_prefs.clearUserPref("browser.newtabpage.enhanced");
+            // TBB 5.0a3 users had all the necessary data cached in
+            // directoryLinks.json. This meant that resetting the pref above
+            // alone was not sufficient as the tiles features uses the cache
+            // even if the pref indicates that feature should be disabled.
+            // We flip the preference below as this forces a refetching which
+            // effectively results in an empty JSON file due to our spoofed
+            // URLs.
+            let matchOS = m_tb_prefs.getBoolPref("intl.locale.matchOS");
+            m_tb_prefs.setBoolPref("intl.locale.matchOS", !matchOS);
+            m_tb_prefs.setBoolPref("intl.locale.matchOS", matchOS);
+        }
+
+        // Prior to TBB 5.0, NoScript was allowed to update its whitelist. This caused
+        // odd things to appear in people's whitelists.
+        if (m_tb_prefs.prefHasUserValue("capability.policy.maonoscript.sites")) {
+            m_tb_prefs.clearUserPref("capability.policy.maonoscript.sites");
+        }
+
+        // For some reason, the Share This Page button also survived the
+        // TBB 5.0a4 update's attempt to remove it.
+        if (m_tb_prefs.prefHasUserValue("browser.uiCustomization.state")) {
+            m_tb_prefs.clearUserPref("browser.uiCustomization.state");
+        }
+
+        m_tb_prefs.setIntPref('extensions.torbutton.pref_fixup_version', 1);
+    }
+}
+
 // ---------------------- Event handlers -----------------
 
 // Bug 1506 P1/P3: This removes any platform-specific junk
@@ -2970,6 +3005,9 @@ function torbutton_do_startup()
           var prompts = Cc["@mozilla.org/embedcomp/prompt-service;1"].getService(Components.interfaces.nsIPromptService);
           prompts.alert(null, title, warning);
         }
+
+        // For general pref fixups to handle pref damage in older versions
+        torbutton_fixup_old_prefs();
 
         m_tb_prefs.setBoolPref("extensions.torbutton.startup", false);
     }
