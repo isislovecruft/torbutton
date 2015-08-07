@@ -1,3 +1,14 @@
+1.9.3.3
+ * Bug 14429: Make sure the automatic resizing is enabled
+
+1.9.3.2
+ * Bug 16731: TBB 5.0 a3/a4 fails to download a file on right click
+ * Bug 16730: Reset NoScript whitelist on upgrade
+ * Bug 16722: Prevent "Tiles" feature from being enabled after upgrade
+ * Bug 16488: Remove "Sign in to Sync" from the browser menu (fixup)
+ * Bug 14429: Make sure the automatic resizing is disabled
+ * Translation updates
+
 1.9.3.1
  * Bug 16268: Show Tor Browser logo on About page
  * Bug 16639: Check for Updates menu item can cause update failure
