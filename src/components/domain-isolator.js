@@ -71,8 +71,8 @@ tor.socksProxyCredentials = function (originalProxy, domain) {
   return mozilla.protocolProxyService
            .newSOCKSProxyInfo(proxy.host,
                               proxy.port,
-                              domain, // username
-                              tor.noncesForDomains[domain].toString(), // password
+                              null, //domain, // username
+                              null, //tor.noncesForDomains[domain].toString(), // password
                               proxy.flags,
                               proxy.failoverTimeout,
                               proxy.failoverProxy);
