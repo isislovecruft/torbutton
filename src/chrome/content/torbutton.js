@@ -2207,10 +2207,10 @@ function torbutton_update_fingerprinting_prefs() {
           m_tb_prefs.clearUserPref("browser.display.max_font_attempts");
         if(m_tb_prefs.prefHasUserValue("browser.display.max_font_count"))
           m_tb_prefs.clearUserPref("browser.display.max_font_count");
- 
-        // Governed also by the spoof_english dialog..       
+
+        // Governed also by the spoof_english dialog..
         if (m_tb_prefs.getBoolPref("extensions.torbutton.spoof_english")) {
-          m_tb_prefs.setCharPref("intl.accept_languages", "en-us, en");
+          m_tb_prefs.setCharPref("intl.accept_languages", "en-US, en");
           m_tb_prefs.setCharPref("intl.accept_charsets", "iso-8859-1,*,utf-8");
           m_tb_prefs.setCharPref("intl.charsetmenu.browser.cache", "UTF-8");
           m_tb_prefs.setBoolPref("javascript.use_us_english_locale", true);
