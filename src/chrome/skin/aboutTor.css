@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014, The Tor Project, Inc.
+ * Copyright (c) 2015, The Tor Project, Inc.
  * See LICENSE for licensing information.
  *
  * vim: set sw=2 sts=2 ts=8 et syntax=css:
@@ -56,31 +56,36 @@ body[toron] #torstatus-image {
   height: 128px;
   width: 128px;
   background-image: url('chrome://torbutton/content/aboutTor/tor-off.png');
+  z-index: -1;
 }
 
-#toolbarIconArrow, #toolbarIconArrowExtension {
+.arrow {
+  display: none;
   position: absolute;
+  z-index: -1;
+}
+
+#toolbarIconArrowHead {
   top: 4px;
-  height: 250px;
-}
-
-#toolbarIconArrow {
   width: 30px;
-  background-image: url('chrome://torbutton/content/aboutTor/onionArrow.png');
-}
-
-#toolbarIconArrow[pos="middle"] {
-  background-image: url('chrome://torbutton/content/aboutTor/onionArrow-short.png');
   height: 36px;
+  background-image: url('chrome://torbutton/content/aboutTor/onionArrow-short.png');
 }
 
-#toolbarIconArrow[pos="right"] {
-  background-image: url('chrome://torbutton/content/aboutTor/onionArrow-right.png');
-}
-
-#toolbarIconArrowExtension {
-  width: 10px;
+#toolbarIconArrowVertExtension, #toolbarIconArrowHorzExtension {
+  width: 11px;
+  height: 11px;
   background-image: url('chrome://torbutton/content/aboutTor/onionArrow-extension.png');
+}
+
+#toolbarIconArrowBend {
+  width: 22px;
+  height: 22px;
+  background-image: url('chrome://torbutton/content/aboutTor/onionArrow-leftBend.png');
+}
+
+#toolbarIconArrowBend[pos="right"] {
+  background-image: url('chrome://torbutton/content/aboutTor/onionArrow-rightBend.png');
 }
 
 a {
@@ -102,7 +107,7 @@ a:hover {
 #torstatus {
   position: relative; /* needed for torstatus-image positioning */
   max-width: 620px;
-  height: 148px;
+  min-height: 148px;
   padding: 15px 128px 0px 128px;
   margin: 20px auto 0px auto;
 }
@@ -168,34 +173,29 @@ body .top div.hideIfTorIsUpToDate h1.hideIfTorOff {
 }
 
 #middle {
-  position: relative;
-  width: 920px;
-  height: 20em;
+  display: table;
+  width: 904px;   /* 920px - (2 * 8px extra side margin) */
+  margin: 40px auto 10px auto;
+  border-spacing: 100px 0px;
+  border-collapse: separate;
   text-align: center;
 }
 
-#middle div.container {
-  position: absolute;
-  top: 3.1em;
-  width: 280px;
-  min-width: 280px;
-  min-height: 12.5em;
+.bubbleRow {
+  display: table-row;
+}
+
+.bubbleRow div.bubble {
+  display: table-cell;
+  width: 50%;
+  height: 100%;
   padding: 10px 10px;
-  margin: 8px 8px;
   color: #222222;
   background-color: #FFFFFF;
   border: 1px solid #008000;
   border-radius: 16px;
   text-align: center;
   vertical-align: top;
-}
-
-#middle div.two {
-  left: 120px;
-}
-
-#middle div.three {
-  left: 520px;
 }
 
 #middle h1 {
@@ -334,7 +334,7 @@ body .top div.hideIfTorIsUpToDate h1.hideIfTorOff {
 /* #sx is the search input (text) field */
 #sx {
   width: 350px;
-  height: 23px;
+  min-height: 23px;
   padding: 4px 6px 5px 6px;
   margin: 0;
   outline: none;
