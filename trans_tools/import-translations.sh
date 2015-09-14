@@ -19,7 +19,6 @@ FILEMAP=( "aboutDialog.dtd:torbutton-aboutdialogdtd"
           "aboutTor.properties:torbutton-abouttorproperties"
           "brand.dtd:torbutton-branddtd"
           "brand.properties:torbutton-brandproperties"
-          "browser.properties:torbutton-browserproperties"
           "torbutton.dtd:torbutton-torbuttondtd"
           "torbutton.properties:torbutton-torbuttonproperties"
          )

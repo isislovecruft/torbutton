@@ -219,10 +219,10 @@ pref("extensions.torbutton.prompt_torbrowser", true);
 pref("extensions.torbutton.confirm_plugins", true);
 pref("extensions.torbutton.confirm_newnym", true);
 
-// Browser home page, and spell checker dictionary:
-pref("browser.startup.homepage", "chrome://torbutton/locale/browser.properties");
-pref("spellchecker.dictionary", "chrome://torbutton/locale/browser.properties");
+// Browser home page:
+pref("browser.startup.homepage", "chrome://torbutton/content/locale/non-localized.properties");
 
+// Browser window maximum size (used when setting the size during startup):
 pref("extensions.torbutton.window.maxHeight", 1000);
 pref("extensions.torbutton.window.maxWidth", 1000);
 
