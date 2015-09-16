@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-   - Copyright (c) 2014, The Tor Project, Inc.
+   - Copyright (c) 2015, The Tor Project, Inc.
    - See LICENSE for licensing information.
    - vim: set sw=2 sts=2 ts=8 et syntax=xml:
   -->
@@ -38,86 +38,122 @@ function onLoad()
 
 function adjustToolbarIconArrow()
 {
-  var textElem = document.getElementById("updatePrompt");
-  var arrowDiv = document.getElementById("toolbarIconArrow");
-  var extDiv = document.getElementById("toolbarIconArrowExtension");
-  if (textElem && arrowDiv && extDiv)
+  let textElem = document.getElementById("updatePrompt");
+  let arrowHeadDiv = document.getElementById("toolbarIconArrowHead");
+  let vertExtDiv = document.getElementById("toolbarIconArrowVertExtension");
+  let bendDiv = document.getElementById("toolbarIconArrowBend");
+  let horzExtDiv = document.getElementById("toolbarIconArrowHorzExtension");
+  if (!textElem || !arrowHeadDiv || !vertExtDiv || !bendDiv || !horzExtDiv)
+    return;
+
+  let arrowTailElems = [ vertExtDiv, bendDiv, horzExtDiv ];
+  let tbXpos;
+  if (document.body.hasAttribute("torbutton-xpos"))
+    tbXpos = parseInt(document.body.getAttribute("torbutton-xpos"), 10);
+
+  if (!tbXpos || isNaN(tbXpos) || (tbXpos < 0))
   {
-    var tbXpos;
-    if (document.body.hasAttribute("torbutton-xpos"))
-      tbXpos = parseInt(document.body.getAttribute("torbutton-xpos"), 10);
-
-    if (!tbXpos || isNaN(tbXpos) || (tbXpos < 0))
-    {
-      arrowDiv.style.display = "none";
-      extDiv.style.display = "none";
-      return;
-    }
-
-    // Account for content zoom and retina displays by converting to device
-    // independent units.
-    if ("devicePixelRatio" in window)  // FF18+
-      tbXpos /= window.devicePixelRatio;
-
-    const kArrowMargin = 6;
-    arrowDiv.style.display = "block";  // Must be visible to get offsetWidth.
-    var arrowHalfWidth = arrowDiv.offsetWidth / 2.0;
-    var leftAnchor = textElem.offsetLeft - kArrowMargin - arrowHalfWidth;
-    var rightAnchor = textElem.offsetLeft + textElem.offsetWidth
-                      + kArrowMargin + arrowHalfWidth;
-
-    var arrowDisplay = "block";
-    var extDisplay = "block";
-    if (tbXpos < leftAnchor)
-    {
-      // Toolbar button to left of text.
-      arrowDiv.setAttribute("pos", "left");
-      arrowDiv.style.left = (tbXpos - arrowHalfWidth) + "px";
-      var extLeft = tbXpos + arrowHalfWidth;
-      extDiv.style.left = extLeft + "px";
-      extDiv.style.width = (textElem.offsetLeft - extLeft - kArrowMargin) + "px";
-    }
-    else if ((tbXpos > rightAnchor) &&
-             (tbXpos < (window.innerWidth - arrowHalfWidth)))
-    {
-      // Toolbar button to right of text.
-      arrowDiv.setAttribute("pos", "right");
-      arrowDiv.style.left = (tbXpos - arrowHalfWidth) + "px";
-      var extLeft = rightAnchor - arrowHalfWidth;
-      extDiv.style.left = extLeft + "px";
-      extDiv.style.width = (tbXpos - arrowHalfWidth - extLeft) + "px";
-    }
-    else if ((tbXpos >= leftAnchor) && (tbXpos <= rightAnchor))
-    {
-      // Toolbar button in middle about text; use arrow without a tail.
-      arrowDiv.setAttribute("pos", "middle");
-      arrowDiv.style.left = (tbXpos - arrowHalfWidth) + "px";
-      extDisplay = "none";
-    }
-    else  // Unable to display arrow (e.g., toolbar button is above sidebar).
-    {
-      arrowDisplay = "none";
-      extDisplay = "none";
-    }
-
-    arrowDiv.style.display = arrowDisplay;
-    extDiv.style.display = extDisplay;
+    arrowHeadDiv.style.display = "none";
+    for (let elem of arrowTailElems)
+      elem.style.display = "none";
+    return;
   }
+
+  // Account for content zoom and retina displays by converting to device
+  // independent units.
+  if ("devicePixelRatio" in window)  // FF18+
+    tbXpos /= window.devicePixelRatio;
+
+  const kArrowMargin = 6;          // Horizontal margin between line and text.
+  const kArrowHeadExtraWidth = 9;  // Horizontal margin to the line.
+  const kArrowLineThickness = 11;
+  const kBendWidth = 22;
+  const kBendHeight = 22;
+
+  arrowHeadDiv.style.display = "block";  // Must be visible to get offsetWidth.
+  let arrowHalfWidth = Math.round(arrowHeadDiv.offsetWidth / 2);
+  let leftAnchor = textElem.offsetLeft - kArrowMargin
+                    - kBendWidth + Math.round(kArrowLineThickness / 2);
+  let rightAnchor = textElem.offsetLeft + textElem.offsetWidth
+                    + kArrowMargin + arrowHalfWidth;
+
+  let isArrowOnLeft = (tbXpos < leftAnchor);
+  let isArrowOnRight = (tbXpos > rightAnchor) &&
+                       (tbXpos < (window.innerWidth - arrowHalfWidth));
+  let isArrowInMiddle = (tbXpos >= leftAnchor) && (tbXpos <= rightAnchor);
+
+  if (isArrowOnLeft || isArrowOnRight || isArrowInMiddle)
+  {
+    // Position the arrow head.
+    let arrowHeadLeft = tbXpos - arrowHalfWidth;
+    arrowHeadDiv.style.left = arrowHeadLeft + "px";
+    if (isArrowOnLeft || isArrowOnRight)
+    {
+      let horzExtBottom = textElem.offsetTop +
+               Math.round((textElem.offsetHeight + kArrowLineThickness) / 2);
+
+      // Position the vertical (extended) line.
+      let arrowHeadBottom = arrowHeadDiv.offsetTop + arrowHeadDiv.offsetHeight;
+      vertExtDiv.style.top = arrowHeadBottom + "px";
+      vertExtDiv.style.left = (arrowHeadLeft + kArrowHeadExtraWidth) + "px";
+      let ht = horzExtBottom - kBendHeight - arrowHeadBottom;
+      vertExtDiv.style.height = ht + "px";
+
+      // Position the bend (elbow).
+      bendDiv.style.top = (horzExtBottom - kBendHeight) + "px";
+      let bendDivLeft;
+      if (isArrowOnLeft)
+      {
+        bendDiv.setAttribute("pos", "left");
+        bendDivLeft = arrowHeadLeft + kArrowHeadExtraWidth;
+      }
+      else if (isArrowOnRight)
+      {
+        bendDiv.setAttribute("pos", "right");
+        bendDivLeft = arrowHeadLeft + kArrowHeadExtraWidth
+                      + kArrowLineThickness - kBendWidth;
+      }
+      bendDiv.style.left = bendDivLeft + "px";
+
+      // Position the horizontal (extended) line.
+      horzExtDiv.style.top = (horzExtBottom - kArrowLineThickness) + "px";
+      let horzExtLeft, w;
+      if (isArrowOnLeft)
+      {
+        horzExtLeft = bendDivLeft + kBendWidth;
+        w = (textElem.offsetLeft - horzExtLeft - kArrowMargin);
+      }
+      else
+      {
+        horzExtLeft = rightAnchor - arrowHalfWidth;
+        w = tbXpos - arrowHalfWidth - horzExtLeft;
+      }
+      horzExtDiv.style.left = horzExtLeft + "px";
+      horzExtDiv.style.width = w + "px";
+    }
+  }
+
+  let headDisplay = (isArrowOnLeft || isArrowInMiddle || isArrowOnRight)
+                      ? "block" : "none";
+  arrowHeadDiv.style.display = headDisplay;
+  let tailDisplay = (isArrowOnLeft || isArrowOnRight) ? "block" : "none";
+  for (let elem of arrowTailElems)
+    elem.style.display = tailDisplay;
 }
 
 function insertPropertyStrings()
 {
   try {
-    var kPropertiesURL = "chrome://torbutton/locale/aboutTor.properties";
+    let kPropertiesURL = "chrome://torbutton/locale/aboutTor.properties";
 
     Components.utils.import("resource://gre/modules/Services.jsm");
-    var gStringBundle = Services.strings.createBundle(kPropertiesURL);
-    var s1 = gStringBundle.GetStringFromName("aboutTor.searchDC.privacy.link");
-    var s2 = gStringBundle.GetStringFromName("aboutTor.searchDC.search.link");
-    var result = gStringBundle.formatStringFromName("aboutTor.searchDC.privacy",
+    let gStringBundle = Services.strings.createBundle(kPropertiesURL);
+    let s1 = gStringBundle.GetStringFromName("aboutTor.searchDC.privacy.link");
+    let s2 = gStringBundle.GetStringFromName("aboutTor.searchDC.search.link");
+    let result = gStringBundle.formatStringFromName("aboutTor.searchDC.privacy",
                   [s1, s2], 2);
     if (result) {
-      var elem = document.getElementById("searchProviderInfo");
+      let elem = document.getElementById("searchProviderInfo");
       if (elem)
         elem.innerHTML = result;
     }
@@ -159,8 +195,11 @@ window.addEventListener("pageshow", function() {
     <h1 class="hideIfTorOff">&aboutTor.outOfDateTorOn.label;</h1>
     <h1 class="hideIfTorOn">&aboutTor.outOfDateTorOff.label;</h1>
     <h3 id="updatePrompt">&aboutTor.outOfDate2.label;</h3>
-    <div id="toolbarIconArrow"/>
-    <div id="toolbarIconArrowExtension"/>
+
+    <div id="toolbarIconArrowHead" class="arrow"/>
+    <div id="toolbarIconArrowVertExtension" class="arrow"/>
+    <div id="toolbarIconArrowBend" class="arrow"/>
+    <div id="toolbarIconArrowHorzExtension" class="arrow"/>
   </div>
 </div>
 
@@ -180,20 +219,22 @@ window.addEventListener("pageshow", function() {
 <div class="hideIfTorOn" style="height:100px"/>
 
 <div id="middle" class="hideIfTorOff">
-  <div class="container two">
-    <h1>&aboutTor.whatnextQuestion.label;</h1>
-    <p>&aboutTor.whatnextAnswer.label;</p>
-    <a class="tips" href="&aboutTor.whatnext.link;">&aboutTor.whatnext.label;</a>
-  </div>
+  <div class="bubbleRow">
+    <div class="bubble">
+      <h1>&aboutTor.whatnextQuestion.label;</h1>
+      <p>&aboutTor.whatnextAnswer.label;</p>
+      <a class="tips" href="&aboutTor.whatnext.link;">&aboutTor.whatnext.label;</a>
+    </div>
 
-  <div class="container three">
-    <h1>&aboutTor.helpInfo1.label;</h1>
-    <p>&aboutTor.helpInfo2.label;</p>
-    <ul>
-      <li><a href="&aboutTor.helpInfo3.link;">&aboutTor.helpInfo3.label;</a></li>
-      <li><a href="&aboutTor.helpInfo4.link;">&aboutTor.helpInfo4.label;</a></li>
-      <li><a href="&aboutTor.helpInfo5.link;">&aboutTor.helpInfo5.label;</a></li>
-    </ul>
+    <div class="bubble">
+      <h1>&aboutTor.helpInfo1.label;</h1>
+      <p>&aboutTor.helpInfo2.label;</p>
+      <ul>
+        <li><a href="&aboutTor.helpInfo3.link;">&aboutTor.helpInfo3.label;</a></li>
+        <li><a href="&aboutTor.helpInfo4.link;">&aboutTor.helpInfo4.label;</a></li>
+        <li><a href="&aboutTor.helpInfo5.link;">&aboutTor.helpInfo5.label;</a></li>
+      </ul>
+    </div>
   </div>
 </div> <!-- middle -->
 
