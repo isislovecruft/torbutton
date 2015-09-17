@@ -6,18 +6,18 @@
 
 <!ENTITY aboutTor.title "Tor Hakkında">
 
-<!ENTITY aboutTor.outOfDateTorOn.label "BUNUNLA BİRLİKTE, bu tarayıcı güncel değil.">
+<!ENTITY aboutTor.outOfDateTorOn.label "ANCAK, bu tarayıcı güncel değil.">
 <!ENTITY aboutTor.outOfDateTorOff.label "AYRICA, bu tarayıcı güncel değil.">
 <!ENTITY aboutTor.outOfDate2.label "Soğan simgesine tıklayın ve ardından Tor Browser Güncellemesini denetleyin.">
 
 <!ENTITY aboutTor.check.label "Tor Ağ Ayarlarını Sınayın">
 
 <!ENTITY aboutTor.success.label "Tebrikler!">
-<!ENTITY aboutTor.success2.label "Bu tarayıcı Tor kullanımı için ayarlandı.">
-<!ENTITY aboutTor.success3.label "Artık İnternet üzerinde anonim olarak işlem yapabilirsiniz.">
-<!ENTITY aboutTor.failure.label "Bir Şeyler Ters Gitti!">
+<!ENTITY aboutTor.success2.label "Bu tarayıcı Tor kullanımı için yapılandırıldı.">
+<!ENTITY aboutTor.success3.label "Artık Internet'te özgürce ve anonim olarak dolaşabilirsiniz.">
+<!ENTITY aboutTor.failure.label "Birşeyler Ters Gitti!">
 <!ENTITY aboutTor.failure2.label "Tor bu tarayıcıda çalışmıyor.">
-<!ENTITY aboutTor.failure3prefix.label "Yardım almak için şu adresi kullanarak &#37;S ile görüşün">
+<!ENTITY aboutTor.failure3prefix.label "Yardım için lütfen iletişime geçin ">
 <!ENTITY aboutTor.failure3Link "help@rt.torproject.org">
 <!ENTITY aboutTor.failure3suffix.label ".">
 

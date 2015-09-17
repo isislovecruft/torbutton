@@ -16,4 +16,4 @@
 <!ENTITY bottomLinks.grow        "Helfen Sie beim Ausweiten des Tor-Netzwerks!">
 <!-- LOCALIZATION NOTE (bottom.questions): This is a link title that links to about:license -->
 <!ENTITY bottomLinks.license  "Lizenzinformationen">
-<!ENTITY tor.TrademarkStatement   "&quot;Tor&quot; und das &quot;Onion-Logo&quot; sind eingetragene Warenzeichen von Tor Project, Inc.">
+<!ENTITY tor.TrademarkStatement   "&quot;Tor&quot; und das &quot;Onion-Logo&quot; sind eingetragene Warenzeichen von the Tor Project, Inc.">

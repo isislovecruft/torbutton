@@ -25,14 +25,14 @@
 
 <!ENTITY aboutTor.searchSPPost.link "https://startpage.com/rth/search">
 <!ENTITY aboutTor.searchDDGPost.link "https://duckduckgo.com/html/">
-<!ENTITY aboutTor.searchDCPost.link "https://search.disconnect.me/searchTerms/search?ses=Google&amp;location_option=US&amp;source=tor">
+<!ENTITY aboutTor.searchDCPost.link "https://search.disconnect.me/searchTerms/search?ses=Google&amp;location_option=SE&amp;source=tor">
 
 <!ENTITY aboutTor.torInfo1.label "Ytterligare information:">
 <!ENTITY aboutTor.torInfo2.label "Land och IP-adress:">
 <!ENTITY aboutTor.torInfo3.label "Exitnod:">
 <!ENTITY aboutTor.torInfo4.label "Den här servern sparar inte någon information om besökare.">
 <!ENTITY aboutTor.whatnextQuestion.label "Och nu då?">
-<!ENTITY aboutTor.whatnextAnswer.label "Tor är INTE allt som behövs för att vara anonym på nätet! Du behöver kanske ändra några av dina vanor för att försäkra att din identitet förblir skyddad.">
+<!ENTITY aboutTor.whatnextAnswer.label "Tor är INTE allt som behövs för att vara anonym på nätet! Du behöver kanske ändra några av dina vanor för att säkerställa att din identitet förblir skyddad.">
 <!ENTITY aboutTor.whatnext.label "Tips på hur man förblir anonym »">
 <!ENTITY aboutTor.whatnext.link "https://www.torproject.org/download/download.html.en#warning">
 <!ENTITY aboutTor.helpInfo1.label "Du kan hjälpa till!">

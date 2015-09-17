@@ -24,19 +24,19 @@
 <!ENTITY torbutton.pref_connection_more_info.text "Torbutton hiện đang được hiệu hóa.  Nếu bạn muốn thay đổi thiết lập proxy không thuộc chương trình Tor, vui lòng tắt Torbutton và quay trở lại đây.  Nếu bạn muốn thay đổi thiết lập từ Tor, vui lòng dùng cửa sổ tùy chỉnh Torbutton.">
 <!ENTITY torbutton.context_menu.new_identity "Giám định Mới">
 <!ENTITY torbutton.context_menu.new_identity_key "I">
-<!ENTITY torbutton.context_menu.new_circuit "New Tor Circuit for this Site">
+<!ENTITY torbutton.context_menu.new_circuit "Vòng Tor mới cho trang này">
 <!ENTITY torbutton.context_menu.new_circuit_key "C">
 <!ENTITY torbutton.context_menu.toggle "Bật/tắt trạng thái của Tor">
 <!ENTITY torbutton.context_menu.toggle.key "T">
-<!ENTITY torbutton.context_menu.preferences "Privacy and Security Settings…">
+<!ENTITY torbutton.context_menu.preferences "Cài đặt Riêng tư và Bảo mật...">
 <!ENTITY torbutton.context_menu.preferences.key "P">
 <!ENTITY torbutton.context_menu.about "Thông tin về Torbutton...">
 <!ENTITY torbutton.context_menu.about.key "A">
-<!ENTITY torbutton.context_menu.networksettings "Tor Network Settings…">
+<!ENTITY torbutton.context_menu.networksettings "Cài đặt Mạng Tor...">
 <!ENTITY torbutton.context_menu.networksettings.key "S">
-<!ENTITY torbutton.context_menu.downloadUpdate "Check for Tor Browser Update…">
+<!ENTITY torbutton.context_menu.downloadUpdate "Kiểm tra việc cập nhật trình duyệt Tor">
 <!ENTITY torbutton.context_menu.downloadUpdate.key "U">
-<!ENTITY torbutton.context_menu.cookieProtections "Cookie Protections…">
+<!ENTITY torbutton.context_menu.cookieProtections "Bảo vệ Cookie...">
 <!ENTITY torbutton.context_menu.cookieProtections.key "C">
 <!ENTITY torbutton.context_menu.copyTor "Sao chép địa chỉ URL của Tor">
 <!ENTITY torbutton.context_menu.copyTor.key "p">
@@ -46,7 +46,7 @@
 <!ENTITY torbutton.context_menu.openTorWindow.key "d">
 <!ENTITY torbutton.button.label "Torbutton">
 <!ENTITY torbutton.button.tooltip "Nhấp để nhận diện Torbutton">
-<!ENTITY torbutton.prefs.privacy_security_settings "Privacy and Security Settings">
+<!ENTITY torbutton.prefs.privacy_security_settings "Cài đặt Riêng tư và Bảo mật">
 <!ENTITY torbutton.prefs.block_thread "Chặn việc đọc lịch sử h.đ trong quá trình dùng Tor (cấp thiết)">
 <!ENTITY torbutton.prefs.block_thwrite "Chặn việc ghi lịch sử h.đ trong quá trình dùng Tor (khuyến cáo)">
 <!ENTITY torbutton.prefs.block_nthread "Chặn việc đọc lịch sử trong quá trình không dùng Tor (tùy chọn)">
@@ -146,21 +146,21 @@
 <!ENTITY torbutton.prefs.engine5 "duckduckgo.com">
 <!ENTITY torbutton.prefs.fix_google_srch "Strip platform and language off of Google Search Box queries">
 <!ENTITY torbutton.prefs.transparentTor "Transparent Torification (Requires custom transproxy or Tor router)">
-<!ENTITY torbutton.prefs.priv_caption "Privacy Settings">
+<!ENTITY torbutton.prefs.priv_caption "Cài đặt Riêng tư">
 <!ENTITY torbutton.prefs.block_disk "Don't record browsing history or website data (enables Private Browsing Mode)">
 <!ENTITY torbutton.prefs.restrict_thirdparty "Restrict third party cookies and other tracking data">
 <!ENTITY torbutton.prefs.block_plugins "Disable browser plugins (such as Flash)">
 <!ENTITY torbutton.prefs.resist_fingerprinting "Change details that distinguish you from other Tor Browser users">
-<!ENTITY torbutton.prefs.sec_caption "Security Level">
-<!ENTITY torbutton.prefs.sec_low "Low (default)">
-<!ENTITY torbutton.prefs.sec_low_usable_desc "This provides the most usable experience.">
-<!ENTITY torbutton.prefs.sec_low_desc "At this security level, all browser features are enabled.">
-<!ENTITY torbutton.prefs.sec_font_rend_svg_tooltip "The SVG OpenType font rendering mechanism is disabled.">
-<!ENTITY torbutton.prefs.sec_med_low "Medium-Low">
-<!ENTITY torbutton.prefs.sec_gen_desc "At this security level, the following changes apply (mouseover for details):">
-<!ENTITY torbutton.prefs.sec_html5_desc "HTML5 video and audio media become click-to-play via NoScript.">
-<!ENTITY torbutton.prefs.sec_html5_tooltip "On some sites, you might need to use the NoScript toolbar button to enable these media objects.">
-<!ENTITY torbutton.prefs.sec_some_jit_desc "Some JavaScript performance optimizations are disabled.">
+<!ENTITY torbutton.prefs.sec_caption "Mức độ Bảo mật">
+<!ENTITY torbutton.prefs.sec_low "Thấp (mặc định)">
+<!ENTITY torbutton.prefs.sec_low_usable_desc "Điều này cung cấp trải nghiệm tiện lợi nhất">
+<!ENTITY torbutton.prefs.sec_low_desc "Ở mức này, tất cả tính năng của trình duyệt đều được kích hoạt.">
+<!ENTITY torbutton.prefs.sec_font_rend_svg_tooltip "Cơ chế kết xuất font SVG OpenType bị vô hiệu.">
+<!ENTITY torbutton.prefs.sec_med_low "Trung bình-Thấp">
+<!ENTITY torbutton.prefs.sec_gen_desc "Ở mức bảo mật này, những thay đổi sau sẽ được áp dụng (rê chuột vào để xem chi tiết):">
+<!ENTITY torbutton.prefs.sec_html5_desc "Video và âm thanh HTML5 có thể nhấp để phát qua NoScript.">
+<!ENTITY torbutton.prefs.sec_html5_tooltip "Trên một số trang, có thể bạn cần phải dùng nút thanh công cụ NoScript để kích hoạt những đối tượng đa phương tiện này.">
+<!ENTITY torbutton.prefs.sec_some_jit_desc "Một số tối ưu hoá JavaScript bị vô hiệu.">
 <!ENTITY torbutton.prefs.sec_jit_desc_tooltip "ION JIT, Type Inference, ASM.JS.">
 <!ENTITY torbutton.prefs.sec_baseline_jit_desc_tooltip "Baseline JIT.">
 <!ENTITY torbutton.prefs.sec_jit_slower_desc "Scripts on some sites may run slower.">

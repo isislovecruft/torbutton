@@ -1,4 +1,4 @@
-<!ENTITY project.start           "&brandShortName; is developed by ">
+<!ENTITY project.start           "&brandShortName; được phát triển bởi">
 <!-- LOCALIZATION NOTE (project.tpoLink): This is a link title that links to https://www.torproject.org -->
 <!ENTITY project.tpoLink         "the &vendorShortName;">
 <!ENTITY project.end             ", a nonprofit working to defend your privacy and freedom online.">
