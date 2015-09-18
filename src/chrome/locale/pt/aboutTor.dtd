@@ -8,13 +8,13 @@
 
 <!ENTITY aboutTor.outOfDateTorOn.label "CONTUDO, este navegador está desatualizado.">
 <!ENTITY aboutTor.outOfDateTorOff.label "TAMBÉM, este navegador está desatualizado.">
-<!ENTITY aboutTor.outOfDate2.label "Clique na cebola e escolha Procurar por Atualizações do Navegador Tor">
+<!ENTITY aboutTor.outOfDate2.label "Clique na cebola e escolha 'Procurar por Atualizações do Navegador Tor'">
 
 <!ENTITY aboutTor.check.label "Testar as Configurações da Rede Tor">
 
 <!ENTITY aboutTor.success.label "Parabéns!">
 <!ENTITY aboutTor.success2.label "Este navegador está configurado para utilizar o Tor.">
-<!ENTITY aboutTor.success3.label "Agora já pode navegar na Internet anonimamente.">
+<!ENTITY aboutTor.success3.label "Agora já está livre para navegar na Internet anonimamente.">
 <!ENTITY aboutTor.failure.label "Ocorreu Algo de Errado!">
 <!ENTITY aboutTor.failure2.label "O Tor não está  a funcionar neste navegador.">
 <!ENTITY aboutTor.failure3prefix.label "Para assistência, por favor, contacte">

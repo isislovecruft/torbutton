@@ -1,3 +1,18 @@
+1.9.4
+ * Bug 16937: Don't translate the hompepage/spellchecker dictionary string
+ * Bug 16735: about:tor should accommodate different fonts/font sizes
+ * Bug 16887: Update intl.accept_languages value
+ * Bug 15493: Update circuit display on new circuit info
+ * Bug 16797: brandShorterName is missing from brand.properties
+ * Translation updates
+
+1.9.3.4
+ * Bug 16887: Update intl.accept_languages value
+ * Bug 15493: Update circuit display on new circuit info
+ * Bug 16797: brandShorterName is missing from brand.properties
+ * Bug 14429: Make sure the automatic resizing is disabled
+ * Translation updates
+
 1.9.3.3
  * Bug 14429: Make sure the automatic resizing is enabled
 

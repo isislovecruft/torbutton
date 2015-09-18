@@ -2,7 +2,7 @@
 <!ENTITY torbutton.prefs.tor_settings "Vekil Sunucu Ayarları">
 <!ENTITY torbutton.prefs.recommended_settings "Firefox sürümüm için önerilen vekil sunucu ayarlarını kullan">
 <!ENTITY torbutton.prefs.use_privoxy "Privoxy Kullan">
-<!ENTITY torbutton.prefs.use_polipo "Polipo Kullan">
+<!ENTITY torbutton.prefs.use_polipo "Polipo kullan">
 <!ENTITY torbutton.prefs.custom_settings "Özel vekil sunucu ayarları kullanılsın">
 <!ENTITY torbutton.prefs.proxy.host.http "HTTP Vekil Sunucusu:">
 <!ENTITY torbutton.prefs.proxy.host.https "SSL Vekil Sunucusu:">

@@ -1,6 +1,6 @@
 <!ENTITY torbutton.prefs.title "Preferências Torbutton">
 <!ENTITY torbutton.prefs.tor_settings "Configurações do Proxy">
-<!ENTITY torbutton.prefs.recommended_settings "Use as configurações recomendadas do proxy para a minha versão do Firefox">
+<!ENTITY torbutton.prefs.recommended_settings "Utilize as configurações recomendadas do proxy para a minha versão do Firefox">
 <!ENTITY torbutton.prefs.use_privoxy "Utilizar Privoxy">
 <!ENTITY torbutton.prefs.use_polipo "Utilizar Polipo">
 <!ENTITY torbutton.prefs.custom_settings "Utilize as configurações do proxy personalizadas">
@@ -159,11 +159,11 @@
 <!ENTITY torbutton.prefs.sec_med_low "Médio-Baixo">
 <!ENTITY torbutton.prefs.sec_gen_desc "Neste nível de segurança, aplicam-se as seguintes alterações ('rato sobre' para os detalhes).">
 <!ENTITY torbutton.prefs.sec_html5_desc "A multimédia de áudio e vídeo HTML5 torna-se clique-par-reproduzir via NoScript.">
-<!ENTITY torbutton.prefs.sec_html5_tooltip "Em alguns sítios, poderá precisar de usar o botão da barra de ferramentas NoScript para ativar estes objetos de multimédia.">
+<!ENTITY torbutton.prefs.sec_html5_tooltip "Em alguns sites, poderá precisar de utilizar o botão da barra de ferramentas NoScript para ativar estes objetos de multimédia.">
 <!ENTITY torbutton.prefs.sec_some_jit_desc "Algumas otimizações de desempenho JavaScript estão desativadas.">
 <!ENTITY torbutton.prefs.sec_jit_desc_tooltip "ION JIT, Type Inference, ASM.JS.">
 <!ENTITY torbutton.prefs.sec_baseline_jit_desc_tooltip "Linha de base JIT.">
-<!ENTITY torbutton.prefs.sec_jit_slower_desc "Os scripts em alguns sítios poderão funcionar muito lentamente.">
+<!ENTITY torbutton.prefs.sec_jit_slower_desc "Os scripts em alguns sites poderão funcionar muito lentamente.">
 <!ENTITY torbutton.prefs.sec_jar_desc "Os ficheiros JAR remotos estão bloqueados.">
 <!ENTITY torbutton.prefs.sec_jar_tooltip "Os ficheiros JAR são extremamente raros na Web, mas podem ser uma fonte de XSS e outros ataques.">
 <!ENTITY torbutton.prefs.sec_mathml_desc "Alguns mecanismos de visualização de equações matemáticas estão desativados.">
@@ -177,7 +177,7 @@
 <!ENTITY torbutton.prefs.sec_js_https_desc "JavaScript está desativado por predefinição em todos os sites não HTTPS.">
 <!ENTITY torbutton.prefs.sec_js_desc_tooltip "O JavaScript pode ser ativado numa base de per-sítio através do botão da barra de ferramentas NoScript.">
 <!ENTITY torbutton.prefs.sec_high "Alto">
-<!ENTITY torbutton.prefs.sec_all_js_desc "JavaScript está desativado por predefinição em todos os sítios.">
+<!ENTITY torbutton.prefs.sec_all_js_desc "JavaScript está desativado por predefinição em todos os sites.">
 <!ENTITY torbutton.prefs.sec_audio_video_desc "A maioria dos formatos de áudio e vídeo estão desativados.">
 <!ENTITY torbutton.prefs.sec_audio_video_desc_tooltip "WebM é o único codec que se mantém ativado.">
 <!ENTITY torbutton.prefs.sec_webfonts_desc "Alguns tipos de letra e ícones poderão ser visualizados incorretamente.">
