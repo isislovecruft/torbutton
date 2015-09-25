@@ -19,6 +19,7 @@ div#circuit-display {
   padding: 8px;
   /* Magically keep popup menu from clipping div: */
   display: table-cell;
+  cursor: default;
 }
 
 /* Format the title text. */
